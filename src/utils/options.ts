@@ -30,6 +30,18 @@ export const quoteStatusOptions = [
   { label: '无效', value: 'INVALID' },
 ] as const
 
+export const taskExecutionStatusOptions = [
+  { label: '运行中', value: 'RUNNING', color: 'processing' },
+  { label: '成功', value: 'SUCCEEDED', color: 'success' },
+  { label: '失败', value: 'FAILED', color: 'error' },
+] as const
+
+export const snapshotTypeOptions = [
+  { label: '收益', value: 'RETURN', color: 'success' },
+  { label: '动量', value: 'MOMENTUM', color: 'processing' },
+  { label: '热度', value: 'HEAT', color: 'warning' },
+] as const
+
 export const optionLabel = <T extends readonly { label: string; value: string }[]>(
   options: T,
   value?: string,

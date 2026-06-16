@@ -40,6 +40,18 @@ const router = createRouter({
           meta: { title: '用户管理' },
         },
         {
+          path: 'roles',
+          name: 'roles',
+          component: () => import('@/views/roles/RoleListView.vue'),
+          meta: { title: '角色权限' },
+        },
+        {
+          path: 'investment',
+          name: 'investment',
+          component: () => import('@/views/investment/InvestmentTasksView.vue'),
+          meta: { title: '投资任务' },
+        },
+        {
           path: 'profile',
           name: 'profile',
           component: () => import('@/views/profile/ProfileView.vue'),

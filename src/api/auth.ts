@@ -16,6 +16,6 @@ export interface RegisterPayload {
 
 export const login = (data: LoginPayload) => request.post<never, User>('/api/auth/login', data)
 export const logout = () => request.post<never, void>('/api/auth/logout')
-export const getCurrentUser = () => request.get<never, User>('/api/auth/me')
+export const getCurrentUser = () => request.post<never, User>('/api/auth/me')
 export const register = (data: RegisterPayload) =>
   request.post<never, User>('/api/auth/register', data)

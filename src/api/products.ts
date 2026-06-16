@@ -13,33 +13,33 @@ import type {
 } from './types'
 
 export const getProducts = (params: ProductQuery) =>
-  request.get<never, PageResult<Product>>('/api/products', { params })
+  request.post<never, PageResult<Product>>('/api/products/list', params)
 
 export const getProduct = (bizId: string) =>
-  request.get<never, Product>(`/api/products/${bizId}`)
+  request.post<never, Product>('/api/products/detail', { bizId })
 
 export const createProduct = (data: CreateProductPayload) =>
-  request.post<never, Product>('/api/admin/products', data)
+  request.post<never, Product>('/api/admin/products/create', data)
 
 export const updateProduct = (bizId: string, data: UpdateProductPayload) =>
-  request.put<never, Product>(`/api/admin/products/${bizId}`, data)
+  request.post<never, Product>('/api/admin/products/update', { bizId, ...data })
 
 export const deleteProduct = (bizId: string) =>
-  request.delete<never, void>(`/api/admin/products/${bizId}`)
+  request.post<never, void>('/api/admin/products/delete', { bizId })
 
 export const updateProductStatus = (bizId: string, status: TradeStatus) =>
-  request.patch<never, Product>(`/api/admin/products/${bizId}/status`, { status })
+  request.post<never, Product>('/api/admin/products/status', { bizId, tradeStatus: status })
 
 export const saveProductAttribute = (bizId: string, data: ProductAttribute) =>
-  request.put<never, Product>(`/api/admin/products/${bizId}/attributes`, data)
+  request.post<never, Product>('/api/admin/products/attributes/save', { bizId, ...data })
 
 export const saveMarketQuote = (bizId: string, data: SaveQuotePayload) =>
-  request.post<never, MarketQuote>(`/api/admin/products/${bizId}/quotes`, data)
+  request.post<never, MarketQuote>('/api/admin/products/quotes/save', { productBizId: bizId, ...data })
 
 export const getMarketQuotes = (bizId: string, params: QuoteQuery) =>
-  request.get<never, MarketQuote[]>(`/api/products/${bizId}/quotes`, { params })
+  request.post<never, MarketQuote[]>('/api/products/quotes/history', { productBizId: bizId, ...params })
 
 export const getLatestMarketQuote = (
   bizId: string,
   params?: Pick<QuoteQuery, 'interval' | 'sourceCode'>,
-) => request.get<never, MarketQuote>(`/api/products/${bizId}/quotes/latest`, { params })
+) => request.post<never, MarketQuote>('/api/products/quotes/latest', { productBizId: bizId, ...params })

@@ -24,6 +24,14 @@
               <template #icon><team-outlined /></template>
               管理用户
             </a-button>
+            <a-button @click="router.push('/roles')">
+              <template #icon><safety-certificate-outlined /></template>
+              角色权限
+            </a-button>
+            <a-button @click="router.push('/investment')">
+              <template #icon><fund-projection-screen-outlined /></template>
+              投资任务
+            </a-button>
             <a-button @click="router.push('/profile')">
               <template #icon><setting-outlined /></template>
               个人中心
@@ -33,8 +41,8 @@
           <a-alert
             type="info"
             show-icon
-            message="接口已按 web.md 封装"
-            description="用户、产品、行情、偏好和认证接口均已接入，页面会在后端服务可用时直接请求真实数据。"
+            message="接口已按 mock/api.md 封装"
+            description="认证、本人账户、产品行情、管理端用户、角色权限、投资任务和资讯接口均已接入。"
           />
         </a-card>
       </a-col>
@@ -69,6 +77,7 @@ import { useRouter } from 'vue-router'
 import {
   ApiOutlined,
   AppstoreOutlined,
+  FundProjectionScreenOutlined,
   SafetyCertificateOutlined,
   SettingOutlined,
   TeamOutlined,

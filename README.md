@@ -37,3 +37,41 @@ src/
 ├── utils/      # 枚举和展示工具
 └── views/      # 页面
 ```
+
+# 本地 Kafka
+
+项目提供了基于 Apache Kafka 官方镜像的单节点 KRaft 开发环境，无需 ZooKeeper。
+
+```bash
+# 启动
+docker compose -f compose.kafka.yml up -d
+
+# 查看状态和日志
+docker compose -f compose.kafka.yml ps
+docker compose -f compose.kafka.yml logs -f kafka
+
+# 停止（保留数据）
+docker compose -f compose.kafka.yml down
+
+# 停止并删除数据
+docker compose -f compose.kafka.yml down -v
+```
+
+宿主机应用使用 `localhost:9092` 连接；同一 Compose 网络内的其他容器使用
+`kafka:19092` 连接。
+
+快速验证：
+
+```bash
+docker exec dzcom-kafka /opt/kafka/bin/kafka-topics.sh \
+  --bootstrap-server localhost:9092 \
+  --create --if-not-exists --topic local-test --partitions 1 --replication-factor 1
+
+echo "hello kafka" | docker exec -i dzcom-kafka \
+  /opt/kafka/bin/kafka-console-producer.sh \
+  --bootstrap-server localhost:9092 --topic local-test
+
+docker exec dzcom-kafka /opt/kafka/bin/kafka-console-consumer.sh \
+  --bootstrap-server localhost:9092 --topic local-test --from-beginning \
+  --max-messages 1
+```

@@ -15,6 +15,14 @@
           <team-outlined />
           <span>用户管理</span>
         </a-menu-item>
+        <a-menu-item key="/roles" @click="navigate('/roles')">
+          <safety-certificate-outlined />
+          <span>角色权限</span>
+        </a-menu-item>
+        <a-menu-item key="/investment" @click="navigate('/investment')">
+          <fund-projection-screen-outlined />
+          <span>投资任务</span>
+        </a-menu-item>
         <a-menu-item key="/profile" @click="navigate('/profile')">
           <setting-outlined />
           <span>个人中心</span>
@@ -68,7 +76,9 @@ import {
   AppstoreOutlined,
   DashboardOutlined,
   DownOutlined,
+  FundProjectionScreenOutlined,
   LogoutOutlined,
+  SafetyCertificateOutlined,
   SettingOutlined,
   TeamOutlined,
   UserOutlined,
