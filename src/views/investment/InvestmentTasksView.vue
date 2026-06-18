@@ -1,6 +1,6 @@
 <template>
   <a-space direction="vertical" :size="16" class="page-container">
-    <a-card class="page-card" :bordered="false">
+    <a-card v-if="activeSection === 'tasks'" class="page-card" :bordered="false">
       <div class="toolbar">
         <div class="toolbar-filters">
           <a-select
@@ -13,6 +13,7 @@
         </div>
         <a-space wrap>
           <a-button @click="loadDefinitions">刷新配置</a-button>
+          <a-button @click="openDefinitionModal()">新增配置</a-button>
           <a-button type="primary" :loading="triggering" @click="triggerTask">手动触发</a-button>
         </a-space>
       </div>
@@ -35,12 +36,15 @@
           <template v-else-if="column.key === 'parameters'">
             <pre class="json-value">{{ stringifyValue(record.parameters) }}</pre>
           </template>
+          <template v-else-if="column.key === 'actions'">
+            <a-button type="link" size="small" @click="openDefinitionModal(record)">编辑</a-button>
+          </template>
         </template>
       </a-table>
     </a-card>
 
-    <a-card class="page-card" :bordered="false">
-      <a-tabs v-model:active-key="activeTab" @change="handleTabChange">
+    <a-card v-if="activeSection !== 'tasks'" class="page-card section-card" :bordered="false">
+      <a-tabs :active-key="activeSection" class="section-tabs">
         <a-tab-pane key="executions" tab="执行记录">
           <div class="toolbar">
             <div class="toolbar-filters">
@@ -125,6 +129,12 @@
           <div class="toolbar">
             <div class="toolbar-filters">
               <a-input v-model:value="snapshotQuery.taskCode" allow-clear placeholder="任务编码" style="width: 200px" />
+              <a-input
+                v-model:value="snapshotQuery.marketScope"
+                allow-clear
+                placeholder="市场范围"
+                style="width: 140px"
+              />
               <a-select
                 v-model:value="snapshotQuery.snapshotType"
                 allow-clear
@@ -162,27 +172,164 @@
             </template>
           </a-table>
         </a-tab-pane>
+
+        <a-tab-pane key="analysis" tab="分析报告">
+          <div class="toolbar">
+            <div class="toolbar-filters">
+              <a-input
+                v-model:value="analysisQuery.marketScope"
+                allow-clear
+                placeholder="市场范围"
+                style="width: 140px"
+              />
+              <a-input v-model:value="analysisQuery.themeCode" allow-clear placeholder="主题编码" style="width: 140px" />
+              <a-input
+                v-model:value="analysisQuery.providerCode"
+                allow-clear
+                placeholder="提供方"
+                style="width: 140px"
+              />
+              <a-select
+                v-model:value="analysisQuery.status"
+                allow-clear
+                placeholder="状态"
+                style="width: 120px"
+                :options="analysisStatusOptions"
+              />
+              <a-button type="primary" ghost @click="searchReports">查询</a-button>
+              <a-button @click="resetReports">重置</a-button>
+            </div>
+            <a-button type="primary" @click="openAnalysisModal">生成报告</a-button>
+          </div>
+
+          <a-table
+            row-key="bizId"
+            :columns="analysisColumns"
+            :data-source="reports"
+            :loading="reportsLoading"
+            :pagination="analysisPagination"
+            :scroll="{ x: 1500 }"
+            @change="handleReportPage"
+          >
+            <template #bodyCell="{ column, record }">
+              <template v-if="column.key === 'theme'">
+                <span>{{ record.themeName || record.themeCode || '全部主题' }}</span>
+                <div class="muted summary">{{ record.themeCode || '-' }}</div>
+              </template>
+              <template v-else-if="column.key === 'status'">
+                <a-tag :color="optionColor(analysisStatusOptions, record.status)">
+                  {{ optionLabel(analysisStatusOptions, record.status) }}
+                </a-tag>
+              </template>
+              <template v-else-if="column.key === 'generatedAt'">
+                {{ formatDateTime(record.generatedAt) }}
+              </template>
+              <template v-else-if="column.key === 'actions'">
+                <a-button type="link" size="small" @click="openReportDrawer(record)">查看</a-button>
+              </template>
+            </template>
+          </a-table>
+        </a-tab-pane>
       </a-tabs>
     </a-card>
+
+    <a-modal
+      v-model:open="definitionModalOpen"
+      title="保存任务配置"
+      :confirm-loading="savingDefinition"
+      @ok="saveDefinition"
+    >
+      <a-form layout="vertical">
+        <a-form-item label="任务编码" required>
+          <a-input v-model:value="definitionForm.code" />
+        </a-form-item>
+        <a-form-item label="任务类型" required>
+          <a-input v-model:value="definitionForm.type" />
+        </a-form-item>
+        <a-form-item label="Cron" required>
+          <a-input v-model:value="definitionForm.cron" />
+        </a-form-item>
+        <a-form-item label="时区" required>
+          <a-input v-model:value="definitionForm.zone" />
+        </a-form-item>
+        <a-form-item label="状态">
+          <a-switch v-model:checked="definitionForm.enabled" checked-children="启用" un-checked-children="停用" />
+        </a-form-item>
+        <a-form-item label="说明">
+          <a-textarea v-model:value="definitionForm.description" :rows="2" />
+        </a-form-item>
+        <a-form-item label="参数 JSON">
+          <a-textarea v-model:value="definitionForm.parameters" :rows="6" />
+        </a-form-item>
+      </a-form>
+    </a-modal>
+
+    <a-modal
+      v-model:open="analysisModalOpen"
+      title="生成投资分析报告"
+      :confirm-loading="generatingReport"
+      @ok="generateReport"
+    >
+      <a-form layout="vertical">
+        <a-form-item label="提供方">
+          <a-input v-model:value="analysisForm.providerCode" placeholder="LOCAL_RULE" />
+        </a-form-item>
+        <a-form-item label="模型">
+          <a-input v-model:value="analysisForm.modelCode" placeholder="local-rule-v1" />
+        </a-form-item>
+        <a-form-item label="市场范围">
+          <a-input v-model:value="analysisForm.marketScope" placeholder="CN_MAINLAND" />
+        </a-form-item>
+        <a-form-item label="主题编码">
+          <a-input v-model:value="analysisForm.themeCode" allow-clear placeholder="留空分析全部主题" />
+        </a-form-item>
+        <a-form-item label="回看天数">
+          <a-input-number v-model:value="analysisForm.lookbackDays" :min="1" :max="365" style="width: 100%" />
+        </a-form-item>
+        <a-form-item label="初始资金">
+          <a-input-number
+            v-model:value="analysisForm.initialCapital"
+            :min="0"
+            :precision="2"
+            style="width: 100%"
+          />
+        </a-form-item>
+      </a-form>
+    </a-modal>
+
+    <a-drawer
+      v-model:open="reportDrawerOpen"
+      title="分析报告详情"
+      width="min(1040px, 94vw)"
+      :body-style="{ paddingBottom: '32px' }"
+    >
+      <investment-report-detail v-if="selectedReport" :report="selectedReport" />
+    </a-drawer>
   </a-space>
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, reactive, ref } from 'vue'
+import { computed, onMounted, reactive, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import type { TableColumnsType, TablePaginationConfig } from 'ant-design-vue'
 import { message } from 'ant-design-vue'
 import {
+  generateInvestmentAnalysis,
+  getInvestmentAnalysisReports,
   getInvestmentTaskDefinitions,
   getInvestmentThemeSnapshots,
   getNewsArticles,
   getTaskExecutions,
+  saveInvestmentTaskDefinition,
   triggerInvestmentTask,
 } from '@/api/investment'
 import type {
+  InvestmentAnalysisReport,
   InvestmentTaskDefinition,
   InvestmentThemeSnapshot,
   NewsArticle,
   ScheduledTaskExecution,
+  SnapshotType,
 } from '@/api/types'
 import {
   optionColor,
@@ -190,8 +337,17 @@ import {
   snapshotTypeOptions,
   taskExecutionStatusOptions,
 } from '@/utils/options'
+import InvestmentReportDetail from './InvestmentReportDetail.vue'
 
-const activeTab = ref('executions')
+const route = useRoute()
+const activeSection = computed(
+  () => String(route.meta.investmentSection || 'tasks') as 'tasks' | 'executions' | 'articles' | 'snapshots' | 'analysis',
+)
+
+const analysisStatusOptions = [
+  { label: '成功', value: 'SUCCEEDED', color: 'success' },
+  { label: '失败', value: 'FAILED', color: 'error' },
+] as const
 
 const definitionColumns: TableColumnsType<InvestmentTaskDefinition> = [
   { title: '任务编码', dataIndex: 'code', fixed: 'left', width: 240 },
@@ -199,7 +355,9 @@ const definitionColumns: TableColumnsType<InvestmentTaskDefinition> = [
   { title: 'Cron', dataIndex: 'cron', width: 180 },
   { title: '时区', dataIndex: 'zone', width: 160 },
   { title: '状态', key: 'enabled', width: 90 },
-  { title: '参数', key: 'parameters' },
+  { title: '说明', dataIndex: 'description', width: 220 },
+  { title: '参数', key: 'parameters', width: 320 },
+  { title: '操作', key: 'actions', fixed: 'right', width: 90 },
 ]
 const definitionsLoading = ref(false)
 const definitions = ref<InvestmentTaskDefinition[]>([])
@@ -211,6 +369,17 @@ const triggerForm = reactive({
   parameters: '{}',
 })
 const triggering = ref(false)
+const definitionModalOpen = ref(false)
+const savingDefinition = ref(false)
+const definitionForm = reactive({
+  code: '',
+  type: '',
+  cron: '',
+  zone: 'Asia/Shanghai',
+  enabled: true,
+  description: '',
+  parameters: '{}',
+})
 
 const executionColumns: TableColumnsType<ScheduledTaskExecution> = [
   { title: '任务编码', dataIndex: 'taskCode', fixed: 'left', width: 220 },
@@ -273,6 +442,7 @@ const articlePagination = computed<TablePaginationConfig>(() => ({
 const snapshotColumns: TableColumnsType<InvestmentThemeSnapshot> = [
   { title: '主题', dataIndex: 'themeName', fixed: 'left', width: 180 },
   { title: '主题编码', dataIndex: 'themeCode', width: 110 },
+  { title: '市场', dataIndex: 'marketScope', width: 120 },
   { title: '类型', key: 'snapshotType', width: 100 },
   { title: '窗口分钟', dataIndex: 'windowMinutes', width: 100 },
   { title: '样本数', dataIndex: 'sampleCount', width: 90 },
@@ -287,8 +457,9 @@ const snapshots = ref<InvestmentThemeSnapshot[]>([])
 const snapshotTotal = ref(0)
 const snapshotQuery = reactive({
   taskCode: undefined as string | undefined,
-  snapshotType: undefined as 'RETURN' | 'MOMENTUM' | 'HEAT' | undefined,
+  snapshotType: undefined as SnapshotType | undefined,
   themeCode: undefined as string | undefined,
+  marketScope: 'CN_MAINLAND' as string | undefined,
   page: 0,
   size: 10,
   sort: 'snapshotTime',
@@ -302,6 +473,49 @@ const snapshotPagination = computed<TablePaginationConfig>(() => ({
   showTotal: (count) => `共 ${count} 条`,
 }))
 
+const analysisColumns: TableColumnsType<InvestmentAnalysisReport> = [
+  { title: '主题', key: 'theme', fixed: 'left', width: 220 },
+  { title: '市场', dataIndex: 'marketScope', width: 120 },
+  { title: '提供方', dataIndex: 'providerCode', width: 130 },
+  { title: '模型', dataIndex: 'modelCode', width: 160 },
+  { title: '状态', key: 'status', width: 100 },
+  { title: '失败原因', dataIndex: 'failureReason', width: 220 },
+  { title: '生成时间', key: 'generatedAt', width: 180 },
+  { title: '操作', key: 'actions', fixed: 'right', width: 90 },
+]
+const reportsLoading = ref(false)
+const reports = ref<InvestmentAnalysisReport[]>([])
+const reportTotal = ref(0)
+const analysisQuery = reactive({
+  marketScope: 'CN_MAINLAND' as string | undefined,
+  themeCode: undefined as string | undefined,
+  providerCode: undefined as string | undefined,
+  status: undefined as 'SUCCEEDED' | 'FAILED' | undefined,
+  page: 0,
+  size: 10,
+  sort: 'generatedAt',
+  direction: 'desc' as const,
+})
+const analysisPagination = computed<TablePaginationConfig>(() => ({
+  current: (analysisQuery.page || 0) + 1,
+  pageSize: analysisQuery.size,
+  total: reportTotal.value,
+  showSizeChanger: true,
+  showTotal: (count) => `共 ${count} 条`,
+}))
+const analysisModalOpen = ref(false)
+const generatingReport = ref(false)
+const analysisForm = reactive({
+  providerCode: 'LOCAL_RULE',
+  modelCode: 'local-rule-v1',
+  marketScope: 'CN_MAINLAND',
+  themeCode: undefined as string | undefined,
+  lookbackDays: 30,
+  initialCapital: 100000,
+})
+const reportDrawerOpen = ref(false)
+const selectedReport = ref<InvestmentAnalysisReport>()
+
 const loadDefinitions = async () => {
   definitionsLoading.value = true
   try {
@@ -311,6 +525,55 @@ const loadDefinitions = async () => {
     }
   } finally {
     definitionsLoading.value = false
+  }
+}
+
+const openDefinitionModal = (record?: InvestmentTaskDefinition) => {
+  Object.assign(definitionForm, {
+    code: record?.code || '',
+    type: record?.type || '',
+    cron: record?.cron || '',
+    zone: record?.zone || 'Asia/Shanghai',
+    enabled: record?.enabled ?? true,
+    description: record?.description || '',
+    parameters: stringifyValue(record?.parameters || {}),
+  })
+  definitionModalOpen.value = true
+}
+
+const saveDefinition = async () => {
+  if (!definitionForm.code || !definitionForm.type || !definitionForm.cron || !definitionForm.zone) {
+    message.warning('请填写任务编码、类型、Cron 和时区')
+    return
+  }
+  let parameters: Record<string, unknown> = {}
+  try {
+    parameters = JSON.parse(definitionForm.parameters || '{}')
+  } catch {
+    message.error('参数不是合法 JSON')
+    return
+  }
+  savingDefinition.value = true
+  try {
+    const saved = await saveInvestmentTaskDefinition({
+      code: definitionForm.code,
+      type: definitionForm.type,
+      cron: definitionForm.cron,
+      zone: definitionForm.zone,
+      enabled: definitionForm.enabled,
+      description: definitionForm.description,
+      parameters,
+    })
+    message.success('任务配置已保存')
+    definitionModalOpen.value = false
+    const index = definitions.value.findIndex((item) => item.code === saved.code)
+    if (index >= 0) {
+      definitions.value[index] = saved
+    } else {
+      definitions.value.unshift(saved)
+    }
+  } finally {
+    savingDefinition.value = false
   }
 }
 
@@ -422,6 +685,7 @@ const resetSnapshots = () => {
     taskCode: undefined,
     snapshotType: undefined,
     themeCode: undefined,
+    marketScope: 'CN_MAINLAND',
     page: 0,
   })
   loadSnapshots()
@@ -433,10 +697,83 @@ const handleSnapshotPage = (page: TablePaginationConfig) => {
   loadSnapshots()
 }
 
-const handleTabChange = (key: string) => {
-  if (key === 'executions' && !executions.value.length) loadExecutions()
-  if (key === 'articles' && !articles.value.length) loadArticles()
-  if (key === 'snapshots' && !snapshots.value.length) loadSnapshots()
+const loadReports = async () => {
+  reportsLoading.value = true
+  try {
+    const result = await getInvestmentAnalysisReports(analysisQuery)
+    reports.value = result.items
+    reportTotal.value = result.total
+  } finally {
+    reportsLoading.value = false
+  }
+}
+
+const searchReports = () => {
+  analysisQuery.page = 0
+  loadReports()
+}
+
+const resetReports = () => {
+  Object.assign(analysisQuery, {
+    marketScope: 'CN_MAINLAND',
+    themeCode: undefined,
+    providerCode: undefined,
+    status: undefined,
+    page: 0,
+  })
+  loadReports()
+}
+
+const handleReportPage = (page: TablePaginationConfig) => {
+  analysisQuery.page = (page.current || 1) - 1
+  analysisQuery.size = page.pageSize || 10
+  loadReports()
+}
+
+const openAnalysisModal = () => {
+  Object.assign(analysisForm, {
+    providerCode: 'LOCAL_RULE',
+    modelCode: 'local-rule-v1',
+    marketScope: analysisQuery.marketScope || 'CN_MAINLAND',
+    themeCode: analysisQuery.themeCode,
+    lookbackDays: 30,
+    initialCapital: 100000,
+  })
+  analysisModalOpen.value = true
+}
+
+const generateReport = async () => {
+  generatingReport.value = true
+  try {
+    const report = await generateInvestmentAnalysis({
+      providerCode: analysisForm.providerCode,
+      modelCode: analysisForm.modelCode,
+      marketScope: analysisForm.marketScope,
+      themeCode: analysisForm.themeCode,
+      lookbackDays: analysisForm.lookbackDays,
+      initialCapital: analysisForm.initialCapital,
+    })
+    message.success('分析报告已生成')
+    analysisModalOpen.value = false
+    selectedReport.value = report
+    reportDrawerOpen.value = true
+    loadReports()
+  } finally {
+    generatingReport.value = false
+  }
+}
+
+const openReportDrawer = (record: InvestmentAnalysisReport) => {
+  selectedReport.value = record
+  reportDrawerOpen.value = true
+}
+
+const loadActiveSection = () => {
+  if (activeSection.value === 'tasks') loadDefinitions()
+  if (activeSection.value === 'executions') loadExecutions()
+  if (activeSection.value === 'articles') loadArticles()
+  if (activeSection.value === 'snapshots') loadSnapshots()
+  if (activeSection.value === 'analysis') loadReports()
 }
 
 const stringifyValue = (value: unknown) => JSON.stringify(value ?? {}, null, 2)
@@ -446,14 +783,23 @@ const formatPercent = (value?: number) =>
   typeof value === 'number' ? `${(value * 100).toFixed(2)}%` : '-'
 
 onMounted(() => {
-  loadDefinitions()
-  loadExecutions()
+  loadActiveSection()
 })
+
+watch(activeSection, loadActiveSection)
 </script>
 
 <style scoped>
 .page-container {
   width: 100%;
+}
+
+.section-card :deep(.ant-tabs-nav) {
+  display: none;
+}
+
+.section-card :deep(.ant-tabs-content-holder) {
+  padding-top: 0;
 }
 
 .json-value {
@@ -470,4 +816,5 @@ onMounted(() => {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 </style>

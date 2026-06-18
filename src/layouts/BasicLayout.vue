@@ -2,29 +2,49 @@
   <a-layout class="app-layout">
     <a-layout-sider v-model:collapsed="collapsed" collapsible class="app-sider">
       <div class="logo">{{ collapsed ? 'DZ' : 'DZCOM' }}</div>
-      <a-menu :selected-keys="selectedKeys" theme="dark" mode="inline">
+      <a-menu
+        v-model:open-keys="openKeys"
+        :selected-keys="selectedKeys"
+        theme="dark"
+        mode="inline"
+      >
         <a-menu-item key="/" @click="navigate('/')">
           <dashboard-outlined />
           <span>工作台</span>
         </a-menu-item>
-        <a-menu-item key="/products" @click="navigate('/products')">
-          <appstore-outlined />
-          <span>产品管理</span>
-        </a-menu-item>
-        <a-menu-item key="/users" @click="navigate('/users')">
-          <team-outlined />
-          <span>用户管理</span>
-        </a-menu-item>
-        <a-menu-item key="/roles" @click="navigate('/roles')">
-          <safety-certificate-outlined />
-          <span>角色权限</span>
-        </a-menu-item>
-        <a-menu-item key="/investment" @click="navigate('/investment')">
-          <fund-projection-screen-outlined />
-          <span>投资任务</span>
-        </a-menu-item>
+        <a-sub-menu key="business">
+          <template #icon><appstore-outlined /></template>
+          <template #title>业务管理</template>
+          <a-menu-item key="/products" @click="navigate('/products')">产品管理</a-menu-item>
+        </a-sub-menu>
+        <a-sub-menu key="investment">
+          <template #icon><fund-projection-screen-outlined /></template>
+          <template #title>投资中心</template>
+          <a-menu-item key="/investment/tasks" @click="navigate('/investment/tasks')">
+            任务配置
+          </a-menu-item>
+          <a-menu-item key="/investment/executions" @click="navigate('/investment/executions')">
+            执行记录
+          </a-menu-item>
+          <a-menu-item key="/investment/articles" @click="navigate('/investment/articles')">
+            投资资讯
+          </a-menu-item>
+          <a-menu-item key="/investment/snapshots" @click="navigate('/investment/snapshots')">
+            方向快照
+          </a-menu-item>
+          <a-menu-item key="/investment/analysis" @click="navigate('/investment/analysis')">
+            分析报告
+          </a-menu-item>
+        </a-sub-menu>
+        <a-sub-menu key="system">
+          <template #icon><setting-outlined /></template>
+          <template #title>系统管理</template>
+          <a-menu-item key="/users" @click="navigate('/users')">用户管理</a-menu-item>
+          <a-menu-item key="/roles" @click="navigate('/roles')">角色权限</a-menu-item>
+          <a-menu-item key="/ai-models" @click="navigate('/ai-models')">AI 模型</a-menu-item>
+        </a-sub-menu>
         <a-menu-item key="/profile" @click="navigate('/profile')">
-          <setting-outlined />
+          <user-outlined />
           <span>个人中心</span>
         </a-menu-item>
       </a-menu>
@@ -36,7 +56,7 @@
           <a-typography-title :level="4" class="page-title">
             {{ route.meta.title }}
           </a-typography-title>
-          <span class="page-subtitle">DZCOM 业务管理平台</span>
+          <span class="page-subtitle">{{ pageContext }}</span>
         </div>
         <a-dropdown>
           <a-space class="user-entry">
@@ -70,7 +90,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import {
   AppstoreOutlined,
@@ -78,9 +98,7 @@ import {
   DownOutlined,
   FundProjectionScreenOutlined,
   LogoutOutlined,
-  SafetyCertificateOutlined,
   SettingOutlined,
-  TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons-vue'
 import { useUserStore } from '@/stores/user'
@@ -89,10 +107,30 @@ const collapsed = ref(false)
 const route = useRoute()
 const router = useRouter()
 const userStore = useUserStore()
-const selectedKeys = computed(() => {
-  const firstSegment = route.path.split('/').filter(Boolean)[0]
-  return [firstSegment ? `/${firstSegment}` : '/']
+const selectedKeys = computed(() => [route.path])
+const openKeys = ref<string[]>([])
+const routeGroup = computed(() => {
+  if (route.path.startsWith('/investment/')) return 'investment'
+  if (['/users', '/roles', '/ai-models'].includes(route.path)) return 'system'
+  if (route.path === '/products') return 'business'
+  return ''
 })
+const pageContext = computed(() => {
+  const labels: Record<string, string> = {
+    business: '业务管理',
+    investment: '投资中心',
+    system: '系统管理',
+  }
+  return labels[routeGroup.value] || 'DZCOM 业务管理平台'
+})
+
+watch(
+  routeGroup,
+  (group) => {
+    if (group && !openKeys.value.includes(group)) openKeys.value = [...openKeys.value, group]
+  },
+  { immediate: true },
+)
 
 const navigate = (path: string) => router.push(path)
 

@@ -6,7 +6,10 @@ export type QuoteStatus = 'INVALID' | 'VALID' | 'CORRECTED'
 export type SortDirection = 'asc' | 'desc' | 'ASC' | 'DESC'
 export type RoleType = 'SYSTEM' | 'CUSTOM'
 export type TaskExecutionStatus = 'RUNNING' | 'SUCCEEDED' | 'FAILED'
-export type SnapshotType = 'RETURN' | 'MOMENTUM' | 'HEAT'
+export type SnapshotType = 'RETURN' | 'MOMENTUM' | 'HEAT' | 'NEWS_HEAT'
+export type InvestmentAnalysisStatus = 'SUCCEEDED' | 'FAILED'
+export type AiModelType = 'SIGNAL' | 'RISK' | 'RECOMMENDATION' | 'NLP' | 'ANALYSIS'
+export type AiModelStatus = 'DRAFT' | 'VALIDATING' | 'ACTIVE' | 'INACTIVE' | 'ARCHIVED'
 
 export interface PageResult<T> {
   items: T[]
@@ -234,6 +237,7 @@ export interface InvestmentTaskDefinition {
   zone: string
   enabled: boolean
   parameters: Record<string, unknown>
+  description?: string
 }
 
 export interface ScheduledTaskExecution {
@@ -268,6 +272,7 @@ export interface InvestmentThemeSnapshot {
   snapshotType: SnapshotType
   themeCode: string
   themeName: string
+  marketScope?: string
   windowMinutes?: number
   sampleCount?: number
   returnRate?: number
@@ -283,6 +288,7 @@ export interface InvestmentThemeSnapshotQuery {
   taskCode?: string
   snapshotType?: SnapshotType
   themeCode?: string
+  marketScope?: string
   snapshotFrom?: string
   snapshotTo?: string
   page?: number
@@ -302,4 +308,102 @@ export interface InvestmentTaskTriggerResult {
   taskType: string
   triggerSource: string
   triggeredAt: string
+}
+
+export interface SaveInvestmentTaskDefinitionPayload {
+  code: string
+  type: string
+  cron: string
+  zone: string
+  enabled: boolean
+  parameters?: Record<string, unknown>
+  description?: string
+}
+
+export interface GenerateInvestmentAnalysisPayload {
+  providerCode?: string
+  modelCode?: string
+  marketScope?: string
+  themeCode?: string
+  lookbackDays?: number
+  initialCapital?: number
+}
+
+export interface InvestmentAnalysisReport {
+  bizId: string
+  requestId: string
+  providerCode: string
+  modelCode: string
+  marketScope: string
+  themeCode?: string
+  themeName?: string
+  status: InvestmentAnalysisStatus
+  investmentSummary?: string
+  trend?: string
+  investmentPlan?: string
+  simulatedReturn?: string
+  chartPayload?: string
+  promptSnapshot?: string
+  failureReason?: string
+  generatedAt?: string
+  createdAt?: string
+}
+
+export interface InvestmentAnalysisReportQuery {
+  marketScope?: string
+  themeCode?: string
+  providerCode?: string
+  status?: InvestmentAnalysisStatus
+  page?: number
+  size?: number
+  sort?: string
+  direction?: SortDirection
+}
+
+export interface AiModel {
+  bizId: string
+  modelCode: string
+  modelVersion: string
+  modelName: string
+  modelType: AiModelType
+  provider?: string
+  artifactUri?: string
+  modelConfig?: string
+  metrics?: string
+  status: AiModelStatus
+  activatedAt?: string
+  retiredAt?: string
+  createdAt?: string
+  updatedAt?: string
+}
+
+export interface AiModelQuery {
+  modelCode?: string
+  modelType?: AiModelType
+  provider?: string
+  status?: AiModelStatus
+  page?: number
+  size?: number
+  sort?: string
+  direction?: SortDirection
+}
+
+export interface SaveAiModelPayload {
+  modelCode: string
+  modelVersion: string
+  modelName: string
+  modelType: AiModelType
+  provider?: string
+  artifactUri?: string
+  modelConfig?: string
+  metrics?: string
+  status?: AiModelStatus
+}
+
+export interface AiModelBizIdPayload {
+  bizId: string
+}
+
+export interface AiModelStatusPayload extends AiModelBizIdPayload {
+  status: AiModelStatus
 }

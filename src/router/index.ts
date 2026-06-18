@@ -47,9 +47,43 @@ const router = createRouter({
         },
         {
           path: 'investment',
-          name: 'investment',
+          redirect: '/investment/tasks',
+        },
+        {
+          path: 'investment/tasks',
+          name: 'investment-tasks',
           component: () => import('@/views/investment/InvestmentTasksView.vue'),
-          meta: { title: '投资任务' },
+          meta: { title: '任务配置', investmentSection: 'tasks' },
+        },
+        {
+          path: 'investment/executions',
+          name: 'investment-executions',
+          component: () => import('@/views/investment/InvestmentTasksView.vue'),
+          meta: { title: '执行记录', investmentSection: 'executions' },
+        },
+        {
+          path: 'investment/articles',
+          name: 'investment-articles',
+          component: () => import('@/views/investment/InvestmentTasksView.vue'),
+          meta: { title: '投资资讯', investmentSection: 'articles' },
+        },
+        {
+          path: 'investment/snapshots',
+          name: 'investment-snapshots',
+          component: () => import('@/views/investment/InvestmentTasksView.vue'),
+          meta: { title: '方向快照', investmentSection: 'snapshots' },
+        },
+        {
+          path: 'investment/analysis',
+          name: 'investment-analysis',
+          component: () => import('@/views/investment/InvestmentTasksView.vue'),
+          meta: { title: '分析报告', investmentSection: 'analysis' },
+        },
+        {
+          path: 'ai-models',
+          name: 'ai-models',
+          component: () => import('@/views/ai/AiModelListView.vue'),
+          meta: { title: 'AI 模型' },
         },
         {
           path: 'profile',

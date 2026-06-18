@@ -2596,8 +2596,8 @@
 |&emsp;&emsp;amountStep|金额步长||true|number||
 |&emsp;&emsp;quantityStep|数量步长||true|number||
 |&emsp;&emsp;feeRate|费率（0-1）||true|number||
-|&emsp;&emsp;listingDate|上市日期（UTC）||false|string(date)||
-|&emsp;&emsp;delistingDate|退市日期（UTC）||false|string(date)||
+|&emsp;&emsp;listingDate|上市日期（北京时间）||false|string(date)||
+|&emsp;&emsp;delistingDate|退市日期（北京时间）||false|string(date)||
 |&emsp;&emsp;description|产品说明||false|string||
 
 
@@ -8915,7 +8915,7 @@
 |userRoleAssignmentRequest|给用户分配角色的请求，可选指定角色失效时间|body|true|UserRoleAssignmentRequest|UserRoleAssignmentRequest|
 |&emsp;&emsp;userBizId|用户业务标识||true|string||
 |&emsp;&emsp;roleCode|角色编码||true|string||
-|&emsp;&emsp;effectiveTo|角色失效时间（UTC），可选||false|string(date-time)||
+|&emsp;&emsp;effectiveTo|角色失效时间（北京时间），可选||false|string(date-time)||
 
 
 **响应状态**:
@@ -9608,6 +9608,504 @@
 ```
 
 
+# 投资分析
+
+
+## 生成投资分析报告
+
+
+**接口地址**:`/api/investment/analysis/generate`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>调用可插拔分析提供方生成投资信息汇总、趋势、投资方案、模拟收益和前端图表数据。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "providerCode": "LOCAL_RULE",
+  "modelCode": "local-rule-v1",
+  "marketScope": "CN_MAINLAND",
+  "themeCode": "AI人工智能",
+  "lookbackDays": 30,
+  "initialCapital": 100000
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|generateInvestmentAnalysisRequest|生成投资分析报告请求|body|true|GenerateInvestmentAnalysisRequest|GenerateInvestmentAnalysisRequest|
+|&emsp;&emsp;providerCode|分析提供方编码；默认 LOCAL_RULE||false|string||
+|&emsp;&emsp;modelCode|模型编码或本地分析器编码||false|string||
+|&emsp;&emsp;marketScope|市场范围，默认仅中国大陆||false|string||
+|&emsp;&emsp;themeCode|投资主题编码；为空时分析全部中国大陆主题||false|string||
+|&emsp;&emsp;lookbackDays|回看天数，默认 30||false|integer(int32)||
+|&emsp;&emsp;initialCapital|模拟收益初始资金，默认 100000||false|number||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回投资分析报告|ResultInvestmentAnalysisReportResponse|
+|400|参数校验失败或分析提供方不存在|ResultInvestmentAnalysisReportResponse|
+|500|系统错误|ResultInvestmentAnalysisReportResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|InvestmentAnalysisReportResponse|InvestmentAnalysisReportResponse|
+|&emsp;&emsp;bizId|报告业务 ID|string||
+|&emsp;&emsp;requestId|本次分析请求 ID|string||
+|&emsp;&emsp;providerCode|分析提供方编码|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;marketScope|市场范围|string||
+|&emsp;&emsp;themeCode|投资主题编码|string||
+|&emsp;&emsp;themeName|投资主题名称|string||
+|&emsp;&emsp;status|状态：SUCCEEDED/FAILED|string||
+|&emsp;&emsp;investmentSummary|投资信息汇总 JSON|string||
+|&emsp;&emsp;trend|趋势分析 JSON|string||
+|&emsp;&emsp;investmentPlan|投资方案 JSON|string||
+|&emsp;&emsp;simulatedReturn|模拟收益 JSON|string||
+|&emsp;&emsp;chartPayload|前端图表数据 JSON|string||
+|&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;generatedAt|生成时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"requestId": "",
+		"providerCode": "LOCAL_RULE",
+		"modelCode": "local-rule-v1",
+		"marketScope": "CN_MAINLAND",
+		"themeCode": "",
+		"themeName": "",
+		"status": "",
+		"investmentSummary": "",
+		"trend": "",
+		"investmentPlan": "",
+		"simulatedReturn": "",
+		"chartPayload": "",
+		"failureReason": "",
+		"generatedAt": "",
+		"createdAt": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|InvestmentAnalysisReportResponse|InvestmentAnalysisReportResponse|
+|&emsp;&emsp;bizId|报告业务 ID|string||
+|&emsp;&emsp;requestId|本次分析请求 ID|string||
+|&emsp;&emsp;providerCode|分析提供方编码|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;marketScope|市场范围|string||
+|&emsp;&emsp;themeCode|投资主题编码|string||
+|&emsp;&emsp;themeName|投资主题名称|string||
+|&emsp;&emsp;status|状态：SUCCEEDED/FAILED|string||
+|&emsp;&emsp;investmentSummary|投资信息汇总 JSON|string||
+|&emsp;&emsp;trend|趋势分析 JSON|string||
+|&emsp;&emsp;investmentPlan|投资方案 JSON|string||
+|&emsp;&emsp;simulatedReturn|模拟收益 JSON|string||
+|&emsp;&emsp;chartPayload|前端图表数据 JSON|string||
+|&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;generatedAt|生成时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"requestId": "",
+		"providerCode": "LOCAL_RULE",
+		"modelCode": "local-rule-v1",
+		"marketScope": "CN_MAINLAND",
+		"themeCode": "",
+		"themeName": "",
+		"status": "",
+		"investmentSummary": "",
+		"trend": "",
+		"investmentPlan": "",
+		"simulatedReturn": "",
+		"chartPayload": "",
+		"failureReason": "",
+		"generatedAt": "",
+		"createdAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|InvestmentAnalysisReportResponse|InvestmentAnalysisReportResponse|
+|&emsp;&emsp;bizId|报告业务 ID|string||
+|&emsp;&emsp;requestId|本次分析请求 ID|string||
+|&emsp;&emsp;providerCode|分析提供方编码|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;marketScope|市场范围|string||
+|&emsp;&emsp;themeCode|投资主题编码|string||
+|&emsp;&emsp;themeName|投资主题名称|string||
+|&emsp;&emsp;status|状态：SUCCEEDED/FAILED|string||
+|&emsp;&emsp;investmentSummary|投资信息汇总 JSON|string||
+|&emsp;&emsp;trend|趋势分析 JSON|string||
+|&emsp;&emsp;investmentPlan|投资方案 JSON|string||
+|&emsp;&emsp;simulatedReturn|模拟收益 JSON|string||
+|&emsp;&emsp;chartPayload|前端图表数据 JSON|string||
+|&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;generatedAt|生成时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"requestId": "",
+		"providerCode": "LOCAL_RULE",
+		"modelCode": "local-rule-v1",
+		"marketScope": "CN_MAINLAND",
+		"themeCode": "",
+		"themeName": "",
+		"status": "",
+		"investmentSummary": "",
+		"trend": "",
+		"investmentPlan": "",
+		"simulatedReturn": "",
+		"chartPayload": "",
+		"failureReason": "",
+		"generatedAt": "",
+		"createdAt": ""
+	}
+}
+```
+
+
+## 分页查询投资分析报告
+
+
+**接口地址**:`/api/investment/analysis/reports/list`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>按市场范围、主题、提供方和状态查询已生成报告，响应包含前端图表 JSON。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "marketScope": "CN_MAINLAND",
+  "themeCode": "AI人工智能",
+  "providerCode": "LOCAL_RULE",
+  "status": "SUCCEEDED",
+  "page": 1,
+  "size": 20,
+  "sort": "generatedAt",
+  "direction": "desc"
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|investmentAnalysisReportListRequest|投资分析报告分页请求|body|true|InvestmentAnalysisReportListRequest|InvestmentAnalysisReportListRequest|
+|&emsp;&emsp;marketScope|市场范围，默认仅中国大陆||false|string||
+|&emsp;&emsp;themeCode|投资主题编码||false|string||
+|&emsp;&emsp;providerCode|分析提供方编码||false|string||
+|&emsp;&emsp;status|状态：SUCCEEDED/FAILED||false|string||
+|&emsp;&emsp;page|页码，从 1 开始；传 0 会兼容为第一页||false|integer(int32)||
+|&emsp;&emsp;size|每页条数，1-100||false|integer(int32)||
+|&emsp;&emsp;sort|排序字段：generatedAt/createdAt/providerCode/modelCode/themeCode/status||false|string||
+|&emsp;&emsp;direction|排序方向：asc/desc||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回投资分析报告分页响应|ResultPageResponseInvestmentAnalysisReportResponse|
+|400|分页或排序参数不合法|ResultPageResponseInvestmentAnalysisReportResponse|
+|500|系统错误|ResultPageResponseInvestmentAnalysisReportResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseInvestmentAnalysisReportResponse|PageResponseInvestmentAnalysisReportResponse|
+|&emsp;&emsp;items|当前页数据列表|array|InvestmentAnalysisReportResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|报告业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;requestId|本次分析请求 ID|string||
+|&emsp;&emsp;&emsp;&emsp;providerCode|分析提供方编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;marketScope|市场范围|string||
+|&emsp;&emsp;&emsp;&emsp;themeCode|投资主题编码|string||
+|&emsp;&emsp;&emsp;&emsp;themeName|投资主题名称|string||
+|&emsp;&emsp;&emsp;&emsp;status|状态：SUCCEEDED/FAILED|string||
+|&emsp;&emsp;&emsp;&emsp;investmentSummary|投资信息汇总 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;trend|趋势分析 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;investmentPlan|投资方案 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;simulatedReturn|模拟收益 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;chartPayload|前端图表数据 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;&emsp;&emsp;generatedAt|生成时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"requestId": "",
+				"providerCode": "LOCAL_RULE",
+				"modelCode": "local-rule-v1",
+				"marketScope": "CN_MAINLAND",
+				"themeCode": "",
+				"themeName": "",
+				"status": "",
+				"investmentSummary": "",
+				"trend": "",
+				"investmentPlan": "",
+				"simulatedReturn": "",
+				"chartPayload": "",
+				"failureReason": "",
+				"generatedAt": "",
+				"createdAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseInvestmentAnalysisReportResponse|PageResponseInvestmentAnalysisReportResponse|
+|&emsp;&emsp;items|当前页数据列表|array|InvestmentAnalysisReportResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|报告业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;requestId|本次分析请求 ID|string||
+|&emsp;&emsp;&emsp;&emsp;providerCode|分析提供方编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;marketScope|市场范围|string||
+|&emsp;&emsp;&emsp;&emsp;themeCode|投资主题编码|string||
+|&emsp;&emsp;&emsp;&emsp;themeName|投资主题名称|string||
+|&emsp;&emsp;&emsp;&emsp;status|状态：SUCCEEDED/FAILED|string||
+|&emsp;&emsp;&emsp;&emsp;investmentSummary|投资信息汇总 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;trend|趋势分析 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;investmentPlan|投资方案 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;simulatedReturn|模拟收益 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;chartPayload|前端图表数据 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;&emsp;&emsp;generatedAt|生成时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"requestId": "",
+				"providerCode": "LOCAL_RULE",
+				"modelCode": "local-rule-v1",
+				"marketScope": "CN_MAINLAND",
+				"themeCode": "",
+				"themeName": "",
+				"status": "",
+				"investmentSummary": "",
+				"trend": "",
+				"investmentPlan": "",
+				"simulatedReturn": "",
+				"chartPayload": "",
+				"failureReason": "",
+				"generatedAt": "",
+				"createdAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseInvestmentAnalysisReportResponse|PageResponseInvestmentAnalysisReportResponse|
+|&emsp;&emsp;items|当前页数据列表|array|InvestmentAnalysisReportResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|报告业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;requestId|本次分析请求 ID|string||
+|&emsp;&emsp;&emsp;&emsp;providerCode|分析提供方编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;marketScope|市场范围|string||
+|&emsp;&emsp;&emsp;&emsp;themeCode|投资主题编码|string||
+|&emsp;&emsp;&emsp;&emsp;themeName|投资主题名称|string||
+|&emsp;&emsp;&emsp;&emsp;status|状态：SUCCEEDED/FAILED|string||
+|&emsp;&emsp;&emsp;&emsp;investmentSummary|投资信息汇总 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;trend|趋势分析 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;investmentPlan|投资方案 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;simulatedReturn|模拟收益 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;chartPayload|前端图表数据 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;&emsp;&emsp;generatedAt|生成时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"requestId": "",
+				"providerCode": "LOCAL_RULE",
+				"modelCode": "local-rule-v1",
+				"marketScope": "CN_MAINLAND",
+				"themeCode": "",
+				"themeName": "",
+				"status": "",
+				"investmentSummary": "",
+				"trend": "",
+				"investmentPlan": "",
+				"simulatedReturn": "",
+				"chartPayload": "",
+				"failureReason": "",
+				"generatedAt": "",
+				"createdAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
 # 投资任务与资讯
 
 
@@ -9911,6 +10409,7 @@
 |&emsp;&emsp;zone|Cron 时区|string||
 |&emsp;&emsp;enabled|是否启用|boolean||
 |&emsp;&emsp;parameters|任务参数；由不同任务处理器解释|object||
+|&emsp;&emsp;description|配置说明|string||
 
 
 **响应示例**:
@@ -9925,7 +10424,8 @@
 			"cron": "0 0/30 * * * ?",
 			"zone": "Asia/Shanghai",
 			"enabled": true,
-			"parameters": {}
+			"parameters": {},
+			"description": ""
 		}
 	]
 }
@@ -9949,6 +10449,7 @@
 |&emsp;&emsp;zone|Cron 时区|string||
 |&emsp;&emsp;enabled|是否启用|boolean||
 |&emsp;&emsp;parameters|任务参数；由不同任务处理器解释|object||
+|&emsp;&emsp;description|配置说明|string||
 
 
 **响应示例**:
@@ -9963,9 +10464,184 @@
 			"cron": "0 0/30 * * * ?",
 			"zone": "Asia/Shanghai",
 			"enabled": true,
-			"parameters": {}
+			"parameters": {},
+			"description": ""
 		}
 	]
+}
+```
+
+
+## 保存投资任务配置
+
+
+**接口地址**:`/api/investment/tasks/definitions/save`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>新增或更新落库的投资任务配置。保存成功后会刷新当前节点的动态 Cron 调度，参数会覆盖后续自动触发。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "code": "hot-theme-return",
+  "type": "HOT_THEME_RETURN",
+  "cron": "30 */5 * * * *",
+  "zone": "Asia/Shanghai",
+  "enabled": true,
+  "parameters": {},
+  "description": "中国大陆热门投资方向收益汇总"
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|saveInvestmentTaskDefinitionRequest|保存投资任务配置请求|body|true|SaveInvestmentTaskDefinitionRequest|SaveInvestmentTaskDefinitionRequest|
+|&emsp;&emsp;code|稳定任务编码||true|string||
+|&emsp;&emsp;type|任务处理器类型||true|string||
+|&emsp;&emsp;cron|Spring Cron 表达式||true|string||
+|&emsp;&emsp;zone|Cron 时区||false|string||
+|&emsp;&emsp;enabled|是否启用||false|boolean||
+|&emsp;&emsp;parameters|任务参数；收益、动量和资讯热度任务默认只处理 CN_MAINLAND||false|object||
+|&emsp;&emsp;description|配置说明||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回保存后的任务配置|ResultInvestmentTaskDefinitionResponse|
+|400|参数校验失败|ResultInvestmentTaskDefinitionResponse|
+|500|系统错误|ResultInvestmentTaskDefinitionResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|InvestmentTaskDefinitionResponse|InvestmentTaskDefinitionResponse|
+|&emsp;&emsp;code|任务编码|string||
+|&emsp;&emsp;type|任务类型|string||
+|&emsp;&emsp;cron|Spring Cron 表达式|string||
+|&emsp;&emsp;zone|Cron 时区|string||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;parameters|任务参数；由不同任务处理器解释|object||
+|&emsp;&emsp;description|配置说明|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"code": "investment-news-collection",
+		"type": "INVESTMENT_NEWS_COLLECTION",
+		"cron": "0 0/30 * * * ?",
+		"zone": "Asia/Shanghai",
+		"enabled": true,
+		"parameters": {},
+		"description": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|InvestmentTaskDefinitionResponse|InvestmentTaskDefinitionResponse|
+|&emsp;&emsp;code|任务编码|string||
+|&emsp;&emsp;type|任务类型|string||
+|&emsp;&emsp;cron|Spring Cron 表达式|string||
+|&emsp;&emsp;zone|Cron 时区|string||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;parameters|任务参数；由不同任务处理器解释|object||
+|&emsp;&emsp;description|配置说明|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"code": "investment-news-collection",
+		"type": "INVESTMENT_NEWS_COLLECTION",
+		"cron": "0 0/30 * * * ?",
+		"zone": "Asia/Shanghai",
+		"enabled": true,
+		"parameters": {},
+		"description": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|InvestmentTaskDefinitionResponse|InvestmentTaskDefinitionResponse|
+|&emsp;&emsp;code|任务编码|string||
+|&emsp;&emsp;type|任务类型|string||
+|&emsp;&emsp;cron|Spring Cron 表达式|string||
+|&emsp;&emsp;zone|Cron 时区|string||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;parameters|任务参数；由不同任务处理器解释|object||
+|&emsp;&emsp;description|配置说明|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"code": "investment-news-collection",
+		"type": "INVESTMENT_NEWS_COLLECTION",
+		"cron": "0 0/30 * * * ?",
+		"zone": "Asia/Shanghai",
+		"enabled": true,
+		"parameters": {},
+		"description": ""
+	}
 }
 ```
 
@@ -10238,6 +10914,7 @@
   "taskCode": "hot-theme-return",
   "snapshotType": "RETURN",
   "themeCode": "AI",
+  "marketScope": "CN_MAINLAND",
   "snapshotFrom": "2026-06-16T00:00:00",
   "snapshotTo": "2026-06-16T23:59:59",
   "page": 1,
@@ -10257,6 +10934,7 @@
 |&emsp;&emsp;taskCode|任务编码||false|string||
 |&emsp;&emsp;snapshotType|快照类型：RETURN/MOMENTUM/HEAT||false|string||
 |&emsp;&emsp;themeCode|投资主题编码||false|string||
+|&emsp;&emsp;marketScope|市场范围，默认仅中国大陆||false|string||
 |&emsp;&emsp;snapshotFrom|快照时间起点||false|string(date-time)||
 |&emsp;&emsp;snapshotTo|快照时间终点||false|string(date-time)||
 |&emsp;&emsp;page|页码，从 1 开始；传 0 会兼容为第一页||false|integer(int32)||
@@ -10292,6 +10970,7 @@
 |&emsp;&emsp;&emsp;&emsp;snapshotType|快照类型：RETURN/MOMENTUM/HEAT|string||
 |&emsp;&emsp;&emsp;&emsp;themeCode|投资主题编码|string||
 |&emsp;&emsp;&emsp;&emsp;themeName|投资主题名称|string||
+|&emsp;&emsp;&emsp;&emsp;marketScope|市场范围，默认仅中国大陆|string||
 |&emsp;&emsp;&emsp;&emsp;windowMinutes|统计窗口分钟数|integer(int32)||
 |&emsp;&emsp;&emsp;&emsp;sampleCount|样本数量|integer(int32)||
 |&emsp;&emsp;&emsp;&emsp;returnRate|窗口收益率，小数形式；0.052 表示 5.2%|number||
@@ -10320,6 +10999,7 @@
 				"snapshotType": "RETURN",
 				"themeCode": "AI",
 				"themeName": "AI人工智能",
+				"marketScope": "CN_MAINLAND",
 				"windowMinutes": 1440,
 				"sampleCount": 12,
 				"returnRate": 0,
@@ -10357,6 +11037,7 @@
 |&emsp;&emsp;&emsp;&emsp;snapshotType|快照类型：RETURN/MOMENTUM/HEAT|string||
 |&emsp;&emsp;&emsp;&emsp;themeCode|投资主题编码|string||
 |&emsp;&emsp;&emsp;&emsp;themeName|投资主题名称|string||
+|&emsp;&emsp;&emsp;&emsp;marketScope|市场范围，默认仅中国大陆|string||
 |&emsp;&emsp;&emsp;&emsp;windowMinutes|统计窗口分钟数|integer(int32)||
 |&emsp;&emsp;&emsp;&emsp;sampleCount|样本数量|integer(int32)||
 |&emsp;&emsp;&emsp;&emsp;returnRate|窗口收益率，小数形式；0.052 表示 5.2%|number||
@@ -10385,6 +11066,7 @@
 				"snapshotType": "RETURN",
 				"themeCode": "AI",
 				"themeName": "AI人工智能",
+				"marketScope": "CN_MAINLAND",
 				"windowMinutes": 1440,
 				"sampleCount": 12,
 				"returnRate": 0,
@@ -10422,6 +11104,7 @@
 |&emsp;&emsp;&emsp;&emsp;snapshotType|快照类型：RETURN/MOMENTUM/HEAT|string||
 |&emsp;&emsp;&emsp;&emsp;themeCode|投资主题编码|string||
 |&emsp;&emsp;&emsp;&emsp;themeName|投资主题名称|string||
+|&emsp;&emsp;&emsp;&emsp;marketScope|市场范围，默认仅中国大陆|string||
 |&emsp;&emsp;&emsp;&emsp;windowMinutes|统计窗口分钟数|integer(int32)||
 |&emsp;&emsp;&emsp;&emsp;sampleCount|样本数量|integer(int32)||
 |&emsp;&emsp;&emsp;&emsp;returnRate|窗口收益率，小数形式；0.052 表示 5.2%|number||
@@ -10450,6 +11133,7 @@
 				"snapshotType": "RETURN",
 				"themeCode": "AI",
 				"themeName": "AI人工智能",
+				"marketScope": "CN_MAINLAND",
 				"windowMinutes": 1440,
 				"sampleCount": 12,
 				"returnRate": 0,
@@ -11474,6 +12158,1153 @@
 		"permissions": [],
 		"registeredAt": "",
 		"lastLoginAt": ""
+	}
+}
+```
+
+
+# AI模型管理
+
+
+## 归档AI模型
+
+
+**接口地址**:`/api/ai/models/archive`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>逻辑删除 AI 模型，将状态置为 ARCHIVED 并记录停用时间。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "bizId": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|aiModelBizIdRequest|AI 模型业务 ID 请求|body|true|AiModelBizIdRequest|AiModelBizIdRequest|
+|&emsp;&emsp;bizId|模型业务 ID||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回归档后的模型|ResultAiModelResponse|
+|404|AI模型不存在|ResultAiModelResponse|
+|500|系统错误|ResultAiModelResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelResponse|AiModelResponse|
+|&emsp;&emsp;bizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;modelName|模型名称|string||
+|&emsp;&emsp;modelType|模型类型|string||
+|&emsp;&emsp;provider|模型提供方|string||
+|&emsp;&emsp;artifactUri|模型制品、提示词或配置地址|string||
+|&emsp;&emsp;modelConfig|脱敏后的模型参数 JSON 字符串|string||
+|&emsp;&emsp;metrics|离线评估指标 JSON 字符串|string||
+|&emsp;&emsp;status|状态|string||
+|&emsp;&emsp;activatedAt|启用时间|string(date-time)||
+|&emsp;&emsp;retiredAt|停用时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"modelName": "",
+		"modelType": "",
+		"provider": "",
+		"artifactUri": "",
+		"modelConfig": "",
+		"metrics": "",
+		"status": "",
+		"activatedAt": "",
+		"retiredAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelResponse|AiModelResponse|
+|&emsp;&emsp;bizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;modelName|模型名称|string||
+|&emsp;&emsp;modelType|模型类型|string||
+|&emsp;&emsp;provider|模型提供方|string||
+|&emsp;&emsp;artifactUri|模型制品、提示词或配置地址|string||
+|&emsp;&emsp;modelConfig|脱敏后的模型参数 JSON 字符串|string||
+|&emsp;&emsp;metrics|离线评估指标 JSON 字符串|string||
+|&emsp;&emsp;status|状态|string||
+|&emsp;&emsp;activatedAt|启用时间|string(date-time)||
+|&emsp;&emsp;retiredAt|停用时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"modelName": "",
+		"modelType": "",
+		"provider": "",
+		"artifactUri": "",
+		"modelConfig": "",
+		"metrics": "",
+		"status": "",
+		"activatedAt": "",
+		"retiredAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelResponse|AiModelResponse|
+|&emsp;&emsp;bizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;modelName|模型名称|string||
+|&emsp;&emsp;modelType|模型类型|string||
+|&emsp;&emsp;provider|模型提供方|string||
+|&emsp;&emsp;artifactUri|模型制品、提示词或配置地址|string||
+|&emsp;&emsp;modelConfig|脱敏后的模型参数 JSON 字符串|string||
+|&emsp;&emsp;metrics|离线评估指标 JSON 字符串|string||
+|&emsp;&emsp;status|状态|string||
+|&emsp;&emsp;activatedAt|启用时间|string(date-time)||
+|&emsp;&emsp;retiredAt|停用时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"modelName": "",
+		"modelType": "",
+		"provider": "",
+		"artifactUri": "",
+		"modelConfig": "",
+		"metrics": "",
+		"status": "",
+		"activatedAt": "",
+		"retiredAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+## 查询AI模型详情
+
+
+**接口地址**:`/api/ai/models/detail`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>根据模型业务 ID 查询模型版本、配置、指标和状态。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "bizId": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|aiModelBizIdRequest|AI 模型业务 ID 请求|body|true|AiModelBizIdRequest|AiModelBizIdRequest|
+|&emsp;&emsp;bizId|模型业务 ID||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回模型详情|ResultAiModelResponse|
+|404|AI模型不存在|ResultAiModelResponse|
+|500|系统错误|ResultAiModelResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelResponse|AiModelResponse|
+|&emsp;&emsp;bizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;modelName|模型名称|string||
+|&emsp;&emsp;modelType|模型类型|string||
+|&emsp;&emsp;provider|模型提供方|string||
+|&emsp;&emsp;artifactUri|模型制品、提示词或配置地址|string||
+|&emsp;&emsp;modelConfig|脱敏后的模型参数 JSON 字符串|string||
+|&emsp;&emsp;metrics|离线评估指标 JSON 字符串|string||
+|&emsp;&emsp;status|状态|string||
+|&emsp;&emsp;activatedAt|启用时间|string(date-time)||
+|&emsp;&emsp;retiredAt|停用时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"modelName": "",
+		"modelType": "",
+		"provider": "",
+		"artifactUri": "",
+		"modelConfig": "",
+		"metrics": "",
+		"status": "",
+		"activatedAt": "",
+		"retiredAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelResponse|AiModelResponse|
+|&emsp;&emsp;bizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;modelName|模型名称|string||
+|&emsp;&emsp;modelType|模型类型|string||
+|&emsp;&emsp;provider|模型提供方|string||
+|&emsp;&emsp;artifactUri|模型制品、提示词或配置地址|string||
+|&emsp;&emsp;modelConfig|脱敏后的模型参数 JSON 字符串|string||
+|&emsp;&emsp;metrics|离线评估指标 JSON 字符串|string||
+|&emsp;&emsp;status|状态|string||
+|&emsp;&emsp;activatedAt|启用时间|string(date-time)||
+|&emsp;&emsp;retiredAt|停用时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"modelName": "",
+		"modelType": "",
+		"provider": "",
+		"artifactUri": "",
+		"modelConfig": "",
+		"metrics": "",
+		"status": "",
+		"activatedAt": "",
+		"retiredAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelResponse|AiModelResponse|
+|&emsp;&emsp;bizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;modelName|模型名称|string||
+|&emsp;&emsp;modelType|模型类型|string||
+|&emsp;&emsp;provider|模型提供方|string||
+|&emsp;&emsp;artifactUri|模型制品、提示词或配置地址|string||
+|&emsp;&emsp;modelConfig|脱敏后的模型参数 JSON 字符串|string||
+|&emsp;&emsp;metrics|离线评估指标 JSON 字符串|string||
+|&emsp;&emsp;status|状态|string||
+|&emsp;&emsp;activatedAt|启用时间|string(date-time)||
+|&emsp;&emsp;retiredAt|停用时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"modelName": "",
+		"modelType": "",
+		"provider": "",
+		"artifactUri": "",
+		"modelConfig": "",
+		"metrics": "",
+		"status": "",
+		"activatedAt": "",
+		"retiredAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+## 分页查询AI模型
+
+
+**接口地址**:`/api/ai/models/list`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>按模型编码、类型、提供方和状态查询 AI 模型注册信息。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "modelCode": "investment-analysis",
+  "modelType": "ANALYSIS",
+  "provider": "LOCAL_RULE",
+  "status": "ACTIVE",
+  "page": 1,
+  "size": 20,
+  "sort": "updatedAt",
+  "direction": "desc"
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|aiModelListRequest|AI 模型分页请求|body|true|AiModelListRequest|AiModelListRequest|
+|&emsp;&emsp;modelCode|模型编码||false|string||
+|&emsp;&emsp;modelType|模型类型||false|string||
+|&emsp;&emsp;provider|提供方||false|string||
+|&emsp;&emsp;status|状态||false|string||
+|&emsp;&emsp;page|页码，从 1 开始；传 0 会兼容为第一页||false|integer(int32)||
+|&emsp;&emsp;size|每页条数，1-100||false|integer(int32)||
+|&emsp;&emsp;sort|排序字段：updatedAt/modelCode/modelVersion/modelType/provider/status/activatedAt||false|string||
+|&emsp;&emsp;direction|排序方向：asc/desc||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回模型分页响应|ResultPageResponseAiModelResponse|
+|400|分页或排序参数不合法|ResultPageResponseAiModelResponse|
+|500|系统错误|ResultPageResponseAiModelResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseAiModelResponse|PageResponseAiModelResponse|
+|&emsp;&emsp;items|当前页数据列表|array|AiModelResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;modelName|模型名称|string||
+|&emsp;&emsp;&emsp;&emsp;modelType|模型类型|string||
+|&emsp;&emsp;&emsp;&emsp;provider|模型提供方|string||
+|&emsp;&emsp;&emsp;&emsp;artifactUri|模型制品、提示词或配置地址|string||
+|&emsp;&emsp;&emsp;&emsp;modelConfig|脱敏后的模型参数 JSON 字符串|string||
+|&emsp;&emsp;&emsp;&emsp;metrics|离线评估指标 JSON 字符串|string||
+|&emsp;&emsp;&emsp;&emsp;status|状态|string||
+|&emsp;&emsp;&emsp;&emsp;activatedAt|启用时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;retiredAt|停用时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"modelCode": "",
+				"modelVersion": "",
+				"modelName": "",
+				"modelType": "",
+				"provider": "",
+				"artifactUri": "",
+				"modelConfig": "",
+				"metrics": "",
+				"status": "",
+				"activatedAt": "",
+				"retiredAt": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseAiModelResponse|PageResponseAiModelResponse|
+|&emsp;&emsp;items|当前页数据列表|array|AiModelResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;modelName|模型名称|string||
+|&emsp;&emsp;&emsp;&emsp;modelType|模型类型|string||
+|&emsp;&emsp;&emsp;&emsp;provider|模型提供方|string||
+|&emsp;&emsp;&emsp;&emsp;artifactUri|模型制品、提示词或配置地址|string||
+|&emsp;&emsp;&emsp;&emsp;modelConfig|脱敏后的模型参数 JSON 字符串|string||
+|&emsp;&emsp;&emsp;&emsp;metrics|离线评估指标 JSON 字符串|string||
+|&emsp;&emsp;&emsp;&emsp;status|状态|string||
+|&emsp;&emsp;&emsp;&emsp;activatedAt|启用时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;retiredAt|停用时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"modelCode": "",
+				"modelVersion": "",
+				"modelName": "",
+				"modelType": "",
+				"provider": "",
+				"artifactUri": "",
+				"modelConfig": "",
+				"metrics": "",
+				"status": "",
+				"activatedAt": "",
+				"retiredAt": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseAiModelResponse|PageResponseAiModelResponse|
+|&emsp;&emsp;items|当前页数据列表|array|AiModelResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;modelName|模型名称|string||
+|&emsp;&emsp;&emsp;&emsp;modelType|模型类型|string||
+|&emsp;&emsp;&emsp;&emsp;provider|模型提供方|string||
+|&emsp;&emsp;&emsp;&emsp;artifactUri|模型制品、提示词或配置地址|string||
+|&emsp;&emsp;&emsp;&emsp;modelConfig|脱敏后的模型参数 JSON 字符串|string||
+|&emsp;&emsp;&emsp;&emsp;metrics|离线评估指标 JSON 字符串|string||
+|&emsp;&emsp;&emsp;&emsp;status|状态|string||
+|&emsp;&emsp;&emsp;&emsp;activatedAt|启用时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;retiredAt|停用时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"modelCode": "",
+				"modelVersion": "",
+				"modelName": "",
+				"modelType": "",
+				"provider": "",
+				"artifactUri": "",
+				"modelConfig": "",
+				"metrics": "",
+				"status": "",
+				"activatedAt": "",
+				"retiredAt": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+## 保存AI模型配置
+
+
+**接口地址**:`/api/ai/models/save`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>按模型编码和版本新增或更新 AI 模型配置，包含提供方、制品地址、模型参数和评估指标。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "modelCode": "investment-analysis",
+  "modelVersion": "v1",
+  "modelName": "投资分析模型",
+  "modelType": "ANALYSIS",
+  "provider": "LOCAL_RULE",
+  "artifactUri": "",
+  "modelConfig": "",
+  "metrics": "",
+  "status": "ACTIVE"
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|saveAiModelRequest|保存 AI 模型配置请求|body|true|SaveAiModelRequest|SaveAiModelRequest|
+|&emsp;&emsp;modelCode|模型稳定编码||true|string||
+|&emsp;&emsp;modelVersion|模型版本||true|string||
+|&emsp;&emsp;modelName|模型名称||true|string||
+|&emsp;&emsp;modelType|模型类型：SIGNAL/RISK/RECOMMENDATION/NLP/ANALYSIS||true|string||
+|&emsp;&emsp;provider|模型提供方||false|string||
+|&emsp;&emsp;artifactUri|模型制品、提示词或配置地址||false|string||
+|&emsp;&emsp;modelConfig|脱敏后的模型参数 JSON 字符串||false|string||
+|&emsp;&emsp;metrics|离线评估指标 JSON 字符串||false|string||
+|&emsp;&emsp;status|状态：DRAFT/VALIDATING/ACTIVE/INACTIVE/ARCHIVED||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回保存后的模型配置|ResultAiModelResponse|
+|400|参数校验失败|ResultAiModelResponse|
+|500|系统错误|ResultAiModelResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelResponse|AiModelResponse|
+|&emsp;&emsp;bizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;modelName|模型名称|string||
+|&emsp;&emsp;modelType|模型类型|string||
+|&emsp;&emsp;provider|模型提供方|string||
+|&emsp;&emsp;artifactUri|模型制品、提示词或配置地址|string||
+|&emsp;&emsp;modelConfig|脱敏后的模型参数 JSON 字符串|string||
+|&emsp;&emsp;metrics|离线评估指标 JSON 字符串|string||
+|&emsp;&emsp;status|状态|string||
+|&emsp;&emsp;activatedAt|启用时间|string(date-time)||
+|&emsp;&emsp;retiredAt|停用时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"modelName": "",
+		"modelType": "",
+		"provider": "",
+		"artifactUri": "",
+		"modelConfig": "",
+		"metrics": "",
+		"status": "",
+		"activatedAt": "",
+		"retiredAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelResponse|AiModelResponse|
+|&emsp;&emsp;bizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;modelName|模型名称|string||
+|&emsp;&emsp;modelType|模型类型|string||
+|&emsp;&emsp;provider|模型提供方|string||
+|&emsp;&emsp;artifactUri|模型制品、提示词或配置地址|string||
+|&emsp;&emsp;modelConfig|脱敏后的模型参数 JSON 字符串|string||
+|&emsp;&emsp;metrics|离线评估指标 JSON 字符串|string||
+|&emsp;&emsp;status|状态|string||
+|&emsp;&emsp;activatedAt|启用时间|string(date-time)||
+|&emsp;&emsp;retiredAt|停用时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"modelName": "",
+		"modelType": "",
+		"provider": "",
+		"artifactUri": "",
+		"modelConfig": "",
+		"metrics": "",
+		"status": "",
+		"activatedAt": "",
+		"retiredAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelResponse|AiModelResponse|
+|&emsp;&emsp;bizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;modelName|模型名称|string||
+|&emsp;&emsp;modelType|模型类型|string||
+|&emsp;&emsp;provider|模型提供方|string||
+|&emsp;&emsp;artifactUri|模型制品、提示词或配置地址|string||
+|&emsp;&emsp;modelConfig|脱敏后的模型参数 JSON 字符串|string||
+|&emsp;&emsp;metrics|离线评估指标 JSON 字符串|string||
+|&emsp;&emsp;status|状态|string||
+|&emsp;&emsp;activatedAt|启用时间|string(date-time)||
+|&emsp;&emsp;retiredAt|停用时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"modelName": "",
+		"modelType": "",
+		"provider": "",
+		"artifactUri": "",
+		"modelConfig": "",
+		"metrics": "",
+		"status": "",
+		"activatedAt": "",
+		"retiredAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+## 变更AI模型状态
+
+
+**接口地址**:`/api/ai/models/status`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>将 AI 模型状态变更为 DRAFT、VALIDATING、ACTIVE、INACTIVE 或 ARCHIVED。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "bizId": "",
+  "status": "ACTIVE"
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|aiModelStatusRequest|AI 模型状态变更请求|body|true|AiModelStatusRequest|AiModelStatusRequest|
+|&emsp;&emsp;bizId|模型业务 ID||true|string||
+|&emsp;&emsp;status|目标状态：DRAFT/VALIDATING/ACTIVE/INACTIVE/ARCHIVED||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回变更后的模型|ResultAiModelResponse|
+|400|参数校验失败|ResultAiModelResponse|
+|404|AI模型不存在|ResultAiModelResponse|
+|500|系统错误|ResultAiModelResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelResponse|AiModelResponse|
+|&emsp;&emsp;bizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;modelName|模型名称|string||
+|&emsp;&emsp;modelType|模型类型|string||
+|&emsp;&emsp;provider|模型提供方|string||
+|&emsp;&emsp;artifactUri|模型制品、提示词或配置地址|string||
+|&emsp;&emsp;modelConfig|脱敏后的模型参数 JSON 字符串|string||
+|&emsp;&emsp;metrics|离线评估指标 JSON 字符串|string||
+|&emsp;&emsp;status|状态|string||
+|&emsp;&emsp;activatedAt|启用时间|string(date-time)||
+|&emsp;&emsp;retiredAt|停用时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"modelName": "",
+		"modelType": "",
+		"provider": "",
+		"artifactUri": "",
+		"modelConfig": "",
+		"metrics": "",
+		"status": "",
+		"activatedAt": "",
+		"retiredAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelResponse|AiModelResponse|
+|&emsp;&emsp;bizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;modelName|模型名称|string||
+|&emsp;&emsp;modelType|模型类型|string||
+|&emsp;&emsp;provider|模型提供方|string||
+|&emsp;&emsp;artifactUri|模型制品、提示词或配置地址|string||
+|&emsp;&emsp;modelConfig|脱敏后的模型参数 JSON 字符串|string||
+|&emsp;&emsp;metrics|离线评估指标 JSON 字符串|string||
+|&emsp;&emsp;status|状态|string||
+|&emsp;&emsp;activatedAt|启用时间|string(date-time)||
+|&emsp;&emsp;retiredAt|停用时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"modelName": "",
+		"modelType": "",
+		"provider": "",
+		"artifactUri": "",
+		"modelConfig": "",
+		"metrics": "",
+		"status": "",
+		"activatedAt": "",
+		"retiredAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelResponse|AiModelResponse|
+|&emsp;&emsp;bizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;modelName|模型名称|string||
+|&emsp;&emsp;modelType|模型类型|string||
+|&emsp;&emsp;provider|模型提供方|string||
+|&emsp;&emsp;artifactUri|模型制品、提示词或配置地址|string||
+|&emsp;&emsp;modelConfig|脱敏后的模型参数 JSON 字符串|string||
+|&emsp;&emsp;metrics|离线评估指标 JSON 字符串|string||
+|&emsp;&emsp;status|状态|string||
+|&emsp;&emsp;activatedAt|启用时间|string(date-time)||
+|&emsp;&emsp;retiredAt|停用时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"modelName": "",
+		"modelType": "",
+		"provider": "",
+		"artifactUri": "",
+		"modelConfig": "",
+		"metrics": "",
+		"status": "",
+		"activatedAt": "",
+		"retiredAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelResponse|AiModelResponse|
+|&emsp;&emsp;bizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;modelName|模型名称|string||
+|&emsp;&emsp;modelType|模型类型|string||
+|&emsp;&emsp;provider|模型提供方|string||
+|&emsp;&emsp;artifactUri|模型制品、提示词或配置地址|string||
+|&emsp;&emsp;modelConfig|脱敏后的模型参数 JSON 字符串|string||
+|&emsp;&emsp;metrics|离线评估指标 JSON 字符串|string||
+|&emsp;&emsp;status|状态|string||
+|&emsp;&emsp;activatedAt|启用时间|string(date-time)||
+|&emsp;&emsp;retiredAt|停用时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"modelName": "",
+		"modelType": "",
+		"provider": "",
+		"artifactUri": "",
+		"modelConfig": "",
+		"metrics": "",
+		"status": "",
+		"activatedAt": "",
+		"retiredAt": "",
+		"createdAt": "",
+		"updatedAt": ""
 	}
 }
 ```

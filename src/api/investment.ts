@@ -1,5 +1,8 @@
 import request from './request'
 import type {
+  GenerateInvestmentAnalysisPayload,
+  InvestmentAnalysisReport,
+  InvestmentAnalysisReportQuery,
   InvestmentTaskDefinition,
   InvestmentTaskTriggerResult,
   InvestmentThemeSnapshot,
@@ -7,6 +10,7 @@ import type {
   NewsArticle,
   NewsArticleQuery,
   PageResult,
+  SaveInvestmentTaskDefinitionPayload,
   ScheduledTaskExecution,
   TaskExecutionQuery,
   TriggerInvestmentTaskPayload,
@@ -17,6 +21,18 @@ export const getNewsArticles = (data: NewsArticleQuery) =>
 
 export const getInvestmentTaskDefinitions = () =>
   request.post<never, InvestmentTaskDefinition[]>('/api/investment/tasks/definitions')
+
+export const saveInvestmentTaskDefinition = (data: SaveInvestmentTaskDefinitionPayload) =>
+  request.post<never, InvestmentTaskDefinition>('/api/investment/tasks/definitions/save', data)
+
+export const generateInvestmentAnalysis = (data: GenerateInvestmentAnalysisPayload) =>
+  request.post<never, InvestmentAnalysisReport>('/api/investment/analysis/generate', data)
+
+export const getInvestmentAnalysisReports = (data: InvestmentAnalysisReportQuery) =>
+  request.post<never, PageResult<InvestmentAnalysisReport>>(
+    '/api/investment/analysis/reports/list',
+    data,
+  )
 
 export const getTaskExecutions = (data: TaskExecutionQuery) =>
   request.post<never, PageResult<ScheduledTaskExecution>>(

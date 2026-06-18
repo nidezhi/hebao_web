@@ -40,6 +40,7 @@ export const snapshotTypeOptions = [
   { label: '收益', value: 'RETURN', color: 'success' },
   { label: '动量', value: 'MOMENTUM', color: 'processing' },
   { label: '热度', value: 'HEAT', color: 'warning' },
+  { label: '资讯热度', value: 'NEWS_HEAT', color: 'warning' },
 ] as const
 
 export const optionLabel = <T extends readonly { label: string; value: string }[]>(
