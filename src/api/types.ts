@@ -230,6 +230,33 @@ export interface NewsArticleQuery {
   direction?: SortDirection
 }
 
+export type ArticleRelationType = 'KEYWORD_MATCH' | 'MANUAL' | 'MODEL_EXTRACTED'
+
+export interface ArticleRelation {
+  bizId: string
+  articleBizId: string
+  themeCode: string
+  themeName?: string
+  productCode?: string
+  relationType: ArticleRelationType
+  matchedKeywords?: string[]
+  sourceQualityScore?: number
+  relationScore?: number
+  evidence?: string
+  createdAt?: string
+}
+
+export interface ArticleRelationQuery {
+  articleBizId?: string
+  themeCode?: string
+  productCode?: string
+  relationType?: ArticleRelationType
+  page?: number
+  size?: number
+  sort?: string
+  direction?: SortDirection
+}
+
 export interface InvestmentTaskDefinition {
   code: string
   type: string

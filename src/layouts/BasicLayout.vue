@@ -29,6 +29,9 @@
           <a-menu-item key="/investment/articles" @click="navigate('/investment/articles')">
             投资资讯
           </a-menu-item>
+          <a-menu-item key="/investment/relations" @click="navigate('/investment/relations')">
+            关联证据
+          </a-menu-item>
           <a-menu-item key="/investment/snapshots" @click="navigate('/investment/snapshots')">
             方向快照
           </a-menu-item>

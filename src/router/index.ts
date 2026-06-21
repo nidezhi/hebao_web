@@ -68,6 +68,12 @@ const router = createRouter({
           meta: { title: '投资资讯', investmentSection: 'articles' },
         },
         {
+          path: 'investment/relations',
+          name: 'investment-relations',
+          component: () => import('@/views/investment/InvestmentTasksView.vue'),
+          meta: { title: '关联证据', investmentSection: 'relations' },
+        },
+        {
           path: 'investment/snapshots',
           name: 'investment-snapshots',
           component: () => import('@/views/investment/InvestmentTasksView.vue'),

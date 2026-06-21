@@ -30,7 +30,7 @@
       <div class="metric">
         <span>市场方向</span>
         <strong :class="directionClass">{{ directionLabel }}</strong>
-        <small>资讯热度 {{ trend.newsHeat ?? 0 }}</small>
+        <small>加权热度 {{ formatNumber(trend.weightedHeatScore ?? summary.averageHeat) }}</small>
       </div>
       <div class="metric">
         <span>平均收益</span>
@@ -40,9 +40,9 @@
         <small>{{ summary.sampleCount ?? 0 }} 个快照样本</small>
       </div>
       <div class="metric">
-        <span>模拟期末资金</span>
-        <strong>{{ formatMoney(simulation.estimatedFinalCapital) }}</strong>
-        <small>初始 {{ formatMoney(simulation.initialCapital) }}</small>
+        <span>数据质量</span>
+        <strong>{{ summary.dataQualityLevel || plan.dataQualityLevel || '-' }}</strong>
+        <small>质量分 {{ formatNumber(summary.dataQualityScore ?? trend.dataQualityScore) }}</small>
       </div>
     </section>
 
@@ -69,18 +69,15 @@
         </div>
         <div class="allocation-row">
           <div>
-            <span>模拟收益率</span>
-            <strong :class="numberClass(simulation.returnRate)">
-              {{ formatPercent(simulation.returnRate) }}
-            </strong>
+            <span>建议仓位</span>
+            <strong>{{ formatPercent(plan.referenceAllocationRate ?? simulation.allocationRate) }}</strong>
           </div>
           <div>
-            <span>预计收益</span>
-            <strong :class="numberClass(simulation.estimatedProfit)">
-              {{ formatMoney(simulation.estimatedProfit) }}
-            </strong>
+            <span>模拟配置金额</span>
+            <strong>{{ formatMoney(plan.referenceAllocationAmount ?? simulation.simulatedPrincipal) }}</strong>
           </div>
         </div>
+        <p v-if="plan.rebalanceRule" class="plain-note">{{ plan.rebalanceRule }}</p>
         <a-alert
           :message="plan.riskNotice || '分析结果仅供参考，不构成投资建议。'"
           type="warning"
@@ -98,10 +95,51 @@
         <a-descriptions size="small" :column="1">
           <a-descriptions-item label="市场">{{ summary.marketScope || report.marketScope }}</a-descriptions-item>
           <a-descriptions-item label="主题">{{ summary.themeCode || report.themeCode || '全部主题' }}</a-descriptions-item>
+          <a-descriptions-item label="平均动量">{{ formatNumber(summary.averageMomentum ?? trend.averageMomentum) }}</a-descriptions-item>
+          <a-descriptions-item label="新闻数量">{{ summary.newsCount ?? trend.newsHeat ?? 0 }}</a-descriptions-item>
           <a-descriptions-item label="最新快照">{{ formatBackendDate(summary.latestSnapshotTime) }}</a-descriptions-item>
           <a-descriptions-item label="请求 ID">{{ report.requestId }}</a-descriptions-item>
         </a-descriptions>
       </div>
+    </section>
+
+    <section class="report-section">
+      <div class="section-heading">
+        <div>
+          <span>模拟收益</span>
+          <h3>基准、压力与乐观情景</h3>
+        </div>
+      </div>
+      <div class="scenario-grid">
+        <div class="scenario">
+          <span>基准预计收益</span>
+          <strong :class="numberClass(simulation.estimatedProfit)">
+            {{ formatMoney(simulation.estimatedProfit) }}
+          </strong>
+          <small>期末资金 {{ formatMoney(simulation.estimatedFinalCapital) }}</small>
+        </div>
+        <div class="scenario">
+          <span>压力损失</span>
+          <strong :class="numberClass(simulation.stressLoss)">
+            {{ formatMoney(simulation.stressLoss) }}
+          </strong>
+          <small>初始资金 {{ formatMoney(simulation.initialCapital) }}</small>
+        </div>
+        <div class="scenario">
+          <span>乐观收益</span>
+          <strong :class="numberClass(simulation.optimisticProfit)">
+            {{ formatMoney(simulation.optimisticProfit) }}
+          </strong>
+          <small>收益率 {{ formatPercent(simulation.returnRate) }}</small>
+        </div>
+      </div>
+      <a-alert
+        v-if="simulation.assumption"
+        :message="simulation.assumption"
+        type="info"
+        show-icon
+        class="report-alert"
+      />
     </section>
 
     <section class="report-section">
@@ -167,6 +205,10 @@ interface SummaryData {
   marketScope?: string
   sampleCount?: number
   averageReturn?: number
+  averageMomentum?: number
+  averageHeat?: number
+  dataQualityScore?: number
+  dataQualityLevel?: string
   latestSnapshotTime?: BackendDate
 }
 interface TrendData {
@@ -174,17 +216,29 @@ interface TrendData {
   direction?: string
   lookbackDays?: number
   averageReturn?: number
+  averageMomentum?: number
+  weightedHeatScore?: number
+  dataQualityScore?: number
 }
 interface PlanData {
   planType?: string
   riskNotice?: string
   suggestedAction?: string
+  referenceAllocationRate?: number
+  referenceAllocationAmount?: number
+  dataQualityLevel?: string
+  rebalanceRule?: string
 }
 interface SimulationData {
   returnRate?: number
   initialCapital?: number
+  allocationRate?: number
+  simulatedPrincipal?: number
   estimatedProfit?: number
   estimatedFinalCapital?: number
+  stressLoss?: number
+  optimisticProfit?: number
+  assumption?: string
 }
 interface NewsItem {
   time?: BackendDate
@@ -225,7 +279,7 @@ const newsPagination = computed(() =>
   newsItems.value.length > 5 ? { pageSize: 5, size: 'small' as const } : false,
 )
 const directionLabel = computed(() => {
-  const labels: Record<string, string> = { UP: '上行', DOWN: '下行', FLAT: '震荡' }
+  const labels: Record<string, string> = { UP: '上行', DOWN: '下行', FLAT: '震荡', NEUTRAL: '中性' }
   return labels[trend.value.direction || ''] || trend.value.direction || '-'
 })
 const directionClass = computed(() =>
@@ -346,6 +400,8 @@ const formatMoney = (value?: number) =>
   typeof value === 'number'
     ? new Intl.NumberFormat('zh-CN', { style: 'currency', currency: 'CNY' }).format(value)
     : '-'
+const formatNumber = (value?: number) =>
+  typeof value === 'number' ? Number(value.toFixed(4)).toString() : '-'
 const numberClass = (value?: number) => (value && value > 0 ? 'positive' : value && value < 0 ? 'negative' : '')
 const decodeHtml = (value: string) => {
   const element = document.createElement('textarea')
@@ -487,6 +543,39 @@ onBeforeUnmount(() => {
   line-height: 1.65;
 }
 
+.plain-note {
+  margin: -4px 0 16px;
+  color: #595959;
+  line-height: 1.65;
+}
+
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.scenario {
+  min-width: 0;
+  padding: 14px 16px;
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+}
+
+.scenario span,
+.scenario small {
+  display: block;
+  color: #8c8c8c;
+}
+
+.scenario strong {
+  display: block;
+  margin: 6px 0 4px;
+  overflow-wrap: anywhere;
+  font-size: 20px;
+}
+
 .raw-json {
   max-height: 260px;
   margin: 0;
@@ -510,6 +599,10 @@ onBeforeUnmount(() => {
   .report-grid {
     grid-template-columns: 1fr;
     gap: 0;
+  }
+
+  .scenario-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>

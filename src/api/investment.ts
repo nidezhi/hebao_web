@@ -1,6 +1,8 @@
 import request from './request'
 import type {
   GenerateInvestmentAnalysisPayload,
+  ArticleRelation,
+  ArticleRelationQuery,
   InvestmentAnalysisReport,
   InvestmentAnalysisReportQuery,
   InvestmentTaskDefinition,
@@ -18,6 +20,12 @@ import type {
 
 export const getNewsArticles = (data: NewsArticleQuery) =>
   request.post<never, PageResult<NewsArticle>>('/api/investment/tasks/articles/list', data)
+
+export const getArticleRelations = (data: ArticleRelationQuery) =>
+  request.post<never, PageResult<ArticleRelation>>(
+    '/api/investment/tasks/article-relations/list',
+    data,
+  )
 
 export const getInvestmentTaskDefinitions = () =>
   request.post<never, InvestmentTaskDefinition[]>('/api/investment/tasks/definitions')

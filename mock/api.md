@@ -9635,8 +9635,8 @@
 
 ```javascript
 {
-  "providerCode": "LOCAL_RULE",
-  "modelCode": "local-rule-v1",
+  "providerCode": "OPENAI_COMPATIBLE",
+  "modelCode": "openai-compatible-analysis",
   "marketScope": "CN_MAINLAND",
   "themeCode": "AI人工智能",
   "lookbackDays": 30,
@@ -9651,8 +9651,8 @@
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |generateInvestmentAnalysisRequest|生成投资分析报告请求|body|true|GenerateInvestmentAnalysisRequest|GenerateInvestmentAnalysisRequest|
-|&emsp;&emsp;providerCode|分析提供方编码；默认 LOCAL_RULE||false|string||
-|&emsp;&emsp;modelCode|模型编码或本地分析器编码||false|string||
+|&emsp;&emsp;providerCode|可选提供方校验值；实际提供方由 ACTIVE 模型配置决定||false|string||
+|&emsp;&emsp;modelCode|模型稳定编码；为空时使用 local-rule-analysis||false|string||
 |&emsp;&emsp;marketScope|市场范围，默认仅中国大陆||false|string||
 |&emsp;&emsp;themeCode|投资主题编码；为空时分析全部中国大陆主题||false|string||
 |&emsp;&emsp;lookbackDays|回看天数，默认 30||false|integer(int32)||
@@ -9688,11 +9688,11 @@
 |&emsp;&emsp;themeCode|投资主题编码|string||
 |&emsp;&emsp;themeName|投资主题名称|string||
 |&emsp;&emsp;status|状态：SUCCEEDED/FAILED|string||
-|&emsp;&emsp;investmentSummary|投资信息汇总 JSON|string||
-|&emsp;&emsp;trend|趋势分析 JSON|string||
-|&emsp;&emsp;investmentPlan|投资方案 JSON|string||
-|&emsp;&emsp;simulatedReturn|模拟收益 JSON|string||
-|&emsp;&emsp;chartPayload|前端图表数据 JSON|string||
+|&emsp;&emsp;investmentSummary|投资信息汇总 JSON 字符串。\nmarketScope:string，市场范围；\nthemeCode:string，主题编码；\nsampleCount:number，快照样本数；\nnewsCount:number，相关新闻数；\naverageReturn:number，平均收益率，小数形式；\naverageMomentum:number，平均动量；\naverageHeat:number，加权资讯热度；\ndataQualityScore:number，数据质量分，0-1；\ndataQualityLevel:string，允许值 HIGH/MEDIUM/LOW；\nlatestSnapshotTime:datetime，最近快照时间，北京时间；\nrecentNews:array，近期新闻数组，每项包含 title/summary/publishTime/sourceCode。\n|string||
+|&emsp;&emsp;trend|趋势分析 JSON 字符串。\ndirection:string，趋势方向，允许值 UP/NEUTRAL/DOWN；\naverageReturn:number，平均收益率；\naverageMomentum:number，平均动量；\nnewsHeat:number，相关新闻数量；\nweightedHeatScore:number，加权资讯热度分；\ndataQualityScore:number，数据质量分；\nlookbackDays:number，回看天数。\n|string||
+|&emsp;&emsp;investmentPlan|投资方案 JSON 字符串。\nplanType:string，方案类型，当前为 REFERENCE_ALLOCATION；\nsuggestedAction:string，建议动作；\nreferenceAllocationRate:number，参考配置比例，0-1；\nreferenceAllocationAmount:number，参考配置金额；\ndataQualityLevel:string，数据质量等级；\nrebalanceRule:string，再平衡规则；\nriskNotice:string，风险提示。\n|string||
+|&emsp;&emsp;simulatedReturn|模拟收益 JSON 字符串。\ninitialCapital:number，初始资金；\nallocationRate:number，参考配置比例；\nsimulatedPrincipal:number，参与模拟的本金；\nestimatedProfit:number，基准情景模拟收益；\nestimatedFinalCapital:number，模拟期末资金；\nreturnRate:number，使用的平均收益率；\nstressLoss:number，压力情景收益；\noptimisticProfit:number，乐观情景收益；\nassumption:string，模拟假设说明。\n|string||
+|&emsp;&emsp;chartPayload|前端图表数据 JSON 字符串。\nseries:array，快照时间序列，每项包含 time/snapshotType/returnRate/momentumScore/heatScore；\nnews:array，新闻事件点，每项包含 time/title/sourceCode。\n前端可用 series 绘制收益、动量、热度折线图，用 news 叠加事件标记。\n|string||
 |&emsp;&emsp;failureReason|失败原因摘要|string||
 |&emsp;&emsp;generatedAt|生成时间|string(date-time)||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
@@ -9744,11 +9744,11 @@
 |&emsp;&emsp;themeCode|投资主题编码|string||
 |&emsp;&emsp;themeName|投资主题名称|string||
 |&emsp;&emsp;status|状态：SUCCEEDED/FAILED|string||
-|&emsp;&emsp;investmentSummary|投资信息汇总 JSON|string||
-|&emsp;&emsp;trend|趋势分析 JSON|string||
-|&emsp;&emsp;investmentPlan|投资方案 JSON|string||
-|&emsp;&emsp;simulatedReturn|模拟收益 JSON|string||
-|&emsp;&emsp;chartPayload|前端图表数据 JSON|string||
+|&emsp;&emsp;investmentSummary|投资信息汇总 JSON 字符串。\nmarketScope:string，市场范围；\nthemeCode:string，主题编码；\nsampleCount:number，快照样本数；\nnewsCount:number，相关新闻数；\naverageReturn:number，平均收益率，小数形式；\naverageMomentum:number，平均动量；\naverageHeat:number，加权资讯热度；\ndataQualityScore:number，数据质量分，0-1；\ndataQualityLevel:string，允许值 HIGH/MEDIUM/LOW；\nlatestSnapshotTime:datetime，最近快照时间，北京时间；\nrecentNews:array，近期新闻数组，每项包含 title/summary/publishTime/sourceCode。\n|string||
+|&emsp;&emsp;trend|趋势分析 JSON 字符串。\ndirection:string，趋势方向，允许值 UP/NEUTRAL/DOWN；\naverageReturn:number，平均收益率；\naverageMomentum:number，平均动量；\nnewsHeat:number，相关新闻数量；\nweightedHeatScore:number，加权资讯热度分；\ndataQualityScore:number，数据质量分；\nlookbackDays:number，回看天数。\n|string||
+|&emsp;&emsp;investmentPlan|投资方案 JSON 字符串。\nplanType:string，方案类型，当前为 REFERENCE_ALLOCATION；\nsuggestedAction:string，建议动作；\nreferenceAllocationRate:number，参考配置比例，0-1；\nreferenceAllocationAmount:number，参考配置金额；\ndataQualityLevel:string，数据质量等级；\nrebalanceRule:string，再平衡规则；\nriskNotice:string，风险提示。\n|string||
+|&emsp;&emsp;simulatedReturn|模拟收益 JSON 字符串。\ninitialCapital:number，初始资金；\nallocationRate:number，参考配置比例；\nsimulatedPrincipal:number，参与模拟的本金；\nestimatedProfit:number，基准情景模拟收益；\nestimatedFinalCapital:number，模拟期末资金；\nreturnRate:number，使用的平均收益率；\nstressLoss:number，压力情景收益；\noptimisticProfit:number，乐观情景收益；\nassumption:string，模拟假设说明。\n|string||
+|&emsp;&emsp;chartPayload|前端图表数据 JSON 字符串。\nseries:array，快照时间序列，每项包含 time/snapshotType/returnRate/momentumScore/heatScore；\nnews:array，新闻事件点，每项包含 time/title/sourceCode。\n前端可用 series 绘制收益、动量、热度折线图，用 news 叠加事件标记。\n|string||
 |&emsp;&emsp;failureReason|失败原因摘要|string||
 |&emsp;&emsp;generatedAt|生成时间|string(date-time)||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
@@ -9800,11 +9800,11 @@
 |&emsp;&emsp;themeCode|投资主题编码|string||
 |&emsp;&emsp;themeName|投资主题名称|string||
 |&emsp;&emsp;status|状态：SUCCEEDED/FAILED|string||
-|&emsp;&emsp;investmentSummary|投资信息汇总 JSON|string||
-|&emsp;&emsp;trend|趋势分析 JSON|string||
-|&emsp;&emsp;investmentPlan|投资方案 JSON|string||
-|&emsp;&emsp;simulatedReturn|模拟收益 JSON|string||
-|&emsp;&emsp;chartPayload|前端图表数据 JSON|string||
+|&emsp;&emsp;investmentSummary|投资信息汇总 JSON 字符串。\nmarketScope:string，市场范围；\nthemeCode:string，主题编码；\nsampleCount:number，快照样本数；\nnewsCount:number，相关新闻数；\naverageReturn:number，平均收益率，小数形式；\naverageMomentum:number，平均动量；\naverageHeat:number，加权资讯热度；\ndataQualityScore:number，数据质量分，0-1；\ndataQualityLevel:string，允许值 HIGH/MEDIUM/LOW；\nlatestSnapshotTime:datetime，最近快照时间，北京时间；\nrecentNews:array，近期新闻数组，每项包含 title/summary/publishTime/sourceCode。\n|string||
+|&emsp;&emsp;trend|趋势分析 JSON 字符串。\ndirection:string，趋势方向，允许值 UP/NEUTRAL/DOWN；\naverageReturn:number，平均收益率；\naverageMomentum:number，平均动量；\nnewsHeat:number，相关新闻数量；\nweightedHeatScore:number，加权资讯热度分；\ndataQualityScore:number，数据质量分；\nlookbackDays:number，回看天数。\n|string||
+|&emsp;&emsp;investmentPlan|投资方案 JSON 字符串。\nplanType:string，方案类型，当前为 REFERENCE_ALLOCATION；\nsuggestedAction:string，建议动作；\nreferenceAllocationRate:number，参考配置比例，0-1；\nreferenceAllocationAmount:number，参考配置金额；\ndataQualityLevel:string，数据质量等级；\nrebalanceRule:string，再平衡规则；\nriskNotice:string，风险提示。\n|string||
+|&emsp;&emsp;simulatedReturn|模拟收益 JSON 字符串。\ninitialCapital:number，初始资金；\nallocationRate:number，参考配置比例；\nsimulatedPrincipal:number，参与模拟的本金；\nestimatedProfit:number，基准情景模拟收益；\nestimatedFinalCapital:number，模拟期末资金；\nreturnRate:number，使用的平均收益率；\nstressLoss:number，压力情景收益；\noptimisticProfit:number，乐观情景收益；\nassumption:string，模拟假设说明。\n|string||
+|&emsp;&emsp;chartPayload|前端图表数据 JSON 字符串。\nseries:array，快照时间序列，每项包含 time/snapshotType/returnRate/momentumScore/heatScore；\nnews:array，新闻事件点，每项包含 time/title/sourceCode。\n前端可用 series 绘制收益、动量、热度折线图，用 news 叠加事件标记。\n|string||
 |&emsp;&emsp;failureReason|失败原因摘要|string||
 |&emsp;&emsp;generatedAt|生成时间|string(date-time)||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
@@ -9919,11 +9919,11 @@
 |&emsp;&emsp;&emsp;&emsp;themeCode|投资主题编码|string||
 |&emsp;&emsp;&emsp;&emsp;themeName|投资主题名称|string||
 |&emsp;&emsp;&emsp;&emsp;status|状态：SUCCEEDED/FAILED|string||
-|&emsp;&emsp;&emsp;&emsp;investmentSummary|投资信息汇总 JSON|string||
-|&emsp;&emsp;&emsp;&emsp;trend|趋势分析 JSON|string||
-|&emsp;&emsp;&emsp;&emsp;investmentPlan|投资方案 JSON|string||
-|&emsp;&emsp;&emsp;&emsp;simulatedReturn|模拟收益 JSON|string||
-|&emsp;&emsp;&emsp;&emsp;chartPayload|前端图表数据 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;investmentSummary|投资信息汇总 JSON 字符串。\nmarketScope:string，市场范围；\nthemeCode:string，主题编码；\nsampleCount:number，快照样本数；\nnewsCount:number，相关新闻数；\naverageReturn:number，平均收益率，小数形式；\naverageMomentum:number，平均动量；\naverageHeat:number，加权资讯热度；\ndataQualityScore:number，数据质量分，0-1；\ndataQualityLevel:string，允许值 HIGH/MEDIUM/LOW；\nlatestSnapshotTime:datetime，最近快照时间，北京时间；\nrecentNews:array，近期新闻数组，每项包含 title/summary/publishTime/sourceCode。\n|string||
+|&emsp;&emsp;&emsp;&emsp;trend|趋势分析 JSON 字符串。\ndirection:string，趋势方向，允许值 UP/NEUTRAL/DOWN；\naverageReturn:number，平均收益率；\naverageMomentum:number，平均动量；\nnewsHeat:number，相关新闻数量；\nweightedHeatScore:number，加权资讯热度分；\ndataQualityScore:number，数据质量分；\nlookbackDays:number，回看天数。\n|string||
+|&emsp;&emsp;&emsp;&emsp;investmentPlan|投资方案 JSON 字符串。\nplanType:string，方案类型，当前为 REFERENCE_ALLOCATION；\nsuggestedAction:string，建议动作；\nreferenceAllocationRate:number，参考配置比例，0-1；\nreferenceAllocationAmount:number，参考配置金额；\ndataQualityLevel:string，数据质量等级；\nrebalanceRule:string，再平衡规则；\nriskNotice:string，风险提示。\n|string||
+|&emsp;&emsp;&emsp;&emsp;simulatedReturn|模拟收益 JSON 字符串。\ninitialCapital:number，初始资金；\nallocationRate:number，参考配置比例；\nsimulatedPrincipal:number，参与模拟的本金；\nestimatedProfit:number，基准情景模拟收益；\nestimatedFinalCapital:number，模拟期末资金；\nreturnRate:number，使用的平均收益率；\nstressLoss:number，压力情景收益；\noptimisticProfit:number，乐观情景收益；\nassumption:string，模拟假设说明。\n|string||
+|&emsp;&emsp;&emsp;&emsp;chartPayload|前端图表数据 JSON 字符串。\nseries:array，快照时间序列，每项包含 time/snapshotType/returnRate/momentumScore/heatScore；\nnews:array，新闻事件点，每项包含 time/title/sourceCode。\n前端可用 series 绘制收益、动量、热度折线图，用 news 叠加事件标记。\n|string||
 |&emsp;&emsp;&emsp;&emsp;failureReason|失败原因摘要|string||
 |&emsp;&emsp;&emsp;&emsp;generatedAt|生成时间|string(date-time)||
 |&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
@@ -9988,11 +9988,11 @@
 |&emsp;&emsp;&emsp;&emsp;themeCode|投资主题编码|string||
 |&emsp;&emsp;&emsp;&emsp;themeName|投资主题名称|string||
 |&emsp;&emsp;&emsp;&emsp;status|状态：SUCCEEDED/FAILED|string||
-|&emsp;&emsp;&emsp;&emsp;investmentSummary|投资信息汇总 JSON|string||
-|&emsp;&emsp;&emsp;&emsp;trend|趋势分析 JSON|string||
-|&emsp;&emsp;&emsp;&emsp;investmentPlan|投资方案 JSON|string||
-|&emsp;&emsp;&emsp;&emsp;simulatedReturn|模拟收益 JSON|string||
-|&emsp;&emsp;&emsp;&emsp;chartPayload|前端图表数据 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;investmentSummary|投资信息汇总 JSON 字符串。\nmarketScope:string，市场范围；\nthemeCode:string，主题编码；\nsampleCount:number，快照样本数；\nnewsCount:number，相关新闻数；\naverageReturn:number，平均收益率，小数形式；\naverageMomentum:number，平均动量；\naverageHeat:number，加权资讯热度；\ndataQualityScore:number，数据质量分，0-1；\ndataQualityLevel:string，允许值 HIGH/MEDIUM/LOW；\nlatestSnapshotTime:datetime，最近快照时间，北京时间；\nrecentNews:array，近期新闻数组，每项包含 title/summary/publishTime/sourceCode。\n|string||
+|&emsp;&emsp;&emsp;&emsp;trend|趋势分析 JSON 字符串。\ndirection:string，趋势方向，允许值 UP/NEUTRAL/DOWN；\naverageReturn:number，平均收益率；\naverageMomentum:number，平均动量；\nnewsHeat:number，相关新闻数量；\nweightedHeatScore:number，加权资讯热度分；\ndataQualityScore:number，数据质量分；\nlookbackDays:number，回看天数。\n|string||
+|&emsp;&emsp;&emsp;&emsp;investmentPlan|投资方案 JSON 字符串。\nplanType:string，方案类型，当前为 REFERENCE_ALLOCATION；\nsuggestedAction:string，建议动作；\nreferenceAllocationRate:number，参考配置比例，0-1；\nreferenceAllocationAmount:number，参考配置金额；\ndataQualityLevel:string，数据质量等级；\nrebalanceRule:string，再平衡规则；\nriskNotice:string，风险提示。\n|string||
+|&emsp;&emsp;&emsp;&emsp;simulatedReturn|模拟收益 JSON 字符串。\ninitialCapital:number，初始资金；\nallocationRate:number，参考配置比例；\nsimulatedPrincipal:number，参与模拟的本金；\nestimatedProfit:number，基准情景模拟收益；\nestimatedFinalCapital:number，模拟期末资金；\nreturnRate:number，使用的平均收益率；\nstressLoss:number，压力情景收益；\noptimisticProfit:number，乐观情景收益；\nassumption:string，模拟假设说明。\n|string||
+|&emsp;&emsp;&emsp;&emsp;chartPayload|前端图表数据 JSON 字符串。\nseries:array，快照时间序列，每项包含 time/snapshotType/returnRate/momentumScore/heatScore；\nnews:array，新闻事件点，每项包含 time/title/sourceCode。\n前端可用 series 绘制收益、动量、热度折线图，用 news 叠加事件标记。\n|string||
 |&emsp;&emsp;&emsp;&emsp;failureReason|失败原因摘要|string||
 |&emsp;&emsp;&emsp;&emsp;generatedAt|生成时间|string(date-time)||
 |&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
@@ -10057,11 +10057,11 @@
 |&emsp;&emsp;&emsp;&emsp;themeCode|投资主题编码|string||
 |&emsp;&emsp;&emsp;&emsp;themeName|投资主题名称|string||
 |&emsp;&emsp;&emsp;&emsp;status|状态：SUCCEEDED/FAILED|string||
-|&emsp;&emsp;&emsp;&emsp;investmentSummary|投资信息汇总 JSON|string||
-|&emsp;&emsp;&emsp;&emsp;trend|趋势分析 JSON|string||
-|&emsp;&emsp;&emsp;&emsp;investmentPlan|投资方案 JSON|string||
-|&emsp;&emsp;&emsp;&emsp;simulatedReturn|模拟收益 JSON|string||
-|&emsp;&emsp;&emsp;&emsp;chartPayload|前端图表数据 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;investmentSummary|投资信息汇总 JSON 字符串。\nmarketScope:string，市场范围；\nthemeCode:string，主题编码；\nsampleCount:number，快照样本数；\nnewsCount:number，相关新闻数；\naverageReturn:number，平均收益率，小数形式；\naverageMomentum:number，平均动量；\naverageHeat:number，加权资讯热度；\ndataQualityScore:number，数据质量分，0-1；\ndataQualityLevel:string，允许值 HIGH/MEDIUM/LOW；\nlatestSnapshotTime:datetime，最近快照时间，北京时间；\nrecentNews:array，近期新闻数组，每项包含 title/summary/publishTime/sourceCode。\n|string||
+|&emsp;&emsp;&emsp;&emsp;trend|趋势分析 JSON 字符串。\ndirection:string，趋势方向，允许值 UP/NEUTRAL/DOWN；\naverageReturn:number，平均收益率；\naverageMomentum:number，平均动量；\nnewsHeat:number，相关新闻数量；\nweightedHeatScore:number，加权资讯热度分；\ndataQualityScore:number，数据质量分；\nlookbackDays:number，回看天数。\n|string||
+|&emsp;&emsp;&emsp;&emsp;investmentPlan|投资方案 JSON 字符串。\nplanType:string，方案类型，当前为 REFERENCE_ALLOCATION；\nsuggestedAction:string，建议动作；\nreferenceAllocationRate:number，参考配置比例，0-1；\nreferenceAllocationAmount:number，参考配置金额；\ndataQualityLevel:string，数据质量等级；\nrebalanceRule:string，再平衡规则；\nriskNotice:string，风险提示。\n|string||
+|&emsp;&emsp;&emsp;&emsp;simulatedReturn|模拟收益 JSON 字符串。\ninitialCapital:number，初始资金；\nallocationRate:number，参考配置比例；\nsimulatedPrincipal:number，参与模拟的本金；\nestimatedProfit:number，基准情景模拟收益；\nestimatedFinalCapital:number，模拟期末资金；\nreturnRate:number，使用的平均收益率；\nstressLoss:number，压力情景收益；\noptimisticProfit:number，乐观情景收益；\nassumption:string，模拟假设说明。\n|string||
+|&emsp;&emsp;&emsp;&emsp;chartPayload|前端图表数据 JSON 字符串。\nseries:array，快照时间序列，每项包含 time/snapshotType/returnRate/momentumScore/heatScore；\nnews:array，新闻事件点，每项包含 time/title/sourceCode。\n前端可用 series 绘制收益、动量、热度折线图，用 news 叠加事件标记。\n|string||
 |&emsp;&emsp;&emsp;&emsp;failureReason|失败原因摘要|string||
 |&emsp;&emsp;&emsp;&emsp;generatedAt|生成时间|string(date-time)||
 |&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
@@ -10107,6 +10107,245 @@
 
 
 # 投资任务与资讯
+
+
+## 分页查询资讯主题产品关联
+
+
+**接口地址**:`/api/investment/tasks/article-relations/list`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>查询新闻与投资主题、产品代码的显式关联。前端可用该接口展示资讯热度来源、命中关键词、来源质量分和关联证据。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "articleBizId": "",
+  "themeCode": "",
+  "productCode": "",
+  "relationType": "KEYWORD_MATCH",
+  "page": 1,
+  "size": 20,
+  "sort": "relationScore",
+  "direction": "desc"
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|newsArticleRelationListRequest|资讯主题产品关联分页查询请求|body|true|NewsArticleRelationListRequest|NewsArticleRelationListRequest|
+|&emsp;&emsp;articleBizId|资讯业务 ID，来自投资资讯列表返回的 bizId；为空时不按资讯筛选||false|string||
+|&emsp;&emsp;themeCode|投资主题编码；例如 AI人工智能 会转换为 AI人工智能 或配置生成的稳定编码||false|string||
+|&emsp;&emsp;productCode|产品代码；例如 159819、588000；为空时查询主题级和产品级关联||false|string||
+|&emsp;&emsp;relationType|关联类型，允许值：KEYWORD_MATCH/MANUAL/MODEL_EXTRACTED||false|string||
+|&emsp;&emsp;page|页码，从 1 开始；空值默认 1||false|integer(int32)||
+|&emsp;&emsp;size|每页条数，建议 1-100；空值默认 20||false|integer(int32)||
+|&emsp;&emsp;sort|排序字段：createdAt/relationScore/sourceQualityScore/themeCode/productCode||false|string||
+|&emsp;&emsp;direction|排序方向：asc/desc；空值默认 desc||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回资讯主题产品关联分页响应|ResultPageResponseNewsArticleRelationResponse|
+|400|分页或排序参数不合法|ResultPageResponseNewsArticleRelationResponse|
+|500|系统错误|ResultPageResponseNewsArticleRelationResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseNewsArticleRelationResponse|PageResponseNewsArticleRelationResponse|
+|&emsp;&emsp;items|当前页数据列表|array|NewsArticleRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|关联记录业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;articleBizId|资讯业务 ID，可用于回查 /api/investment/tasks/articles/list 返回的新闻|string||
+|&emsp;&emsp;&emsp;&emsp;themeCode|投资主题稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;themeName|投资主题展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;productCode|关联产品代码；空字符串表示主题级关联，不绑定具体产品|string||
+|&emsp;&emsp;&emsp;&emsp;relationType|关联类型，允许值：KEYWORD_MATCH/MANUAL/MODEL_EXTRACTED|string||
+|&emsp;&emsp;&emsp;&emsp;matchedKeywords|命中的关键词数组；例如 ["AI", "人工智能", "算力"]|array|string|
+|&emsp;&emsp;&emsp;&emsp;sourceQualityScore|数据源质量分，0-1；监管、交易所和可信来源更高，兜底资讯更低|number||
+|&emsp;&emsp;&emsp;&emsp;relationScore|综合关联分，按关键词命中数、来源质量和时效计算；越高表示该新闻越能解释主题热度|number||
+|&emsp;&emsp;&emsp;&emsp;evidence|关联证据摘要，当前主要保存新闻标题|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|关联创建时间，北京时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"articleBizId": "",
+				"themeCode": "",
+				"themeName": "",
+				"productCode": "",
+				"relationType": "",
+				"matchedKeywords": [],
+				"sourceQualityScore": 0,
+				"relationScore": 0,
+				"evidence": "",
+				"createdAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseNewsArticleRelationResponse|PageResponseNewsArticleRelationResponse|
+|&emsp;&emsp;items|当前页数据列表|array|NewsArticleRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|关联记录业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;articleBizId|资讯业务 ID，可用于回查 /api/investment/tasks/articles/list 返回的新闻|string||
+|&emsp;&emsp;&emsp;&emsp;themeCode|投资主题稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;themeName|投资主题展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;productCode|关联产品代码；空字符串表示主题级关联，不绑定具体产品|string||
+|&emsp;&emsp;&emsp;&emsp;relationType|关联类型，允许值：KEYWORD_MATCH/MANUAL/MODEL_EXTRACTED|string||
+|&emsp;&emsp;&emsp;&emsp;matchedKeywords|命中的关键词数组；例如 ["AI", "人工智能", "算力"]|array|string|
+|&emsp;&emsp;&emsp;&emsp;sourceQualityScore|数据源质量分，0-1；监管、交易所和可信来源更高，兜底资讯更低|number||
+|&emsp;&emsp;&emsp;&emsp;relationScore|综合关联分，按关键词命中数、来源质量和时效计算；越高表示该新闻越能解释主题热度|number||
+|&emsp;&emsp;&emsp;&emsp;evidence|关联证据摘要，当前主要保存新闻标题|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|关联创建时间，北京时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"articleBizId": "",
+				"themeCode": "",
+				"themeName": "",
+				"productCode": "",
+				"relationType": "",
+				"matchedKeywords": [],
+				"sourceQualityScore": 0,
+				"relationScore": 0,
+				"evidence": "",
+				"createdAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseNewsArticleRelationResponse|PageResponseNewsArticleRelationResponse|
+|&emsp;&emsp;items|当前页数据列表|array|NewsArticleRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|关联记录业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;articleBizId|资讯业务 ID，可用于回查 /api/investment/tasks/articles/list 返回的新闻|string||
+|&emsp;&emsp;&emsp;&emsp;themeCode|投资主题稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;themeName|投资主题展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;productCode|关联产品代码；空字符串表示主题级关联，不绑定具体产品|string||
+|&emsp;&emsp;&emsp;&emsp;relationType|关联类型，允许值：KEYWORD_MATCH/MANUAL/MODEL_EXTRACTED|string||
+|&emsp;&emsp;&emsp;&emsp;matchedKeywords|命中的关键词数组；例如 ["AI", "人工智能", "算力"]|array|string|
+|&emsp;&emsp;&emsp;&emsp;sourceQualityScore|数据源质量分，0-1；监管、交易所和可信来源更高，兜底资讯更低|number||
+|&emsp;&emsp;&emsp;&emsp;relationScore|综合关联分，按关键词命中数、来源质量和时效计算；越高表示该新闻越能解释主题热度|number||
+|&emsp;&emsp;&emsp;&emsp;evidence|关联证据摘要，当前主要保存新闻标题|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|关联创建时间，北京时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"articleBizId": "",
+				"themeCode": "",
+				"themeName": "",
+				"productCode": "",
+				"relationType": "",
+				"matchedKeywords": [],
+				"sourceQualityScore": 0,
+				"relationScore": 0,
+				"evidence": "",
+				"createdAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
 
 
 ## 分页查询投资资讯
@@ -10967,7 +11206,7 @@
 |&emsp;&emsp;items|当前页数据列表|array|InvestmentThemeSnapshotResponse|
 |&emsp;&emsp;&emsp;&emsp;bizId|快照业务 ID|string||
 |&emsp;&emsp;&emsp;&emsp;taskCode|生成该快照的任务编码|string||
-|&emsp;&emsp;&emsp;&emsp;snapshotType|快照类型：RETURN/MOMENTUM/HEAT|string||
+|&emsp;&emsp;&emsp;&emsp;snapshotType|快照类型：RETURN-主题收益，MOMENTUM-市场动量，NEWS_HEAT-资讯热度|string||
 |&emsp;&emsp;&emsp;&emsp;themeCode|投资主题编码|string||
 |&emsp;&emsp;&emsp;&emsp;themeName|投资主题名称|string||
 |&emsp;&emsp;&emsp;&emsp;marketScope|市场范围，默认仅中国大陆|string||
@@ -10977,7 +11216,7 @@
 |&emsp;&emsp;&emsp;&emsp;momentumScore|动量分数|number||
 |&emsp;&emsp;&emsp;&emsp;heatScore|资讯热度分数|number||
 |&emsp;&emsp;&emsp;&emsp;topProductBizId|窗口内表现最好的产品业务 ID|string||
-|&emsp;&emsp;&emsp;&emsp;metrics|扩展指标 JSON 字符串|string||
+|&emsp;&emsp;&emsp;&emsp;metrics|扩展指标 JSON 字符串，前端需要按 snapshotType 展开。\nRETURN 结构：\nrequestedProductCount:number，配置产品数；\nvalidReturnCount:number，有效收益样本数；\ncoverageRate:number，样本覆盖率，0-1；\nvolatility:number，主题内收益波动；\ntopContribution:number，头部产品收益贡献占比；\nqualityScore:number，收益统计质量分，0-1；\nqualityLevel:string，允许值 HIGH/MEDIUM/LOW；\nperformances:array，产品收益样本。\nMOMENTUM 结构：\nrequestedProductCount:number；\nvalidReturnCount:number；\npositiveCount:number，正收益产品数；\npositiveBreadth:number，上涨广度，0-1；\ncoverageRate:number；\nvolatility:number；\nqualityScore:number；\nqualityLevel:string；\nperformances:array。\nNEWS_HEAT 结构：\nthemeName:string；\nkeywords:array，主题关键词；\narticleCount:number，命中新闻数；\nuniqueSourceCount:number，去重来源数；\naverageSourceQuality:number，平均来源质量分；\ndataQualityScore:number，热度数据质量分，0-1；\nqualityLevel:string；\nheatScore:number，加权热度分；\nsampleArticles:array，最多十条样本新闻，每项包含 articleBizId/title/sourceCode/publishTime。\n|string||
 |&emsp;&emsp;&emsp;&emsp;snapshotTime|快照时间|string(date-time)||
 |&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;total|数据总条数|integer(int64)||
@@ -11034,7 +11273,7 @@
 |&emsp;&emsp;items|当前页数据列表|array|InvestmentThemeSnapshotResponse|
 |&emsp;&emsp;&emsp;&emsp;bizId|快照业务 ID|string||
 |&emsp;&emsp;&emsp;&emsp;taskCode|生成该快照的任务编码|string||
-|&emsp;&emsp;&emsp;&emsp;snapshotType|快照类型：RETURN/MOMENTUM/HEAT|string||
+|&emsp;&emsp;&emsp;&emsp;snapshotType|快照类型：RETURN-主题收益，MOMENTUM-市场动量，NEWS_HEAT-资讯热度|string||
 |&emsp;&emsp;&emsp;&emsp;themeCode|投资主题编码|string||
 |&emsp;&emsp;&emsp;&emsp;themeName|投资主题名称|string||
 |&emsp;&emsp;&emsp;&emsp;marketScope|市场范围，默认仅中国大陆|string||
@@ -11044,7 +11283,7 @@
 |&emsp;&emsp;&emsp;&emsp;momentumScore|动量分数|number||
 |&emsp;&emsp;&emsp;&emsp;heatScore|资讯热度分数|number||
 |&emsp;&emsp;&emsp;&emsp;topProductBizId|窗口内表现最好的产品业务 ID|string||
-|&emsp;&emsp;&emsp;&emsp;metrics|扩展指标 JSON 字符串|string||
+|&emsp;&emsp;&emsp;&emsp;metrics|扩展指标 JSON 字符串，前端需要按 snapshotType 展开。\nRETURN 结构：\nrequestedProductCount:number，配置产品数；\nvalidReturnCount:number，有效收益样本数；\ncoverageRate:number，样本覆盖率，0-1；\nvolatility:number，主题内收益波动；\ntopContribution:number，头部产品收益贡献占比；\nqualityScore:number，收益统计质量分，0-1；\nqualityLevel:string，允许值 HIGH/MEDIUM/LOW；\nperformances:array，产品收益样本。\nMOMENTUM 结构：\nrequestedProductCount:number；\nvalidReturnCount:number；\npositiveCount:number，正收益产品数；\npositiveBreadth:number，上涨广度，0-1；\ncoverageRate:number；\nvolatility:number；\nqualityScore:number；\nqualityLevel:string；\nperformances:array。\nNEWS_HEAT 结构：\nthemeName:string；\nkeywords:array，主题关键词；\narticleCount:number，命中新闻数；\nuniqueSourceCount:number，去重来源数；\naverageSourceQuality:number，平均来源质量分；\ndataQualityScore:number，热度数据质量分，0-1；\nqualityLevel:string；\nheatScore:number，加权热度分；\nsampleArticles:array，最多十条样本新闻，每项包含 articleBizId/title/sourceCode/publishTime。\n|string||
 |&emsp;&emsp;&emsp;&emsp;snapshotTime|快照时间|string(date-time)||
 |&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;total|数据总条数|integer(int64)||
@@ -11101,7 +11340,7 @@
 |&emsp;&emsp;items|当前页数据列表|array|InvestmentThemeSnapshotResponse|
 |&emsp;&emsp;&emsp;&emsp;bizId|快照业务 ID|string||
 |&emsp;&emsp;&emsp;&emsp;taskCode|生成该快照的任务编码|string||
-|&emsp;&emsp;&emsp;&emsp;snapshotType|快照类型：RETURN/MOMENTUM/HEAT|string||
+|&emsp;&emsp;&emsp;&emsp;snapshotType|快照类型：RETURN-主题收益，MOMENTUM-市场动量，NEWS_HEAT-资讯热度|string||
 |&emsp;&emsp;&emsp;&emsp;themeCode|投资主题编码|string||
 |&emsp;&emsp;&emsp;&emsp;themeName|投资主题名称|string||
 |&emsp;&emsp;&emsp;&emsp;marketScope|市场范围，默认仅中国大陆|string||
@@ -11111,7 +11350,7 @@
 |&emsp;&emsp;&emsp;&emsp;momentumScore|动量分数|number||
 |&emsp;&emsp;&emsp;&emsp;heatScore|资讯热度分数|number||
 |&emsp;&emsp;&emsp;&emsp;topProductBizId|窗口内表现最好的产品业务 ID|string||
-|&emsp;&emsp;&emsp;&emsp;metrics|扩展指标 JSON 字符串|string||
+|&emsp;&emsp;&emsp;&emsp;metrics|扩展指标 JSON 字符串，前端需要按 snapshotType 展开。\nRETURN 结构：\nrequestedProductCount:number，配置产品数；\nvalidReturnCount:number，有效收益样本数；\ncoverageRate:number，样本覆盖率，0-1；\nvolatility:number，主题内收益波动；\ntopContribution:number，头部产品收益贡献占比；\nqualityScore:number，收益统计质量分，0-1；\nqualityLevel:string，允许值 HIGH/MEDIUM/LOW；\nperformances:array，产品收益样本。\nMOMENTUM 结构：\nrequestedProductCount:number；\nvalidReturnCount:number；\npositiveCount:number，正收益产品数；\npositiveBreadth:number，上涨广度，0-1；\ncoverageRate:number；\nvolatility:number；\nqualityScore:number；\nqualityLevel:string；\nperformances:array。\nNEWS_HEAT 结构：\nthemeName:string；\nkeywords:array，主题关键词；\narticleCount:number，命中新闻数；\nuniqueSourceCount:number，去重来源数；\naverageSourceQuality:number，平均来源质量分；\ndataQualityScore:number，热度数据质量分，0-1；\nqualityLevel:string；\nheatScore:number，加权热度分；\nsampleArticles:array，最多十条样本新闻，每项包含 articleBizId/title/sourceCode/publishTime。\n|string||
 |&emsp;&emsp;&emsp;&emsp;snapshotTime|快照时间|string(date-time)||
 |&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;total|数据总条数|integer(int64)||
