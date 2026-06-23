@@ -50,8 +50,8 @@
 
 ```javascript
 {
-  "currentPassword": "OldP@ssw0rd",
-  "newPassword": "NewP@ssw0rd123"
+    "currentPassword": "OldP@ssw0rd",
+        "newPassword": "NewP@ssw0rd123"
 }
 ```
 
@@ -93,9 +93,9 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": {}
+    "code": 200,
+        "message": "success",
+        "data": {}
 }
 ```
 
@@ -116,9 +116,9 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": {}
+    "code": 200,
+        "message": "success",
+        "data": {}
 }
 ```
 
@@ -139,9 +139,9 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": {}
+    "code": 200,
+        "message": "success",
+        "data": {}
 }
 ```
 
@@ -162,9 +162,9 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": {}
+    "code": 200,
+        "message": "success",
+        "data": {}
 }
 ```
 
@@ -193,7 +193,7 @@
 
 ```javascript
 {
-  "key": "ui.theme"
+    "key": "ui.theme"
 }
 ```
 
@@ -234,9 +234,9 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": {}
+    "code": 200,
+        "message": "success",
+        "data": {}
 }
 ```
 
@@ -257,9 +257,9 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": {}
+    "code": 200,
+        "message": "success",
+        "data": {}
 }
 ```
 
@@ -280,9 +280,9 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": {}
+    "code": 200,
+        "message": "success",
+        "data": {}
 }
 ```
 
@@ -303,9 +303,9 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": {}
+    "code": 200,
+        "message": "success",
+        "data": {}
 }
 ```
 
@@ -365,16 +365,16 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": [
-		{
-			"key": "ui.theme",
-			"valueType": "string",
-			"value": {},
-			"updatedAt": ""
-		}
-	]
+    "code": 200,
+        "message": "success",
+        "data": [
+        {
+            "key": "ui.theme",
+            "valueType": "string",
+            "value": {},
+            "updatedAt": ""
+        }
+    ]
 }
 ```
 
@@ -399,16 +399,16 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": [
-		{
-			"key": "ui.theme",
-			"valueType": "string",
-			"value": {},
-			"updatedAt": ""
-		}
-	]
+    "code": 200,
+        "message": "success",
+        "data": [
+        {
+            "key": "ui.theme",
+            "valueType": "string",
+            "value": {},
+            "updatedAt": ""
+        }
+    ]
 }
 ```
 
@@ -433,16 +433,16 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": [
-		{
-			"key": "ui.theme",
-			"valueType": "string",
-			"value": {},
-			"updatedAt": ""
-		}
-	]
+    "code": 200,
+        "message": "success",
+        "data": [
+        {
+            "key": "ui.theme",
+            "valueType": "string",
+            "value": {},
+            "updatedAt": ""
+        }
+    ]
 }
 ```
 
@@ -471,8 +471,8 @@
 
 ```javascript
 {
-  "key": "theme",
-  "value": {}
+    "key": "theme",
+        "value": {}
 }
 ```
 
@@ -518,14 +518,14 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": {
-		"key": "ui.theme",
-		"valueType": "string",
-		"value": {},
-		"updatedAt": ""
-	}
+    "code": 200,
+        "message": "success",
+        "data": {
+        "key": "ui.theme",
+            "valueType": "string",
+            "value": {},
+        "updatedAt": ""
+    }
 }
 ```
 
@@ -550,14 +550,14 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": {
-		"key": "ui.theme",
-		"valueType": "string",
-		"value": {},
-		"updatedAt": ""
-	}
+    "code": 200,
+        "message": "success",
+        "data": {
+        "key": "ui.theme",
+            "valueType": "string",
+            "value": {},
+        "updatedAt": ""
+    }
 }
 ```
 
@@ -582,14 +582,14 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": {
-		"key": "ui.theme",
-		"valueType": "string",
-		"value": {},
-		"updatedAt": ""
-	}
+    "code": 200,
+        "message": "success",
+        "data": {
+        "key": "ui.theme",
+            "valueType": "string",
+            "value": {},
+        "updatedAt": ""
+    }
 }
 ```
 
@@ -614,14 +614,14 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": {
-		"key": "ui.theme",
-		"valueType": "string",
-		"value": {},
-		"updatedAt": ""
-	}
+    "code": 200,
+        "message": "success",
+        "data": {
+        "key": "ui.theme",
+            "valueType": "string",
+            "value": {},
+        "updatedAt": ""
+    }
 }
 ```
 
@@ -650,8 +650,8 @@
 
 ```javascript
 {
-  "email": "alice@example.com",
-  "phone": "+8613800000000"
+    "email": "alice@example.com",
+        "phone": "+8613800000000"
 }
 ```
 
@@ -707,24 +707,24 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": {
-		"bizId": "usr_01Hxxxxx",
-		"userNo": "U202600001",
-		"username": "alice",
-		"email": "alice@example.com",
-		"phone": "+8613800000000",
-		"nickname": "小张",
-		"avatarUrl": "",
-		"status": "ACTIVE",
-		"kycStatus": "VERIFIED",
-		"riskLevel": 3,
-		"roles": [],
-		"permissions": [],
-		"registeredAt": "",
-		"lastLoginAt": ""
-	}
+    "code": 200,
+        "message": "success",
+        "data": {
+        "bizId": "usr_01Hxxxxx",
+            "userNo": "U202600001",
+            "username": "alice",
+            "email": "alice@example.com",
+            "phone": "+8613800000000",
+            "nickname": "小张",
+            "avatarUrl": "",
+            "status": "ACTIVE",
+            "kycStatus": "VERIFIED",
+            "riskLevel": 3,
+            "roles": [],
+            "permissions": [],
+            "registeredAt": "",
+            "lastLoginAt": ""
+    }
 }
 ```
 
@@ -759,24 +759,24 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": {
-		"bizId": "usr_01Hxxxxx",
-		"userNo": "U202600001",
-		"username": "alice",
-		"email": "alice@example.com",
-		"phone": "+8613800000000",
-		"nickname": "小张",
-		"avatarUrl": "",
-		"status": "ACTIVE",
-		"kycStatus": "VERIFIED",
-		"riskLevel": 3,
-		"roles": [],
-		"permissions": [],
-		"registeredAt": "",
-		"lastLoginAt": ""
-	}
+    "code": 200,
+        "message": "success",
+        "data": {
+        "bizId": "usr_01Hxxxxx",
+            "userNo": "U202600001",
+            "username": "alice",
+            "email": "alice@example.com",
+            "phone": "+8613800000000",
+            "nickname": "小张",
+            "avatarUrl": "",
+            "status": "ACTIVE",
+            "kycStatus": "VERIFIED",
+            "riskLevel": 3,
+            "roles": [],
+            "permissions": [],
+            "registeredAt": "",
+            "lastLoginAt": ""
+    }
 }
 ```
 
@@ -811,24 +811,24 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": {
-		"bizId": "usr_01Hxxxxx",
-		"userNo": "U202600001",
-		"username": "alice",
-		"email": "alice@example.com",
-		"phone": "+8613800000000",
-		"nickname": "小张",
-		"avatarUrl": "",
-		"status": "ACTIVE",
-		"kycStatus": "VERIFIED",
-		"riskLevel": 3,
-		"roles": [],
-		"permissions": [],
-		"registeredAt": "",
-		"lastLoginAt": ""
-	}
+    "code": 200,
+        "message": "success",
+        "data": {
+        "bizId": "usr_01Hxxxxx",
+            "userNo": "U202600001",
+            "username": "alice",
+            "email": "alice@example.com",
+            "phone": "+8613800000000",
+            "nickname": "小张",
+            "avatarUrl": "",
+            "status": "ACTIVE",
+            "kycStatus": "VERIFIED",
+            "riskLevel": 3,
+            "roles": [],
+            "permissions": [],
+            "registeredAt": "",
+            "lastLoginAt": ""
+    }
 }
 ```
 
@@ -863,24 +863,24 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": {
-		"bizId": "usr_01Hxxxxx",
-		"userNo": "U202600001",
-		"username": "alice",
-		"email": "alice@example.com",
-		"phone": "+8613800000000",
-		"nickname": "小张",
-		"avatarUrl": "",
-		"status": "ACTIVE",
-		"kycStatus": "VERIFIED",
-		"riskLevel": 3,
-		"roles": [],
-		"permissions": [],
-		"registeredAt": "",
-		"lastLoginAt": ""
-	}
+    "code": 200,
+        "message": "success",
+        "data": {
+        "bizId": "usr_01Hxxxxx",
+            "userNo": "U202600001",
+            "username": "alice",
+            "email": "alice@example.com",
+            "phone": "+8613800000000",
+            "nickname": "小张",
+            "avatarUrl": "",
+            "status": "ACTIVE",
+            "kycStatus": "VERIFIED",
+            "riskLevel": 3,
+            "roles": [],
+            "permissions": [],
+            "registeredAt": "",
+            "lastLoginAt": ""
+    }
 }
 ```
 
@@ -912,7 +912,7 @@
 
 ```javascript
 {
-  "bizId": "prd_01Hxxxx"
+    "bizId": "prd_01Hxxxx"
 }
 ```
 
@@ -969,6 +969,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -1002,6 +1020,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -1044,6 +1084,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -1077,6 +1135,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -1119,6 +1199,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -1152,6 +1250,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -1259,6 +1379,24 @@
 |&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 |&emsp;&emsp;total|数据总条数|integer(int64)||
@@ -1298,6 +1436,28 @@
 						"jsonValue": "",
 						"effectiveDate": "",
 						"sourceCode": "MANUAL_IMPORT"
+					}
+				],
+				"investmentProfile": {
+					"assetClass": "",
+					"riskSummary": "",
+					"volatilityLevel": "",
+					"liquidityLevel": "",
+					"maxDrawdown": 0,
+					"suitableRiskLevel": 0,
+					"mockTradable": true,
+					"minHoldingDays": 0,
+					"tradingNotes": "",
+					"dataQualityScore": 0
+				},
+				"themeRelations": [
+					{
+						"relationType": "",
+						"relationCode": "",
+						"relationName": "",
+						"relationWeight": 0,
+						"sourceCode": "",
+						"evidence": ""
 					}
 				],
 				"createdAt": "",
@@ -1347,6 +1507,24 @@
 |&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 |&emsp;&emsp;total|数据总条数|integer(int64)||
@@ -1386,6 +1564,28 @@
 						"jsonValue": "",
 						"effectiveDate": "",
 						"sourceCode": "MANUAL_IMPORT"
+					}
+				],
+				"investmentProfile": {
+					"assetClass": "",
+					"riskSummary": "",
+					"volatilityLevel": "",
+					"liquidityLevel": "",
+					"maxDrawdown": 0,
+					"suitableRiskLevel": 0,
+					"mockTradable": true,
+					"minHoldingDays": 0,
+					"tradingNotes": "",
+					"dataQualityScore": 0
+				},
+				"themeRelations": [
+					{
+						"relationType": "",
+						"relationCode": "",
+						"relationName": "",
+						"relationWeight": 0,
+						"sourceCode": "",
+						"evidence": ""
 					}
 				],
 				"createdAt": "",
@@ -1435,6 +1635,24 @@
 |&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 |&emsp;&emsp;total|数据总条数|integer(int64)||
@@ -1474,6 +1692,28 @@
 						"jsonValue": "",
 						"effectiveDate": "",
 						"sourceCode": "MANUAL_IMPORT"
+					}
+				],
+				"investmentProfile": {
+					"assetClass": "",
+					"riskSummary": "",
+					"volatilityLevel": "",
+					"liquidityLevel": "",
+					"maxDrawdown": 0,
+					"suitableRiskLevel": 0,
+					"mockTradable": true,
+					"minHoldingDays": 0,
+					"tradingNotes": "",
+					"dataQualityScore": 0
+				},
+				"themeRelations": [
+					{
+						"relationType": "",
+						"relationCode": "",
+						"relationName": "",
+						"relationWeight": 0,
+						"sourceCode": "",
+						"evidence": ""
 					}
 				],
 				"createdAt": "",
@@ -2025,6 +2265,264 @@
 ```
 
 
+# 风控审计
+
+
+## 分页查询风险检查
+
+
+**接口地址**:`/api/risk/checks/list`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>按业务类型、业务对象、用户、结论、风险等级和原因编码查询风控拦截记录。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "businessType": "",
+  "businessBizId": "",
+  "userBizId": "",
+  "checkResult": "",
+  "riskLevel": "",
+  "reasonCode": "",
+  "page": 1,
+  "size": 20,
+  "sort": "checkedAt",
+  "direction": "desc"
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|riskCheckListRequest|风险检查分页查询请求|body|true|RiskCheckListRequest|RiskCheckListRequest|
+|&emsp;&emsp;businessType|业务类型：ORDER/REPORT/PORTFOLIO||false|string||
+|&emsp;&emsp;businessBizId|业务对象业务标识||false|string||
+|&emsp;&emsp;userBizId|关联用户业务标识||false|string||
+|&emsp;&emsp;checkResult|检查结论：PASS/REVIEW/REJECT/ERROR||false|string||
+|&emsp;&emsp;riskLevel|风险等级：LOW/MEDIUM/HIGH/CRITICAL||false|string||
+|&emsp;&emsp;reasonCode|原因编码||false|string||
+|&emsp;&emsp;page|页码，从 1 开始；传 0 会兼容为第一页||false|integer(int32)||
+|&emsp;&emsp;size|每页条数，1-100||false|integer(int32)||
+|&emsp;&emsp;sort|排序字段：checkedAt/businessType/checkResult/riskLevel/reasonCode||false|string||
+|&emsp;&emsp;direction|排序方向：asc/desc||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|查询成功，返回风险检查分页响应|ResultPageResponseRiskCheckResponse|
+|400|分页或排序参数不合法|ResultPageResponseRiskCheckResponse|
+|500|系统错误|ResultPageResponseRiskCheckResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseRiskCheckResponse|PageResponseRiskCheckResponse|
+|&emsp;&emsp;items|当前页数据列表|array|RiskCheckResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|风险检查业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;traceId|请求或业务链路追踪标识|string||
+|&emsp;&emsp;&emsp;&emsp;businessType|被检查业务类型|string||
+|&emsp;&emsp;&emsp;&emsp;businessBizId|被检查业务对象业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;userBizId|关联用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;ruleCode|规则编码快照|string||
+|&emsp;&emsp;&emsp;&emsp;ruleVersion|规则版本快照|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;checkResult|检查结论|string||
+|&emsp;&emsp;&emsp;&emsp;riskLevel|风险等级|string||
+|&emsp;&emsp;&emsp;&emsp;score|风险评分|number||
+|&emsp;&emsp;&emsp;&emsp;reasonCode|原因编码|string||
+|&emsp;&emsp;&emsp;&emsp;detail|检查详情 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;checkedAt|检查时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"traceId": "",
+				"businessType": "",
+				"businessBizId": "",
+				"userBizId": "",
+				"ruleCode": "",
+				"ruleVersion": 0,
+				"checkResult": "",
+				"riskLevel": "",
+				"score": 0,
+				"reasonCode": "",
+				"detail": "",
+				"checkedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseRiskCheckResponse|PageResponseRiskCheckResponse|
+|&emsp;&emsp;items|当前页数据列表|array|RiskCheckResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|风险检查业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;traceId|请求或业务链路追踪标识|string||
+|&emsp;&emsp;&emsp;&emsp;businessType|被检查业务类型|string||
+|&emsp;&emsp;&emsp;&emsp;businessBizId|被检查业务对象业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;userBizId|关联用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;ruleCode|规则编码快照|string||
+|&emsp;&emsp;&emsp;&emsp;ruleVersion|规则版本快照|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;checkResult|检查结论|string||
+|&emsp;&emsp;&emsp;&emsp;riskLevel|风险等级|string||
+|&emsp;&emsp;&emsp;&emsp;score|风险评分|number||
+|&emsp;&emsp;&emsp;&emsp;reasonCode|原因编码|string||
+|&emsp;&emsp;&emsp;&emsp;detail|检查详情 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;checkedAt|检查时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"traceId": "",
+				"businessType": "",
+				"businessBizId": "",
+				"userBizId": "",
+				"ruleCode": "",
+				"ruleVersion": 0,
+				"checkResult": "",
+				"riskLevel": "",
+				"score": 0,
+				"reasonCode": "",
+				"detail": "",
+				"checkedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseRiskCheckResponse|PageResponseRiskCheckResponse|
+|&emsp;&emsp;items|当前页数据列表|array|RiskCheckResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|风险检查业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;traceId|请求或业务链路追踪标识|string||
+|&emsp;&emsp;&emsp;&emsp;businessType|被检查业务类型|string||
+|&emsp;&emsp;&emsp;&emsp;businessBizId|被检查业务对象业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;userBizId|关联用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;ruleCode|规则编码快照|string||
+|&emsp;&emsp;&emsp;&emsp;ruleVersion|规则版本快照|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;checkResult|检查结论|string||
+|&emsp;&emsp;&emsp;&emsp;riskLevel|风险等级|string||
+|&emsp;&emsp;&emsp;&emsp;score|风险评分|number||
+|&emsp;&emsp;&emsp;&emsp;reasonCode|原因编码|string||
+|&emsp;&emsp;&emsp;&emsp;detail|检查详情 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;checkedAt|检查时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"traceId": "",
+				"businessType": "",
+				"businessBizId": "",
+				"userBizId": "",
+				"ruleCode": "",
+				"ruleVersion": 0,
+				"checkResult": "",
+				"riskLevel": "",
+				"score": 0,
+				"reasonCode": "",
+				"detail": "",
+				"checkedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
 # 管理端产品与行情
 
 
@@ -2122,6 +2620,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -2155,6 +2671,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -2197,6 +2735,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -2230,6 +2786,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -2272,6 +2850,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -2305,6 +2901,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -2347,6 +2965,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -2380,6 +3016,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -2422,6 +3080,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -2455,6 +3131,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -2497,6 +3195,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -2530,6 +3246,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -2647,6 +3385,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -2680,6 +3436,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -2722,6 +3500,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -2755,6 +3551,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -2797,6 +3615,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -2830,6 +3666,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -2872,6 +3730,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -2905,6 +3781,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -2947,6 +3845,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -2980,6 +3896,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -3022,6 +3960,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -3055,6 +4011,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -3249,6 +4227,784 @@
 	"code": 200,
 	"message": "success",
 	"data": {}
+}
+```
+
+
+## 保存产品投资画像
+
+
+**接口地址**:`/api/admin/products/investment-profile/save`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>保存产品风险、波动、流动性、Mock交易约束和主题关系。保存后 /api/products/detail 会返回 investmentProfile 和 themeRelations。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "productBizId": "",
+  "assetClass": "",
+  "riskSummary": "",
+  "volatilityLevel": "",
+  "liquidityLevel": "",
+  "maxDrawdown": 0,
+  "suitableRiskLevel": 0,
+  "mockTradable": true,
+  "minHoldingDays": 0,
+  "tradingNotes": "",
+  "dataQualityScore": 0,
+  "relations": [
+    {
+      "relationType": "",
+      "relationCode": "",
+      "relationName": "",
+      "relationWeight": 0,
+      "sourceCode": "",
+      "evidence": ""
+    }
+  ]
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|saveProductInvestmentProfileRequest|保存产品投资画像和主题关系请求|body|true|SaveProductInvestmentProfileRequest|SaveProductInvestmentProfileRequest|
+|&emsp;&emsp;productBizId|产品业务唯一标识||true|string||
+|&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等||true|string||
+|&emsp;&emsp;riskSummary|风险摘要，前端产品详情页展示||false|string||
+|&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH||false|string||
+|&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH||false|string||
+|&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式||false|number||
+|&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5||false|integer(int32)||
+|&emsp;&emsp;mockTradable|是否允许进入 Mock 交易||false|boolean||
+|&emsp;&emsp;minHoldingDays|建议最短持有天数||false|integer(int32)||
+|&emsp;&emsp;tradingNotes|交易约束和注意事项||false|string||
+|&emsp;&emsp;dataQualityScore|画像数据质量分，0-1||false|number||
+|&emsp;&emsp;relations|产品主题、行业、指数和资产类别关系集合||false|array|RelationRequest|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS||true|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码||true|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称||true|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1||false|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码||false|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回包含投资画像的产品响应|ResultProductResponse|
+|400|参数校验失败或画像规则不合法|ResultProductResponse|
+|401|未登录或会话失效|ResultProductResponse|
+|403|无产品画像维护权限|ResultProductResponse|
+|404|产品不存在|ResultProductResponse|
+|500|系统错误|ResultProductResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|ProductResponse|ProductResponse|
+|&emsp;&emsp;bizId|产品业务标识|string||
+|&emsp;&emsp;productNo|产品编号|string||
+|&emsp;&emsp;productCode|产品编码|string||
+|&emsp;&emsp;productName|产品名称|string||
+|&emsp;&emsp;productType|产品类型|string||
+|&emsp;&emsp;marketCode|市场编码|string||
+|&emsp;&emsp;currency|币种|string||
+|&emsp;&emsp;tradeStatus|交易状态|string||
+|&emsp;&emsp;riskLevel|风险等级|integer(int32)||
+|&emsp;&emsp;minInvestAmount|最小投资金额|number||
+|&emsp;&emsp;amountStep|金额步长|number||
+|&emsp;&emsp;quantityStep|数量步长|number||
+|&emsp;&emsp;feeRate|手续费率|number||
+|&emsp;&emsp;listingDate|上市日期|string(date)||
+|&emsp;&emsp;delistingDate|退市日期|string(date)||
+|&emsp;&emsp;description|产品说明|string||
+|&emsp;&emsp;attributes|扩展属性列表|array|ProductAttributeResponse|
+|&emsp;&emsp;&emsp;&emsp;key|属性键|string||
+|&emsp;&emsp;&emsp;&emsp;valueType|值类型|string||
+|&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
+|&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "prd_01Hxxxx",
+		"productNo": "P202600001",
+		"productCode": "AAPL",
+		"productName": "Apple Inc.",
+		"productType": "STOCK",
+		"marketCode": "NASDAQ",
+		"currency": "USD",
+		"tradeStatus": "TRADABLE",
+		"riskLevel": 3,
+		"minInvestAmount": 0,
+		"amountStep": 0,
+		"quantityStep": 0,
+		"feeRate": 0,
+		"listingDate": "",
+		"delistingDate": "",
+		"description": "",
+		"attributes": [
+			{
+				"key": "issuer",
+				"valueType": "string",
+				"jsonValue": "",
+				"effectiveDate": "",
+				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|ProductResponse|ProductResponse|
+|&emsp;&emsp;bizId|产品业务标识|string||
+|&emsp;&emsp;productNo|产品编号|string||
+|&emsp;&emsp;productCode|产品编码|string||
+|&emsp;&emsp;productName|产品名称|string||
+|&emsp;&emsp;productType|产品类型|string||
+|&emsp;&emsp;marketCode|市场编码|string||
+|&emsp;&emsp;currency|币种|string||
+|&emsp;&emsp;tradeStatus|交易状态|string||
+|&emsp;&emsp;riskLevel|风险等级|integer(int32)||
+|&emsp;&emsp;minInvestAmount|最小投资金额|number||
+|&emsp;&emsp;amountStep|金额步长|number||
+|&emsp;&emsp;quantityStep|数量步长|number||
+|&emsp;&emsp;feeRate|手续费率|number||
+|&emsp;&emsp;listingDate|上市日期|string(date)||
+|&emsp;&emsp;delistingDate|退市日期|string(date)||
+|&emsp;&emsp;description|产品说明|string||
+|&emsp;&emsp;attributes|扩展属性列表|array|ProductAttributeResponse|
+|&emsp;&emsp;&emsp;&emsp;key|属性键|string||
+|&emsp;&emsp;&emsp;&emsp;valueType|值类型|string||
+|&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
+|&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "prd_01Hxxxx",
+		"productNo": "P202600001",
+		"productCode": "AAPL",
+		"productName": "Apple Inc.",
+		"productType": "STOCK",
+		"marketCode": "NASDAQ",
+		"currency": "USD",
+		"tradeStatus": "TRADABLE",
+		"riskLevel": 3,
+		"minInvestAmount": 0,
+		"amountStep": 0,
+		"quantityStep": 0,
+		"feeRate": 0,
+		"listingDate": "",
+		"delistingDate": "",
+		"description": "",
+		"attributes": [
+			{
+				"key": "issuer",
+				"valueType": "string",
+				"jsonValue": "",
+				"effectiveDate": "",
+				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-401**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|ProductResponse|ProductResponse|
+|&emsp;&emsp;bizId|产品业务标识|string||
+|&emsp;&emsp;productNo|产品编号|string||
+|&emsp;&emsp;productCode|产品编码|string||
+|&emsp;&emsp;productName|产品名称|string||
+|&emsp;&emsp;productType|产品类型|string||
+|&emsp;&emsp;marketCode|市场编码|string||
+|&emsp;&emsp;currency|币种|string||
+|&emsp;&emsp;tradeStatus|交易状态|string||
+|&emsp;&emsp;riskLevel|风险等级|integer(int32)||
+|&emsp;&emsp;minInvestAmount|最小投资金额|number||
+|&emsp;&emsp;amountStep|金额步长|number||
+|&emsp;&emsp;quantityStep|数量步长|number||
+|&emsp;&emsp;feeRate|手续费率|number||
+|&emsp;&emsp;listingDate|上市日期|string(date)||
+|&emsp;&emsp;delistingDate|退市日期|string(date)||
+|&emsp;&emsp;description|产品说明|string||
+|&emsp;&emsp;attributes|扩展属性列表|array|ProductAttributeResponse|
+|&emsp;&emsp;&emsp;&emsp;key|属性键|string||
+|&emsp;&emsp;&emsp;&emsp;valueType|值类型|string||
+|&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
+|&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "prd_01Hxxxx",
+		"productNo": "P202600001",
+		"productCode": "AAPL",
+		"productName": "Apple Inc.",
+		"productType": "STOCK",
+		"marketCode": "NASDAQ",
+		"currency": "USD",
+		"tradeStatus": "TRADABLE",
+		"riskLevel": 3,
+		"minInvestAmount": 0,
+		"amountStep": 0,
+		"quantityStep": 0,
+		"feeRate": 0,
+		"listingDate": "",
+		"delistingDate": "",
+		"description": "",
+		"attributes": [
+			{
+				"key": "issuer",
+				"valueType": "string",
+				"jsonValue": "",
+				"effectiveDate": "",
+				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-403**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|ProductResponse|ProductResponse|
+|&emsp;&emsp;bizId|产品业务标识|string||
+|&emsp;&emsp;productNo|产品编号|string||
+|&emsp;&emsp;productCode|产品编码|string||
+|&emsp;&emsp;productName|产品名称|string||
+|&emsp;&emsp;productType|产品类型|string||
+|&emsp;&emsp;marketCode|市场编码|string||
+|&emsp;&emsp;currency|币种|string||
+|&emsp;&emsp;tradeStatus|交易状态|string||
+|&emsp;&emsp;riskLevel|风险等级|integer(int32)||
+|&emsp;&emsp;minInvestAmount|最小投资金额|number||
+|&emsp;&emsp;amountStep|金额步长|number||
+|&emsp;&emsp;quantityStep|数量步长|number||
+|&emsp;&emsp;feeRate|手续费率|number||
+|&emsp;&emsp;listingDate|上市日期|string(date)||
+|&emsp;&emsp;delistingDate|退市日期|string(date)||
+|&emsp;&emsp;description|产品说明|string||
+|&emsp;&emsp;attributes|扩展属性列表|array|ProductAttributeResponse|
+|&emsp;&emsp;&emsp;&emsp;key|属性键|string||
+|&emsp;&emsp;&emsp;&emsp;valueType|值类型|string||
+|&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
+|&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "prd_01Hxxxx",
+		"productNo": "P202600001",
+		"productCode": "AAPL",
+		"productName": "Apple Inc.",
+		"productType": "STOCK",
+		"marketCode": "NASDAQ",
+		"currency": "USD",
+		"tradeStatus": "TRADABLE",
+		"riskLevel": 3,
+		"minInvestAmount": 0,
+		"amountStep": 0,
+		"quantityStep": 0,
+		"feeRate": 0,
+		"listingDate": "",
+		"delistingDate": "",
+		"description": "",
+		"attributes": [
+			{
+				"key": "issuer",
+				"valueType": "string",
+				"jsonValue": "",
+				"effectiveDate": "",
+				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|ProductResponse|ProductResponse|
+|&emsp;&emsp;bizId|产品业务标识|string||
+|&emsp;&emsp;productNo|产品编号|string||
+|&emsp;&emsp;productCode|产品编码|string||
+|&emsp;&emsp;productName|产品名称|string||
+|&emsp;&emsp;productType|产品类型|string||
+|&emsp;&emsp;marketCode|市场编码|string||
+|&emsp;&emsp;currency|币种|string||
+|&emsp;&emsp;tradeStatus|交易状态|string||
+|&emsp;&emsp;riskLevel|风险等级|integer(int32)||
+|&emsp;&emsp;minInvestAmount|最小投资金额|number||
+|&emsp;&emsp;amountStep|金额步长|number||
+|&emsp;&emsp;quantityStep|数量步长|number||
+|&emsp;&emsp;feeRate|手续费率|number||
+|&emsp;&emsp;listingDate|上市日期|string(date)||
+|&emsp;&emsp;delistingDate|退市日期|string(date)||
+|&emsp;&emsp;description|产品说明|string||
+|&emsp;&emsp;attributes|扩展属性列表|array|ProductAttributeResponse|
+|&emsp;&emsp;&emsp;&emsp;key|属性键|string||
+|&emsp;&emsp;&emsp;&emsp;valueType|值类型|string||
+|&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
+|&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "prd_01Hxxxx",
+		"productNo": "P202600001",
+		"productCode": "AAPL",
+		"productName": "Apple Inc.",
+		"productType": "STOCK",
+		"marketCode": "NASDAQ",
+		"currency": "USD",
+		"tradeStatus": "TRADABLE",
+		"riskLevel": 3,
+		"minInvestAmount": 0,
+		"amountStep": 0,
+		"quantityStep": 0,
+		"feeRate": 0,
+		"listingDate": "",
+		"delistingDate": "",
+		"description": "",
+		"attributes": [
+			{
+				"key": "issuer",
+				"valueType": "string",
+				"jsonValue": "",
+				"effectiveDate": "",
+				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|ProductResponse|ProductResponse|
+|&emsp;&emsp;bizId|产品业务标识|string||
+|&emsp;&emsp;productNo|产品编号|string||
+|&emsp;&emsp;productCode|产品编码|string||
+|&emsp;&emsp;productName|产品名称|string||
+|&emsp;&emsp;productType|产品类型|string||
+|&emsp;&emsp;marketCode|市场编码|string||
+|&emsp;&emsp;currency|币种|string||
+|&emsp;&emsp;tradeStatus|交易状态|string||
+|&emsp;&emsp;riskLevel|风险等级|integer(int32)||
+|&emsp;&emsp;minInvestAmount|最小投资金额|number||
+|&emsp;&emsp;amountStep|金额步长|number||
+|&emsp;&emsp;quantityStep|数量步长|number||
+|&emsp;&emsp;feeRate|手续费率|number||
+|&emsp;&emsp;listingDate|上市日期|string(date)||
+|&emsp;&emsp;delistingDate|退市日期|string(date)||
+|&emsp;&emsp;description|产品说明|string||
+|&emsp;&emsp;attributes|扩展属性列表|array|ProductAttributeResponse|
+|&emsp;&emsp;&emsp;&emsp;key|属性键|string||
+|&emsp;&emsp;&emsp;&emsp;valueType|值类型|string||
+|&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
+|&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "prd_01Hxxxx",
+		"productNo": "P202600001",
+		"productCode": "AAPL",
+		"productName": "Apple Inc.",
+		"productType": "STOCK",
+		"marketCode": "NASDAQ",
+		"currency": "USD",
+		"tradeStatus": "TRADABLE",
+		"riskLevel": 3,
+		"minInvestAmount": 0,
+		"amountStep": 0,
+		"quantityStep": 0,
+		"feeRate": 0,
+		"listingDate": "",
+		"delistingDate": "",
+		"description": "",
+		"attributes": [
+			{
+				"key": "issuer",
+				"valueType": "string",
+				"jsonValue": "",
+				"effectiveDate": "",
+				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
 }
 ```
 
@@ -3724,6 +5480,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -3757,6 +5531,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -3799,6 +5595,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -3832,6 +5646,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -3874,6 +5710,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -3907,6 +5761,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -3949,6 +5825,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -3982,6 +5876,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -4024,6 +5940,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -4057,6 +5991,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -4099,6 +6055,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -4132,6 +6106,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -4243,6 +6239,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -4276,6 +6290,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -4318,6 +6354,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -4351,6 +6405,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -4393,6 +6469,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -4426,6 +6520,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -4468,6 +6584,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -4501,6 +6635,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -4543,6 +6699,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -4576,6 +6750,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -4618,6 +6814,24 @@
 |&emsp;&emsp;&emsp;&emsp;jsonValue|JSON 格式属性值|string||
 |&emsp;&emsp;&emsp;&emsp;effectiveDate|属性生效日期|string(date)||
 |&emsp;&emsp;&emsp;&emsp;sourceCode|来源编码|string||
+|&emsp;&emsp;investmentProfile|产品投资风险和交易画像；列表页可为空，详情页返回|ProductInvestmentProfileResponse|ProductInvestmentProfileResponse|
+|&emsp;&emsp;&emsp;&emsp;assetClass|资产类别：STOCK/ETF/FUND/BOND/BANK_WMP/GOLD/REIT 等|string||
+|&emsp;&emsp;&emsp;&emsp;riskSummary|风险摘要|string||
+|&emsp;&emsp;&emsp;&emsp;volatilityLevel|波动等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;liquidityLevel|流动性等级：LOW/MEDIUM/HIGH|string||
+|&emsp;&emsp;&emsp;&emsp;maxDrawdown|历史或估算最大回撤，小数形式|number||
+|&emsp;&emsp;&emsp;&emsp;suitableRiskLevel|适配用户风险等级，1-5|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;mockTradable|是否允许进入 Mock 交易|boolean||
+|&emsp;&emsp;&emsp;&emsp;minHoldingDays|建议最短持有天数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;tradingNotes|交易约束和注意事项|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|画像数据质量分，0-1|number||
+|&emsp;&emsp;themeRelations|产品主题、行业、指数和资产类别关系集合；列表页可为空，详情页返回|array|ProductThemeRelationResponse|
+|&emsp;&emsp;&emsp;&emsp;relationType|关系类型：THEME/INDUSTRY/INDEX/ASSET_CLASS|string||
+|&emsp;&emsp;&emsp;&emsp;relationCode|关系稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;relationName|关系展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;relationWeight|关系权重，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|关系来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;evidence|关系证据摘要|string||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|最后更新时间|string(date-time)||
 
@@ -4651,6 +6865,28 @@
 				"jsonValue": "",
 				"effectiveDate": "",
 				"sourceCode": "MANUAL_IMPORT"
+			}
+		],
+		"investmentProfile": {
+			"assetClass": "",
+			"riskSummary": "",
+			"volatilityLevel": "",
+			"liquidityLevel": "",
+			"maxDrawdown": 0,
+			"suitableRiskLevel": 0,
+			"mockTradable": true,
+			"minHoldingDays": 0,
+			"tradingNotes": "",
+			"dataQualityScore": 0
+		},
+		"themeRelations": [
+			{
+				"relationType": "",
+				"relationCode": "",
+				"relationName": "",
+				"relationWeight": 0,
+				"sourceCode": "",
+				"evidence": ""
 			}
 		],
 		"createdAt": "",
@@ -7493,6 +9729,1161 @@
 ```
 
 
+# 回测结果
+
+
+## 查询回测详情
+
+
+**接口地址**:`/api/backtests/detail`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>根据回测业务 ID 查询回测参数、指标和状态。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "bizId": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|backtestBizIdRequest|回测结果业务 ID 请求|body|true|BacktestBizIdRequest|BacktestBizIdRequest|
+|&emsp;&emsp;bizId|回测结果业务唯一标识||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|查询成功，返回回测详情|ResultBacktestResultResponse|
+|403|回测结果不属于当前用户|ResultBacktestResultResponse|
+|404|回测结果不存在|ResultBacktestResultResponse|
+|500|系统错误|ResultBacktestResultResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|BacktestResultResponse|BacktestResultResponse|
+|&emsp;&emsp;bizId|回测结果业务唯一标识|string||
+|&emsp;&emsp;ownerUserBizId|任务发起用户业务标识|string||
+|&emsp;&emsp;strategyCode|策略稳定编码|string||
+|&emsp;&emsp;strategyVersion|策略版本快照|string||
+|&emsp;&emsp;startDate|回测区间开始日期|string(date)||
+|&emsp;&emsp;endDate|回测区间结束日期|string(date)||
+|&emsp;&emsp;initialCapital|初始资金|number||
+|&emsp;&emsp;benchmarkCode|基准指数或比较对象编码|string||
+|&emsp;&emsp;parameters|回测参数 JSON|string||
+|&emsp;&emsp;metrics|回测指标 JSON|string||
+|&emsp;&emsp;resultUri|明细结果或报告存储地址|string||
+|&emsp;&emsp;status|回测状态|string||
+|&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;startedAt|任务开始时间|string(date-time)||
+|&emsp;&emsp;completedAt|任务完成时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"ownerUserBizId": "",
+		"strategyCode": "",
+		"strategyVersion": "",
+		"startDate": "",
+		"endDate": "",
+		"initialCapital": 0,
+		"benchmarkCode": "",
+		"parameters": "",
+		"metrics": "",
+		"resultUri": "",
+		"status": "",
+		"failureReason": "",
+		"startedAt": "",
+		"completedAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-403**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|BacktestResultResponse|BacktestResultResponse|
+|&emsp;&emsp;bizId|回测结果业务唯一标识|string||
+|&emsp;&emsp;ownerUserBizId|任务发起用户业务标识|string||
+|&emsp;&emsp;strategyCode|策略稳定编码|string||
+|&emsp;&emsp;strategyVersion|策略版本快照|string||
+|&emsp;&emsp;startDate|回测区间开始日期|string(date)||
+|&emsp;&emsp;endDate|回测区间结束日期|string(date)||
+|&emsp;&emsp;initialCapital|初始资金|number||
+|&emsp;&emsp;benchmarkCode|基准指数或比较对象编码|string||
+|&emsp;&emsp;parameters|回测参数 JSON|string||
+|&emsp;&emsp;metrics|回测指标 JSON|string||
+|&emsp;&emsp;resultUri|明细结果或报告存储地址|string||
+|&emsp;&emsp;status|回测状态|string||
+|&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;startedAt|任务开始时间|string(date-time)||
+|&emsp;&emsp;completedAt|任务完成时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"ownerUserBizId": "",
+		"strategyCode": "",
+		"strategyVersion": "",
+		"startDate": "",
+		"endDate": "",
+		"initialCapital": 0,
+		"benchmarkCode": "",
+		"parameters": "",
+		"metrics": "",
+		"resultUri": "",
+		"status": "",
+		"failureReason": "",
+		"startedAt": "",
+		"completedAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|BacktestResultResponse|BacktestResultResponse|
+|&emsp;&emsp;bizId|回测结果业务唯一标识|string||
+|&emsp;&emsp;ownerUserBizId|任务发起用户业务标识|string||
+|&emsp;&emsp;strategyCode|策略稳定编码|string||
+|&emsp;&emsp;strategyVersion|策略版本快照|string||
+|&emsp;&emsp;startDate|回测区间开始日期|string(date)||
+|&emsp;&emsp;endDate|回测区间结束日期|string(date)||
+|&emsp;&emsp;initialCapital|初始资金|number||
+|&emsp;&emsp;benchmarkCode|基准指数或比较对象编码|string||
+|&emsp;&emsp;parameters|回测参数 JSON|string||
+|&emsp;&emsp;metrics|回测指标 JSON|string||
+|&emsp;&emsp;resultUri|明细结果或报告存储地址|string||
+|&emsp;&emsp;status|回测状态|string||
+|&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;startedAt|任务开始时间|string(date-time)||
+|&emsp;&emsp;completedAt|任务完成时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"ownerUserBizId": "",
+		"strategyCode": "",
+		"strategyVersion": "",
+		"startDate": "",
+		"endDate": "",
+		"initialCapital": 0,
+		"benchmarkCode": "",
+		"parameters": "",
+		"metrics": "",
+		"resultUri": "",
+		"status": "",
+		"failureReason": "",
+		"startedAt": "",
+		"completedAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|BacktestResultResponse|BacktestResultResponse|
+|&emsp;&emsp;bizId|回测结果业务唯一标识|string||
+|&emsp;&emsp;ownerUserBizId|任务发起用户业务标识|string||
+|&emsp;&emsp;strategyCode|策略稳定编码|string||
+|&emsp;&emsp;strategyVersion|策略版本快照|string||
+|&emsp;&emsp;startDate|回测区间开始日期|string(date)||
+|&emsp;&emsp;endDate|回测区间结束日期|string(date)||
+|&emsp;&emsp;initialCapital|初始资金|number||
+|&emsp;&emsp;benchmarkCode|基准指数或比较对象编码|string||
+|&emsp;&emsp;parameters|回测参数 JSON|string||
+|&emsp;&emsp;metrics|回测指标 JSON|string||
+|&emsp;&emsp;resultUri|明细结果或报告存储地址|string||
+|&emsp;&emsp;status|回测状态|string||
+|&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;startedAt|任务开始时间|string(date-time)||
+|&emsp;&emsp;completedAt|任务完成时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"ownerUserBizId": "",
+		"strategyCode": "",
+		"strategyVersion": "",
+		"startDate": "",
+		"endDate": "",
+		"initialCapital": 0,
+		"benchmarkCode": "",
+		"parameters": "",
+		"metrics": "",
+		"resultUri": "",
+		"status": "",
+		"failureReason": "",
+		"startedAt": "",
+		"completedAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+## 从模拟组合生成回测摘要
+
+
+**接口地址**:`/api/backtests/generate-from-portfolio`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>读取 Mock 组合估值曲线，生成收益率、最大回撤和波动率等回测摘要。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "portfolioBizId": "",
+  "strategyCode": "",
+  "strategyVersion": "",
+  "benchmarkCode": "",
+  "parameters": "",
+  "limit": 0
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|generateBacktestFromPortfolioRequest|从模拟组合生成回测摘要请求|body|true|GenerateBacktestFromPortfolioRequest|GenerateBacktestFromPortfolioRequest|
+|&emsp;&emsp;portfolioBizId|模拟组合业务唯一标识||true|string||
+|&emsp;&emsp;strategyCode|策略稳定编码||true|string||
+|&emsp;&emsp;strategyVersion|策略版本快照||true|string||
+|&emsp;&emsp;benchmarkCode|基准指数或比较对象编码||false|string||
+|&emsp;&emsp;parameters|回测参数 JSON，可为空，由后端补充组合来源||false|string||
+|&emsp;&emsp;limit|估值曲线点数量上限||false|integer(int32)||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|生成成功，返回回测结果|ResultBacktestResultResponse|
+|400|估值点不足或参数不合法|ResultBacktestResultResponse|
+|403|模拟组合不属于当前用户|ResultBacktestResultResponse|
+|500|系统错误|ResultBacktestResultResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|BacktestResultResponse|BacktestResultResponse|
+|&emsp;&emsp;bizId|回测结果业务唯一标识|string||
+|&emsp;&emsp;ownerUserBizId|任务发起用户业务标识|string||
+|&emsp;&emsp;strategyCode|策略稳定编码|string||
+|&emsp;&emsp;strategyVersion|策略版本快照|string||
+|&emsp;&emsp;startDate|回测区间开始日期|string(date)||
+|&emsp;&emsp;endDate|回测区间结束日期|string(date)||
+|&emsp;&emsp;initialCapital|初始资金|number||
+|&emsp;&emsp;benchmarkCode|基准指数或比较对象编码|string||
+|&emsp;&emsp;parameters|回测参数 JSON|string||
+|&emsp;&emsp;metrics|回测指标 JSON|string||
+|&emsp;&emsp;resultUri|明细结果或报告存储地址|string||
+|&emsp;&emsp;status|回测状态|string||
+|&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;startedAt|任务开始时间|string(date-time)||
+|&emsp;&emsp;completedAt|任务完成时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"ownerUserBizId": "",
+		"strategyCode": "",
+		"strategyVersion": "",
+		"startDate": "",
+		"endDate": "",
+		"initialCapital": 0,
+		"benchmarkCode": "",
+		"parameters": "",
+		"metrics": "",
+		"resultUri": "",
+		"status": "",
+		"failureReason": "",
+		"startedAt": "",
+		"completedAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|BacktestResultResponse|BacktestResultResponse|
+|&emsp;&emsp;bizId|回测结果业务唯一标识|string||
+|&emsp;&emsp;ownerUserBizId|任务发起用户业务标识|string||
+|&emsp;&emsp;strategyCode|策略稳定编码|string||
+|&emsp;&emsp;strategyVersion|策略版本快照|string||
+|&emsp;&emsp;startDate|回测区间开始日期|string(date)||
+|&emsp;&emsp;endDate|回测区间结束日期|string(date)||
+|&emsp;&emsp;initialCapital|初始资金|number||
+|&emsp;&emsp;benchmarkCode|基准指数或比较对象编码|string||
+|&emsp;&emsp;parameters|回测参数 JSON|string||
+|&emsp;&emsp;metrics|回测指标 JSON|string||
+|&emsp;&emsp;resultUri|明细结果或报告存储地址|string||
+|&emsp;&emsp;status|回测状态|string||
+|&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;startedAt|任务开始时间|string(date-time)||
+|&emsp;&emsp;completedAt|任务完成时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"ownerUserBizId": "",
+		"strategyCode": "",
+		"strategyVersion": "",
+		"startDate": "",
+		"endDate": "",
+		"initialCapital": 0,
+		"benchmarkCode": "",
+		"parameters": "",
+		"metrics": "",
+		"resultUri": "",
+		"status": "",
+		"failureReason": "",
+		"startedAt": "",
+		"completedAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-403**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|BacktestResultResponse|BacktestResultResponse|
+|&emsp;&emsp;bizId|回测结果业务唯一标识|string||
+|&emsp;&emsp;ownerUserBizId|任务发起用户业务标识|string||
+|&emsp;&emsp;strategyCode|策略稳定编码|string||
+|&emsp;&emsp;strategyVersion|策略版本快照|string||
+|&emsp;&emsp;startDate|回测区间开始日期|string(date)||
+|&emsp;&emsp;endDate|回测区间结束日期|string(date)||
+|&emsp;&emsp;initialCapital|初始资金|number||
+|&emsp;&emsp;benchmarkCode|基准指数或比较对象编码|string||
+|&emsp;&emsp;parameters|回测参数 JSON|string||
+|&emsp;&emsp;metrics|回测指标 JSON|string||
+|&emsp;&emsp;resultUri|明细结果或报告存储地址|string||
+|&emsp;&emsp;status|回测状态|string||
+|&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;startedAt|任务开始时间|string(date-time)||
+|&emsp;&emsp;completedAt|任务完成时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"ownerUserBizId": "",
+		"strategyCode": "",
+		"strategyVersion": "",
+		"startDate": "",
+		"endDate": "",
+		"initialCapital": 0,
+		"benchmarkCode": "",
+		"parameters": "",
+		"metrics": "",
+		"resultUri": "",
+		"status": "",
+		"failureReason": "",
+		"startedAt": "",
+		"completedAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|BacktestResultResponse|BacktestResultResponse|
+|&emsp;&emsp;bizId|回测结果业务唯一标识|string||
+|&emsp;&emsp;ownerUserBizId|任务发起用户业务标识|string||
+|&emsp;&emsp;strategyCode|策略稳定编码|string||
+|&emsp;&emsp;strategyVersion|策略版本快照|string||
+|&emsp;&emsp;startDate|回测区间开始日期|string(date)||
+|&emsp;&emsp;endDate|回测区间结束日期|string(date)||
+|&emsp;&emsp;initialCapital|初始资金|number||
+|&emsp;&emsp;benchmarkCode|基准指数或比较对象编码|string||
+|&emsp;&emsp;parameters|回测参数 JSON|string||
+|&emsp;&emsp;metrics|回测指标 JSON|string||
+|&emsp;&emsp;resultUri|明细结果或报告存储地址|string||
+|&emsp;&emsp;status|回测状态|string||
+|&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;startedAt|任务开始时间|string(date-time)||
+|&emsp;&emsp;completedAt|任务完成时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"ownerUserBizId": "",
+		"strategyCode": "",
+		"strategyVersion": "",
+		"startDate": "",
+		"endDate": "",
+		"initialCapital": 0,
+		"benchmarkCode": "",
+		"parameters": "",
+		"metrics": "",
+		"resultUri": "",
+		"status": "",
+		"failureReason": "",
+		"startedAt": "",
+		"completedAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+## 分页查询回测结果
+
+
+**接口地址**:`/api/backtests/list`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>按策略编码、版本和状态查询当前用户可见的回测结果。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "strategyCode": "",
+  "strategyVersion": "",
+  "status": "",
+  "page": 0,
+  "size": 0,
+  "sort": "",
+  "direction": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|backtestListRequest|回测结果分页查询请求|body|true|BacktestListRequest|BacktestListRequest|
+|&emsp;&emsp;strategyCode|策略稳定编码||false|string||
+|&emsp;&emsp;strategyVersion|策略版本快照||false|string||
+|&emsp;&emsp;status|回测状态||false|string||
+|&emsp;&emsp;page|页码，从 1 开始；传 0 会兼容为第一页||false|integer(int32)||
+|&emsp;&emsp;size|每页条数，1-100||false|integer(int32)||
+|&emsp;&emsp;sort|排序字段：createdAt/strategyCode/strategyVersion/status/startDate/endDate||false|string||
+|&emsp;&emsp;direction|排序方向：asc/desc||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|查询成功，返回回测分页响应|ResultPageResponseBacktestResultResponse|
+|400|分页或排序参数不合法|ResultPageResponseBacktestResultResponse|
+|500|系统错误|ResultPageResponseBacktestResultResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseBacktestResultResponse|PageResponseBacktestResultResponse|
+|&emsp;&emsp;items|当前页数据列表|array|BacktestResultResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|回测结果业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|任务发起用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;strategyCode|策略稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;strategyVersion|策略版本快照|string||
+|&emsp;&emsp;&emsp;&emsp;startDate|回测区间开始日期|string(date)||
+|&emsp;&emsp;&emsp;&emsp;endDate|回测区间结束日期|string(date)||
+|&emsp;&emsp;&emsp;&emsp;initialCapital|初始资金|number||
+|&emsp;&emsp;&emsp;&emsp;benchmarkCode|基准指数或比较对象编码|string||
+|&emsp;&emsp;&emsp;&emsp;parameters|回测参数 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;metrics|回测指标 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;resultUri|明细结果或报告存储地址|string||
+|&emsp;&emsp;&emsp;&emsp;status|回测状态|string||
+|&emsp;&emsp;&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;&emsp;&emsp;startedAt|任务开始时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;completedAt|任务完成时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"ownerUserBizId": "",
+				"strategyCode": "",
+				"strategyVersion": "",
+				"startDate": "",
+				"endDate": "",
+				"initialCapital": 0,
+				"benchmarkCode": "",
+				"parameters": "",
+				"metrics": "",
+				"resultUri": "",
+				"status": "",
+				"failureReason": "",
+				"startedAt": "",
+				"completedAt": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseBacktestResultResponse|PageResponseBacktestResultResponse|
+|&emsp;&emsp;items|当前页数据列表|array|BacktestResultResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|回测结果业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|任务发起用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;strategyCode|策略稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;strategyVersion|策略版本快照|string||
+|&emsp;&emsp;&emsp;&emsp;startDate|回测区间开始日期|string(date)||
+|&emsp;&emsp;&emsp;&emsp;endDate|回测区间结束日期|string(date)||
+|&emsp;&emsp;&emsp;&emsp;initialCapital|初始资金|number||
+|&emsp;&emsp;&emsp;&emsp;benchmarkCode|基准指数或比较对象编码|string||
+|&emsp;&emsp;&emsp;&emsp;parameters|回测参数 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;metrics|回测指标 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;resultUri|明细结果或报告存储地址|string||
+|&emsp;&emsp;&emsp;&emsp;status|回测状态|string||
+|&emsp;&emsp;&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;&emsp;&emsp;startedAt|任务开始时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;completedAt|任务完成时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"ownerUserBizId": "",
+				"strategyCode": "",
+				"strategyVersion": "",
+				"startDate": "",
+				"endDate": "",
+				"initialCapital": 0,
+				"benchmarkCode": "",
+				"parameters": "",
+				"metrics": "",
+				"resultUri": "",
+				"status": "",
+				"failureReason": "",
+				"startedAt": "",
+				"completedAt": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseBacktestResultResponse|PageResponseBacktestResultResponse|
+|&emsp;&emsp;items|当前页数据列表|array|BacktestResultResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|回测结果业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|任务发起用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;strategyCode|策略稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;strategyVersion|策略版本快照|string||
+|&emsp;&emsp;&emsp;&emsp;startDate|回测区间开始日期|string(date)||
+|&emsp;&emsp;&emsp;&emsp;endDate|回测区间结束日期|string(date)||
+|&emsp;&emsp;&emsp;&emsp;initialCapital|初始资金|number||
+|&emsp;&emsp;&emsp;&emsp;benchmarkCode|基准指数或比较对象编码|string||
+|&emsp;&emsp;&emsp;&emsp;parameters|回测参数 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;metrics|回测指标 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;resultUri|明细结果或报告存储地址|string||
+|&emsp;&emsp;&emsp;&emsp;status|回测状态|string||
+|&emsp;&emsp;&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;&emsp;&emsp;startedAt|任务开始时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;completedAt|任务完成时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"ownerUserBizId": "",
+				"strategyCode": "",
+				"strategyVersion": "",
+				"startDate": "",
+				"endDate": "",
+				"initialCapital": 0,
+				"benchmarkCode": "",
+				"parameters": "",
+				"metrics": "",
+				"resultUri": "",
+				"status": "",
+				"failureReason": "",
+				"startedAt": "",
+				"completedAt": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+## 保存回测结果
+
+
+**接口地址**:`/api/backtests/save`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>保存外部回测或后台计算得到的回测任务、参数和指标摘要。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "bizId": "",
+  "strategyCode": "",
+  "strategyVersion": "",
+  "startDate": "",
+  "endDate": "",
+  "initialCapital": 0,
+  "benchmarkCode": "",
+  "parameters": "",
+  "metrics": "",
+  "resultUri": "",
+  "status": "",
+  "failureReason": "",
+  "startedAt": "",
+  "completedAt": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|saveBacktestResultRequest|保存回测结果请求|body|true|SaveBacktestResultRequest|SaveBacktestResultRequest|
+|&emsp;&emsp;bizId|回测结果业务唯一标识，更新时传入||false|string||
+|&emsp;&emsp;strategyCode|策略稳定编码||true|string||
+|&emsp;&emsp;strategyVersion|策略版本快照||true|string||
+|&emsp;&emsp;startDate|回测区间开始日期||true|string(date)||
+|&emsp;&emsp;endDate|回测区间结束日期||true|string(date)||
+|&emsp;&emsp;initialCapital|初始资金||true|number||
+|&emsp;&emsp;benchmarkCode|基准指数或比较对象编码||false|string||
+|&emsp;&emsp;parameters|回测参数 JSON||true|string||
+|&emsp;&emsp;metrics|回测指标 JSON||false|string||
+|&emsp;&emsp;resultUri|明细结果或报告存储地址||false|string||
+|&emsp;&emsp;status|回测状态：PENDING/RUNNING/SUCCEEDED/FAILED/CANCELLED||false|string||
+|&emsp;&emsp;failureReason|失败原因摘要||false|string||
+|&emsp;&emsp;startedAt|任务开始时间||false|string(date-time)||
+|&emsp;&emsp;completedAt|任务完成时间||false|string(date-time)||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|保存成功，返回回测结果|ResultBacktestResultResponse|
+|400|参数或JSON格式不合法|ResultBacktestResultResponse|
+|403|更新的回测结果不属于当前用户|ResultBacktestResultResponse|
+|500|系统错误|ResultBacktestResultResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|BacktestResultResponse|BacktestResultResponse|
+|&emsp;&emsp;bizId|回测结果业务唯一标识|string||
+|&emsp;&emsp;ownerUserBizId|任务发起用户业务标识|string||
+|&emsp;&emsp;strategyCode|策略稳定编码|string||
+|&emsp;&emsp;strategyVersion|策略版本快照|string||
+|&emsp;&emsp;startDate|回测区间开始日期|string(date)||
+|&emsp;&emsp;endDate|回测区间结束日期|string(date)||
+|&emsp;&emsp;initialCapital|初始资金|number||
+|&emsp;&emsp;benchmarkCode|基准指数或比较对象编码|string||
+|&emsp;&emsp;parameters|回测参数 JSON|string||
+|&emsp;&emsp;metrics|回测指标 JSON|string||
+|&emsp;&emsp;resultUri|明细结果或报告存储地址|string||
+|&emsp;&emsp;status|回测状态|string||
+|&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;startedAt|任务开始时间|string(date-time)||
+|&emsp;&emsp;completedAt|任务完成时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"ownerUserBizId": "",
+		"strategyCode": "",
+		"strategyVersion": "",
+		"startDate": "",
+		"endDate": "",
+		"initialCapital": 0,
+		"benchmarkCode": "",
+		"parameters": "",
+		"metrics": "",
+		"resultUri": "",
+		"status": "",
+		"failureReason": "",
+		"startedAt": "",
+		"completedAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|BacktestResultResponse|BacktestResultResponse|
+|&emsp;&emsp;bizId|回测结果业务唯一标识|string||
+|&emsp;&emsp;ownerUserBizId|任务发起用户业务标识|string||
+|&emsp;&emsp;strategyCode|策略稳定编码|string||
+|&emsp;&emsp;strategyVersion|策略版本快照|string||
+|&emsp;&emsp;startDate|回测区间开始日期|string(date)||
+|&emsp;&emsp;endDate|回测区间结束日期|string(date)||
+|&emsp;&emsp;initialCapital|初始资金|number||
+|&emsp;&emsp;benchmarkCode|基准指数或比较对象编码|string||
+|&emsp;&emsp;parameters|回测参数 JSON|string||
+|&emsp;&emsp;metrics|回测指标 JSON|string||
+|&emsp;&emsp;resultUri|明细结果或报告存储地址|string||
+|&emsp;&emsp;status|回测状态|string||
+|&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;startedAt|任务开始时间|string(date-time)||
+|&emsp;&emsp;completedAt|任务完成时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"ownerUserBizId": "",
+		"strategyCode": "",
+		"strategyVersion": "",
+		"startDate": "",
+		"endDate": "",
+		"initialCapital": 0,
+		"benchmarkCode": "",
+		"parameters": "",
+		"metrics": "",
+		"resultUri": "",
+		"status": "",
+		"failureReason": "",
+		"startedAt": "",
+		"completedAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-403**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|BacktestResultResponse|BacktestResultResponse|
+|&emsp;&emsp;bizId|回测结果业务唯一标识|string||
+|&emsp;&emsp;ownerUserBizId|任务发起用户业务标识|string||
+|&emsp;&emsp;strategyCode|策略稳定编码|string||
+|&emsp;&emsp;strategyVersion|策略版本快照|string||
+|&emsp;&emsp;startDate|回测区间开始日期|string(date)||
+|&emsp;&emsp;endDate|回测区间结束日期|string(date)||
+|&emsp;&emsp;initialCapital|初始资金|number||
+|&emsp;&emsp;benchmarkCode|基准指数或比较对象编码|string||
+|&emsp;&emsp;parameters|回测参数 JSON|string||
+|&emsp;&emsp;metrics|回测指标 JSON|string||
+|&emsp;&emsp;resultUri|明细结果或报告存储地址|string||
+|&emsp;&emsp;status|回测状态|string||
+|&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;startedAt|任务开始时间|string(date-time)||
+|&emsp;&emsp;completedAt|任务完成时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"ownerUserBizId": "",
+		"strategyCode": "",
+		"strategyVersion": "",
+		"startDate": "",
+		"endDate": "",
+		"initialCapital": 0,
+		"benchmarkCode": "",
+		"parameters": "",
+		"metrics": "",
+		"resultUri": "",
+		"status": "",
+		"failureReason": "",
+		"startedAt": "",
+		"completedAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|BacktestResultResponse|BacktestResultResponse|
+|&emsp;&emsp;bizId|回测结果业务唯一标识|string||
+|&emsp;&emsp;ownerUserBizId|任务发起用户业务标识|string||
+|&emsp;&emsp;strategyCode|策略稳定编码|string||
+|&emsp;&emsp;strategyVersion|策略版本快照|string||
+|&emsp;&emsp;startDate|回测区间开始日期|string(date)||
+|&emsp;&emsp;endDate|回测区间结束日期|string(date)||
+|&emsp;&emsp;initialCapital|初始资金|number||
+|&emsp;&emsp;benchmarkCode|基准指数或比较对象编码|string||
+|&emsp;&emsp;parameters|回测参数 JSON|string||
+|&emsp;&emsp;metrics|回测指标 JSON|string||
+|&emsp;&emsp;resultUri|明细结果或报告存储地址|string||
+|&emsp;&emsp;status|回测状态|string||
+|&emsp;&emsp;failureReason|失败原因摘要|string||
+|&emsp;&emsp;startedAt|任务开始时间|string(date-time)||
+|&emsp;&emsp;completedAt|任务完成时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"ownerUserBizId": "",
+		"strategyCode": "",
+		"strategyVersion": "",
+		"startDate": "",
+		"endDate": "",
+		"initialCapital": 0,
+		"benchmarkCode": "",
+		"parameters": "",
+		"metrics": "",
+		"resultUri": "",
+		"status": "",
+		"failureReason": "",
+		"startedAt": "",
+		"completedAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
 # 角色权限管理
 
 
@@ -9608,6 +12999,10407 @@
 ```
 
 
+# 模拟投资组合
+
+
+## 创建模拟组合
+
+
+**接口地址**:`/api/mock/portfolios/create`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>为当前登录用户创建 SIMULATION 类型组合，并写入初始现金估值快照，供前端展示模拟资产入口。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "portfolioName": "",
+  "baseCurrency": "",
+  "initialCash": 0
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|createMockPortfolioRequest|创建模拟组合请求|body|true|CreateMockPortfolioRequest|CreateMockPortfolioRequest|
+|&emsp;&emsp;portfolioName|模拟组合名称||true|string||
+|&emsp;&emsp;baseCurrency|基础计价币种，默认 CNY||false|string||
+|&emsp;&emsp;initialCash|初始模拟现金，当前阶段写入首个估值快照||false|number||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|创建成功，返回模拟组合响应|ResultMockPortfolioResponse|
+|400|参数校验失败或初始现金不合法|ResultMockPortfolioResponse|
+|401|未登录或会话失效|ResultMockPortfolioResponse|
+|500|系统错误|ResultMockPortfolioResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"portfolioNo": "",
+		"ownerUserBizId": "",
+		"portfolioName": "",
+		"portfolioType": "",
+		"baseCurrency": "",
+		"status": 0,
+		"latestValuation": {
+			"valuationTime": "",
+			"baseCurrency": "",
+			"totalAsset": 0,
+			"cashBalance": 0,
+			"positionValue": 0,
+			"totalCost": 0,
+			"unrealizedProfit": 0,
+			"realizedProfit": 0,
+			"totalReturnRate": 0,
+			"sourceCode": ""
+		},
+		"positions": [
+			{
+				"bizId": "",
+				"productBizId": "",
+				"positionSide": "",
+				"quantity": 0,
+				"availableQuantity": 0,
+				"averageCost": 0,
+				"costAmount": 0,
+				"realizedProfit": 0,
+				"lastTradeAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"portfolioNo": "",
+		"ownerUserBizId": "",
+		"portfolioName": "",
+		"portfolioType": "",
+		"baseCurrency": "",
+		"status": 0,
+		"latestValuation": {
+			"valuationTime": "",
+			"baseCurrency": "",
+			"totalAsset": 0,
+			"cashBalance": 0,
+			"positionValue": 0,
+			"totalCost": 0,
+			"unrealizedProfit": 0,
+			"realizedProfit": 0,
+			"totalReturnRate": 0,
+			"sourceCode": ""
+		},
+		"positions": [
+			{
+				"bizId": "",
+				"productBizId": "",
+				"positionSide": "",
+				"quantity": 0,
+				"availableQuantity": 0,
+				"averageCost": 0,
+				"costAmount": 0,
+				"realizedProfit": 0,
+				"lastTradeAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-401**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"portfolioNo": "",
+		"ownerUserBizId": "",
+		"portfolioName": "",
+		"portfolioType": "",
+		"baseCurrency": "",
+		"status": 0,
+		"latestValuation": {
+			"valuationTime": "",
+			"baseCurrency": "",
+			"totalAsset": 0,
+			"cashBalance": 0,
+			"positionValue": 0,
+			"totalCost": 0,
+			"unrealizedProfit": 0,
+			"realizedProfit": 0,
+			"totalReturnRate": 0,
+			"sourceCode": ""
+		},
+		"positions": [
+			{
+				"bizId": "",
+				"productBizId": "",
+				"positionSide": "",
+				"quantity": 0,
+				"availableQuantity": 0,
+				"averageCost": 0,
+				"costAmount": 0,
+				"realizedProfit": 0,
+				"lastTradeAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"portfolioNo": "",
+		"ownerUserBizId": "",
+		"portfolioName": "",
+		"portfolioType": "",
+		"baseCurrency": "",
+		"status": 0,
+		"latestValuation": {
+			"valuationTime": "",
+			"baseCurrency": "",
+			"totalAsset": 0,
+			"cashBalance": 0,
+			"positionValue": 0,
+			"totalCost": 0,
+			"unrealizedProfit": 0,
+			"realizedProfit": 0,
+			"totalReturnRate": 0,
+			"sourceCode": ""
+		},
+		"positions": [
+			{
+				"bizId": "",
+				"productBizId": "",
+				"positionSide": "",
+				"quantity": 0,
+				"availableQuantity": 0,
+				"averageCost": 0,
+				"costAmount": 0,
+				"realizedProfit": 0,
+				"lastTradeAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+## 查询模拟组合详情
+
+
+**接口地址**:`/api/mock/portfolios/detail`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>查询当前用户指定模拟组合的基础信息、最新估值和当前持仓集合，用于前端组合详情页。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "portfolioBizId": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|mockPortfolioDetailRequest|模拟组合详情请求|body|true|MockPortfolioDetailRequest|MockPortfolioDetailRequest|
+|&emsp;&emsp;portfolioBizId|模拟组合业务唯一标识||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|查询成功，返回模拟组合详情|ResultMockPortfolioResponse|
+|400|组合类型不支持或参数不合法|ResultMockPortfolioResponse|
+|401|未登录或会话失效|ResultMockPortfolioResponse|
+|403|无权查看该模拟组合|ResultMockPortfolioResponse|
+|404|模拟组合不存在|ResultMockPortfolioResponse|
+|500|系统错误|ResultMockPortfolioResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"portfolioNo": "",
+		"ownerUserBizId": "",
+		"portfolioName": "",
+		"portfolioType": "",
+		"baseCurrency": "",
+		"status": 0,
+		"latestValuation": {
+			"valuationTime": "",
+			"baseCurrency": "",
+			"totalAsset": 0,
+			"cashBalance": 0,
+			"positionValue": 0,
+			"totalCost": 0,
+			"unrealizedProfit": 0,
+			"realizedProfit": 0,
+			"totalReturnRate": 0,
+			"sourceCode": ""
+		},
+		"positions": [
+			{
+				"bizId": "",
+				"productBizId": "",
+				"positionSide": "",
+				"quantity": 0,
+				"availableQuantity": 0,
+				"averageCost": 0,
+				"costAmount": 0,
+				"realizedProfit": 0,
+				"lastTradeAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"portfolioNo": "",
+		"ownerUserBizId": "",
+		"portfolioName": "",
+		"portfolioType": "",
+		"baseCurrency": "",
+		"status": 0,
+		"latestValuation": {
+			"valuationTime": "",
+			"baseCurrency": "",
+			"totalAsset": 0,
+			"cashBalance": 0,
+			"positionValue": 0,
+			"totalCost": 0,
+			"unrealizedProfit": 0,
+			"realizedProfit": 0,
+			"totalReturnRate": 0,
+			"sourceCode": ""
+		},
+		"positions": [
+			{
+				"bizId": "",
+				"productBizId": "",
+				"positionSide": "",
+				"quantity": 0,
+				"availableQuantity": 0,
+				"averageCost": 0,
+				"costAmount": 0,
+				"realizedProfit": 0,
+				"lastTradeAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-401**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"portfolioNo": "",
+		"ownerUserBizId": "",
+		"portfolioName": "",
+		"portfolioType": "",
+		"baseCurrency": "",
+		"status": 0,
+		"latestValuation": {
+			"valuationTime": "",
+			"baseCurrency": "",
+			"totalAsset": 0,
+			"cashBalance": 0,
+			"positionValue": 0,
+			"totalCost": 0,
+			"unrealizedProfit": 0,
+			"realizedProfit": 0,
+			"totalReturnRate": 0,
+			"sourceCode": ""
+		},
+		"positions": [
+			{
+				"bizId": "",
+				"productBizId": "",
+				"positionSide": "",
+				"quantity": 0,
+				"availableQuantity": 0,
+				"averageCost": 0,
+				"costAmount": 0,
+				"realizedProfit": 0,
+				"lastTradeAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-403**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"portfolioNo": "",
+		"ownerUserBizId": "",
+		"portfolioName": "",
+		"portfolioType": "",
+		"baseCurrency": "",
+		"status": 0,
+		"latestValuation": {
+			"valuationTime": "",
+			"baseCurrency": "",
+			"totalAsset": 0,
+			"cashBalance": 0,
+			"positionValue": 0,
+			"totalCost": 0,
+			"unrealizedProfit": 0,
+			"realizedProfit": 0,
+			"totalReturnRate": 0,
+			"sourceCode": ""
+		},
+		"positions": [
+			{
+				"bizId": "",
+				"productBizId": "",
+				"positionSide": "",
+				"quantity": 0,
+				"availableQuantity": 0,
+				"averageCost": 0,
+				"costAmount": 0,
+				"realizedProfit": 0,
+				"lastTradeAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"portfolioNo": "",
+		"ownerUserBizId": "",
+		"portfolioName": "",
+		"portfolioType": "",
+		"baseCurrency": "",
+		"status": 0,
+		"latestValuation": {
+			"valuationTime": "",
+			"baseCurrency": "",
+			"totalAsset": 0,
+			"cashBalance": 0,
+			"positionValue": 0,
+			"totalCost": 0,
+			"unrealizedProfit": 0,
+			"realizedProfit": 0,
+			"totalReturnRate": 0,
+			"sourceCode": ""
+		},
+		"positions": [
+			{
+				"bizId": "",
+				"productBizId": "",
+				"positionSide": "",
+				"quantity": 0,
+				"availableQuantity": 0,
+				"averageCost": 0,
+				"costAmount": 0,
+				"realizedProfit": 0,
+				"lastTradeAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"portfolioNo": "",
+		"ownerUserBizId": "",
+		"portfolioName": "",
+		"portfolioType": "",
+		"baseCurrency": "",
+		"status": 0,
+		"latestValuation": {
+			"valuationTime": "",
+			"baseCurrency": "",
+			"totalAsset": 0,
+			"cashBalance": 0,
+			"positionValue": 0,
+			"totalCost": 0,
+			"unrealizedProfit": 0,
+			"realizedProfit": 0,
+			"totalReturnRate": 0,
+			"sourceCode": ""
+		},
+		"positions": [
+			{
+				"bizId": "",
+				"productBizId": "",
+				"positionSide": "",
+				"quantity": 0,
+				"availableQuantity": 0,
+				"averageCost": 0,
+				"costAmount": 0,
+				"realizedProfit": 0,
+				"lastTradeAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+## 分页查询我的模拟组合
+
+
+**接口地址**:`/api/mock/portfolios/mine`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>查询当前登录用户名下 SIMULATION 类型组合，列表项返回最新估值快照，positions 在列表页为空。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "page": 0,
+  "size": 0,
+  "sort": "",
+  "direction": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|mockPortfolioListRequest|我的模拟组合分页请求|body|true|MockPortfolioListRequest|MockPortfolioListRequest|
+|&emsp;&emsp;page|页码，从 1 开始；兼容 0 表示第一页||false|integer(int32)||
+|&emsp;&emsp;size|每页条数，1-100||false|integer(int32)||
+|&emsp;&emsp;sort|排序字段：createdAt/updatedAt/portfolioNo/portfolioName||false|string||
+|&emsp;&emsp;direction|排序方向：asc/desc||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|查询成功，返回模拟组合分页响应|ResultPageResponseMockPortfolioResponse|
+|400|分页或排序参数不合法|ResultPageResponseMockPortfolioResponse|
+|401|未登录或会话失效|ResultPageResponseMockPortfolioResponse|
+|500|系统错误|ResultPageResponseMockPortfolioResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseMockPortfolioResponse|PageResponseMockPortfolioResponse|
+|&emsp;&emsp;items|当前页数据列表|array|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"portfolioNo": "",
+				"ownerUserBizId": "",
+				"portfolioName": "",
+				"portfolioType": "",
+				"baseCurrency": "",
+				"status": 0,
+				"latestValuation": {
+					"valuationTime": "",
+					"baseCurrency": "",
+					"totalAsset": 0,
+					"cashBalance": 0,
+					"positionValue": 0,
+					"totalCost": 0,
+					"unrealizedProfit": 0,
+					"realizedProfit": 0,
+					"totalReturnRate": 0,
+					"sourceCode": ""
+				},
+				"positions": [
+					{
+						"bizId": "",
+						"productBizId": "",
+						"positionSide": "",
+						"quantity": 0,
+						"availableQuantity": 0,
+						"averageCost": 0,
+						"costAmount": 0,
+						"realizedProfit": 0,
+						"lastTradeAt": ""
+					}
+				],
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseMockPortfolioResponse|PageResponseMockPortfolioResponse|
+|&emsp;&emsp;items|当前页数据列表|array|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"portfolioNo": "",
+				"ownerUserBizId": "",
+				"portfolioName": "",
+				"portfolioType": "",
+				"baseCurrency": "",
+				"status": 0,
+				"latestValuation": {
+					"valuationTime": "",
+					"baseCurrency": "",
+					"totalAsset": 0,
+					"cashBalance": 0,
+					"positionValue": 0,
+					"totalCost": 0,
+					"unrealizedProfit": 0,
+					"realizedProfit": 0,
+					"totalReturnRate": 0,
+					"sourceCode": ""
+				},
+				"positions": [
+					{
+						"bizId": "",
+						"productBizId": "",
+						"positionSide": "",
+						"quantity": 0,
+						"availableQuantity": 0,
+						"averageCost": 0,
+						"costAmount": 0,
+						"realizedProfit": 0,
+						"lastTradeAt": ""
+					}
+				],
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-401**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseMockPortfolioResponse|PageResponseMockPortfolioResponse|
+|&emsp;&emsp;items|当前页数据列表|array|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"portfolioNo": "",
+				"ownerUserBizId": "",
+				"portfolioName": "",
+				"portfolioType": "",
+				"baseCurrency": "",
+				"status": 0,
+				"latestValuation": {
+					"valuationTime": "",
+					"baseCurrency": "",
+					"totalAsset": 0,
+					"cashBalance": 0,
+					"positionValue": 0,
+					"totalCost": 0,
+					"unrealizedProfit": 0,
+					"realizedProfit": 0,
+					"totalReturnRate": 0,
+					"sourceCode": ""
+				},
+				"positions": [
+					{
+						"bizId": "",
+						"productBizId": "",
+						"positionSide": "",
+						"quantity": 0,
+						"availableQuantity": 0,
+						"averageCost": 0,
+						"costAmount": 0,
+						"realizedProfit": 0,
+						"lastTradeAt": ""
+					}
+				],
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseMockPortfolioResponse|PageResponseMockPortfolioResponse|
+|&emsp;&emsp;items|当前页数据列表|array|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"portfolioNo": "",
+				"ownerUserBizId": "",
+				"portfolioName": "",
+				"portfolioType": "",
+				"baseCurrency": "",
+				"status": 0,
+				"latestValuation": {
+					"valuationTime": "",
+					"baseCurrency": "",
+					"totalAsset": 0,
+					"cashBalance": 0,
+					"positionValue": 0,
+					"totalCost": 0,
+					"unrealizedProfit": 0,
+					"realizedProfit": 0,
+					"totalReturnRate": 0,
+					"sourceCode": ""
+				},
+				"positions": [
+					{
+						"bizId": "",
+						"productBizId": "",
+						"positionSide": "",
+						"quantity": 0,
+						"availableQuantity": 0,
+						"averageCost": 0,
+						"costAmount": 0,
+						"realizedProfit": 0,
+						"lastTradeAt": ""
+					}
+				],
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+## 执行模拟买入
+
+
+**接口地址**:`/api/mock/portfolios/orders/buy`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>按产品最新1D收盘价模拟金额买入，写入订单、成交、持仓和新估值快照，不触发真实交易。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "portfolioBizId": "",
+  "productBizId": "",
+  "amount": 0,
+  "idempotencyKey": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|executeMockBuyRequest|执行模拟买入请求|body|true|ExecuteMockBuyRequest|ExecuteMockBuyRequest|
+|&emsp;&emsp;portfolioBizId|模拟组合业务唯一标识||true|string||
+|&emsp;&emsp;productBizId|产品业务唯一标识||true|string||
+|&emsp;&emsp;amount|买入金额，不含交易费用||true|number||
+|&emsp;&emsp;idempotencyKey|客户端幂等键，用于避免重复提交||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|买入成功，返回模拟订单执行结果|ResultMockOrderExecutionResponse|
+|400|参数不合法、产品不可Mock交易、行情缺失或现金不足|ResultMockOrderExecutionResponse|
+|401|未登录或会话失效|ResultMockOrderExecutionResponse|
+|403|无权操作该模拟组合|ResultMockOrderExecutionResponse|
+|404|模拟组合或产品不存在|ResultMockOrderExecutionResponse|
+|409|幂等订单状态异常|ResultMockOrderExecutionResponse|
+|500|系统错误|ResultMockOrderExecutionResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-401**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-403**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-409**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+## 根据投资分析报告执行模拟买入
+
+
+**接口地址**:`/api/mock/portfolios/orders/buy-from-report`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>读取报告 investmentPlan.referenceAllocationAmount，并按报告主题或指定产品生成模拟买入订单。低质量报告和数据缺口报告会被拒绝。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "portfolioBizId": "",
+  "reportBizId": "",
+  "productBizId": "",
+  "idempotencyKey": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|executeMockPlanFromReportRequest|从投资分析报告执行模拟买入请求|body|true|ExecuteMockPlanFromReportRequest|ExecuteMockPlanFromReportRequest|
+|&emsp;&emsp;portfolioBizId|模拟组合业务唯一标识||true|string||
+|&emsp;&emsp;reportBizId|投资分析报告业务唯一标识||true|string||
+|&emsp;&emsp;productBizId|可选产品业务唯一标识；为空时按报告主题自动选择产品关系||false|string||
+|&emsp;&emsp;idempotencyKey|客户端幂等键，用于避免重复提交||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|执行成功，返回模拟订单执行结果|ResultMockOrderExecutionResponse|
+|400|报告质量不足、方案不可执行、产品不可Mock交易、行情缺失或现金不足|ResultMockOrderExecutionResponse|
+|401|未登录或会话失效|ResultMockOrderExecutionResponse|
+|403|无权操作该模拟组合|ResultMockOrderExecutionResponse|
+|404|模拟组合、产品或报告不存在|ResultMockOrderExecutionResponse|
+|409|幂等订单状态异常|ResultMockOrderExecutionResponse|
+|500|系统错误|ResultMockOrderExecutionResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-401**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-403**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-409**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+## 撤销模拟订单
+
+
+**接口地址**:`/api/mock/portfolios/orders/cancel`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>撤销当前用户自己的非终态模拟订单。当前即时成交订单已是FILLED终态，会返回明确拒绝原因。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "orderBizId": "",
+  "cancelReason": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|cancelMockOrderRequest|撤销模拟订单请求|body|true|CancelMockOrderRequest|CancelMockOrderRequest|
+|&emsp;&emsp;orderBizId|模拟订单业务唯一标识||true|string||
+|&emsp;&emsp;cancelReason|撤单原因，前端展示和审计使用||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|撤单成功，返回撤销后的模拟订单|ResultMockOrderResponse|
+|400|参数不合法或订单已处于终态|ResultMockOrderResponse|
+|401|未登录或会话失效|ResultMockOrderResponse|
+|403|无权操作该模拟订单|ResultMockOrderResponse|
+|404|模拟订单不存在|ResultMockOrderResponse|
+|500|系统错误|ResultMockOrderResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"orderNo": "",
+		"portfolioBizId": "",
+		"productBizId": "",
+		"orderSide": "",
+		"orderType": "",
+		"currency": "",
+		"requestedPrice": 0,
+		"requestedQuantity": 0,
+		"requestedAmount": 0,
+		"executedQuantity": 0,
+		"executedAmount": 0,
+		"feeAmount": 0,
+		"status": "",
+		"completedAt": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"orderNo": "",
+		"portfolioBizId": "",
+		"productBizId": "",
+		"orderSide": "",
+		"orderType": "",
+		"currency": "",
+		"requestedPrice": 0,
+		"requestedQuantity": 0,
+		"requestedAmount": 0,
+		"executedQuantity": 0,
+		"executedAmount": 0,
+		"feeAmount": 0,
+		"status": "",
+		"completedAt": ""
+	}
+}
+```
+
+
+**响应状态码-401**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"orderNo": "",
+		"portfolioBizId": "",
+		"productBizId": "",
+		"orderSide": "",
+		"orderType": "",
+		"currency": "",
+		"requestedPrice": 0,
+		"requestedQuantity": 0,
+		"requestedAmount": 0,
+		"executedQuantity": 0,
+		"executedAmount": 0,
+		"feeAmount": 0,
+		"status": "",
+		"completedAt": ""
+	}
+}
+```
+
+
+**响应状态码-403**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"orderNo": "",
+		"portfolioBizId": "",
+		"productBizId": "",
+		"orderSide": "",
+		"orderType": "",
+		"currency": "",
+		"requestedPrice": 0,
+		"requestedQuantity": 0,
+		"requestedAmount": 0,
+		"executedQuantity": 0,
+		"executedAmount": 0,
+		"feeAmount": 0,
+		"status": "",
+		"completedAt": ""
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"orderNo": "",
+		"portfolioBizId": "",
+		"productBizId": "",
+		"orderSide": "",
+		"orderType": "",
+		"currency": "",
+		"requestedPrice": 0,
+		"requestedQuantity": 0,
+		"requestedAmount": 0,
+		"executedQuantity": 0,
+		"executedAmount": 0,
+		"feeAmount": 0,
+		"status": "",
+		"completedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"orderNo": "",
+		"portfolioBizId": "",
+		"productBizId": "",
+		"orderSide": "",
+		"orderType": "",
+		"currency": "",
+		"requestedPrice": 0,
+		"requestedQuantity": 0,
+		"requestedAmount": 0,
+		"executedQuantity": 0,
+		"executedAmount": 0,
+		"feeAmount": 0,
+		"status": "",
+		"completedAt": ""
+	}
+}
+```
+
+
+## 查询模拟订单事件
+
+
+**接口地址**:`/api/mock/portfolios/orders/events`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>查询当前用户自己的模拟订单生命周期事件，用于前端展示订单状态追踪和交易审计。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "orderBizId": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|mockOrderEventsRequest|查询模拟订单事件请求|body|true|MockOrderEventsRequest|MockOrderEventsRequest|
+|&emsp;&emsp;orderBizId|模拟订单业务唯一标识||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|查询成功，返回订单事件集合|ResultListOrderEventResponse|
+|400|参数不合法|ResultListOrderEventResponse|
+|401|未登录或会话失效|ResultListOrderEventResponse|
+|403|无权查看该模拟订单事件|ResultListOrderEventResponse|
+|404|模拟订单不存在|ResultListOrderEventResponse|
+|500|系统错误|ResultListOrderEventResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|array|OrderEventResponse|
+|&emsp;&emsp;bizId|订单事件业务唯一标识|string||
+|&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;eventType|事件类型|string||
+|&emsp;&emsp;fromStatus|变更前订单状态|string||
+|&emsp;&emsp;toStatus|变更后订单状态|string||
+|&emsp;&emsp;eventSource|事件来源|string||
+|&emsp;&emsp;operatorBizId|操作者业务唯一标识|string||
+|&emsp;&emsp;eventPayload|脱敏后的事件上下文 JSON|string||
+|&emsp;&emsp;occurredAt|事件发生时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": [
+		{
+			"bizId": "",
+			"orderBizId": "",
+			"eventType": "",
+			"fromStatus": "",
+			"toStatus": "",
+			"eventSource": "",
+			"operatorBizId": "",
+			"eventPayload": "",
+			"occurredAt": ""
+		}
+	]
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|array|OrderEventResponse|
+|&emsp;&emsp;bizId|订单事件业务唯一标识|string||
+|&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;eventType|事件类型|string||
+|&emsp;&emsp;fromStatus|变更前订单状态|string||
+|&emsp;&emsp;toStatus|变更后订单状态|string||
+|&emsp;&emsp;eventSource|事件来源|string||
+|&emsp;&emsp;operatorBizId|操作者业务唯一标识|string||
+|&emsp;&emsp;eventPayload|脱敏后的事件上下文 JSON|string||
+|&emsp;&emsp;occurredAt|事件发生时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": [
+		{
+			"bizId": "",
+			"orderBizId": "",
+			"eventType": "",
+			"fromStatus": "",
+			"toStatus": "",
+			"eventSource": "",
+			"operatorBizId": "",
+			"eventPayload": "",
+			"occurredAt": ""
+		}
+	]
+}
+```
+
+
+**响应状态码-401**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|array|OrderEventResponse|
+|&emsp;&emsp;bizId|订单事件业务唯一标识|string||
+|&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;eventType|事件类型|string||
+|&emsp;&emsp;fromStatus|变更前订单状态|string||
+|&emsp;&emsp;toStatus|变更后订单状态|string||
+|&emsp;&emsp;eventSource|事件来源|string||
+|&emsp;&emsp;operatorBizId|操作者业务唯一标识|string||
+|&emsp;&emsp;eventPayload|脱敏后的事件上下文 JSON|string||
+|&emsp;&emsp;occurredAt|事件发生时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": [
+		{
+			"bizId": "",
+			"orderBizId": "",
+			"eventType": "",
+			"fromStatus": "",
+			"toStatus": "",
+			"eventSource": "",
+			"operatorBizId": "",
+			"eventPayload": "",
+			"occurredAt": ""
+		}
+	]
+}
+```
+
+
+**响应状态码-403**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|array|OrderEventResponse|
+|&emsp;&emsp;bizId|订单事件业务唯一标识|string||
+|&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;eventType|事件类型|string||
+|&emsp;&emsp;fromStatus|变更前订单状态|string||
+|&emsp;&emsp;toStatus|变更后订单状态|string||
+|&emsp;&emsp;eventSource|事件来源|string||
+|&emsp;&emsp;operatorBizId|操作者业务唯一标识|string||
+|&emsp;&emsp;eventPayload|脱敏后的事件上下文 JSON|string||
+|&emsp;&emsp;occurredAt|事件发生时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": [
+		{
+			"bizId": "",
+			"orderBizId": "",
+			"eventType": "",
+			"fromStatus": "",
+			"toStatus": "",
+			"eventSource": "",
+			"operatorBizId": "",
+			"eventPayload": "",
+			"occurredAt": ""
+		}
+	]
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|array|OrderEventResponse|
+|&emsp;&emsp;bizId|订单事件业务唯一标识|string||
+|&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;eventType|事件类型|string||
+|&emsp;&emsp;fromStatus|变更前订单状态|string||
+|&emsp;&emsp;toStatus|变更后订单状态|string||
+|&emsp;&emsp;eventSource|事件来源|string||
+|&emsp;&emsp;operatorBizId|操作者业务唯一标识|string||
+|&emsp;&emsp;eventPayload|脱敏后的事件上下文 JSON|string||
+|&emsp;&emsp;occurredAt|事件发生时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": [
+		{
+			"bizId": "",
+			"orderBizId": "",
+			"eventType": "",
+			"fromStatus": "",
+			"toStatus": "",
+			"eventSource": "",
+			"operatorBizId": "",
+			"eventPayload": "",
+			"occurredAt": ""
+		}
+	]
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|array|OrderEventResponse|
+|&emsp;&emsp;bizId|订单事件业务唯一标识|string||
+|&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;eventType|事件类型|string||
+|&emsp;&emsp;fromStatus|变更前订单状态|string||
+|&emsp;&emsp;toStatus|变更后订单状态|string||
+|&emsp;&emsp;eventSource|事件来源|string||
+|&emsp;&emsp;operatorBizId|操作者业务唯一标识|string||
+|&emsp;&emsp;eventPayload|脱敏后的事件上下文 JSON|string||
+|&emsp;&emsp;occurredAt|事件发生时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": [
+		{
+			"bizId": "",
+			"orderBizId": "",
+			"eventType": "",
+			"fromStatus": "",
+			"toStatus": "",
+			"eventSource": "",
+			"operatorBizId": "",
+			"eventPayload": "",
+			"occurredAt": ""
+		}
+	]
+}
+```
+
+
+## 执行模拟卖出
+
+
+**接口地址**:`/api/mock/portfolios/orders/sell`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>按产品最新1D收盘价模拟数量卖出，写入SELL订单、成交、持仓和新估值快照，不触发真实交易。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "portfolioBizId": "",
+  "productBizId": "",
+  "quantity": 0,
+  "idempotencyKey": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|executeMockSellRequest|执行模拟卖出请求|body|true|ExecuteMockSellRequest|ExecuteMockSellRequest|
+|&emsp;&emsp;portfolioBizId|模拟组合业务唯一标识||true|string||
+|&emsp;&emsp;productBizId|产品业务唯一标识||true|string||
+|&emsp;&emsp;quantity|卖出数量||true|number||
+|&emsp;&emsp;idempotencyKey|客户端幂等键，用于避免重复提交||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|卖出成功，返回模拟订单执行结果|ResultMockOrderExecutionResponse|
+|400|参数不合法、产品不可Mock交易、行情缺失或持仓不足|ResultMockOrderExecutionResponse|
+|401|未登录或会话失效|ResultMockOrderExecutionResponse|
+|403|无权操作该模拟组合|ResultMockOrderExecutionResponse|
+|404|模拟组合、产品或持仓不存在|ResultMockOrderExecutionResponse|
+|409|幂等订单状态异常|ResultMockOrderExecutionResponse|
+|500|系统错误|ResultMockOrderExecutionResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-401**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-403**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-409**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockOrderExecutionResponse|MockOrderExecutionResponse|
+|&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"order": {
+			"bizId": "",
+			"orderNo": "",
+			"portfolioBizId": "",
+			"productBizId": "",
+			"orderSide": "",
+			"orderType": "",
+			"currency": "",
+			"requestedPrice": 0,
+			"requestedQuantity": 0,
+			"requestedAmount": 0,
+			"executedQuantity": 0,
+			"executedAmount": 0,
+			"feeAmount": 0,
+			"status": "",
+			"completedAt": ""
+		},
+		"execution": {
+			"bizId": "",
+			"executionNo": "",
+			"orderBizId": "",
+			"executionPrice": 0,
+			"executionQuantity": 0,
+			"executionAmount": 0,
+			"feeAmount": 0,
+			"executedAt": ""
+		},
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+## 查询模拟组合收益曲线
+
+
+**接口地址**:`/api/mock/portfolios/performance/curve`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>查询组合估值历史，返回最新累计收益率、最大回撤和估值曲线点，用于前端绘制收益曲线。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "portfolioBizId": "",
+  "limit": 0
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|mockPortfolioPerformanceRequest|模拟组合收益曲线请求|body|true|MockPortfolioPerformanceRequest|MockPortfolioPerformanceRequest|
+|&emsp;&emsp;portfolioBizId|模拟组合业务唯一标识||true|string||
+|&emsp;&emsp;limit|收益曲线点数量上限，1-500，默认120||false|integer(int32)||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|查询成功，返回收益曲线响应|ResultMockPortfolioPerformanceResponse|
+|400|参数不合法|ResultMockPortfolioPerformanceResponse|
+|401|未登录或会话失效|ResultMockPortfolioPerformanceResponse|
+|403|无权查看该模拟组合|ResultMockPortfolioPerformanceResponse|
+|404|模拟组合不存在|ResultMockPortfolioPerformanceResponse|
+|500|系统错误|ResultMockPortfolioPerformanceResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioPerformanceResponse|MockPortfolioPerformanceResponse|
+|&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;latestReturnRate|最新累计收益率|number||
+|&emsp;&emsp;maxDrawdown|最大回撤，小数形式|number||
+|&emsp;&emsp;pointCount|收益曲线点数量|integer(int32)||
+|&emsp;&emsp;valuations|估值曲线快照集合|array|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"portfolioBizId": "",
+		"latestReturnRate": 0,
+		"maxDrawdown": 0,
+		"pointCount": 0,
+		"valuations": [
+			{
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			}
+		]
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioPerformanceResponse|MockPortfolioPerformanceResponse|
+|&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;latestReturnRate|最新累计收益率|number||
+|&emsp;&emsp;maxDrawdown|最大回撤，小数形式|number||
+|&emsp;&emsp;pointCount|收益曲线点数量|integer(int32)||
+|&emsp;&emsp;valuations|估值曲线快照集合|array|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"portfolioBizId": "",
+		"latestReturnRate": 0,
+		"maxDrawdown": 0,
+		"pointCount": 0,
+		"valuations": [
+			{
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			}
+		]
+	}
+}
+```
+
+
+**响应状态码-401**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioPerformanceResponse|MockPortfolioPerformanceResponse|
+|&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;latestReturnRate|最新累计收益率|number||
+|&emsp;&emsp;maxDrawdown|最大回撤，小数形式|number||
+|&emsp;&emsp;pointCount|收益曲线点数量|integer(int32)||
+|&emsp;&emsp;valuations|估值曲线快照集合|array|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"portfolioBizId": "",
+		"latestReturnRate": 0,
+		"maxDrawdown": 0,
+		"pointCount": 0,
+		"valuations": [
+			{
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			}
+		]
+	}
+}
+```
+
+
+**响应状态码-403**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioPerformanceResponse|MockPortfolioPerformanceResponse|
+|&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;latestReturnRate|最新累计收益率|number||
+|&emsp;&emsp;maxDrawdown|最大回撤，小数形式|number||
+|&emsp;&emsp;pointCount|收益曲线点数量|integer(int32)||
+|&emsp;&emsp;valuations|估值曲线快照集合|array|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"portfolioBizId": "",
+		"latestReturnRate": 0,
+		"maxDrawdown": 0,
+		"pointCount": 0,
+		"valuations": [
+			{
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			}
+		]
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioPerformanceResponse|MockPortfolioPerformanceResponse|
+|&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;latestReturnRate|最新累计收益率|number||
+|&emsp;&emsp;maxDrawdown|最大回撤，小数形式|number||
+|&emsp;&emsp;pointCount|收益曲线点数量|integer(int32)||
+|&emsp;&emsp;valuations|估值曲线快照集合|array|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"portfolioBizId": "",
+		"latestReturnRate": 0,
+		"maxDrawdown": 0,
+		"pointCount": 0,
+		"valuations": [
+			{
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			}
+		]
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioPerformanceResponse|MockPortfolioPerformanceResponse|
+|&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;latestReturnRate|最新累计收益率|number||
+|&emsp;&emsp;maxDrawdown|最大回撤，小数形式|number||
+|&emsp;&emsp;pointCount|收益曲线点数量|integer(int32)||
+|&emsp;&emsp;valuations|估值曲线快照集合|array|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"portfolioBizId": "",
+		"latestReturnRate": 0,
+		"maxDrawdown": 0,
+		"pointCount": 0,
+		"valuations": [
+			{
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			}
+		]
+	}
+}
+```
+
+
+## 执行模拟再平衡
+
+
+**接口地址**:`/api/mock/portfolios/rebalance/execute`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>按目标产品权重计算当前组合差额，先模拟卖出超配产品，再模拟买入低配产品，返回每条调仓订单和最终组合。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "portfolioBizId": "",
+  "targets": [
+    {
+      "productBizId": "",
+      "targetWeight": 0
+    }
+  ],
+  "minTradeAmount": 0,
+  "idempotencyKey": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|executeMockRebalanceRequest|执行模拟再平衡请求|body|true|ExecuteMockRebalanceRequest|ExecuteMockRebalanceRequest|
+|&emsp;&emsp;portfolioBizId|模拟组合业务唯一标识||true|string||
+|&emsp;&emsp;targets|目标产品权重集合||true|array|TargetWeightRequest|
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识||true|string||
+|&emsp;&emsp;&emsp;&emsp;targetWeight|目标权重，0到1之间的小数||true|number||
+|&emsp;&emsp;minTradeAmount|最小调仓金额，低于该金额的差额不生成订单||false|number||
+|&emsp;&emsp;idempotencyKey|客户端幂等键前缀，用于避免重复提交||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|再平衡成功，返回调仓执行结果|ResultMockRebalanceExecutionResponse|
+|400|目标权重不合法、产品不可Mock交易、行情缺失、现金或持仓不足|ResultMockRebalanceExecutionResponse|
+|401|未登录或会话失效|ResultMockRebalanceExecutionResponse|
+|403|无权操作该模拟组合|ResultMockRebalanceExecutionResponse|
+|404|模拟组合、产品或持仓不存在|ResultMockRebalanceExecutionResponse|
+|409|幂等订单状态异常|ResultMockRebalanceExecutionResponse|
+|500|系统错误|ResultMockRebalanceExecutionResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockRebalanceExecutionResponse|MockRebalanceExecutionResponse|
+|&emsp;&emsp;executions|本次调仓生成的订单执行结果|array|MockOrderExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|调仓后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"executions": [
+			{
+				"order": {
+					"bizId": "",
+					"orderNo": "",
+					"portfolioBizId": "",
+					"productBizId": "",
+					"orderSide": "",
+					"orderType": "",
+					"currency": "",
+					"requestedPrice": 0,
+					"requestedQuantity": 0,
+					"requestedAmount": 0,
+					"executedQuantity": 0,
+					"executedAmount": 0,
+					"feeAmount": 0,
+					"status": "",
+					"completedAt": ""
+				},
+				"execution": {
+					"bizId": "",
+					"executionNo": "",
+					"orderBizId": "",
+					"executionPrice": 0,
+					"executionQuantity": 0,
+					"executionAmount": 0,
+					"feeAmount": 0,
+					"executedAt": ""
+				},
+				"portfolio": {
+					"bizId": "",
+					"portfolioNo": "",
+					"ownerUserBizId": "",
+					"portfolioName": "",
+					"portfolioType": "",
+					"baseCurrency": "",
+					"status": 0,
+					"latestValuation": {
+						"valuationTime": "",
+						"baseCurrency": "",
+						"totalAsset": 0,
+						"cashBalance": 0,
+						"positionValue": 0,
+						"totalCost": 0,
+						"unrealizedProfit": 0,
+						"realizedProfit": 0,
+						"totalReturnRate": 0,
+						"sourceCode": ""
+					},
+					"positions": [
+						{
+							"bizId": "",
+							"productBizId": "",
+							"positionSide": "",
+							"quantity": 0,
+							"availableQuantity": 0,
+							"averageCost": 0,
+							"costAmount": 0,
+							"realizedProfit": 0,
+							"lastTradeAt": ""
+						}
+					],
+					"createdAt": "",
+					"updatedAt": ""
+				}
+			}
+		],
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockRebalanceExecutionResponse|MockRebalanceExecutionResponse|
+|&emsp;&emsp;executions|本次调仓生成的订单执行结果|array|MockOrderExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|调仓后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"executions": [
+			{
+				"order": {
+					"bizId": "",
+					"orderNo": "",
+					"portfolioBizId": "",
+					"productBizId": "",
+					"orderSide": "",
+					"orderType": "",
+					"currency": "",
+					"requestedPrice": 0,
+					"requestedQuantity": 0,
+					"requestedAmount": 0,
+					"executedQuantity": 0,
+					"executedAmount": 0,
+					"feeAmount": 0,
+					"status": "",
+					"completedAt": ""
+				},
+				"execution": {
+					"bizId": "",
+					"executionNo": "",
+					"orderBizId": "",
+					"executionPrice": 0,
+					"executionQuantity": 0,
+					"executionAmount": 0,
+					"feeAmount": 0,
+					"executedAt": ""
+				},
+				"portfolio": {
+					"bizId": "",
+					"portfolioNo": "",
+					"ownerUserBizId": "",
+					"portfolioName": "",
+					"portfolioType": "",
+					"baseCurrency": "",
+					"status": 0,
+					"latestValuation": {
+						"valuationTime": "",
+						"baseCurrency": "",
+						"totalAsset": 0,
+						"cashBalance": 0,
+						"positionValue": 0,
+						"totalCost": 0,
+						"unrealizedProfit": 0,
+						"realizedProfit": 0,
+						"totalReturnRate": 0,
+						"sourceCode": ""
+					},
+					"positions": [
+						{
+							"bizId": "",
+							"productBizId": "",
+							"positionSide": "",
+							"quantity": 0,
+							"availableQuantity": 0,
+							"averageCost": 0,
+							"costAmount": 0,
+							"realizedProfit": 0,
+							"lastTradeAt": ""
+						}
+					],
+					"createdAt": "",
+					"updatedAt": ""
+				}
+			}
+		],
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-401**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockRebalanceExecutionResponse|MockRebalanceExecutionResponse|
+|&emsp;&emsp;executions|本次调仓生成的订单执行结果|array|MockOrderExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|调仓后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"executions": [
+			{
+				"order": {
+					"bizId": "",
+					"orderNo": "",
+					"portfolioBizId": "",
+					"productBizId": "",
+					"orderSide": "",
+					"orderType": "",
+					"currency": "",
+					"requestedPrice": 0,
+					"requestedQuantity": 0,
+					"requestedAmount": 0,
+					"executedQuantity": 0,
+					"executedAmount": 0,
+					"feeAmount": 0,
+					"status": "",
+					"completedAt": ""
+				},
+				"execution": {
+					"bizId": "",
+					"executionNo": "",
+					"orderBizId": "",
+					"executionPrice": 0,
+					"executionQuantity": 0,
+					"executionAmount": 0,
+					"feeAmount": 0,
+					"executedAt": ""
+				},
+				"portfolio": {
+					"bizId": "",
+					"portfolioNo": "",
+					"ownerUserBizId": "",
+					"portfolioName": "",
+					"portfolioType": "",
+					"baseCurrency": "",
+					"status": 0,
+					"latestValuation": {
+						"valuationTime": "",
+						"baseCurrency": "",
+						"totalAsset": 0,
+						"cashBalance": 0,
+						"positionValue": 0,
+						"totalCost": 0,
+						"unrealizedProfit": 0,
+						"realizedProfit": 0,
+						"totalReturnRate": 0,
+						"sourceCode": ""
+					},
+					"positions": [
+						{
+							"bizId": "",
+							"productBizId": "",
+							"positionSide": "",
+							"quantity": 0,
+							"availableQuantity": 0,
+							"averageCost": 0,
+							"costAmount": 0,
+							"realizedProfit": 0,
+							"lastTradeAt": ""
+						}
+					],
+					"createdAt": "",
+					"updatedAt": ""
+				}
+			}
+		],
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-403**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockRebalanceExecutionResponse|MockRebalanceExecutionResponse|
+|&emsp;&emsp;executions|本次调仓生成的订单执行结果|array|MockOrderExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|调仓后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"executions": [
+			{
+				"order": {
+					"bizId": "",
+					"orderNo": "",
+					"portfolioBizId": "",
+					"productBizId": "",
+					"orderSide": "",
+					"orderType": "",
+					"currency": "",
+					"requestedPrice": 0,
+					"requestedQuantity": 0,
+					"requestedAmount": 0,
+					"executedQuantity": 0,
+					"executedAmount": 0,
+					"feeAmount": 0,
+					"status": "",
+					"completedAt": ""
+				},
+				"execution": {
+					"bizId": "",
+					"executionNo": "",
+					"orderBizId": "",
+					"executionPrice": 0,
+					"executionQuantity": 0,
+					"executionAmount": 0,
+					"feeAmount": 0,
+					"executedAt": ""
+				},
+				"portfolio": {
+					"bizId": "",
+					"portfolioNo": "",
+					"ownerUserBizId": "",
+					"portfolioName": "",
+					"portfolioType": "",
+					"baseCurrency": "",
+					"status": 0,
+					"latestValuation": {
+						"valuationTime": "",
+						"baseCurrency": "",
+						"totalAsset": 0,
+						"cashBalance": 0,
+						"positionValue": 0,
+						"totalCost": 0,
+						"unrealizedProfit": 0,
+						"realizedProfit": 0,
+						"totalReturnRate": 0,
+						"sourceCode": ""
+					},
+					"positions": [
+						{
+							"bizId": "",
+							"productBizId": "",
+							"positionSide": "",
+							"quantity": 0,
+							"availableQuantity": 0,
+							"averageCost": 0,
+							"costAmount": 0,
+							"realizedProfit": 0,
+							"lastTradeAt": ""
+						}
+					],
+					"createdAt": "",
+					"updatedAt": ""
+				}
+			}
+		],
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockRebalanceExecutionResponse|MockRebalanceExecutionResponse|
+|&emsp;&emsp;executions|本次调仓生成的订单执行结果|array|MockOrderExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|调仓后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"executions": [
+			{
+				"order": {
+					"bizId": "",
+					"orderNo": "",
+					"portfolioBizId": "",
+					"productBizId": "",
+					"orderSide": "",
+					"orderType": "",
+					"currency": "",
+					"requestedPrice": 0,
+					"requestedQuantity": 0,
+					"requestedAmount": 0,
+					"executedQuantity": 0,
+					"executedAmount": 0,
+					"feeAmount": 0,
+					"status": "",
+					"completedAt": ""
+				},
+				"execution": {
+					"bizId": "",
+					"executionNo": "",
+					"orderBizId": "",
+					"executionPrice": 0,
+					"executionQuantity": 0,
+					"executionAmount": 0,
+					"feeAmount": 0,
+					"executedAt": ""
+				},
+				"portfolio": {
+					"bizId": "",
+					"portfolioNo": "",
+					"ownerUserBizId": "",
+					"portfolioName": "",
+					"portfolioType": "",
+					"baseCurrency": "",
+					"status": 0,
+					"latestValuation": {
+						"valuationTime": "",
+						"baseCurrency": "",
+						"totalAsset": 0,
+						"cashBalance": 0,
+						"positionValue": 0,
+						"totalCost": 0,
+						"unrealizedProfit": 0,
+						"realizedProfit": 0,
+						"totalReturnRate": 0,
+						"sourceCode": ""
+					},
+					"positions": [
+						{
+							"bizId": "",
+							"productBizId": "",
+							"positionSide": "",
+							"quantity": 0,
+							"availableQuantity": 0,
+							"averageCost": 0,
+							"costAmount": 0,
+							"realizedProfit": 0,
+							"lastTradeAt": ""
+						}
+					],
+					"createdAt": "",
+					"updatedAt": ""
+				}
+			}
+		],
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-409**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockRebalanceExecutionResponse|MockRebalanceExecutionResponse|
+|&emsp;&emsp;executions|本次调仓生成的订单执行结果|array|MockOrderExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|调仓后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"executions": [
+			{
+				"order": {
+					"bizId": "",
+					"orderNo": "",
+					"portfolioBizId": "",
+					"productBizId": "",
+					"orderSide": "",
+					"orderType": "",
+					"currency": "",
+					"requestedPrice": 0,
+					"requestedQuantity": 0,
+					"requestedAmount": 0,
+					"executedQuantity": 0,
+					"executedAmount": 0,
+					"feeAmount": 0,
+					"status": "",
+					"completedAt": ""
+				},
+				"execution": {
+					"bizId": "",
+					"executionNo": "",
+					"orderBizId": "",
+					"executionPrice": 0,
+					"executionQuantity": 0,
+					"executionAmount": 0,
+					"feeAmount": 0,
+					"executedAt": ""
+				},
+				"portfolio": {
+					"bizId": "",
+					"portfolioNo": "",
+					"ownerUserBizId": "",
+					"portfolioName": "",
+					"portfolioType": "",
+					"baseCurrency": "",
+					"status": 0,
+					"latestValuation": {
+						"valuationTime": "",
+						"baseCurrency": "",
+						"totalAsset": 0,
+						"cashBalance": 0,
+						"positionValue": 0,
+						"totalCost": 0,
+						"unrealizedProfit": 0,
+						"realizedProfit": 0,
+						"totalReturnRate": 0,
+						"sourceCode": ""
+					},
+					"positions": [
+						{
+							"bizId": "",
+							"productBizId": "",
+							"positionSide": "",
+							"quantity": 0,
+							"availableQuantity": 0,
+							"averageCost": 0,
+							"costAmount": 0,
+							"realizedProfit": 0,
+							"lastTradeAt": ""
+						}
+					],
+					"createdAt": "",
+					"updatedAt": ""
+				}
+			}
+		],
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockRebalanceExecutionResponse|MockRebalanceExecutionResponse|
+|&emsp;&emsp;executions|本次调仓生成的订单执行结果|array|MockOrderExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;order|模拟订单|MockOrderResponse|MockOrderResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderNo|订单展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioBizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderSide|订单方向|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderType|订单类型|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;currency|订单币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedPrice|委托价格|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedQuantity|委托数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;requestedAmount|委托金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;feeAmount|交易费用|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;status|订单状态|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;completedAt|完成时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;execution|模拟成交|TradeExecutionResponse|TradeExecutionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|成交业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionNo|成交展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;orderBizId|订单业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionPrice|成交价格|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionQuantity|成交数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executionAmount|成交金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;feeAmount|成交费用|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;executedAt|成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;portfolio|成交后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+|&emsp;&emsp;portfolio|调仓后的模拟组合详情|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"executions": [
+			{
+				"order": {
+					"bizId": "",
+					"orderNo": "",
+					"portfolioBizId": "",
+					"productBizId": "",
+					"orderSide": "",
+					"orderType": "",
+					"currency": "",
+					"requestedPrice": 0,
+					"requestedQuantity": 0,
+					"requestedAmount": 0,
+					"executedQuantity": 0,
+					"executedAmount": 0,
+					"feeAmount": 0,
+					"status": "",
+					"completedAt": ""
+				},
+				"execution": {
+					"bizId": "",
+					"executionNo": "",
+					"orderBizId": "",
+					"executionPrice": 0,
+					"executionQuantity": 0,
+					"executionAmount": 0,
+					"feeAmount": 0,
+					"executedAt": ""
+				},
+				"portfolio": {
+					"bizId": "",
+					"portfolioNo": "",
+					"ownerUserBizId": "",
+					"portfolioName": "",
+					"portfolioType": "",
+					"baseCurrency": "",
+					"status": 0,
+					"latestValuation": {
+						"valuationTime": "",
+						"baseCurrency": "",
+						"totalAsset": 0,
+						"cashBalance": 0,
+						"positionValue": 0,
+						"totalCost": 0,
+						"unrealizedProfit": 0,
+						"realizedProfit": 0,
+						"totalReturnRate": 0,
+						"sourceCode": ""
+					},
+					"positions": [
+						{
+							"bizId": "",
+							"productBizId": "",
+							"positionSide": "",
+							"quantity": 0,
+							"availableQuantity": 0,
+							"averageCost": 0,
+							"costAmount": 0,
+							"realizedProfit": 0,
+							"lastTradeAt": ""
+						}
+					],
+					"createdAt": "",
+					"updatedAt": ""
+				}
+			}
+		],
+		"portfolio": {
+			"bizId": "",
+			"portfolioNo": "",
+			"ownerUserBizId": "",
+			"portfolioName": "",
+			"portfolioType": "",
+			"baseCurrency": "",
+			"status": 0,
+			"latestValuation": {
+				"valuationTime": "",
+				"baseCurrency": "",
+				"totalAsset": 0,
+				"cashBalance": 0,
+				"positionValue": 0,
+				"totalCost": 0,
+				"unrealizedProfit": 0,
+				"realizedProfit": 0,
+				"totalReturnRate": 0,
+				"sourceCode": ""
+			},
+			"positions": [
+				{
+					"bizId": "",
+					"productBizId": "",
+					"positionSide": "",
+					"quantity": 0,
+					"availableQuantity": 0,
+					"averageCost": 0,
+					"costAmount": 0,
+					"realizedProfit": 0,
+					"lastTradeAt": ""
+				}
+			],
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	}
+}
+```
+
+
+## 刷新模拟组合估值
+
+
+**接口地址**:`/api/mock/portfolios/valuations/refresh`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>按当前持仓和产品最新1D行情生成新的估值快照，返回刷新后的组合详情，用于前端手动刷新收益。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "portfolioBizId": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|mockPortfolioDetailRequest|模拟组合详情请求|body|true|MockPortfolioDetailRequest|MockPortfolioDetailRequest|
+|&emsp;&emsp;portfolioBizId|模拟组合业务唯一标识||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|刷新成功，返回模拟组合详情|ResultMockPortfolioResponse|
+|400|参数不合法或持仓产品缺少最新行情|ResultMockPortfolioResponse|
+|401|未登录或会话失效|ResultMockPortfolioResponse|
+|403|无权操作该模拟组合|ResultMockPortfolioResponse|
+|404|模拟组合不存在|ResultMockPortfolioResponse|
+|500|系统错误|ResultMockPortfolioResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"portfolioNo": "",
+		"ownerUserBizId": "",
+		"portfolioName": "",
+		"portfolioType": "",
+		"baseCurrency": "",
+		"status": 0,
+		"latestValuation": {
+			"valuationTime": "",
+			"baseCurrency": "",
+			"totalAsset": 0,
+			"cashBalance": 0,
+			"positionValue": 0,
+			"totalCost": 0,
+			"unrealizedProfit": 0,
+			"realizedProfit": 0,
+			"totalReturnRate": 0,
+			"sourceCode": ""
+		},
+		"positions": [
+			{
+				"bizId": "",
+				"productBizId": "",
+				"positionSide": "",
+				"quantity": 0,
+				"availableQuantity": 0,
+				"averageCost": 0,
+				"costAmount": 0,
+				"realizedProfit": 0,
+				"lastTradeAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"portfolioNo": "",
+		"ownerUserBizId": "",
+		"portfolioName": "",
+		"portfolioType": "",
+		"baseCurrency": "",
+		"status": 0,
+		"latestValuation": {
+			"valuationTime": "",
+			"baseCurrency": "",
+			"totalAsset": 0,
+			"cashBalance": 0,
+			"positionValue": 0,
+			"totalCost": 0,
+			"unrealizedProfit": 0,
+			"realizedProfit": 0,
+			"totalReturnRate": 0,
+			"sourceCode": ""
+		},
+		"positions": [
+			{
+				"bizId": "",
+				"productBizId": "",
+				"positionSide": "",
+				"quantity": 0,
+				"availableQuantity": 0,
+				"averageCost": 0,
+				"costAmount": 0,
+				"realizedProfit": 0,
+				"lastTradeAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-401**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"portfolioNo": "",
+		"ownerUserBizId": "",
+		"portfolioName": "",
+		"portfolioType": "",
+		"baseCurrency": "",
+		"status": 0,
+		"latestValuation": {
+			"valuationTime": "",
+			"baseCurrency": "",
+			"totalAsset": 0,
+			"cashBalance": 0,
+			"positionValue": 0,
+			"totalCost": 0,
+			"unrealizedProfit": 0,
+			"realizedProfit": 0,
+			"totalReturnRate": 0,
+			"sourceCode": ""
+		},
+		"positions": [
+			{
+				"bizId": "",
+				"productBizId": "",
+				"positionSide": "",
+				"quantity": 0,
+				"availableQuantity": 0,
+				"averageCost": 0,
+				"costAmount": 0,
+				"realizedProfit": 0,
+				"lastTradeAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-403**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"portfolioNo": "",
+		"ownerUserBizId": "",
+		"portfolioName": "",
+		"portfolioType": "",
+		"baseCurrency": "",
+		"status": 0,
+		"latestValuation": {
+			"valuationTime": "",
+			"baseCurrency": "",
+			"totalAsset": 0,
+			"cashBalance": 0,
+			"positionValue": 0,
+			"totalCost": 0,
+			"unrealizedProfit": 0,
+			"realizedProfit": 0,
+			"totalReturnRate": 0,
+			"sourceCode": ""
+		},
+		"positions": [
+			{
+				"bizId": "",
+				"productBizId": "",
+				"positionSide": "",
+				"quantity": 0,
+				"availableQuantity": 0,
+				"averageCost": 0,
+				"costAmount": 0,
+				"realizedProfit": 0,
+				"lastTradeAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"portfolioNo": "",
+		"ownerUserBizId": "",
+		"portfolioName": "",
+		"portfolioType": "",
+		"baseCurrency": "",
+		"status": 0,
+		"latestValuation": {
+			"valuationTime": "",
+			"baseCurrency": "",
+			"totalAsset": 0,
+			"cashBalance": 0,
+			"positionValue": 0,
+			"totalCost": 0,
+			"unrealizedProfit": 0,
+			"realizedProfit": 0,
+			"totalReturnRate": 0,
+			"sourceCode": ""
+		},
+		"positions": [
+			{
+				"bizId": "",
+				"productBizId": "",
+				"positionSide": "",
+				"quantity": 0,
+				"availableQuantity": 0,
+				"averageCost": 0,
+				"costAmount": 0,
+				"realizedProfit": 0,
+				"lastTradeAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|MockPortfolioResponse|MockPortfolioResponse|
+|&emsp;&emsp;bizId|组合业务唯一标识|string||
+|&emsp;&emsp;portfolioNo|组合展示编号|string||
+|&emsp;&emsp;ownerUserBizId|组合所有者用户业务标识|string||
+|&emsp;&emsp;portfolioName|组合名称|string||
+|&emsp;&emsp;portfolioType|组合类型，当前固定为 SIMULATION|string||
+|&emsp;&emsp;baseCurrency|基础计价币种|string||
+|&emsp;&emsp;status|组合状态：0关闭、1正常、2冻结|integer(int32)||
+|&emsp;&emsp;latestValuation|最新估值快照|PortfolioValuationResponse|PortfolioValuationResponse|
+|&emsp;&emsp;&emsp;&emsp;valuationTime|估值时点（北京时间）|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;baseCurrency|估值计价币种|string||
+|&emsp;&emsp;&emsp;&emsp;totalAsset|组合总资产|number||
+|&emsp;&emsp;&emsp;&emsp;cashBalance|现金余额|number||
+|&emsp;&emsp;&emsp;&emsp;positionValue|持仓市值|number||
+|&emsp;&emsp;&emsp;&emsp;totalCost|持仓总成本|number||
+|&emsp;&emsp;&emsp;&emsp;unrealizedProfit|未实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;totalReturnRate|累计收益率|number||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|估值来源编码|string||
+|&emsp;&emsp;positions|当前持仓集合；列表页为空，详情页返回|array|PositionResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|持仓业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;productBizId|产品业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;positionSide|持仓方向：LONG/SHORT|string||
+|&emsp;&emsp;&emsp;&emsp;quantity|当前持仓数量|number||
+|&emsp;&emsp;&emsp;&emsp;availableQuantity|当前可交易数量|number||
+|&emsp;&emsp;&emsp;&emsp;averageCost|平均持仓成本|number||
+|&emsp;&emsp;&emsp;&emsp;costAmount|持仓成本金额|number||
+|&emsp;&emsp;&emsp;&emsp;realizedProfit|累计已实现盈亏|number||
+|&emsp;&emsp;&emsp;&emsp;lastTradeAt|最近一次影响该持仓的成交时间（北京时间）|string(date-time)||
+|&emsp;&emsp;createdAt|记录创建时间（北京时间）|string(date-time)||
+|&emsp;&emsp;updatedAt|记录最后更新时间（北京时间）|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"portfolioNo": "",
+		"ownerUserBizId": "",
+		"portfolioName": "",
+		"portfolioType": "",
+		"baseCurrency": "",
+		"status": 0,
+		"latestValuation": {
+			"valuationTime": "",
+			"baseCurrency": "",
+			"totalAsset": 0,
+			"cashBalance": 0,
+			"positionValue": 0,
+			"totalCost": 0,
+			"unrealizedProfit": 0,
+			"realizedProfit": 0,
+			"totalReturnRate": 0,
+			"sourceCode": ""
+		},
+		"positions": [
+			{
+				"bizId": "",
+				"productBizId": "",
+				"positionSide": "",
+				"quantity": 0,
+				"availableQuantity": 0,
+				"averageCost": 0,
+				"costAmount": 0,
+				"realizedProfit": 0,
+				"lastTradeAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+# 数据源治理
+
+
+## 保存数据源健康状态
+
+
+**接口地址**:`/api/admin/data-sources/health/save`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>保存数据源最近成功、失败、成功率、延迟和失败原因，用于后台数据源看板。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "sourceCode": "",
+  "lastSuccessAt": "",
+  "lastFailureAt": "",
+  "successRate": 0,
+  "avgLatencyMs": 0,
+  "failureReason": "",
+  "sampleCount": 0
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|saveDataSourceHealthRequest|保存数据源健康状态请求|body|true|SaveDataSourceHealthRequest|SaveDataSourceHealthRequest|
+|&emsp;&emsp;sourceCode|数据源稳定编码||true|string||
+|&emsp;&emsp;lastSuccessAt|最近成功采集时间||false|string(date-time)||
+|&emsp;&emsp;lastFailureAt|最近失败时间||false|string(date-time)||
+|&emsp;&emsp;successRate|近期成功率，0-1||false|number||
+|&emsp;&emsp;avgLatencyMs|平均响应耗时毫秒||false|integer(int32)||
+|&emsp;&emsp;failureReason|最近失败原因摘要||false|string||
+|&emsp;&emsp;sampleCount|最近窗口样本数量||false|integer(int32)||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|保存成功，返回数据源治理响应|ResultDataSourceResponse|
+|400|参数不合法|ResultDataSourceResponse|
+|404|数据源不存在|ResultDataSourceResponse|
+|500|系统错误|ResultDataSourceResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|DataSourceResponse|DataSourceResponse|
+|&emsp;&emsp;bizId|数据源业务唯一标识|string||
+|&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;sourceName|数据源展示名称|string||
+|&emsp;&emsp;sourceType|数据源类型|string||
+|&emsp;&emsp;trustLevel|来源等级|string||
+|&emsp;&emsp;baseUrl|数据源入口地址|string||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;fetchFrequency|采集频率说明或 cron 表达式|string||
+|&emsp;&emsp;owner|负责人或维护方|string||
+|&emsp;&emsp;description|数据源用途说明|string||
+|&emsp;&emsp;health|健康状态|DataSourceHealthResponse|DataSourceHealthResponse|
+|&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;lastSuccessAt|最近成功采集时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;lastFailureAt|最近失败时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;successRate|近期成功率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;avgLatencyMs|平均响应耗时毫秒|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;failureReason|最近失败原因摘要|string||
+|&emsp;&emsp;&emsp;&emsp;sampleCount|最近窗口样本数量|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;latestQuality|最新质量快照|DataQualitySnapshotResponse|DataQualitySnapshotResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|数据质量快照业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;dataType|数据类型|string||
+|&emsp;&emsp;&emsp;&emsp;qualityScore|综合质量分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;missingRate|缺失率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;duplicateRate|重复率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;freshnessScore|新鲜度分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sampleCount|参与评估样本数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;snapshotTime|质量快照时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;detail|质量评估上下文和解释 JSON|string||
+|&emsp;&emsp;qualityLevel|质量等级|string||
+|&emsp;&emsp;displayMessage|前端展示提示文案|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"sourceCode": "",
+		"sourceName": "",
+		"sourceType": "",
+		"trustLevel": "",
+		"baseUrl": "",
+		"enabled": true,
+		"fetchFrequency": "",
+		"owner": "",
+		"description": "",
+		"health": {
+			"sourceCode": "",
+			"lastSuccessAt": "",
+			"lastFailureAt": "",
+			"successRate": 0,
+			"avgLatencyMs": 0,
+			"failureReason": "",
+			"sampleCount": 0,
+			"updatedAt": ""
+		},
+		"latestQuality": {
+			"bizId": "",
+			"sourceCode": "",
+			"dataType": "",
+			"qualityScore": 0,
+			"missingRate": 0,
+			"duplicateRate": 0,
+			"freshnessScore": 0,
+			"sampleCount": 0,
+			"snapshotTime": "",
+			"detail": ""
+		},
+		"qualityLevel": "",
+		"displayMessage": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|DataSourceResponse|DataSourceResponse|
+|&emsp;&emsp;bizId|数据源业务唯一标识|string||
+|&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;sourceName|数据源展示名称|string||
+|&emsp;&emsp;sourceType|数据源类型|string||
+|&emsp;&emsp;trustLevel|来源等级|string||
+|&emsp;&emsp;baseUrl|数据源入口地址|string||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;fetchFrequency|采集频率说明或 cron 表达式|string||
+|&emsp;&emsp;owner|负责人或维护方|string||
+|&emsp;&emsp;description|数据源用途说明|string||
+|&emsp;&emsp;health|健康状态|DataSourceHealthResponse|DataSourceHealthResponse|
+|&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;lastSuccessAt|最近成功采集时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;lastFailureAt|最近失败时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;successRate|近期成功率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;avgLatencyMs|平均响应耗时毫秒|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;failureReason|最近失败原因摘要|string||
+|&emsp;&emsp;&emsp;&emsp;sampleCount|最近窗口样本数量|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;latestQuality|最新质量快照|DataQualitySnapshotResponse|DataQualitySnapshotResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|数据质量快照业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;dataType|数据类型|string||
+|&emsp;&emsp;&emsp;&emsp;qualityScore|综合质量分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;missingRate|缺失率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;duplicateRate|重复率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;freshnessScore|新鲜度分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sampleCount|参与评估样本数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;snapshotTime|质量快照时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;detail|质量评估上下文和解释 JSON|string||
+|&emsp;&emsp;qualityLevel|质量等级|string||
+|&emsp;&emsp;displayMessage|前端展示提示文案|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"sourceCode": "",
+		"sourceName": "",
+		"sourceType": "",
+		"trustLevel": "",
+		"baseUrl": "",
+		"enabled": true,
+		"fetchFrequency": "",
+		"owner": "",
+		"description": "",
+		"health": {
+			"sourceCode": "",
+			"lastSuccessAt": "",
+			"lastFailureAt": "",
+			"successRate": 0,
+			"avgLatencyMs": 0,
+			"failureReason": "",
+			"sampleCount": 0,
+			"updatedAt": ""
+		},
+		"latestQuality": {
+			"bizId": "",
+			"sourceCode": "",
+			"dataType": "",
+			"qualityScore": 0,
+			"missingRate": 0,
+			"duplicateRate": 0,
+			"freshnessScore": 0,
+			"sampleCount": 0,
+			"snapshotTime": "",
+			"detail": ""
+		},
+		"qualityLevel": "",
+		"displayMessage": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|DataSourceResponse|DataSourceResponse|
+|&emsp;&emsp;bizId|数据源业务唯一标识|string||
+|&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;sourceName|数据源展示名称|string||
+|&emsp;&emsp;sourceType|数据源类型|string||
+|&emsp;&emsp;trustLevel|来源等级|string||
+|&emsp;&emsp;baseUrl|数据源入口地址|string||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;fetchFrequency|采集频率说明或 cron 表达式|string||
+|&emsp;&emsp;owner|负责人或维护方|string||
+|&emsp;&emsp;description|数据源用途说明|string||
+|&emsp;&emsp;health|健康状态|DataSourceHealthResponse|DataSourceHealthResponse|
+|&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;lastSuccessAt|最近成功采集时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;lastFailureAt|最近失败时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;successRate|近期成功率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;avgLatencyMs|平均响应耗时毫秒|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;failureReason|最近失败原因摘要|string||
+|&emsp;&emsp;&emsp;&emsp;sampleCount|最近窗口样本数量|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;latestQuality|最新质量快照|DataQualitySnapshotResponse|DataQualitySnapshotResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|数据质量快照业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;dataType|数据类型|string||
+|&emsp;&emsp;&emsp;&emsp;qualityScore|综合质量分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;missingRate|缺失率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;duplicateRate|重复率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;freshnessScore|新鲜度分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sampleCount|参与评估样本数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;snapshotTime|质量快照时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;detail|质量评估上下文和解释 JSON|string||
+|&emsp;&emsp;qualityLevel|质量等级|string||
+|&emsp;&emsp;displayMessage|前端展示提示文案|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"sourceCode": "",
+		"sourceName": "",
+		"sourceType": "",
+		"trustLevel": "",
+		"baseUrl": "",
+		"enabled": true,
+		"fetchFrequency": "",
+		"owner": "",
+		"description": "",
+		"health": {
+			"sourceCode": "",
+			"lastSuccessAt": "",
+			"lastFailureAt": "",
+			"successRate": 0,
+			"avgLatencyMs": 0,
+			"failureReason": "",
+			"sampleCount": 0,
+			"updatedAt": ""
+		},
+		"latestQuality": {
+			"bizId": "",
+			"sourceCode": "",
+			"dataType": "",
+			"qualityScore": 0,
+			"missingRate": 0,
+			"duplicateRate": 0,
+			"freshnessScore": 0,
+			"sampleCount": 0,
+			"snapshotTime": "",
+			"detail": ""
+		},
+		"qualityLevel": "",
+		"displayMessage": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|DataSourceResponse|DataSourceResponse|
+|&emsp;&emsp;bizId|数据源业务唯一标识|string||
+|&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;sourceName|数据源展示名称|string||
+|&emsp;&emsp;sourceType|数据源类型|string||
+|&emsp;&emsp;trustLevel|来源等级|string||
+|&emsp;&emsp;baseUrl|数据源入口地址|string||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;fetchFrequency|采集频率说明或 cron 表达式|string||
+|&emsp;&emsp;owner|负责人或维护方|string||
+|&emsp;&emsp;description|数据源用途说明|string||
+|&emsp;&emsp;health|健康状态|DataSourceHealthResponse|DataSourceHealthResponse|
+|&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;lastSuccessAt|最近成功采集时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;lastFailureAt|最近失败时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;successRate|近期成功率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;avgLatencyMs|平均响应耗时毫秒|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;failureReason|最近失败原因摘要|string||
+|&emsp;&emsp;&emsp;&emsp;sampleCount|最近窗口样本数量|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;latestQuality|最新质量快照|DataQualitySnapshotResponse|DataQualitySnapshotResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|数据质量快照业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;dataType|数据类型|string||
+|&emsp;&emsp;&emsp;&emsp;qualityScore|综合质量分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;missingRate|缺失率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;duplicateRate|重复率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;freshnessScore|新鲜度分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sampleCount|参与评估样本数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;snapshotTime|质量快照时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;detail|质量评估上下文和解释 JSON|string||
+|&emsp;&emsp;qualityLevel|质量等级|string||
+|&emsp;&emsp;displayMessage|前端展示提示文案|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"sourceCode": "",
+		"sourceName": "",
+		"sourceType": "",
+		"trustLevel": "",
+		"baseUrl": "",
+		"enabled": true,
+		"fetchFrequency": "",
+		"owner": "",
+		"description": "",
+		"health": {
+			"sourceCode": "",
+			"lastSuccessAt": "",
+			"lastFailureAt": "",
+			"successRate": 0,
+			"avgLatencyMs": 0,
+			"failureReason": "",
+			"sampleCount": 0,
+			"updatedAt": ""
+		},
+		"latestQuality": {
+			"bizId": "",
+			"sourceCode": "",
+			"dataType": "",
+			"qualityScore": 0,
+			"missingRate": 0,
+			"duplicateRate": 0,
+			"freshnessScore": 0,
+			"sampleCount": 0,
+			"snapshotTime": "",
+			"detail": ""
+		},
+		"qualityLevel": "",
+		"displayMessage": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+## 分页查询数据源
+
+
+**接口地址**:`/api/admin/data-sources/list`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>按关键字、类型、来源等级和启用状态查询数据源，并返回健康状态和最新质量快照。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "keyword": "",
+  "sourceType": "",
+  "trustLevel": "",
+  "enabled": true,
+  "page": 0,
+  "size": 0,
+  "sort": "",
+  "direction": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|dataSourceListRequest|数据源列表请求|body|true|DataSourceListRequest|DataSourceListRequest|
+|&emsp;&emsp;keyword|关键字，匹配编码或名称||false|string||
+|&emsp;&emsp;sourceType|数据源类型筛选||false|string||
+|&emsp;&emsp;trustLevel|来源等级筛选||false|string||
+|&emsp;&emsp;enabled|启用状态筛选||false|boolean||
+|&emsp;&emsp;page|页码，从1开始||false|integer(int32)||
+|&emsp;&emsp;size|每页数量||false|integer(int32)||
+|&emsp;&emsp;sort|排序字段||false|string||
+|&emsp;&emsp;direction|排序方向：asc/desc||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|查询成功，返回数据源分页响应|ResultPageResponseDataSourceResponse|
+|400|分页或筛选参数不合法|ResultPageResponseDataSourceResponse|
+|500|系统错误|ResultPageResponseDataSourceResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseDataSourceResponse|PageResponseDataSourceResponse|
+|&emsp;&emsp;items|当前页数据列表|array|DataSourceResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|数据源业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;sourceName|数据源展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;sourceType|数据源类型|string||
+|&emsp;&emsp;&emsp;&emsp;trustLevel|来源等级|string||
+|&emsp;&emsp;&emsp;&emsp;baseUrl|数据源入口地址|string||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;fetchFrequency|采集频率说明或 cron 表达式|string||
+|&emsp;&emsp;&emsp;&emsp;owner|负责人或维护方|string||
+|&emsp;&emsp;&emsp;&emsp;description|数据源用途说明|string||
+|&emsp;&emsp;&emsp;&emsp;health|健康状态|DataSourceHealthResponse|DataSourceHealthResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastSuccessAt|最近成功采集时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastFailureAt|最近失败时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;successRate|近期成功率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;avgLatencyMs|平均响应耗时毫秒|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;failureReason|最近失败原因摘要|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sampleCount|最近窗口样本数量|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;latestQuality|最新质量快照|DataQualitySnapshotResponse|DataQualitySnapshotResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|数据质量快照业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;dataType|数据类型|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;qualityScore|综合质量分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;missingRate|缺失率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;duplicateRate|重复率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;freshnessScore|新鲜度分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sampleCount|参与评估样本数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;snapshotTime|质量快照时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;detail|质量评估上下文和解释 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;qualityLevel|质量等级|string||
+|&emsp;&emsp;&emsp;&emsp;displayMessage|前端展示提示文案|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"sourceCode": "",
+				"sourceName": "",
+				"sourceType": "",
+				"trustLevel": "",
+				"baseUrl": "",
+				"enabled": true,
+				"fetchFrequency": "",
+				"owner": "",
+				"description": "",
+				"health": {
+					"sourceCode": "",
+					"lastSuccessAt": "",
+					"lastFailureAt": "",
+					"successRate": 0,
+					"avgLatencyMs": 0,
+					"failureReason": "",
+					"sampleCount": 0,
+					"updatedAt": ""
+				},
+				"latestQuality": {
+					"bizId": "",
+					"sourceCode": "",
+					"dataType": "",
+					"qualityScore": 0,
+					"missingRate": 0,
+					"duplicateRate": 0,
+					"freshnessScore": 0,
+					"sampleCount": 0,
+					"snapshotTime": "",
+					"detail": ""
+				},
+				"qualityLevel": "",
+				"displayMessage": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseDataSourceResponse|PageResponseDataSourceResponse|
+|&emsp;&emsp;items|当前页数据列表|array|DataSourceResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|数据源业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;sourceName|数据源展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;sourceType|数据源类型|string||
+|&emsp;&emsp;&emsp;&emsp;trustLevel|来源等级|string||
+|&emsp;&emsp;&emsp;&emsp;baseUrl|数据源入口地址|string||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;fetchFrequency|采集频率说明或 cron 表达式|string||
+|&emsp;&emsp;&emsp;&emsp;owner|负责人或维护方|string||
+|&emsp;&emsp;&emsp;&emsp;description|数据源用途说明|string||
+|&emsp;&emsp;&emsp;&emsp;health|健康状态|DataSourceHealthResponse|DataSourceHealthResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastSuccessAt|最近成功采集时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastFailureAt|最近失败时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;successRate|近期成功率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;avgLatencyMs|平均响应耗时毫秒|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;failureReason|最近失败原因摘要|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sampleCount|最近窗口样本数量|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;latestQuality|最新质量快照|DataQualitySnapshotResponse|DataQualitySnapshotResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|数据质量快照业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;dataType|数据类型|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;qualityScore|综合质量分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;missingRate|缺失率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;duplicateRate|重复率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;freshnessScore|新鲜度分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sampleCount|参与评估样本数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;snapshotTime|质量快照时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;detail|质量评估上下文和解释 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;qualityLevel|质量等级|string||
+|&emsp;&emsp;&emsp;&emsp;displayMessage|前端展示提示文案|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"sourceCode": "",
+				"sourceName": "",
+				"sourceType": "",
+				"trustLevel": "",
+				"baseUrl": "",
+				"enabled": true,
+				"fetchFrequency": "",
+				"owner": "",
+				"description": "",
+				"health": {
+					"sourceCode": "",
+					"lastSuccessAt": "",
+					"lastFailureAt": "",
+					"successRate": 0,
+					"avgLatencyMs": 0,
+					"failureReason": "",
+					"sampleCount": 0,
+					"updatedAt": ""
+				},
+				"latestQuality": {
+					"bizId": "",
+					"sourceCode": "",
+					"dataType": "",
+					"qualityScore": 0,
+					"missingRate": 0,
+					"duplicateRate": 0,
+					"freshnessScore": 0,
+					"sampleCount": 0,
+					"snapshotTime": "",
+					"detail": ""
+				},
+				"qualityLevel": "",
+				"displayMessage": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseDataSourceResponse|PageResponseDataSourceResponse|
+|&emsp;&emsp;items|当前页数据列表|array|DataSourceResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|数据源业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;sourceName|数据源展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;sourceType|数据源类型|string||
+|&emsp;&emsp;&emsp;&emsp;trustLevel|来源等级|string||
+|&emsp;&emsp;&emsp;&emsp;baseUrl|数据源入口地址|string||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;fetchFrequency|采集频率说明或 cron 表达式|string||
+|&emsp;&emsp;&emsp;&emsp;owner|负责人或维护方|string||
+|&emsp;&emsp;&emsp;&emsp;description|数据源用途说明|string||
+|&emsp;&emsp;&emsp;&emsp;health|健康状态|DataSourceHealthResponse|DataSourceHealthResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastSuccessAt|最近成功采集时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastFailureAt|最近失败时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;successRate|近期成功率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;avgLatencyMs|平均响应耗时毫秒|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;failureReason|最近失败原因摘要|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sampleCount|最近窗口样本数量|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;latestQuality|最新质量快照|DataQualitySnapshotResponse|DataQualitySnapshotResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|数据质量快照业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;dataType|数据类型|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;qualityScore|综合质量分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;missingRate|缺失率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;duplicateRate|重复率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;freshnessScore|新鲜度分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sampleCount|参与评估样本数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;snapshotTime|质量快照时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;detail|质量评估上下文和解释 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;qualityLevel|质量等级|string||
+|&emsp;&emsp;&emsp;&emsp;displayMessage|前端展示提示文案|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"sourceCode": "",
+				"sourceName": "",
+				"sourceType": "",
+				"trustLevel": "",
+				"baseUrl": "",
+				"enabled": true,
+				"fetchFrequency": "",
+				"owner": "",
+				"description": "",
+				"health": {
+					"sourceCode": "",
+					"lastSuccessAt": "",
+					"lastFailureAt": "",
+					"successRate": 0,
+					"avgLatencyMs": 0,
+					"failureReason": "",
+					"sampleCount": 0,
+					"updatedAt": ""
+				},
+				"latestQuality": {
+					"bizId": "",
+					"sourceCode": "",
+					"dataType": "",
+					"qualityScore": 0,
+					"missingRate": 0,
+					"duplicateRate": 0,
+					"freshnessScore": 0,
+					"sampleCount": 0,
+					"snapshotTime": "",
+					"detail": ""
+				},
+				"qualityLevel": "",
+				"displayMessage": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+## 查询数据质量快照
+
+
+**接口地址**:`/api/admin/data-sources/quality/list`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>查询指定数据源和可选数据类型的质量快照历史，用于前端质量趋势图。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "sourceCode": "",
+  "dataType": "",
+  "limit": 0
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|dataQualitySnapshotListRequest|数据质量快照列表请求|body|true|DataQualitySnapshotListRequest|DataQualitySnapshotListRequest|
+|&emsp;&emsp;sourceCode|数据源稳定编码||true|string||
+|&emsp;&emsp;dataType|数据类型，可为空||false|string||
+|&emsp;&emsp;limit|返回数量上限，默认20，最大200||false|integer(int32)||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|查询成功，返回质量快照集合|ResultListDataQualitySnapshotResponse|
+|400|参数不合法|ResultListDataQualitySnapshotResponse|
+|404|数据源不存在|ResultListDataQualitySnapshotResponse|
+|500|系统错误|ResultListDataQualitySnapshotResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|array|DataQualitySnapshotResponse|
+|&emsp;&emsp;bizId|数据质量快照业务唯一标识|string||
+|&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;dataType|数据类型|string||
+|&emsp;&emsp;qualityScore|综合质量分，0-1|number||
+|&emsp;&emsp;missingRate|缺失率，0-1|number||
+|&emsp;&emsp;duplicateRate|重复率，0-1|number||
+|&emsp;&emsp;freshnessScore|新鲜度分，0-1|number||
+|&emsp;&emsp;sampleCount|参与评估样本数|integer(int32)||
+|&emsp;&emsp;snapshotTime|质量快照时间|string(date-time)||
+|&emsp;&emsp;detail|质量评估上下文和解释 JSON|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": [
+		{
+			"bizId": "",
+			"sourceCode": "",
+			"dataType": "",
+			"qualityScore": 0,
+			"missingRate": 0,
+			"duplicateRate": 0,
+			"freshnessScore": 0,
+			"sampleCount": 0,
+			"snapshotTime": "",
+			"detail": ""
+		}
+	]
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|array|DataQualitySnapshotResponse|
+|&emsp;&emsp;bizId|数据质量快照业务唯一标识|string||
+|&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;dataType|数据类型|string||
+|&emsp;&emsp;qualityScore|综合质量分，0-1|number||
+|&emsp;&emsp;missingRate|缺失率，0-1|number||
+|&emsp;&emsp;duplicateRate|重复率，0-1|number||
+|&emsp;&emsp;freshnessScore|新鲜度分，0-1|number||
+|&emsp;&emsp;sampleCount|参与评估样本数|integer(int32)||
+|&emsp;&emsp;snapshotTime|质量快照时间|string(date-time)||
+|&emsp;&emsp;detail|质量评估上下文和解释 JSON|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": [
+		{
+			"bizId": "",
+			"sourceCode": "",
+			"dataType": "",
+			"qualityScore": 0,
+			"missingRate": 0,
+			"duplicateRate": 0,
+			"freshnessScore": 0,
+			"sampleCount": 0,
+			"snapshotTime": "",
+			"detail": ""
+		}
+	]
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|array|DataQualitySnapshotResponse|
+|&emsp;&emsp;bizId|数据质量快照业务唯一标识|string||
+|&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;dataType|数据类型|string||
+|&emsp;&emsp;qualityScore|综合质量分，0-1|number||
+|&emsp;&emsp;missingRate|缺失率，0-1|number||
+|&emsp;&emsp;duplicateRate|重复率，0-1|number||
+|&emsp;&emsp;freshnessScore|新鲜度分，0-1|number||
+|&emsp;&emsp;sampleCount|参与评估样本数|integer(int32)||
+|&emsp;&emsp;snapshotTime|质量快照时间|string(date-time)||
+|&emsp;&emsp;detail|质量评估上下文和解释 JSON|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": [
+		{
+			"bizId": "",
+			"sourceCode": "",
+			"dataType": "",
+			"qualityScore": 0,
+			"missingRate": 0,
+			"duplicateRate": 0,
+			"freshnessScore": 0,
+			"sampleCount": 0,
+			"snapshotTime": "",
+			"detail": ""
+		}
+	]
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|array|DataQualitySnapshotResponse|
+|&emsp;&emsp;bizId|数据质量快照业务唯一标识|string||
+|&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;dataType|数据类型|string||
+|&emsp;&emsp;qualityScore|综合质量分，0-1|number||
+|&emsp;&emsp;missingRate|缺失率，0-1|number||
+|&emsp;&emsp;duplicateRate|重复率，0-1|number||
+|&emsp;&emsp;freshnessScore|新鲜度分，0-1|number||
+|&emsp;&emsp;sampleCount|参与评估样本数|integer(int32)||
+|&emsp;&emsp;snapshotTime|质量快照时间|string(date-time)||
+|&emsp;&emsp;detail|质量评估上下文和解释 JSON|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": [
+		{
+			"bizId": "",
+			"sourceCode": "",
+			"dataType": "",
+			"qualityScore": 0,
+			"missingRate": 0,
+			"duplicateRate": 0,
+			"freshnessScore": 0,
+			"sampleCount": 0,
+			"snapshotTime": "",
+			"detail": ""
+		}
+	]
+}
+```
+
+
+## 保存数据质量快照
+
+
+**接口地址**:`/api/admin/data-sources/quality/save`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>保存数据源某类数据的质量分、缺失率、重复率、新鲜度和解释详情。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "sourceCode": "",
+  "dataType": "",
+  "qualityScore": 0,
+  "missingRate": 0,
+  "duplicateRate": 0,
+  "freshnessScore": 0,
+  "sampleCount": 0,
+  "snapshotTime": "",
+  "detail": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|saveDataQualitySnapshotRequest|保存数据质量快照请求|body|true|SaveDataQualitySnapshotRequest|SaveDataQualitySnapshotRequest|
+|&emsp;&emsp;sourceCode|数据源稳定编码||true|string||
+|&emsp;&emsp;dataType|数据类型：MARKET_QUOTE/NEWS/ANNOUNCEMENT/RESEARCH/REGULATORY||true|string||
+|&emsp;&emsp;qualityScore|综合质量分，0-1||false|number||
+|&emsp;&emsp;missingRate|缺失率，0-1||false|number||
+|&emsp;&emsp;duplicateRate|重复率，0-1||false|number||
+|&emsp;&emsp;freshnessScore|新鲜度分，0-1||false|number||
+|&emsp;&emsp;sampleCount|参与评估样本数||false|integer(int32)||
+|&emsp;&emsp;snapshotTime|质量快照时间；为空时使用服务端当前时间||false|string(date-time)||
+|&emsp;&emsp;detail|质量评估上下文和解释 JSON||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|保存成功，返回质量快照|ResultDataQualitySnapshotResponse|
+|400|参数不合法|ResultDataQualitySnapshotResponse|
+|404|数据源不存在|ResultDataQualitySnapshotResponse|
+|500|系统错误|ResultDataQualitySnapshotResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|DataQualitySnapshotResponse|DataQualitySnapshotResponse|
+|&emsp;&emsp;bizId|数据质量快照业务唯一标识|string||
+|&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;dataType|数据类型|string||
+|&emsp;&emsp;qualityScore|综合质量分，0-1|number||
+|&emsp;&emsp;missingRate|缺失率，0-1|number||
+|&emsp;&emsp;duplicateRate|重复率，0-1|number||
+|&emsp;&emsp;freshnessScore|新鲜度分，0-1|number||
+|&emsp;&emsp;sampleCount|参与评估样本数|integer(int32)||
+|&emsp;&emsp;snapshotTime|质量快照时间|string(date-time)||
+|&emsp;&emsp;detail|质量评估上下文和解释 JSON|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"sourceCode": "",
+		"dataType": "",
+		"qualityScore": 0,
+		"missingRate": 0,
+		"duplicateRate": 0,
+		"freshnessScore": 0,
+		"sampleCount": 0,
+		"snapshotTime": "",
+		"detail": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|DataQualitySnapshotResponse|DataQualitySnapshotResponse|
+|&emsp;&emsp;bizId|数据质量快照业务唯一标识|string||
+|&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;dataType|数据类型|string||
+|&emsp;&emsp;qualityScore|综合质量分，0-1|number||
+|&emsp;&emsp;missingRate|缺失率，0-1|number||
+|&emsp;&emsp;duplicateRate|重复率，0-1|number||
+|&emsp;&emsp;freshnessScore|新鲜度分，0-1|number||
+|&emsp;&emsp;sampleCount|参与评估样本数|integer(int32)||
+|&emsp;&emsp;snapshotTime|质量快照时间|string(date-time)||
+|&emsp;&emsp;detail|质量评估上下文和解释 JSON|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"sourceCode": "",
+		"dataType": "",
+		"qualityScore": 0,
+		"missingRate": 0,
+		"duplicateRate": 0,
+		"freshnessScore": 0,
+		"sampleCount": 0,
+		"snapshotTime": "",
+		"detail": ""
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|DataQualitySnapshotResponse|DataQualitySnapshotResponse|
+|&emsp;&emsp;bizId|数据质量快照业务唯一标识|string||
+|&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;dataType|数据类型|string||
+|&emsp;&emsp;qualityScore|综合质量分，0-1|number||
+|&emsp;&emsp;missingRate|缺失率，0-1|number||
+|&emsp;&emsp;duplicateRate|重复率，0-1|number||
+|&emsp;&emsp;freshnessScore|新鲜度分，0-1|number||
+|&emsp;&emsp;sampleCount|参与评估样本数|integer(int32)||
+|&emsp;&emsp;snapshotTime|质量快照时间|string(date-time)||
+|&emsp;&emsp;detail|质量评估上下文和解释 JSON|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"sourceCode": "",
+		"dataType": "",
+		"qualityScore": 0,
+		"missingRate": 0,
+		"duplicateRate": 0,
+		"freshnessScore": 0,
+		"sampleCount": 0,
+		"snapshotTime": "",
+		"detail": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|DataQualitySnapshotResponse|DataQualitySnapshotResponse|
+|&emsp;&emsp;bizId|数据质量快照业务唯一标识|string||
+|&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;dataType|数据类型|string||
+|&emsp;&emsp;qualityScore|综合质量分，0-1|number||
+|&emsp;&emsp;missingRate|缺失率，0-1|number||
+|&emsp;&emsp;duplicateRate|重复率，0-1|number||
+|&emsp;&emsp;freshnessScore|新鲜度分，0-1|number||
+|&emsp;&emsp;sampleCount|参与评估样本数|integer(int32)||
+|&emsp;&emsp;snapshotTime|质量快照时间|string(date-time)||
+|&emsp;&emsp;detail|质量评估上下文和解释 JSON|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"sourceCode": "",
+		"dataType": "",
+		"qualityScore": 0,
+		"missingRate": 0,
+		"duplicateRate": 0,
+		"freshnessScore": 0,
+		"sampleCount": 0,
+		"snapshotTime": "",
+		"detail": ""
+	}
+}
+```
+
+
+## 保存数据源
+
+
+**接口地址**:`/api/admin/data-sources/save`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>新增或更新投资数据源注册信息，包括来源等级、类型、采集频率和启用状态。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "sourceCode": "",
+  "sourceName": "",
+  "sourceType": "",
+  "trustLevel": "",
+  "baseUrl": "",
+  "enabled": true,
+  "fetchFrequency": "",
+  "owner": "",
+  "description": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|saveDataSourceRequest|保存数据源请求|body|true|SaveDataSourceRequest|SaveDataSourceRequest|
+|&emsp;&emsp;sourceCode|数据源稳定编码||true|string||
+|&emsp;&emsp;sourceName|数据源展示名称||true|string||
+|&emsp;&emsp;sourceType|数据源类型：MARKET/NEWS/ANNOUNCEMENT/RESEARCH/REGULATORY/FALLBACK||true|string||
+|&emsp;&emsp;trustLevel|来源等级：L1-L5||true|string||
+|&emsp;&emsp;baseUrl|数据源入口地址||false|string||
+|&emsp;&emsp;enabled|是否启用||false|boolean||
+|&emsp;&emsp;fetchFrequency|采集频率说明或 cron 表达式||false|string||
+|&emsp;&emsp;owner|负责人或维护方||false|string||
+|&emsp;&emsp;description|数据源用途说明||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|保存成功，返回数据源治理响应|ResultDataSourceResponse|
+|400|参数不合法|ResultDataSourceResponse|
+|401|未登录或会话失效|ResultDataSourceResponse|
+|500|系统错误|ResultDataSourceResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|DataSourceResponse|DataSourceResponse|
+|&emsp;&emsp;bizId|数据源业务唯一标识|string||
+|&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;sourceName|数据源展示名称|string||
+|&emsp;&emsp;sourceType|数据源类型|string||
+|&emsp;&emsp;trustLevel|来源等级|string||
+|&emsp;&emsp;baseUrl|数据源入口地址|string||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;fetchFrequency|采集频率说明或 cron 表达式|string||
+|&emsp;&emsp;owner|负责人或维护方|string||
+|&emsp;&emsp;description|数据源用途说明|string||
+|&emsp;&emsp;health|健康状态|DataSourceHealthResponse|DataSourceHealthResponse|
+|&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;lastSuccessAt|最近成功采集时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;lastFailureAt|最近失败时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;successRate|近期成功率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;avgLatencyMs|平均响应耗时毫秒|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;failureReason|最近失败原因摘要|string||
+|&emsp;&emsp;&emsp;&emsp;sampleCount|最近窗口样本数量|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;latestQuality|最新质量快照|DataQualitySnapshotResponse|DataQualitySnapshotResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|数据质量快照业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;dataType|数据类型|string||
+|&emsp;&emsp;&emsp;&emsp;qualityScore|综合质量分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;missingRate|缺失率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;duplicateRate|重复率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;freshnessScore|新鲜度分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sampleCount|参与评估样本数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;snapshotTime|质量快照时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;detail|质量评估上下文和解释 JSON|string||
+|&emsp;&emsp;qualityLevel|质量等级|string||
+|&emsp;&emsp;displayMessage|前端展示提示文案|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"sourceCode": "",
+		"sourceName": "",
+		"sourceType": "",
+		"trustLevel": "",
+		"baseUrl": "",
+		"enabled": true,
+		"fetchFrequency": "",
+		"owner": "",
+		"description": "",
+		"health": {
+			"sourceCode": "",
+			"lastSuccessAt": "",
+			"lastFailureAt": "",
+			"successRate": 0,
+			"avgLatencyMs": 0,
+			"failureReason": "",
+			"sampleCount": 0,
+			"updatedAt": ""
+		},
+		"latestQuality": {
+			"bizId": "",
+			"sourceCode": "",
+			"dataType": "",
+			"qualityScore": 0,
+			"missingRate": 0,
+			"duplicateRate": 0,
+			"freshnessScore": 0,
+			"sampleCount": 0,
+			"snapshotTime": "",
+			"detail": ""
+		},
+		"qualityLevel": "",
+		"displayMessage": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|DataSourceResponse|DataSourceResponse|
+|&emsp;&emsp;bizId|数据源业务唯一标识|string||
+|&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;sourceName|数据源展示名称|string||
+|&emsp;&emsp;sourceType|数据源类型|string||
+|&emsp;&emsp;trustLevel|来源等级|string||
+|&emsp;&emsp;baseUrl|数据源入口地址|string||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;fetchFrequency|采集频率说明或 cron 表达式|string||
+|&emsp;&emsp;owner|负责人或维护方|string||
+|&emsp;&emsp;description|数据源用途说明|string||
+|&emsp;&emsp;health|健康状态|DataSourceHealthResponse|DataSourceHealthResponse|
+|&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;lastSuccessAt|最近成功采集时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;lastFailureAt|最近失败时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;successRate|近期成功率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;avgLatencyMs|平均响应耗时毫秒|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;failureReason|最近失败原因摘要|string||
+|&emsp;&emsp;&emsp;&emsp;sampleCount|最近窗口样本数量|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;latestQuality|最新质量快照|DataQualitySnapshotResponse|DataQualitySnapshotResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|数据质量快照业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;dataType|数据类型|string||
+|&emsp;&emsp;&emsp;&emsp;qualityScore|综合质量分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;missingRate|缺失率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;duplicateRate|重复率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;freshnessScore|新鲜度分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sampleCount|参与评估样本数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;snapshotTime|质量快照时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;detail|质量评估上下文和解释 JSON|string||
+|&emsp;&emsp;qualityLevel|质量等级|string||
+|&emsp;&emsp;displayMessage|前端展示提示文案|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"sourceCode": "",
+		"sourceName": "",
+		"sourceType": "",
+		"trustLevel": "",
+		"baseUrl": "",
+		"enabled": true,
+		"fetchFrequency": "",
+		"owner": "",
+		"description": "",
+		"health": {
+			"sourceCode": "",
+			"lastSuccessAt": "",
+			"lastFailureAt": "",
+			"successRate": 0,
+			"avgLatencyMs": 0,
+			"failureReason": "",
+			"sampleCount": 0,
+			"updatedAt": ""
+		},
+		"latestQuality": {
+			"bizId": "",
+			"sourceCode": "",
+			"dataType": "",
+			"qualityScore": 0,
+			"missingRate": 0,
+			"duplicateRate": 0,
+			"freshnessScore": 0,
+			"sampleCount": 0,
+			"snapshotTime": "",
+			"detail": ""
+		},
+		"qualityLevel": "",
+		"displayMessage": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-401**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|DataSourceResponse|DataSourceResponse|
+|&emsp;&emsp;bizId|数据源业务唯一标识|string||
+|&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;sourceName|数据源展示名称|string||
+|&emsp;&emsp;sourceType|数据源类型|string||
+|&emsp;&emsp;trustLevel|来源等级|string||
+|&emsp;&emsp;baseUrl|数据源入口地址|string||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;fetchFrequency|采集频率说明或 cron 表达式|string||
+|&emsp;&emsp;owner|负责人或维护方|string||
+|&emsp;&emsp;description|数据源用途说明|string||
+|&emsp;&emsp;health|健康状态|DataSourceHealthResponse|DataSourceHealthResponse|
+|&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;lastSuccessAt|最近成功采集时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;lastFailureAt|最近失败时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;successRate|近期成功率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;avgLatencyMs|平均响应耗时毫秒|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;failureReason|最近失败原因摘要|string||
+|&emsp;&emsp;&emsp;&emsp;sampleCount|最近窗口样本数量|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;latestQuality|最新质量快照|DataQualitySnapshotResponse|DataQualitySnapshotResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|数据质量快照业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;dataType|数据类型|string||
+|&emsp;&emsp;&emsp;&emsp;qualityScore|综合质量分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;missingRate|缺失率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;duplicateRate|重复率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;freshnessScore|新鲜度分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sampleCount|参与评估样本数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;snapshotTime|质量快照时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;detail|质量评估上下文和解释 JSON|string||
+|&emsp;&emsp;qualityLevel|质量等级|string||
+|&emsp;&emsp;displayMessage|前端展示提示文案|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"sourceCode": "",
+		"sourceName": "",
+		"sourceType": "",
+		"trustLevel": "",
+		"baseUrl": "",
+		"enabled": true,
+		"fetchFrequency": "",
+		"owner": "",
+		"description": "",
+		"health": {
+			"sourceCode": "",
+			"lastSuccessAt": "",
+			"lastFailureAt": "",
+			"successRate": 0,
+			"avgLatencyMs": 0,
+			"failureReason": "",
+			"sampleCount": 0,
+			"updatedAt": ""
+		},
+		"latestQuality": {
+			"bizId": "",
+			"sourceCode": "",
+			"dataType": "",
+			"qualityScore": 0,
+			"missingRate": 0,
+			"duplicateRate": 0,
+			"freshnessScore": 0,
+			"sampleCount": 0,
+			"snapshotTime": "",
+			"detail": ""
+		},
+		"qualityLevel": "",
+		"displayMessage": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|DataSourceResponse|DataSourceResponse|
+|&emsp;&emsp;bizId|数据源业务唯一标识|string||
+|&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;sourceName|数据源展示名称|string||
+|&emsp;&emsp;sourceType|数据源类型|string||
+|&emsp;&emsp;trustLevel|来源等级|string||
+|&emsp;&emsp;baseUrl|数据源入口地址|string||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;fetchFrequency|采集频率说明或 cron 表达式|string||
+|&emsp;&emsp;owner|负责人或维护方|string||
+|&emsp;&emsp;description|数据源用途说明|string||
+|&emsp;&emsp;health|健康状态|DataSourceHealthResponse|DataSourceHealthResponse|
+|&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;lastSuccessAt|最近成功采集时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;lastFailureAt|最近失败时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;successRate|近期成功率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;avgLatencyMs|平均响应耗时毫秒|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;failureReason|最近失败原因摘要|string||
+|&emsp;&emsp;&emsp;&emsp;sampleCount|最近窗口样本数量|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;latestQuality|最新质量快照|DataQualitySnapshotResponse|DataQualitySnapshotResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|数据质量快照业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;sourceCode|数据源稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;dataType|数据类型|string||
+|&emsp;&emsp;&emsp;&emsp;qualityScore|综合质量分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;missingRate|缺失率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;duplicateRate|重复率，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;freshnessScore|新鲜度分，0-1|number||
+|&emsp;&emsp;&emsp;&emsp;sampleCount|参与评估样本数|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;snapshotTime|质量快照时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;detail|质量评估上下文和解释 JSON|string||
+|&emsp;&emsp;qualityLevel|质量等级|string||
+|&emsp;&emsp;displayMessage|前端展示提示文案|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"sourceCode": "",
+		"sourceName": "",
+		"sourceType": "",
+		"trustLevel": "",
+		"baseUrl": "",
+		"enabled": true,
+		"fetchFrequency": "",
+		"owner": "",
+		"description": "",
+		"health": {
+			"sourceCode": "",
+			"lastSuccessAt": "",
+			"lastFailureAt": "",
+			"successRate": 0,
+			"avgLatencyMs": 0,
+			"failureReason": "",
+			"sampleCount": 0,
+			"updatedAt": ""
+		},
+		"latestQuality": {
+			"bizId": "",
+			"sourceCode": "",
+			"dataType": "",
+			"qualityScore": 0,
+			"missingRate": 0,
+			"duplicateRate": 0,
+			"freshnessScore": 0,
+			"sampleCount": 0,
+			"snapshotTime": "",
+			"detail": ""
+		},
+		"qualityLevel": "",
+		"displayMessage": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+# 投资反馈
+
+
+## 查询投资反馈详情
+
+
+**接口地址**:`/api/ai/feedback/detail`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>根据反馈业务 ID 查询用户动作、关联报告、Prompt、回测和备注。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "bizId": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|investmentFeedbackBizIdRequest|投资反馈业务 ID 请求|body|true|InvestmentFeedbackBizIdRequest|InvestmentFeedbackBizIdRequest|
+|&emsp;&emsp;bizId|反馈业务唯一标识||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|查询成功，返回反馈详情|ResultInvestmentFeedbackResponse|
+|403|反馈记录不属于当前用户|ResultInvestmentFeedbackResponse|
+|404|反馈不存在|ResultInvestmentFeedbackResponse|
+|500|系统错误|ResultInvestmentFeedbackResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|InvestmentFeedbackResponse|InvestmentFeedbackResponse|
+|&emsp;&emsp;bizId|反馈业务唯一标识|string||
+|&emsp;&emsp;userBizId|反馈用户业务标识|string||
+|&emsp;&emsp;targetType|反馈目标类型|string||
+|&emsp;&emsp;targetBizId|反馈目标业务标识|string||
+|&emsp;&emsp;reportBizId|关联投资报告业务标识|string||
+|&emsp;&emsp;promptBizId|关联Prompt模板业务标识|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;feedbackAction|反馈动作|string||
+|&emsp;&emsp;reasonCode|原因编码|string||
+|&emsp;&emsp;commentText|用户或人工复核备注|string||
+|&emsp;&emsp;metadata|反馈上下文 JSON|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"userBizId": "",
+		"targetType": "",
+		"targetBizId": "",
+		"reportBizId": "",
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"backtestBizId": "",
+		"feedbackAction": "",
+		"reasonCode": "",
+		"commentText": "",
+		"metadata": "",
+		"createdAt": ""
+	}
+}
+```
+
+
+**响应状态码-403**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|InvestmentFeedbackResponse|InvestmentFeedbackResponse|
+|&emsp;&emsp;bizId|反馈业务唯一标识|string||
+|&emsp;&emsp;userBizId|反馈用户业务标识|string||
+|&emsp;&emsp;targetType|反馈目标类型|string||
+|&emsp;&emsp;targetBizId|反馈目标业务标识|string||
+|&emsp;&emsp;reportBizId|关联投资报告业务标识|string||
+|&emsp;&emsp;promptBizId|关联Prompt模板业务标识|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;feedbackAction|反馈动作|string||
+|&emsp;&emsp;reasonCode|原因编码|string||
+|&emsp;&emsp;commentText|用户或人工复核备注|string||
+|&emsp;&emsp;metadata|反馈上下文 JSON|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"userBizId": "",
+		"targetType": "",
+		"targetBizId": "",
+		"reportBizId": "",
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"backtestBizId": "",
+		"feedbackAction": "",
+		"reasonCode": "",
+		"commentText": "",
+		"metadata": "",
+		"createdAt": ""
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|InvestmentFeedbackResponse|InvestmentFeedbackResponse|
+|&emsp;&emsp;bizId|反馈业务唯一标识|string||
+|&emsp;&emsp;userBizId|反馈用户业务标识|string||
+|&emsp;&emsp;targetType|反馈目标类型|string||
+|&emsp;&emsp;targetBizId|反馈目标业务标识|string||
+|&emsp;&emsp;reportBizId|关联投资报告业务标识|string||
+|&emsp;&emsp;promptBizId|关联Prompt模板业务标识|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;feedbackAction|反馈动作|string||
+|&emsp;&emsp;reasonCode|原因编码|string||
+|&emsp;&emsp;commentText|用户或人工复核备注|string||
+|&emsp;&emsp;metadata|反馈上下文 JSON|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"userBizId": "",
+		"targetType": "",
+		"targetBizId": "",
+		"reportBizId": "",
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"backtestBizId": "",
+		"feedbackAction": "",
+		"reasonCode": "",
+		"commentText": "",
+		"metadata": "",
+		"createdAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|InvestmentFeedbackResponse|InvestmentFeedbackResponse|
+|&emsp;&emsp;bizId|反馈业务唯一标识|string||
+|&emsp;&emsp;userBizId|反馈用户业务标识|string||
+|&emsp;&emsp;targetType|反馈目标类型|string||
+|&emsp;&emsp;targetBizId|反馈目标业务标识|string||
+|&emsp;&emsp;reportBizId|关联投资报告业务标识|string||
+|&emsp;&emsp;promptBizId|关联Prompt模板业务标识|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;feedbackAction|反馈动作|string||
+|&emsp;&emsp;reasonCode|原因编码|string||
+|&emsp;&emsp;commentText|用户或人工复核备注|string||
+|&emsp;&emsp;metadata|反馈上下文 JSON|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"userBizId": "",
+		"targetType": "",
+		"targetBizId": "",
+		"reportBizId": "",
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"backtestBizId": "",
+		"feedbackAction": "",
+		"reasonCode": "",
+		"commentText": "",
+		"metadata": "",
+		"createdAt": ""
+	}
+}
+```
+
+
+## 分页查询投资反馈
+
+
+**接口地址**:`/api/ai/feedback/list`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>按目标、报告、Prompt、回测和动作查询当前用户反馈历史。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "targetType": "",
+  "targetBizId": "",
+  "reportBizId": "",
+  "promptCode": "",
+  "promptVersion": "",
+  "backtestBizId": "",
+  "feedbackAction": "",
+  "page": 0,
+  "size": 0,
+  "sort": "",
+  "direction": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|investmentFeedbackListRequest|投资反馈分页查询请求|body|true|InvestmentFeedbackListRequest|InvestmentFeedbackListRequest|
+|&emsp;&emsp;targetType|反馈目标类型||false|string||
+|&emsp;&emsp;targetBizId|反馈目标业务标识||false|string||
+|&emsp;&emsp;reportBizId|关联投资报告业务标识||false|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码||false|string||
+|&emsp;&emsp;promptVersion|Prompt版本||false|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识||false|string||
+|&emsp;&emsp;feedbackAction|反馈动作||false|string||
+|&emsp;&emsp;page|页码，从 1 开始；传 0 会兼容为第一页||false|integer(int32)||
+|&emsp;&emsp;size|每页条数，1-100||false|integer(int32)||
+|&emsp;&emsp;sort|排序字段：createdAt/targetType/feedbackAction/promptCode/promptVersion||false|string||
+|&emsp;&emsp;direction|排序方向：asc/desc||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|查询成功，返回反馈分页响应|ResultPageResponseInvestmentFeedbackResponse|
+|400|分页或排序参数不合法|ResultPageResponseInvestmentFeedbackResponse|
+|500|系统错误|ResultPageResponseInvestmentFeedbackResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseInvestmentFeedbackResponse|PageResponseInvestmentFeedbackResponse|
+|&emsp;&emsp;items|当前页数据列表|array|InvestmentFeedbackResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|反馈业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;userBizId|反馈用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;targetType|反馈目标类型|string||
+|&emsp;&emsp;&emsp;&emsp;targetBizId|反馈目标业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;reportBizId|关联投资报告业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|关联Prompt模板业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;feedbackAction|反馈动作|string||
+|&emsp;&emsp;&emsp;&emsp;reasonCode|原因编码|string||
+|&emsp;&emsp;&emsp;&emsp;commentText|用户或人工复核备注|string||
+|&emsp;&emsp;&emsp;&emsp;metadata|反馈上下文 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"userBizId": "",
+				"targetType": "",
+				"targetBizId": "",
+				"reportBizId": "",
+				"promptBizId": "",
+				"promptCode": "",
+				"promptVersion": "",
+				"backtestBizId": "",
+				"feedbackAction": "",
+				"reasonCode": "",
+				"commentText": "",
+				"metadata": "",
+				"createdAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseInvestmentFeedbackResponse|PageResponseInvestmentFeedbackResponse|
+|&emsp;&emsp;items|当前页数据列表|array|InvestmentFeedbackResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|反馈业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;userBizId|反馈用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;targetType|反馈目标类型|string||
+|&emsp;&emsp;&emsp;&emsp;targetBizId|反馈目标业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;reportBizId|关联投资报告业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|关联Prompt模板业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;feedbackAction|反馈动作|string||
+|&emsp;&emsp;&emsp;&emsp;reasonCode|原因编码|string||
+|&emsp;&emsp;&emsp;&emsp;commentText|用户或人工复核备注|string||
+|&emsp;&emsp;&emsp;&emsp;metadata|反馈上下文 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"userBizId": "",
+				"targetType": "",
+				"targetBizId": "",
+				"reportBizId": "",
+				"promptBizId": "",
+				"promptCode": "",
+				"promptVersion": "",
+				"backtestBizId": "",
+				"feedbackAction": "",
+				"reasonCode": "",
+				"commentText": "",
+				"metadata": "",
+				"createdAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseInvestmentFeedbackResponse|PageResponseInvestmentFeedbackResponse|
+|&emsp;&emsp;items|当前页数据列表|array|InvestmentFeedbackResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|反馈业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;userBizId|反馈用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;targetType|反馈目标类型|string||
+|&emsp;&emsp;&emsp;&emsp;targetBizId|反馈目标业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;reportBizId|关联投资报告业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|关联Prompt模板业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;feedbackAction|反馈动作|string||
+|&emsp;&emsp;&emsp;&emsp;reasonCode|原因编码|string||
+|&emsp;&emsp;&emsp;&emsp;commentText|用户或人工复核备注|string||
+|&emsp;&emsp;&emsp;&emsp;metadata|反馈上下文 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"userBizId": "",
+				"targetType": "",
+				"targetBizId": "",
+				"reportBizId": "",
+				"promptBizId": "",
+				"promptCode": "",
+				"promptVersion": "",
+				"backtestBizId": "",
+				"feedbackAction": "",
+				"reasonCode": "",
+				"commentText": "",
+				"metadata": "",
+				"createdAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+## 保存投资反馈
+
+
+**接口地址**:`/api/ai/feedback/save`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>保存用户采纳、拒绝、观察或忽略反馈，并在携带 Prompt 信息时自动生成 Prompt 评估。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "targetType": "",
+  "targetBizId": "",
+  "reportBizId": "",
+  "promptBizId": "",
+  "promptCode": "",
+  "promptVersion": "",
+  "backtestBizId": "",
+  "feedbackAction": "",
+  "reasonCode": "",
+  "commentText": "",
+  "metadata": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|saveInvestmentFeedbackRequest|保存投资反馈请求|body|true|SaveInvestmentFeedbackRequest|SaveInvestmentFeedbackRequest|
+|&emsp;&emsp;targetType|反馈目标类型：REPORT/RECOMMENDATION/MOCK_ORDER/MOCK_PORTFOLIO/BACKTEST/PROMPT||true|string||
+|&emsp;&emsp;targetBizId|反馈目标业务标识||true|string||
+|&emsp;&emsp;reportBizId|关联投资报告业务标识||false|string||
+|&emsp;&emsp;promptBizId|关联Prompt模板业务标识||false|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码快照||false|string||
+|&emsp;&emsp;promptVersion|Prompt版本快照||false|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识||false|string||
+|&emsp;&emsp;feedbackAction|反馈动作：ADOPT/REJECT/WATCH/IGNORE||true|string||
+|&emsp;&emsp;reasonCode|原因编码||false|string||
+|&emsp;&emsp;commentText|用户或人工复核备注||false|string||
+|&emsp;&emsp;metadata|反馈上下文 JSON||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|保存成功，返回反馈记录|ResultInvestmentFeedbackResponse|
+|400|参数或JSON格式不合法|ResultInvestmentFeedbackResponse|
+|403|关联回测结果不属于当前用户|ResultInvestmentFeedbackResponse|
+|500|系统错误|ResultInvestmentFeedbackResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|InvestmentFeedbackResponse|InvestmentFeedbackResponse|
+|&emsp;&emsp;bizId|反馈业务唯一标识|string||
+|&emsp;&emsp;userBizId|反馈用户业务标识|string||
+|&emsp;&emsp;targetType|反馈目标类型|string||
+|&emsp;&emsp;targetBizId|反馈目标业务标识|string||
+|&emsp;&emsp;reportBizId|关联投资报告业务标识|string||
+|&emsp;&emsp;promptBizId|关联Prompt模板业务标识|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;feedbackAction|反馈动作|string||
+|&emsp;&emsp;reasonCode|原因编码|string||
+|&emsp;&emsp;commentText|用户或人工复核备注|string||
+|&emsp;&emsp;metadata|反馈上下文 JSON|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"userBizId": "",
+		"targetType": "",
+		"targetBizId": "",
+		"reportBizId": "",
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"backtestBizId": "",
+		"feedbackAction": "",
+		"reasonCode": "",
+		"commentText": "",
+		"metadata": "",
+		"createdAt": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|InvestmentFeedbackResponse|InvestmentFeedbackResponse|
+|&emsp;&emsp;bizId|反馈业务唯一标识|string||
+|&emsp;&emsp;userBizId|反馈用户业务标识|string||
+|&emsp;&emsp;targetType|反馈目标类型|string||
+|&emsp;&emsp;targetBizId|反馈目标业务标识|string||
+|&emsp;&emsp;reportBizId|关联投资报告业务标识|string||
+|&emsp;&emsp;promptBizId|关联Prompt模板业务标识|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;feedbackAction|反馈动作|string||
+|&emsp;&emsp;reasonCode|原因编码|string||
+|&emsp;&emsp;commentText|用户或人工复核备注|string||
+|&emsp;&emsp;metadata|反馈上下文 JSON|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"userBizId": "",
+		"targetType": "",
+		"targetBizId": "",
+		"reportBizId": "",
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"backtestBizId": "",
+		"feedbackAction": "",
+		"reasonCode": "",
+		"commentText": "",
+		"metadata": "",
+		"createdAt": ""
+	}
+}
+```
+
+
+**响应状态码-403**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|InvestmentFeedbackResponse|InvestmentFeedbackResponse|
+|&emsp;&emsp;bizId|反馈业务唯一标识|string||
+|&emsp;&emsp;userBizId|反馈用户业务标识|string||
+|&emsp;&emsp;targetType|反馈目标类型|string||
+|&emsp;&emsp;targetBizId|反馈目标业务标识|string||
+|&emsp;&emsp;reportBizId|关联投资报告业务标识|string||
+|&emsp;&emsp;promptBizId|关联Prompt模板业务标识|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;feedbackAction|反馈动作|string||
+|&emsp;&emsp;reasonCode|原因编码|string||
+|&emsp;&emsp;commentText|用户或人工复核备注|string||
+|&emsp;&emsp;metadata|反馈上下文 JSON|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"userBizId": "",
+		"targetType": "",
+		"targetBizId": "",
+		"reportBizId": "",
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"backtestBizId": "",
+		"feedbackAction": "",
+		"reasonCode": "",
+		"commentText": "",
+		"metadata": "",
+		"createdAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|InvestmentFeedbackResponse|InvestmentFeedbackResponse|
+|&emsp;&emsp;bizId|反馈业务唯一标识|string||
+|&emsp;&emsp;userBizId|反馈用户业务标识|string||
+|&emsp;&emsp;targetType|反馈目标类型|string||
+|&emsp;&emsp;targetBizId|反馈目标业务标识|string||
+|&emsp;&emsp;reportBizId|关联投资报告业务标识|string||
+|&emsp;&emsp;promptBizId|关联Prompt模板业务标识|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;feedbackAction|反馈动作|string||
+|&emsp;&emsp;reasonCode|原因编码|string||
+|&emsp;&emsp;commentText|用户或人工复核备注|string||
+|&emsp;&emsp;metadata|反馈上下文 JSON|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"userBizId": "",
+		"targetType": "",
+		"targetBizId": "",
+		"reportBizId": "",
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"backtestBizId": "",
+		"feedbackAction": "",
+		"reasonCode": "",
+		"commentText": "",
+		"metadata": "",
+		"createdAt": ""
+	}
+}
+```
+
+
 # 投资分析
 
 
@@ -9688,6 +23480,9 @@
 |&emsp;&emsp;themeCode|投资主题编码|string||
 |&emsp;&emsp;themeName|投资主题名称|string||
 |&emsp;&emsp;status|状态：SUCCEEDED/FAILED|string||
+|&emsp;&emsp;confidenceLevel|报告可信等级：HIGH_CONFIDENCE/MEDIUM_CONFIDENCE/LOW_CONFIDENCE/UNUSABLE|string||
+|&emsp;&emsp;dataQualityScore|报告输入数据质量分，0-1；前端列表页可直接展示|number||
+|&emsp;&emsp;dataQualityGate|数据质量门禁 JSON 字符串。\npassed:boolean，是否通过质量门禁；\nconfidenceLevel:string，可信等级；\ndataQualityScore:number，数据质量分；\nsnapshotCount:number，快照样本数量；\nnewsCount:number，相关新闻数量；\nfallbackNewsRatio:number，兜底资讯占比；\nreasons:array，降级原因编码；\ndisplayMessage:string，前端直接展示的中文提示；\nallowedActions:array，允许动作，例如 VIEW_REPORT/SHOW_DATA_GAP/GENERATE_PROMPT/MOCK_TRADE。\n|string||
 |&emsp;&emsp;investmentSummary|投资信息汇总 JSON 字符串。\nmarketScope:string，市场范围；\nthemeCode:string，主题编码；\nsampleCount:number，快照样本数；\nnewsCount:number，相关新闻数；\naverageReturn:number，平均收益率，小数形式；\naverageMomentum:number，平均动量；\naverageHeat:number，加权资讯热度；\ndataQualityScore:number，数据质量分，0-1；\ndataQualityLevel:string，允许值 HIGH/MEDIUM/LOW；\nlatestSnapshotTime:datetime，最近快照时间，北京时间；\nrecentNews:array，近期新闻数组，每项包含 title/summary/publishTime/sourceCode。\n|string||
 |&emsp;&emsp;trend|趋势分析 JSON 字符串。\ndirection:string，趋势方向，允许值 UP/NEUTRAL/DOWN；\naverageReturn:number，平均收益率；\naverageMomentum:number，平均动量；\nnewsHeat:number，相关新闻数量；\nweightedHeatScore:number，加权资讯热度分；\ndataQualityScore:number，数据质量分；\nlookbackDays:number，回看天数。\n|string||
 |&emsp;&emsp;investmentPlan|投资方案 JSON 字符串。\nplanType:string，方案类型，当前为 REFERENCE_ALLOCATION；\nsuggestedAction:string，建议动作；\nreferenceAllocationRate:number，参考配置比例，0-1；\nreferenceAllocationAmount:number，参考配置金额；\ndataQualityLevel:string，数据质量等级；\nrebalanceRule:string，再平衡规则；\nriskNotice:string，风险提示。\n|string||
@@ -9712,6 +23507,9 @@
 		"themeCode": "",
 		"themeName": "",
 		"status": "",
+		"confidenceLevel": "",
+		"dataQualityScore": 0,
+		"dataQualityGate": "",
 		"investmentSummary": "",
 		"trend": "",
 		"investmentPlan": "",
@@ -9744,6 +23542,9 @@
 |&emsp;&emsp;themeCode|投资主题编码|string||
 |&emsp;&emsp;themeName|投资主题名称|string||
 |&emsp;&emsp;status|状态：SUCCEEDED/FAILED|string||
+|&emsp;&emsp;confidenceLevel|报告可信等级：HIGH_CONFIDENCE/MEDIUM_CONFIDENCE/LOW_CONFIDENCE/UNUSABLE|string||
+|&emsp;&emsp;dataQualityScore|报告输入数据质量分，0-1；前端列表页可直接展示|number||
+|&emsp;&emsp;dataQualityGate|数据质量门禁 JSON 字符串。\npassed:boolean，是否通过质量门禁；\nconfidenceLevel:string，可信等级；\ndataQualityScore:number，数据质量分；\nsnapshotCount:number，快照样本数量；\nnewsCount:number，相关新闻数量；\nfallbackNewsRatio:number，兜底资讯占比；\nreasons:array，降级原因编码；\ndisplayMessage:string，前端直接展示的中文提示；\nallowedActions:array，允许动作，例如 VIEW_REPORT/SHOW_DATA_GAP/GENERATE_PROMPT/MOCK_TRADE。\n|string||
 |&emsp;&emsp;investmentSummary|投资信息汇总 JSON 字符串。\nmarketScope:string，市场范围；\nthemeCode:string，主题编码；\nsampleCount:number，快照样本数；\nnewsCount:number，相关新闻数；\naverageReturn:number，平均收益率，小数形式；\naverageMomentum:number，平均动量；\naverageHeat:number，加权资讯热度；\ndataQualityScore:number，数据质量分，0-1；\ndataQualityLevel:string，允许值 HIGH/MEDIUM/LOW；\nlatestSnapshotTime:datetime，最近快照时间，北京时间；\nrecentNews:array，近期新闻数组，每项包含 title/summary/publishTime/sourceCode。\n|string||
 |&emsp;&emsp;trend|趋势分析 JSON 字符串。\ndirection:string，趋势方向，允许值 UP/NEUTRAL/DOWN；\naverageReturn:number，平均收益率；\naverageMomentum:number，平均动量；\nnewsHeat:number，相关新闻数量；\nweightedHeatScore:number，加权资讯热度分；\ndataQualityScore:number，数据质量分；\nlookbackDays:number，回看天数。\n|string||
 |&emsp;&emsp;investmentPlan|投资方案 JSON 字符串。\nplanType:string，方案类型，当前为 REFERENCE_ALLOCATION；\nsuggestedAction:string，建议动作；\nreferenceAllocationRate:number，参考配置比例，0-1；\nreferenceAllocationAmount:number，参考配置金额；\ndataQualityLevel:string，数据质量等级；\nrebalanceRule:string，再平衡规则；\nriskNotice:string，风险提示。\n|string||
@@ -9768,6 +23569,9 @@
 		"themeCode": "",
 		"themeName": "",
 		"status": "",
+		"confidenceLevel": "",
+		"dataQualityScore": 0,
+		"dataQualityGate": "",
 		"investmentSummary": "",
 		"trend": "",
 		"investmentPlan": "",
@@ -9800,6 +23604,9 @@
 |&emsp;&emsp;themeCode|投资主题编码|string||
 |&emsp;&emsp;themeName|投资主题名称|string||
 |&emsp;&emsp;status|状态：SUCCEEDED/FAILED|string||
+|&emsp;&emsp;confidenceLevel|报告可信等级：HIGH_CONFIDENCE/MEDIUM_CONFIDENCE/LOW_CONFIDENCE/UNUSABLE|string||
+|&emsp;&emsp;dataQualityScore|报告输入数据质量分，0-1；前端列表页可直接展示|number||
+|&emsp;&emsp;dataQualityGate|数据质量门禁 JSON 字符串。\npassed:boolean，是否通过质量门禁；\nconfidenceLevel:string，可信等级；\ndataQualityScore:number，数据质量分；\nsnapshotCount:number，快照样本数量；\nnewsCount:number，相关新闻数量；\nfallbackNewsRatio:number，兜底资讯占比；\nreasons:array，降级原因编码；\ndisplayMessage:string，前端直接展示的中文提示；\nallowedActions:array，允许动作，例如 VIEW_REPORT/SHOW_DATA_GAP/GENERATE_PROMPT/MOCK_TRADE。\n|string||
 |&emsp;&emsp;investmentSummary|投资信息汇总 JSON 字符串。\nmarketScope:string，市场范围；\nthemeCode:string，主题编码；\nsampleCount:number，快照样本数；\nnewsCount:number，相关新闻数；\naverageReturn:number，平均收益率，小数形式；\naverageMomentum:number，平均动量；\naverageHeat:number，加权资讯热度；\ndataQualityScore:number，数据质量分，0-1；\ndataQualityLevel:string，允许值 HIGH/MEDIUM/LOW；\nlatestSnapshotTime:datetime，最近快照时间，北京时间；\nrecentNews:array，近期新闻数组，每项包含 title/summary/publishTime/sourceCode。\n|string||
 |&emsp;&emsp;trend|趋势分析 JSON 字符串。\ndirection:string，趋势方向，允许值 UP/NEUTRAL/DOWN；\naverageReturn:number，平均收益率；\naverageMomentum:number，平均动量；\nnewsHeat:number，相关新闻数量；\nweightedHeatScore:number，加权资讯热度分；\ndataQualityScore:number，数据质量分；\nlookbackDays:number，回看天数。\n|string||
 |&emsp;&emsp;investmentPlan|投资方案 JSON 字符串。\nplanType:string，方案类型，当前为 REFERENCE_ALLOCATION；\nsuggestedAction:string，建议动作；\nreferenceAllocationRate:number，参考配置比例，0-1；\nreferenceAllocationAmount:number，参考配置金额；\ndataQualityLevel:string，数据质量等级；\nrebalanceRule:string，再平衡规则；\nriskNotice:string，风险提示。\n|string||
@@ -9824,6 +23631,9 @@
 		"themeCode": "",
 		"themeName": "",
 		"status": "",
+		"confidenceLevel": "",
+		"dataQualityScore": 0,
+		"dataQualityGate": "",
 		"investmentSummary": "",
 		"trend": "",
 		"investmentPlan": "",
@@ -9885,7 +23695,7 @@
 |&emsp;&emsp;status|状态：SUCCEEDED/FAILED||false|string||
 |&emsp;&emsp;page|页码，从 1 开始；传 0 会兼容为第一页||false|integer(int32)||
 |&emsp;&emsp;size|每页条数，1-100||false|integer(int32)||
-|&emsp;&emsp;sort|排序字段：generatedAt/createdAt/providerCode/modelCode/themeCode/status||false|string||
+|&emsp;&emsp;sort|排序字段：generatedAt/createdAt/providerCode/modelCode/themeCode/status/confidenceLevel/dataQualityScore||false|string||
 |&emsp;&emsp;direction|排序方向：asc/desc||false|string||
 
 
@@ -9919,6 +23729,9 @@
 |&emsp;&emsp;&emsp;&emsp;themeCode|投资主题编码|string||
 |&emsp;&emsp;&emsp;&emsp;themeName|投资主题名称|string||
 |&emsp;&emsp;&emsp;&emsp;status|状态：SUCCEEDED/FAILED|string||
+|&emsp;&emsp;&emsp;&emsp;confidenceLevel|报告可信等级：HIGH_CONFIDENCE/MEDIUM_CONFIDENCE/LOW_CONFIDENCE/UNUSABLE|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|报告输入数据质量分，0-1；前端列表页可直接展示|number||
+|&emsp;&emsp;&emsp;&emsp;dataQualityGate|数据质量门禁 JSON 字符串。\npassed:boolean，是否通过质量门禁；\nconfidenceLevel:string，可信等级；\ndataQualityScore:number，数据质量分；\nsnapshotCount:number，快照样本数量；\nnewsCount:number，相关新闻数量；\nfallbackNewsRatio:number，兜底资讯占比；\nreasons:array，降级原因编码；\ndisplayMessage:string，前端直接展示的中文提示；\nallowedActions:array，允许动作，例如 VIEW_REPORT/SHOW_DATA_GAP/GENERATE_PROMPT/MOCK_TRADE。\n|string||
 |&emsp;&emsp;&emsp;&emsp;investmentSummary|投资信息汇总 JSON 字符串。\nmarketScope:string，市场范围；\nthemeCode:string，主题编码；\nsampleCount:number，快照样本数；\nnewsCount:number，相关新闻数；\naverageReturn:number，平均收益率，小数形式；\naverageMomentum:number，平均动量；\naverageHeat:number，加权资讯热度；\ndataQualityScore:number，数据质量分，0-1；\ndataQualityLevel:string，允许值 HIGH/MEDIUM/LOW；\nlatestSnapshotTime:datetime，最近快照时间，北京时间；\nrecentNews:array，近期新闻数组，每项包含 title/summary/publishTime/sourceCode。\n|string||
 |&emsp;&emsp;&emsp;&emsp;trend|趋势分析 JSON 字符串。\ndirection:string，趋势方向，允许值 UP/NEUTRAL/DOWN；\naverageReturn:number，平均收益率；\naverageMomentum:number，平均动量；\nnewsHeat:number，相关新闻数量；\nweightedHeatScore:number，加权资讯热度分；\ndataQualityScore:number，数据质量分；\nlookbackDays:number，回看天数。\n|string||
 |&emsp;&emsp;&emsp;&emsp;investmentPlan|投资方案 JSON 字符串。\nplanType:string，方案类型，当前为 REFERENCE_ALLOCATION；\nsuggestedAction:string，建议动作；\nreferenceAllocationRate:number，参考配置比例，0-1；\nreferenceAllocationAmount:number，参考配置金额；\ndataQualityLevel:string，数据质量等级；\nrebalanceRule:string，再平衡规则；\nriskNotice:string，风险提示。\n|string||
@@ -9949,6 +23762,9 @@
 				"themeCode": "",
 				"themeName": "",
 				"status": "",
+				"confidenceLevel": "",
+				"dataQualityScore": 0,
+				"dataQualityGate": "",
 				"investmentSummary": "",
 				"trend": "",
 				"investmentPlan": "",
@@ -9988,6 +23804,9 @@
 |&emsp;&emsp;&emsp;&emsp;themeCode|投资主题编码|string||
 |&emsp;&emsp;&emsp;&emsp;themeName|投资主题名称|string||
 |&emsp;&emsp;&emsp;&emsp;status|状态：SUCCEEDED/FAILED|string||
+|&emsp;&emsp;&emsp;&emsp;confidenceLevel|报告可信等级：HIGH_CONFIDENCE/MEDIUM_CONFIDENCE/LOW_CONFIDENCE/UNUSABLE|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|报告输入数据质量分，0-1；前端列表页可直接展示|number||
+|&emsp;&emsp;&emsp;&emsp;dataQualityGate|数据质量门禁 JSON 字符串。\npassed:boolean，是否通过质量门禁；\nconfidenceLevel:string，可信等级；\ndataQualityScore:number，数据质量分；\nsnapshotCount:number，快照样本数量；\nnewsCount:number，相关新闻数量；\nfallbackNewsRatio:number，兜底资讯占比；\nreasons:array，降级原因编码；\ndisplayMessage:string，前端直接展示的中文提示；\nallowedActions:array，允许动作，例如 VIEW_REPORT/SHOW_DATA_GAP/GENERATE_PROMPT/MOCK_TRADE。\n|string||
 |&emsp;&emsp;&emsp;&emsp;investmentSummary|投资信息汇总 JSON 字符串。\nmarketScope:string，市场范围；\nthemeCode:string，主题编码；\nsampleCount:number，快照样本数；\nnewsCount:number，相关新闻数；\naverageReturn:number，平均收益率，小数形式；\naverageMomentum:number，平均动量；\naverageHeat:number，加权资讯热度；\ndataQualityScore:number，数据质量分，0-1；\ndataQualityLevel:string，允许值 HIGH/MEDIUM/LOW；\nlatestSnapshotTime:datetime，最近快照时间，北京时间；\nrecentNews:array，近期新闻数组，每项包含 title/summary/publishTime/sourceCode。\n|string||
 |&emsp;&emsp;&emsp;&emsp;trend|趋势分析 JSON 字符串。\ndirection:string，趋势方向，允许值 UP/NEUTRAL/DOWN；\naverageReturn:number，平均收益率；\naverageMomentum:number，平均动量；\nnewsHeat:number，相关新闻数量；\nweightedHeatScore:number，加权资讯热度分；\ndataQualityScore:number，数据质量分；\nlookbackDays:number，回看天数。\n|string||
 |&emsp;&emsp;&emsp;&emsp;investmentPlan|投资方案 JSON 字符串。\nplanType:string，方案类型，当前为 REFERENCE_ALLOCATION；\nsuggestedAction:string，建议动作；\nreferenceAllocationRate:number，参考配置比例，0-1；\nreferenceAllocationAmount:number，参考配置金额；\ndataQualityLevel:string，数据质量等级；\nrebalanceRule:string，再平衡规则；\nriskNotice:string，风险提示。\n|string||
@@ -10018,6 +23837,9 @@
 				"themeCode": "",
 				"themeName": "",
 				"status": "",
+				"confidenceLevel": "",
+				"dataQualityScore": 0,
+				"dataQualityGate": "",
 				"investmentSummary": "",
 				"trend": "",
 				"investmentPlan": "",
@@ -10057,6 +23879,9 @@
 |&emsp;&emsp;&emsp;&emsp;themeCode|投资主题编码|string||
 |&emsp;&emsp;&emsp;&emsp;themeName|投资主题名称|string||
 |&emsp;&emsp;&emsp;&emsp;status|状态：SUCCEEDED/FAILED|string||
+|&emsp;&emsp;&emsp;&emsp;confidenceLevel|报告可信等级：HIGH_CONFIDENCE/MEDIUM_CONFIDENCE/LOW_CONFIDENCE/UNUSABLE|string||
+|&emsp;&emsp;&emsp;&emsp;dataQualityScore|报告输入数据质量分，0-1；前端列表页可直接展示|number||
+|&emsp;&emsp;&emsp;&emsp;dataQualityGate|数据质量门禁 JSON 字符串。\npassed:boolean，是否通过质量门禁；\nconfidenceLevel:string，可信等级；\ndataQualityScore:number，数据质量分；\nsnapshotCount:number，快照样本数量；\nnewsCount:number，相关新闻数量；\nfallbackNewsRatio:number，兜底资讯占比；\nreasons:array，降级原因编码；\ndisplayMessage:string，前端直接展示的中文提示；\nallowedActions:array，允许动作，例如 VIEW_REPORT/SHOW_DATA_GAP/GENERATE_PROMPT/MOCK_TRADE。\n|string||
 |&emsp;&emsp;&emsp;&emsp;investmentSummary|投资信息汇总 JSON 字符串。\nmarketScope:string，市场范围；\nthemeCode:string，主题编码；\nsampleCount:number，快照样本数；\nnewsCount:number，相关新闻数；\naverageReturn:number，平均收益率，小数形式；\naverageMomentum:number，平均动量；\naverageHeat:number，加权资讯热度；\ndataQualityScore:number，数据质量分，0-1；\ndataQualityLevel:string，允许值 HIGH/MEDIUM/LOW；\nlatestSnapshotTime:datetime，最近快照时间，北京时间；\nrecentNews:array，近期新闻数组，每项包含 title/summary/publishTime/sourceCode。\n|string||
 |&emsp;&emsp;&emsp;&emsp;trend|趋势分析 JSON 字符串。\ndirection:string，趋势方向，允许值 UP/NEUTRAL/DOWN；\naverageReturn:number，平均收益率；\naverageMomentum:number，平均动量；\nnewsHeat:number，相关新闻数量；\nweightedHeatScore:number，加权资讯热度分；\ndataQualityScore:number，数据质量分；\nlookbackDays:number，回看天数。\n|string||
 |&emsp;&emsp;&emsp;&emsp;investmentPlan|投资方案 JSON 字符串。\nplanType:string，方案类型，当前为 REFERENCE_ALLOCATION；\nsuggestedAction:string，建议动作；\nreferenceAllocationRate:number，参考配置比例，0-1；\nreferenceAllocationAmount:number，参考配置金额；\ndataQualityLevel:string，数据质量等级；\nrebalanceRule:string，再平衡规则；\nriskNotice:string，风险提示。\n|string||
@@ -10087,6 +23912,9 @@
 				"themeCode": "",
 				"themeName": "",
 				"status": "",
+				"confidenceLevel": "",
+				"dataQualityScore": 0,
+				"dataQualityGate": "",
 				"investmentSummary": "",
 				"trend": "",
 				"investmentPlan": "",
@@ -12402,6 +26230,2447 @@
 ```
 
 
+# AI Prompt评估
+
+
+## 查询AI Prompt评估详情
+
+
+**接口地址**:`/api/ai/prompt-evaluations/detail`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>根据评估业务 ID 查询 Prompt 评分、回测、反馈和复核状态。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "bizId": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|aiPromptEvaluationBizIdRequest|AI Prompt 评估业务 ID 请求|body|true|AiPromptEvaluationBizIdRequest|AiPromptEvaluationBizIdRequest|
+|&emsp;&emsp;bizId|Prompt评估业务唯一标识||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|查询成功，返回 Prompt 评估详情|ResultAiPromptEvaluationResponse|
+|403|Prompt评估对当前用户不可见|ResultAiPromptEvaluationResponse|
+|404|Prompt评估不存在|ResultAiPromptEvaluationResponse|
+|500|系统错误|ResultAiPromptEvaluationResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptEvaluationResponse|AiPromptEvaluationResponse|
+|&emsp;&emsp;bizId|Prompt评估业务唯一标识|string||
+|&emsp;&emsp;promptBizId|Prompt模板业务标识|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;scenario|使用场景快照|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;feedbackBizId|关联反馈业务标识|string||
+|&emsp;&emsp;score|综合评分|number||
+|&emsp;&emsp;scoreDetail|评分详情 JSON|string||
+|&emsp;&emsp;reviewStatus|复核状态|string||
+|&emsp;&emsp;evaluatorType|评估来源|string||
+|&emsp;&emsp;evaluatorBizId|评估人或任务业务标识|string||
+|&emsp;&emsp;evaluatedAt|评估时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"backtestBizId": "",
+		"feedbackBizId": "",
+		"score": 0,
+		"scoreDetail": "",
+		"reviewStatus": "",
+		"evaluatorType": "",
+		"evaluatorBizId": "",
+		"evaluatedAt": "",
+		"createdAt": ""
+	}
+}
+```
+
+
+**响应状态码-403**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptEvaluationResponse|AiPromptEvaluationResponse|
+|&emsp;&emsp;bizId|Prompt评估业务唯一标识|string||
+|&emsp;&emsp;promptBizId|Prompt模板业务标识|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;scenario|使用场景快照|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;feedbackBizId|关联反馈业务标识|string||
+|&emsp;&emsp;score|综合评分|number||
+|&emsp;&emsp;scoreDetail|评分详情 JSON|string||
+|&emsp;&emsp;reviewStatus|复核状态|string||
+|&emsp;&emsp;evaluatorType|评估来源|string||
+|&emsp;&emsp;evaluatorBizId|评估人或任务业务标识|string||
+|&emsp;&emsp;evaluatedAt|评估时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"backtestBizId": "",
+		"feedbackBizId": "",
+		"score": 0,
+		"scoreDetail": "",
+		"reviewStatus": "",
+		"evaluatorType": "",
+		"evaluatorBizId": "",
+		"evaluatedAt": "",
+		"createdAt": ""
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptEvaluationResponse|AiPromptEvaluationResponse|
+|&emsp;&emsp;bizId|Prompt评估业务唯一标识|string||
+|&emsp;&emsp;promptBizId|Prompt模板业务标识|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;scenario|使用场景快照|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;feedbackBizId|关联反馈业务标识|string||
+|&emsp;&emsp;score|综合评分|number||
+|&emsp;&emsp;scoreDetail|评分详情 JSON|string||
+|&emsp;&emsp;reviewStatus|复核状态|string||
+|&emsp;&emsp;evaluatorType|评估来源|string||
+|&emsp;&emsp;evaluatorBizId|评估人或任务业务标识|string||
+|&emsp;&emsp;evaluatedAt|评估时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"backtestBizId": "",
+		"feedbackBizId": "",
+		"score": 0,
+		"scoreDetail": "",
+		"reviewStatus": "",
+		"evaluatorType": "",
+		"evaluatorBizId": "",
+		"evaluatedAt": "",
+		"createdAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptEvaluationResponse|AiPromptEvaluationResponse|
+|&emsp;&emsp;bizId|Prompt评估业务唯一标识|string||
+|&emsp;&emsp;promptBizId|Prompt模板业务标识|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;scenario|使用场景快照|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;feedbackBizId|关联反馈业务标识|string||
+|&emsp;&emsp;score|综合评分|number||
+|&emsp;&emsp;scoreDetail|评分详情 JSON|string||
+|&emsp;&emsp;reviewStatus|复核状态|string||
+|&emsp;&emsp;evaluatorType|评估来源|string||
+|&emsp;&emsp;evaluatorBizId|评估人或任务业务标识|string||
+|&emsp;&emsp;evaluatedAt|评估时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"backtestBizId": "",
+		"feedbackBizId": "",
+		"score": 0,
+		"scoreDetail": "",
+		"reviewStatus": "",
+		"evaluatorType": "",
+		"evaluatorBizId": "",
+		"evaluatedAt": "",
+		"createdAt": ""
+	}
+}
+```
+
+
+## 分页查询AI Prompt评估
+
+
+**接口地址**:`/api/ai/prompt-evaluations/list`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>按 Prompt 编码、版本、场景、回测、反馈和复核状态查询评估记录。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "promptCode": "",
+  "promptVersion": "",
+  "scenario": "",
+  "backtestBizId": "",
+  "feedbackBizId": "",
+  "reviewStatus": "",
+  "page": 0,
+  "size": 0,
+  "sort": "",
+  "direction": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|aiPromptEvaluationListRequest|AI Prompt 评估分页查询请求|body|true|AiPromptEvaluationListRequest|AiPromptEvaluationListRequest|
+|&emsp;&emsp;promptCode|Prompt稳定编码||false|string||
+|&emsp;&emsp;promptVersion|Prompt版本||false|string||
+|&emsp;&emsp;scenario|使用场景||false|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识||false|string||
+|&emsp;&emsp;feedbackBizId|关联反馈业务标识||false|string||
+|&emsp;&emsp;reviewStatus|复核状态||false|string||
+|&emsp;&emsp;page|页码，从 1 开始；传 0 会兼容为第一页||false|integer(int32)||
+|&emsp;&emsp;size|每页条数，1-100||false|integer(int32)||
+|&emsp;&emsp;sort|排序字段：evaluatedAt/promptCode/promptVersion/scenario/score/reviewStatus||false|string||
+|&emsp;&emsp;direction|排序方向：asc/desc||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|查询成功，返回 Prompt 评估分页响应|ResultPageResponseAiPromptEvaluationResponse|
+|400|分页或排序参数不合法|ResultPageResponseAiPromptEvaluationResponse|
+|500|系统错误|ResultPageResponseAiPromptEvaluationResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseAiPromptEvaluationResponse|PageResponseAiPromptEvaluationResponse|
+|&emsp;&emsp;items|当前页数据列表|array|AiPromptEvaluationResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|Prompt评估业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;&emsp;&emsp;scenario|使用场景快照|string||
+|&emsp;&emsp;&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;feedbackBizId|关联反馈业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;score|综合评分|number||
+|&emsp;&emsp;&emsp;&emsp;scoreDetail|评分详情 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;reviewStatus|复核状态|string||
+|&emsp;&emsp;&emsp;&emsp;evaluatorType|评估来源|string||
+|&emsp;&emsp;&emsp;&emsp;evaluatorBizId|评估人或任务业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;evaluatedAt|评估时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"promptCode": "",
+				"promptVersion": "",
+				"scenario": "",
+				"backtestBizId": "",
+				"feedbackBizId": "",
+				"score": 0,
+				"scoreDetail": "",
+				"reviewStatus": "",
+				"evaluatorType": "",
+				"evaluatorBizId": "",
+				"evaluatedAt": "",
+				"createdAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseAiPromptEvaluationResponse|PageResponseAiPromptEvaluationResponse|
+|&emsp;&emsp;items|当前页数据列表|array|AiPromptEvaluationResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|Prompt评估业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;&emsp;&emsp;scenario|使用场景快照|string||
+|&emsp;&emsp;&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;feedbackBizId|关联反馈业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;score|综合评分|number||
+|&emsp;&emsp;&emsp;&emsp;scoreDetail|评分详情 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;reviewStatus|复核状态|string||
+|&emsp;&emsp;&emsp;&emsp;evaluatorType|评估来源|string||
+|&emsp;&emsp;&emsp;&emsp;evaluatorBizId|评估人或任务业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;evaluatedAt|评估时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"promptCode": "",
+				"promptVersion": "",
+				"scenario": "",
+				"backtestBizId": "",
+				"feedbackBizId": "",
+				"score": 0,
+				"scoreDetail": "",
+				"reviewStatus": "",
+				"evaluatorType": "",
+				"evaluatorBizId": "",
+				"evaluatedAt": "",
+				"createdAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseAiPromptEvaluationResponse|PageResponseAiPromptEvaluationResponse|
+|&emsp;&emsp;items|当前页数据列表|array|AiPromptEvaluationResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|Prompt评估业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;&emsp;&emsp;scenario|使用场景快照|string||
+|&emsp;&emsp;&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;feedbackBizId|关联反馈业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;score|综合评分|number||
+|&emsp;&emsp;&emsp;&emsp;scoreDetail|评分详情 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;reviewStatus|复核状态|string||
+|&emsp;&emsp;&emsp;&emsp;evaluatorType|评估来源|string||
+|&emsp;&emsp;&emsp;&emsp;evaluatorBizId|评估人或任务业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;evaluatedAt|评估时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"promptCode": "",
+				"promptVersion": "",
+				"scenario": "",
+				"backtestBizId": "",
+				"feedbackBizId": "",
+				"score": 0,
+				"scoreDetail": "",
+				"reviewStatus": "",
+				"evaluatorType": "",
+				"evaluatorBizId": "",
+				"evaluatedAt": "",
+				"createdAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+## 保存AI Prompt评估
+
+
+**接口地址**:`/api/ai/prompt-evaluations/save`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>保存人工或系统生成的 Prompt 版本评分，关联回测结果和反馈记录。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "promptBizId": "",
+  "promptCode": "",
+  "promptVersion": "",
+  "scenario": "",
+  "backtestBizId": "",
+  "feedbackBizId": "",
+  "score": 0,
+  "scoreDetail": "",
+  "reviewStatus": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|saveAiPromptEvaluationRequest|保存 AI Prompt 评估请求|body|true|SaveAiPromptEvaluationRequest|SaveAiPromptEvaluationRequest|
+|&emsp;&emsp;promptBizId|Prompt模板业务标识||false|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码||true|string||
+|&emsp;&emsp;promptVersion|Prompt版本||true|string||
+|&emsp;&emsp;scenario|使用场景||true|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识||false|string||
+|&emsp;&emsp;feedbackBizId|关联反馈业务标识||false|string||
+|&emsp;&emsp;score|综合评分，0-1||true|number||
+|&emsp;&emsp;scoreDetail|评分详情 JSON||false|string||
+|&emsp;&emsp;reviewStatus|复核状态：PENDING/APPROVED/REJECTED/ARCHIVED||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|保存成功，返回 Prompt 评估|ResultAiPromptEvaluationResponse|
+|400|参数或JSON格式不合法|ResultAiPromptEvaluationResponse|
+|403|关联回测或反馈不属于当前用户|ResultAiPromptEvaluationResponse|
+|500|系统错误|ResultAiPromptEvaluationResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptEvaluationResponse|AiPromptEvaluationResponse|
+|&emsp;&emsp;bizId|Prompt评估业务唯一标识|string||
+|&emsp;&emsp;promptBizId|Prompt模板业务标识|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;scenario|使用场景快照|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;feedbackBizId|关联反馈业务标识|string||
+|&emsp;&emsp;score|综合评分|number||
+|&emsp;&emsp;scoreDetail|评分详情 JSON|string||
+|&emsp;&emsp;reviewStatus|复核状态|string||
+|&emsp;&emsp;evaluatorType|评估来源|string||
+|&emsp;&emsp;evaluatorBizId|评估人或任务业务标识|string||
+|&emsp;&emsp;evaluatedAt|评估时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"backtestBizId": "",
+		"feedbackBizId": "",
+		"score": 0,
+		"scoreDetail": "",
+		"reviewStatus": "",
+		"evaluatorType": "",
+		"evaluatorBizId": "",
+		"evaluatedAt": "",
+		"createdAt": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptEvaluationResponse|AiPromptEvaluationResponse|
+|&emsp;&emsp;bizId|Prompt评估业务唯一标识|string||
+|&emsp;&emsp;promptBizId|Prompt模板业务标识|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;scenario|使用场景快照|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;feedbackBizId|关联反馈业务标识|string||
+|&emsp;&emsp;score|综合评分|number||
+|&emsp;&emsp;scoreDetail|评分详情 JSON|string||
+|&emsp;&emsp;reviewStatus|复核状态|string||
+|&emsp;&emsp;evaluatorType|评估来源|string||
+|&emsp;&emsp;evaluatorBizId|评估人或任务业务标识|string||
+|&emsp;&emsp;evaluatedAt|评估时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"backtestBizId": "",
+		"feedbackBizId": "",
+		"score": 0,
+		"scoreDetail": "",
+		"reviewStatus": "",
+		"evaluatorType": "",
+		"evaluatorBizId": "",
+		"evaluatedAt": "",
+		"createdAt": ""
+	}
+}
+```
+
+
+**响应状态码-403**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptEvaluationResponse|AiPromptEvaluationResponse|
+|&emsp;&emsp;bizId|Prompt评估业务唯一标识|string||
+|&emsp;&emsp;promptBizId|Prompt模板业务标识|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;scenario|使用场景快照|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;feedbackBizId|关联反馈业务标识|string||
+|&emsp;&emsp;score|综合评分|number||
+|&emsp;&emsp;scoreDetail|评分详情 JSON|string||
+|&emsp;&emsp;reviewStatus|复核状态|string||
+|&emsp;&emsp;evaluatorType|评估来源|string||
+|&emsp;&emsp;evaluatorBizId|评估人或任务业务标识|string||
+|&emsp;&emsp;evaluatedAt|评估时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"backtestBizId": "",
+		"feedbackBizId": "",
+		"score": 0,
+		"scoreDetail": "",
+		"reviewStatus": "",
+		"evaluatorType": "",
+		"evaluatorBizId": "",
+		"evaluatedAt": "",
+		"createdAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptEvaluationResponse|AiPromptEvaluationResponse|
+|&emsp;&emsp;bizId|Prompt评估业务唯一标识|string||
+|&emsp;&emsp;promptBizId|Prompt模板业务标识|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码快照|string||
+|&emsp;&emsp;promptVersion|Prompt版本快照|string||
+|&emsp;&emsp;scenario|使用场景快照|string||
+|&emsp;&emsp;backtestBizId|关联回测结果业务标识|string||
+|&emsp;&emsp;feedbackBizId|关联反馈业务标识|string||
+|&emsp;&emsp;score|综合评分|number||
+|&emsp;&emsp;scoreDetail|评分详情 JSON|string||
+|&emsp;&emsp;reviewStatus|复核状态|string||
+|&emsp;&emsp;evaluatorType|评估来源|string||
+|&emsp;&emsp;evaluatorBizId|评估人或任务业务标识|string||
+|&emsp;&emsp;evaluatedAt|评估时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"backtestBizId": "",
+		"feedbackBizId": "",
+		"score": 0,
+		"scoreDetail": "",
+		"reviewStatus": "",
+		"evaluatorType": "",
+		"evaluatorBizId": "",
+		"evaluatedAt": "",
+		"createdAt": ""
+	}
+}
+```
+
+
+# AI Prompt治理
+
+
+## 查询AI Prompt详情
+
+
+**接口地址**:`/api/ai/prompts/detail`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>根据 Prompt 业务 ID 查询模板、变量定义和输出 Schema。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "bizId": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|aiPromptBizIdRequest|AI Prompt 业务 ID 请求|body|true|AiPromptBizIdRequest|AiPromptBizIdRequest|
+|&emsp;&emsp;bizId|Prompt模板业务唯一标识||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|查询成功，返回 Prompt 模板详情|ResultAiPromptTemplateResponse|
+|404|Prompt模板不存在|ResultAiPromptTemplateResponse|
+|500|系统错误|ResultAiPromptTemplateResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptTemplateResponse|AiPromptTemplateResponse|
+|&emsp;&emsp;bizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;promptCode|Prompt跨版本稳定编码|string||
+|&emsp;&emsp;promptVersion|Prompt版本号|string||
+|&emsp;&emsp;scenario|使用场景|string||
+|&emsp;&emsp;templateName|模板展示名称|string||
+|&emsp;&emsp;templateContent|模板内容|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;description|模板说明|string||
+|&emsp;&emsp;variables|变量定义集合|array|AiPromptVariableResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|变量业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;variableName|变量名称|string||
+|&emsp;&emsp;&emsp;&emsp;sourcePath|变量默认来源路径|string||
+|&emsp;&emsp;&emsp;&emsp;required|是否必填|boolean||
+|&emsp;&emsp;&emsp;&emsp;description|变量说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;outputSchemas|输出Schema集合|array|AiPromptOutputSchemaResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|输出Schema业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;schemaVersion|Schema版本号|string||
+|&emsp;&emsp;&emsp;&emsp;schemaJson|输出JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;createdBy|创建操作者|string||
+|&emsp;&emsp;updatedBy|更新操作者|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"templateName": "",
+		"templateContent": "",
+		"status": "",
+		"description": "",
+		"variables": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"variableName": "",
+				"sourcePath": "",
+				"required": true,
+				"description": "",
+				"createdAt": ""
+			}
+		],
+		"outputSchemas": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"schemaVersion": "",
+				"schemaJson": "",
+				"createdAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": "",
+		"createdBy": "",
+		"updatedBy": ""
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptTemplateResponse|AiPromptTemplateResponse|
+|&emsp;&emsp;bizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;promptCode|Prompt跨版本稳定编码|string||
+|&emsp;&emsp;promptVersion|Prompt版本号|string||
+|&emsp;&emsp;scenario|使用场景|string||
+|&emsp;&emsp;templateName|模板展示名称|string||
+|&emsp;&emsp;templateContent|模板内容|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;description|模板说明|string||
+|&emsp;&emsp;variables|变量定义集合|array|AiPromptVariableResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|变量业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;variableName|变量名称|string||
+|&emsp;&emsp;&emsp;&emsp;sourcePath|变量默认来源路径|string||
+|&emsp;&emsp;&emsp;&emsp;required|是否必填|boolean||
+|&emsp;&emsp;&emsp;&emsp;description|变量说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;outputSchemas|输出Schema集合|array|AiPromptOutputSchemaResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|输出Schema业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;schemaVersion|Schema版本号|string||
+|&emsp;&emsp;&emsp;&emsp;schemaJson|输出JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;createdBy|创建操作者|string||
+|&emsp;&emsp;updatedBy|更新操作者|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"templateName": "",
+		"templateContent": "",
+		"status": "",
+		"description": "",
+		"variables": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"variableName": "",
+				"sourcePath": "",
+				"required": true,
+				"description": "",
+				"createdAt": ""
+			}
+		],
+		"outputSchemas": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"schemaVersion": "",
+				"schemaJson": "",
+				"createdAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": "",
+		"createdBy": "",
+		"updatedBy": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptTemplateResponse|AiPromptTemplateResponse|
+|&emsp;&emsp;bizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;promptCode|Prompt跨版本稳定编码|string||
+|&emsp;&emsp;promptVersion|Prompt版本号|string||
+|&emsp;&emsp;scenario|使用场景|string||
+|&emsp;&emsp;templateName|模板展示名称|string||
+|&emsp;&emsp;templateContent|模板内容|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;description|模板说明|string||
+|&emsp;&emsp;variables|变量定义集合|array|AiPromptVariableResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|变量业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;variableName|变量名称|string||
+|&emsp;&emsp;&emsp;&emsp;sourcePath|变量默认来源路径|string||
+|&emsp;&emsp;&emsp;&emsp;required|是否必填|boolean||
+|&emsp;&emsp;&emsp;&emsp;description|变量说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;outputSchemas|输出Schema集合|array|AiPromptOutputSchemaResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|输出Schema业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;schemaVersion|Schema版本号|string||
+|&emsp;&emsp;&emsp;&emsp;schemaJson|输出JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;createdBy|创建操作者|string||
+|&emsp;&emsp;updatedBy|更新操作者|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"templateName": "",
+		"templateContent": "",
+		"status": "",
+		"description": "",
+		"variables": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"variableName": "",
+				"sourcePath": "",
+				"required": true,
+				"description": "",
+				"createdAt": ""
+			}
+		],
+		"outputSchemas": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"schemaVersion": "",
+				"schemaJson": "",
+				"createdAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": "",
+		"createdBy": "",
+		"updatedBy": ""
+	}
+}
+```
+
+
+## 分页查询AI Prompt
+
+
+**接口地址**:`/api/ai/prompts/list`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>按 Prompt 编码、使用场景和状态查询 Prompt 模板版本。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "promptCode": "INVESTMENT_PLAN",
+  "scenario": "",
+  "status": "",
+  "page": 1,
+  "size": 20,
+  "sort": "updatedAt",
+  "direction": "desc"
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|aiPromptListRequest|AI Prompt 分页查询请求|body|true|AiPromptListRequest|AiPromptListRequest|
+|&emsp;&emsp;promptCode|Prompt稳定编码||false|string||
+|&emsp;&emsp;scenario|使用场景||false|string||
+|&emsp;&emsp;status|状态||false|string||
+|&emsp;&emsp;page|页码，从 1 开始；传 0 会兼容为第一页||false|integer(int32)||
+|&emsp;&emsp;size|每页条数，1-100||false|integer(int32)||
+|&emsp;&emsp;sort|排序字段：updatedAt/promptCode/promptVersion/scenario/status||false|string||
+|&emsp;&emsp;direction|排序方向：asc/desc||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|查询成功，返回 Prompt 模板分页响应|ResultPageResponseAiPromptTemplateResponse|
+|400|分页、排序或筛选参数不合法|ResultPageResponseAiPromptTemplateResponse|
+|500|系统错误|ResultPageResponseAiPromptTemplateResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseAiPromptTemplateResponse|PageResponseAiPromptTemplateResponse|
+|&emsp;&emsp;items|当前页数据列表|array|AiPromptTemplateResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptCode|Prompt跨版本稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;promptVersion|Prompt版本号|string||
+|&emsp;&emsp;&emsp;&emsp;scenario|使用场景|string||
+|&emsp;&emsp;&emsp;&emsp;templateName|模板展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;templateContent|模板内容|string||
+|&emsp;&emsp;&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;&emsp;&emsp;description|模板说明|string||
+|&emsp;&emsp;&emsp;&emsp;variables|变量定义集合|array|AiPromptVariableResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|变量业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;variableName|变量名称|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourcePath|变量默认来源路径|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;required|是否必填|boolean||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;description|变量说明|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;outputSchemas|输出Schema集合|array|AiPromptOutputSchemaResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|输出Schema业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;schemaVersion|Schema版本号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;schemaJson|输出JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdBy|创建操作者|string||
+|&emsp;&emsp;&emsp;&emsp;updatedBy|更新操作者|string||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"promptCode": "",
+				"promptVersion": "",
+				"scenario": "",
+				"templateName": "",
+				"templateContent": "",
+				"status": "",
+				"description": "",
+				"variables": [
+					{
+						"bizId": "",
+						"promptBizId": "",
+						"variableName": "",
+						"sourcePath": "",
+						"required": true,
+						"description": "",
+						"createdAt": ""
+					}
+				],
+				"outputSchemas": [
+					{
+						"bizId": "",
+						"promptBizId": "",
+						"schemaVersion": "",
+						"schemaJson": "",
+						"createdAt": ""
+					}
+				],
+				"createdAt": "",
+				"updatedAt": "",
+				"createdBy": "",
+				"updatedBy": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseAiPromptTemplateResponse|PageResponseAiPromptTemplateResponse|
+|&emsp;&emsp;items|当前页数据列表|array|AiPromptTemplateResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptCode|Prompt跨版本稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;promptVersion|Prompt版本号|string||
+|&emsp;&emsp;&emsp;&emsp;scenario|使用场景|string||
+|&emsp;&emsp;&emsp;&emsp;templateName|模板展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;templateContent|模板内容|string||
+|&emsp;&emsp;&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;&emsp;&emsp;description|模板说明|string||
+|&emsp;&emsp;&emsp;&emsp;variables|变量定义集合|array|AiPromptVariableResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|变量业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;variableName|变量名称|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourcePath|变量默认来源路径|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;required|是否必填|boolean||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;description|变量说明|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;outputSchemas|输出Schema集合|array|AiPromptOutputSchemaResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|输出Schema业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;schemaVersion|Schema版本号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;schemaJson|输出JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdBy|创建操作者|string||
+|&emsp;&emsp;&emsp;&emsp;updatedBy|更新操作者|string||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"promptCode": "",
+				"promptVersion": "",
+				"scenario": "",
+				"templateName": "",
+				"templateContent": "",
+				"status": "",
+				"description": "",
+				"variables": [
+					{
+						"bizId": "",
+						"promptBizId": "",
+						"variableName": "",
+						"sourcePath": "",
+						"required": true,
+						"description": "",
+						"createdAt": ""
+					}
+				],
+				"outputSchemas": [
+					{
+						"bizId": "",
+						"promptBizId": "",
+						"schemaVersion": "",
+						"schemaJson": "",
+						"createdAt": ""
+					}
+				],
+				"createdAt": "",
+				"updatedAt": "",
+				"createdBy": "",
+				"updatedBy": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseAiPromptTemplateResponse|PageResponseAiPromptTemplateResponse|
+|&emsp;&emsp;items|当前页数据列表|array|AiPromptTemplateResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptCode|Prompt跨版本稳定编码|string||
+|&emsp;&emsp;&emsp;&emsp;promptVersion|Prompt版本号|string||
+|&emsp;&emsp;&emsp;&emsp;scenario|使用场景|string||
+|&emsp;&emsp;&emsp;&emsp;templateName|模板展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;templateContent|模板内容|string||
+|&emsp;&emsp;&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;&emsp;&emsp;description|模板说明|string||
+|&emsp;&emsp;&emsp;&emsp;variables|变量定义集合|array|AiPromptVariableResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|变量业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;variableName|变量名称|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sourcePath|变量默认来源路径|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;required|是否必填|boolean||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;description|变量说明|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;outputSchemas|输出Schema集合|array|AiPromptOutputSchemaResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|输出Schema业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;schemaVersion|Schema版本号|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;schemaJson|输出JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;createdBy|创建操作者|string||
+|&emsp;&emsp;&emsp;&emsp;updatedBy|更新操作者|string||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"promptCode": "",
+				"promptVersion": "",
+				"scenario": "",
+				"templateName": "",
+				"templateContent": "",
+				"status": "",
+				"description": "",
+				"variables": [
+					{
+						"bizId": "",
+						"promptBizId": "",
+						"variableName": "",
+						"sourcePath": "",
+						"required": true,
+						"description": "",
+						"createdAt": ""
+					}
+				],
+				"outputSchemas": [
+					{
+						"bizId": "",
+						"promptBizId": "",
+						"schemaVersion": "",
+						"schemaJson": "",
+						"createdAt": ""
+					}
+				],
+				"createdAt": "",
+				"updatedAt": "",
+				"createdBy": "",
+				"updatedBy": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+## 预览AI Prompt
+
+
+**接口地址**:`/api/ai/prompts/preview`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>按业务 ID 或编码版本本地渲染 Prompt，只替换变量并校验必填项，不触发真实模型调用。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "promptBizId": "",
+  "promptCode": "",
+  "promptVersion": "",
+  "variables": {}
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|aiPromptPreviewRequest|AI Prompt 预览请求|body|true|AiPromptPreviewRequest|AiPromptPreviewRequest|
+|&emsp;&emsp;promptBizId|Prompt模板业务唯一标识，优先使用||false|string||
+|&emsp;&emsp;promptCode|Prompt稳定编码，未传业务ID时使用||false|string||
+|&emsp;&emsp;promptVersion|Prompt版本，未传业务ID时使用||false|string||
+|&emsp;&emsp;variables|预览变量值，键为变量名，值为替换文本||false|object||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|预览成功，返回渲染结果和缺失变量|ResultAiPromptPreviewResponse|
+|400|Prompt定位参数不足|ResultAiPromptPreviewResponse|
+|404|Prompt模板不存在|ResultAiPromptPreviewResponse|
+|500|系统错误|ResultAiPromptPreviewResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptPreviewResponse|AiPromptPreviewResponse|
+|&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;promptCode|Prompt跨版本稳定编码|string||
+|&emsp;&emsp;promptVersion|Prompt版本号|string||
+|&emsp;&emsp;scenario|使用场景|string||
+|&emsp;&emsp;renderedPrompt|渲染后的最终Prompt|string||
+|&emsp;&emsp;missingVariables|缺失变量名集合|array|string|
+|&emsp;&emsp;readyForModel|预览是否可用于后续模型调用|boolean||
+|&emsp;&emsp;displayMessage|预览提示信息|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"renderedPrompt": "",
+		"missingVariables": [],
+		"readyForModel": true,
+		"displayMessage": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptPreviewResponse|AiPromptPreviewResponse|
+|&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;promptCode|Prompt跨版本稳定编码|string||
+|&emsp;&emsp;promptVersion|Prompt版本号|string||
+|&emsp;&emsp;scenario|使用场景|string||
+|&emsp;&emsp;renderedPrompt|渲染后的最终Prompt|string||
+|&emsp;&emsp;missingVariables|缺失变量名集合|array|string|
+|&emsp;&emsp;readyForModel|预览是否可用于后续模型调用|boolean||
+|&emsp;&emsp;displayMessage|预览提示信息|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"renderedPrompt": "",
+		"missingVariables": [],
+		"readyForModel": true,
+		"displayMessage": ""
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptPreviewResponse|AiPromptPreviewResponse|
+|&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;promptCode|Prompt跨版本稳定编码|string||
+|&emsp;&emsp;promptVersion|Prompt版本号|string||
+|&emsp;&emsp;scenario|使用场景|string||
+|&emsp;&emsp;renderedPrompt|渲染后的最终Prompt|string||
+|&emsp;&emsp;missingVariables|缺失变量名集合|array|string|
+|&emsp;&emsp;readyForModel|预览是否可用于后续模型调用|boolean||
+|&emsp;&emsp;displayMessage|预览提示信息|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"renderedPrompt": "",
+		"missingVariables": [],
+		"readyForModel": true,
+		"displayMessage": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptPreviewResponse|AiPromptPreviewResponse|
+|&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;promptCode|Prompt跨版本稳定编码|string||
+|&emsp;&emsp;promptVersion|Prompt版本号|string||
+|&emsp;&emsp;scenario|使用场景|string||
+|&emsp;&emsp;renderedPrompt|渲染后的最终Prompt|string||
+|&emsp;&emsp;missingVariables|缺失变量名集合|array|string|
+|&emsp;&emsp;readyForModel|预览是否可用于后续模型调用|boolean||
+|&emsp;&emsp;displayMessage|预览提示信息|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"renderedPrompt": "",
+		"missingVariables": [],
+		"readyForModel": true,
+		"displayMessage": ""
+	}
+}
+```
+
+
+## 保存AI Prompt模板
+
+
+**接口地址**:`/api/ai/prompts/save`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>新增或更新 Prompt 模板版本，并整体替换变量定义和输出 JSON Schema。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "promptCode": "INVESTMENT_PLAN",
+  "promptVersion": "v1",
+  "scenario": "",
+  "templateName": "",
+  "templateContent": "",
+  "status": "DRAFT",
+  "description": "",
+  "variables": [
+    {
+      "variableName": "reportSummary",
+      "sourcePath": "report.summary",
+      "required": true,
+      "description": ""
+    }
+  ],
+  "outputSchemas": [
+    {
+      "schemaVersion": "v1",
+      "schemaJson": ""
+    }
+  ]
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|saveAiPromptTemplateRequest|保存 AI Prompt 模板请求|body|true|SaveAiPromptTemplateRequest|SaveAiPromptTemplateRequest|
+|&emsp;&emsp;promptCode|Prompt稳定编码||true|string||
+|&emsp;&emsp;promptVersion|Prompt版本||true|string||
+|&emsp;&emsp;scenario|使用场景：INVESTMENT_REPORT/INVESTMENT_PLAN/RISK_AUDIT/BACKTEST_FEEDBACK||true|string||
+|&emsp;&emsp;templateName|模板展示名称||true|string||
+|&emsp;&emsp;templateContent|模板内容，变量使用 ${variableName} 占位||true|string||
+|&emsp;&emsp;status|状态：DRAFT/VALIDATING/ACTIVE/RETIRED||false|string||
+|&emsp;&emsp;description|模板说明||false|string||
+|&emsp;&emsp;variables|变量定义集合||false|array|AiPromptVariableRequest|
+|&emsp;&emsp;&emsp;&emsp;variableName|变量名称，不包含 ${} 符号||true|string||
+|&emsp;&emsp;&emsp;&emsp;sourcePath|变量默认来源路径||false|string||
+|&emsp;&emsp;&emsp;&emsp;required|是否必填||false|boolean||
+|&emsp;&emsp;&emsp;&emsp;description|变量说明||false|string||
+|&emsp;&emsp;outputSchemas|输出Schema集合||false|array|AiPromptOutputSchemaRequest|
+|&emsp;&emsp;&emsp;&emsp;schemaVersion|Schema版本||true|string||
+|&emsp;&emsp;&emsp;&emsp;schemaJson|输出JSON Schema字符串||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|保存成功，返回 Prompt 模板响应|ResultAiPromptTemplateResponse|
+|400|参数、状态、场景、变量或 Schema 不合法|ResultAiPromptTemplateResponse|
+|401|未登录或会话失效|ResultAiPromptTemplateResponse|
+|500|系统错误|ResultAiPromptTemplateResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptTemplateResponse|AiPromptTemplateResponse|
+|&emsp;&emsp;bizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;promptCode|Prompt跨版本稳定编码|string||
+|&emsp;&emsp;promptVersion|Prompt版本号|string||
+|&emsp;&emsp;scenario|使用场景|string||
+|&emsp;&emsp;templateName|模板展示名称|string||
+|&emsp;&emsp;templateContent|模板内容|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;description|模板说明|string||
+|&emsp;&emsp;variables|变量定义集合|array|AiPromptVariableResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|变量业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;variableName|变量名称|string||
+|&emsp;&emsp;&emsp;&emsp;sourcePath|变量默认来源路径|string||
+|&emsp;&emsp;&emsp;&emsp;required|是否必填|boolean||
+|&emsp;&emsp;&emsp;&emsp;description|变量说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;outputSchemas|输出Schema集合|array|AiPromptOutputSchemaResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|输出Schema业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;schemaVersion|Schema版本号|string||
+|&emsp;&emsp;&emsp;&emsp;schemaJson|输出JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;createdBy|创建操作者|string||
+|&emsp;&emsp;updatedBy|更新操作者|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"templateName": "",
+		"templateContent": "",
+		"status": "",
+		"description": "",
+		"variables": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"variableName": "",
+				"sourcePath": "",
+				"required": true,
+				"description": "",
+				"createdAt": ""
+			}
+		],
+		"outputSchemas": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"schemaVersion": "",
+				"schemaJson": "",
+				"createdAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": "",
+		"createdBy": "",
+		"updatedBy": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptTemplateResponse|AiPromptTemplateResponse|
+|&emsp;&emsp;bizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;promptCode|Prompt跨版本稳定编码|string||
+|&emsp;&emsp;promptVersion|Prompt版本号|string||
+|&emsp;&emsp;scenario|使用场景|string||
+|&emsp;&emsp;templateName|模板展示名称|string||
+|&emsp;&emsp;templateContent|模板内容|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;description|模板说明|string||
+|&emsp;&emsp;variables|变量定义集合|array|AiPromptVariableResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|变量业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;variableName|变量名称|string||
+|&emsp;&emsp;&emsp;&emsp;sourcePath|变量默认来源路径|string||
+|&emsp;&emsp;&emsp;&emsp;required|是否必填|boolean||
+|&emsp;&emsp;&emsp;&emsp;description|变量说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;outputSchemas|输出Schema集合|array|AiPromptOutputSchemaResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|输出Schema业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;schemaVersion|Schema版本号|string||
+|&emsp;&emsp;&emsp;&emsp;schemaJson|输出JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;createdBy|创建操作者|string||
+|&emsp;&emsp;updatedBy|更新操作者|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"templateName": "",
+		"templateContent": "",
+		"status": "",
+		"description": "",
+		"variables": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"variableName": "",
+				"sourcePath": "",
+				"required": true,
+				"description": "",
+				"createdAt": ""
+			}
+		],
+		"outputSchemas": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"schemaVersion": "",
+				"schemaJson": "",
+				"createdAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": "",
+		"createdBy": "",
+		"updatedBy": ""
+	}
+}
+```
+
+
+**响应状态码-401**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptTemplateResponse|AiPromptTemplateResponse|
+|&emsp;&emsp;bizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;promptCode|Prompt跨版本稳定编码|string||
+|&emsp;&emsp;promptVersion|Prompt版本号|string||
+|&emsp;&emsp;scenario|使用场景|string||
+|&emsp;&emsp;templateName|模板展示名称|string||
+|&emsp;&emsp;templateContent|模板内容|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;description|模板说明|string||
+|&emsp;&emsp;variables|变量定义集合|array|AiPromptVariableResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|变量业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;variableName|变量名称|string||
+|&emsp;&emsp;&emsp;&emsp;sourcePath|变量默认来源路径|string||
+|&emsp;&emsp;&emsp;&emsp;required|是否必填|boolean||
+|&emsp;&emsp;&emsp;&emsp;description|变量说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;outputSchemas|输出Schema集合|array|AiPromptOutputSchemaResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|输出Schema业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;schemaVersion|Schema版本号|string||
+|&emsp;&emsp;&emsp;&emsp;schemaJson|输出JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;createdBy|创建操作者|string||
+|&emsp;&emsp;updatedBy|更新操作者|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"templateName": "",
+		"templateContent": "",
+		"status": "",
+		"description": "",
+		"variables": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"variableName": "",
+				"sourcePath": "",
+				"required": true,
+				"description": "",
+				"createdAt": ""
+			}
+		],
+		"outputSchemas": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"schemaVersion": "",
+				"schemaJson": "",
+				"createdAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": "",
+		"createdBy": "",
+		"updatedBy": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptTemplateResponse|AiPromptTemplateResponse|
+|&emsp;&emsp;bizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;promptCode|Prompt跨版本稳定编码|string||
+|&emsp;&emsp;promptVersion|Prompt版本号|string||
+|&emsp;&emsp;scenario|使用场景|string||
+|&emsp;&emsp;templateName|模板展示名称|string||
+|&emsp;&emsp;templateContent|模板内容|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;description|模板说明|string||
+|&emsp;&emsp;variables|变量定义集合|array|AiPromptVariableResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|变量业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;variableName|变量名称|string||
+|&emsp;&emsp;&emsp;&emsp;sourcePath|变量默认来源路径|string||
+|&emsp;&emsp;&emsp;&emsp;required|是否必填|boolean||
+|&emsp;&emsp;&emsp;&emsp;description|变量说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;outputSchemas|输出Schema集合|array|AiPromptOutputSchemaResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|输出Schema业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;schemaVersion|Schema版本号|string||
+|&emsp;&emsp;&emsp;&emsp;schemaJson|输出JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;createdBy|创建操作者|string||
+|&emsp;&emsp;updatedBy|更新操作者|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"templateName": "",
+		"templateContent": "",
+		"status": "",
+		"description": "",
+		"variables": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"variableName": "",
+				"sourcePath": "",
+				"required": true,
+				"description": "",
+				"createdAt": ""
+			}
+		],
+		"outputSchemas": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"schemaVersion": "",
+				"schemaJson": "",
+				"createdAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": "",
+		"createdBy": "",
+		"updatedBy": ""
+	}
+}
+```
+
+
+## 变更AI Prompt状态
+
+
+**接口地址**:`/api/ai/prompts/status`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>将 Prompt 状态变更为 DRAFT、VALIDATING、ACTIVE 或 RETIRED。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "bizId": "",
+  "status": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|aiPromptStatusRequest|AI Prompt 状态变更请求|body|true|AiPromptStatusRequest|AiPromptStatusRequest|
+|&emsp;&emsp;bizId|Prompt模板业务唯一标识||true|string||
+|&emsp;&emsp;status|目标状态：DRAFT/VALIDATING/ACTIVE/RETIRED||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|变更成功，返回 Prompt 模板响应|ResultAiPromptTemplateResponse|
+|400|状态不合法|ResultAiPromptTemplateResponse|
+|404|Prompt模板不存在|ResultAiPromptTemplateResponse|
+|500|系统错误|ResultAiPromptTemplateResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptTemplateResponse|AiPromptTemplateResponse|
+|&emsp;&emsp;bizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;promptCode|Prompt跨版本稳定编码|string||
+|&emsp;&emsp;promptVersion|Prompt版本号|string||
+|&emsp;&emsp;scenario|使用场景|string||
+|&emsp;&emsp;templateName|模板展示名称|string||
+|&emsp;&emsp;templateContent|模板内容|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;description|模板说明|string||
+|&emsp;&emsp;variables|变量定义集合|array|AiPromptVariableResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|变量业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;variableName|变量名称|string||
+|&emsp;&emsp;&emsp;&emsp;sourcePath|变量默认来源路径|string||
+|&emsp;&emsp;&emsp;&emsp;required|是否必填|boolean||
+|&emsp;&emsp;&emsp;&emsp;description|变量说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;outputSchemas|输出Schema集合|array|AiPromptOutputSchemaResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|输出Schema业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;schemaVersion|Schema版本号|string||
+|&emsp;&emsp;&emsp;&emsp;schemaJson|输出JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;createdBy|创建操作者|string||
+|&emsp;&emsp;updatedBy|更新操作者|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"templateName": "",
+		"templateContent": "",
+		"status": "",
+		"description": "",
+		"variables": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"variableName": "",
+				"sourcePath": "",
+				"required": true,
+				"description": "",
+				"createdAt": ""
+			}
+		],
+		"outputSchemas": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"schemaVersion": "",
+				"schemaJson": "",
+				"createdAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": "",
+		"createdBy": "",
+		"updatedBy": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptTemplateResponse|AiPromptTemplateResponse|
+|&emsp;&emsp;bizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;promptCode|Prompt跨版本稳定编码|string||
+|&emsp;&emsp;promptVersion|Prompt版本号|string||
+|&emsp;&emsp;scenario|使用场景|string||
+|&emsp;&emsp;templateName|模板展示名称|string||
+|&emsp;&emsp;templateContent|模板内容|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;description|模板说明|string||
+|&emsp;&emsp;variables|变量定义集合|array|AiPromptVariableResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|变量业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;variableName|变量名称|string||
+|&emsp;&emsp;&emsp;&emsp;sourcePath|变量默认来源路径|string||
+|&emsp;&emsp;&emsp;&emsp;required|是否必填|boolean||
+|&emsp;&emsp;&emsp;&emsp;description|变量说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;outputSchemas|输出Schema集合|array|AiPromptOutputSchemaResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|输出Schema业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;schemaVersion|Schema版本号|string||
+|&emsp;&emsp;&emsp;&emsp;schemaJson|输出JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;createdBy|创建操作者|string||
+|&emsp;&emsp;updatedBy|更新操作者|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"templateName": "",
+		"templateContent": "",
+		"status": "",
+		"description": "",
+		"variables": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"variableName": "",
+				"sourcePath": "",
+				"required": true,
+				"description": "",
+				"createdAt": ""
+			}
+		],
+		"outputSchemas": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"schemaVersion": "",
+				"schemaJson": "",
+				"createdAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": "",
+		"createdBy": "",
+		"updatedBy": ""
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptTemplateResponse|AiPromptTemplateResponse|
+|&emsp;&emsp;bizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;promptCode|Prompt跨版本稳定编码|string||
+|&emsp;&emsp;promptVersion|Prompt版本号|string||
+|&emsp;&emsp;scenario|使用场景|string||
+|&emsp;&emsp;templateName|模板展示名称|string||
+|&emsp;&emsp;templateContent|模板内容|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;description|模板说明|string||
+|&emsp;&emsp;variables|变量定义集合|array|AiPromptVariableResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|变量业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;variableName|变量名称|string||
+|&emsp;&emsp;&emsp;&emsp;sourcePath|变量默认来源路径|string||
+|&emsp;&emsp;&emsp;&emsp;required|是否必填|boolean||
+|&emsp;&emsp;&emsp;&emsp;description|变量说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;outputSchemas|输出Schema集合|array|AiPromptOutputSchemaResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|输出Schema业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;schemaVersion|Schema版本号|string||
+|&emsp;&emsp;&emsp;&emsp;schemaJson|输出JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;createdBy|创建操作者|string||
+|&emsp;&emsp;updatedBy|更新操作者|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"templateName": "",
+		"templateContent": "",
+		"status": "",
+		"description": "",
+		"variables": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"variableName": "",
+				"sourcePath": "",
+				"required": true,
+				"description": "",
+				"createdAt": ""
+			}
+		],
+		"outputSchemas": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"schemaVersion": "",
+				"schemaJson": "",
+				"createdAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": "",
+		"createdBy": "",
+		"updatedBy": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiPromptTemplateResponse|AiPromptTemplateResponse|
+|&emsp;&emsp;bizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;promptCode|Prompt跨版本稳定编码|string||
+|&emsp;&emsp;promptVersion|Prompt版本号|string||
+|&emsp;&emsp;scenario|使用场景|string||
+|&emsp;&emsp;templateName|模板展示名称|string||
+|&emsp;&emsp;templateContent|模板内容|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;description|模板说明|string||
+|&emsp;&emsp;variables|变量定义集合|array|AiPromptVariableResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|变量业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;variableName|变量名称|string||
+|&emsp;&emsp;&emsp;&emsp;sourcePath|变量默认来源路径|string||
+|&emsp;&emsp;&emsp;&emsp;required|是否必填|boolean||
+|&emsp;&emsp;&emsp;&emsp;description|变量说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;outputSchemas|输出Schema集合|array|AiPromptOutputSchemaResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|输出Schema业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt模板业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;schemaVersion|Schema版本号|string||
+|&emsp;&emsp;&emsp;&emsp;schemaJson|输出JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;createdBy|创建操作者|string||
+|&emsp;&emsp;updatedBy|更新操作者|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"scenario": "",
+		"templateName": "",
+		"templateContent": "",
+		"status": "",
+		"description": "",
+		"variables": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"variableName": "",
+				"sourcePath": "",
+				"required": true,
+				"description": "",
+				"createdAt": ""
+			}
+		],
+		"outputSchemas": [
+			{
+				"bizId": "",
+				"promptBizId": "",
+				"schemaVersion": "",
+				"schemaJson": "",
+				"createdAt": ""
+			}
+		],
+		"createdAt": "",
+		"updatedAt": "",
+		"createdBy": "",
+		"updatedBy": ""
+	}
+}
+```
+
+
 # AI模型管理
 
 
@@ -12587,24 +28856,24 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": {
-		"bizId": "",
-		"modelCode": "",
-		"modelVersion": "",
-		"modelName": "",
-		"modelType": "",
-		"provider": "",
-		"artifactUri": "",
-		"modelConfig": "",
-		"metrics": "",
-		"status": "",
-		"activatedAt": "",
-		"retiredAt": "",
-		"createdAt": "",
-		"updatedAt": ""
-	}
+    "code": 200,
+        "message": "success",
+        "data": {
+        "bizId": "",
+            "modelCode": "",
+            "modelVersion": "",
+            "modelName": "",
+            "modelType": "",
+            "provider": "",
+            "artifactUri": "",
+            "modelConfig": "",
+            "metrics": "",
+            "status": "",
+            "activatedAt": "",
+            "retiredAt": "",
+            "createdAt": "",
+            "updatedAt": ""
+    }
 }
 ```
 
@@ -13527,23 +29796,23 @@
 **响应示例**:
 ```javascript
 {
-	"code": 200,
-	"message": "success",
-	"data": {
-		"bizId": "",
-		"modelCode": "",
-		"modelVersion": "",
-		"modelName": "",
-		"modelType": "",
-		"provider": "",
-		"artifactUri": "",
-		"modelConfig": "",
-		"metrics": "",
-		"status": "",
-		"activatedAt": "",
-		"retiredAt": "",
-		"createdAt": "",
-		"updatedAt": ""
-	}
+    "code": 200,
+        "message": "success",
+        "data": {
+        "bizId": "",
+            "modelCode": "",
+            "modelVersion": "",
+            "modelName": "",
+            "modelType": "",
+            "provider": "",
+            "artifactUri": "",
+            "modelConfig": "",
+            "metrics": "",
+            "status": "",
+            "activatedAt": "",
+            "retiredAt": "",
+            "createdAt": "",
+            "updatedAt": ""
+    }
 }
 ```

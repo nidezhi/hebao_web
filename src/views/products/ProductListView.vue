@@ -65,6 +65,20 @@
             {{ optionLabel(tradeStatusOptions, record.tradeStatus) }}
           </a-tag>
         </template>
+        <template v-else-if="column.key === 'dataQuality'">
+          <a-progress
+            size="small"
+            :percent="Math.round((record.investmentProfile?.dataQualityScore || 0) * 100)"
+            :status="(record.investmentProfile?.dataQualityScore || 0) < 0.6 ? 'exception' : 'normal'"
+          />
+        </template>
+        <template v-else-if="column.key === 'mockTradable'">
+          <a-tooltip :title="mockTradableText(record)">
+            <a-tag :color="record.investmentProfile?.mockTradable ? 'success' : 'error'">
+              {{ record.investmentProfile?.mockTradable ? '可 Mock' : '不可 Mock' }}
+            </a-tag>
+          </a-tooltip>
+        </template>
         <template v-else-if="column.key === 'minInvestAmount'">
           {{ formatNumber(record.minInvestAmount) }} {{ record.currency }}
         </template>
@@ -203,6 +217,13 @@
 
         <a-tabs v-model:active-key="detailTab">
           <a-tab-pane key="base" tab="基本资料">
+            <a-alert
+              v-if="currentProduct.investmentProfile?.mockTradable === false"
+              show-icon
+              type="warning"
+              class="risk-alert"
+              :message="mockTradableText(currentProduct)"
+            />
             <a-descriptions bordered :column="2" size="small">
               <a-descriptions-item label="产品编号">{{ currentProduct.productNo }}</a-descriptions-item>
               <a-descriptions-item label="产品类型">
@@ -222,6 +243,70 @@
                 {{ currentProduct.description || '-' }}
               </a-descriptions-item>
             </a-descriptions>
+          </a-tab-pane>
+
+          <a-tab-pane key="risk" tab="投资画像">
+            <a-row :gutter="[16, 16]">
+              <a-col :xs="24" :sm="8">
+                <a-statistic title="画像质量分" :value="profilePercent" suffix="%" />
+              </a-col>
+              <a-col :xs="24" :sm="8">
+                <a-statistic
+                  title="最大回撤"
+                  :value="formatPercentNumber(currentProduct.investmentProfile?.maxDrawdown)"
+                />
+              </a-col>
+              <a-col :xs="24" :sm="8">
+                <a-statistic
+                  title="建议持有天数"
+                  :value="currentProduct.investmentProfile?.minHoldingDays ?? '-'"
+                />
+              </a-col>
+            </a-row>
+            <a-descriptions bordered :column="2" size="small" class="risk-descriptions">
+              <a-descriptions-item label="资产类别">
+                {{ currentProduct.investmentProfile?.assetClass || currentProduct.productType }}
+              </a-descriptions-item>
+              <a-descriptions-item label="适配风险等级">
+                {{ currentProduct.investmentProfile?.suitableRiskLevel ?? '-' }}
+              </a-descriptions-item>
+              <a-descriptions-item label="波动等级">
+                {{ currentProduct.investmentProfile?.volatilityLevel || '-' }}
+              </a-descriptions-item>
+              <a-descriptions-item label="流动性">
+                {{ currentProduct.investmentProfile?.liquidityLevel || '-' }}
+              </a-descriptions-item>
+              <a-descriptions-item label="Mock 门禁">
+                <a-tag :color="currentProduct.investmentProfile?.mockTradable ? 'success' : 'error'">
+                  {{ currentProduct.investmentProfile?.mockTradable ? '允许' : '禁止' }}
+                </a-tag>
+              </a-descriptions-item>
+              <a-descriptions-item label="交易备注">
+                {{ currentProduct.investmentProfile?.tradingNotes || '-' }}
+              </a-descriptions-item>
+              <a-descriptions-item label="风险摘要" :span="2">
+                {{ currentProduct.investmentProfile?.riskSummary || '暂无风险摘要' }}
+              </a-descriptions-item>
+            </a-descriptions>
+          </a-tab-pane>
+
+          <a-tab-pane key="relations" tab="主题关系">
+            <a-table
+              row-key="relationCode"
+              size="small"
+              :pagination="false"
+              :columns="relationColumns"
+              :data-source="currentProduct.themeRelations || []"
+            >
+              <template #bodyCell="{ column, record }">
+                <template v-if="column.key === 'relationWeight'">
+                  <a-progress
+                    size="small"
+                    :percent="Math.round((record.relationWeight || 0) * 100)"
+                  />
+                </template>
+              </template>
+            </a-table>
           </a-tab-pane>
 
           <a-tab-pane key="attributes" tab="扩展属性">
@@ -340,6 +425,7 @@ import type {
   Product,
   ProductAttribute,
   ProductQuery,
+  ProductThemeRelation,
   QuoteStatus,
   SaveQuotePayload,
   TradeStatus,
@@ -355,9 +441,12 @@ import {
 const columns: TableColumnsType<Product> = [
   { title: '产品', key: 'product', fixed: 'left', width: 210 },
   { title: '类型', key: 'productType', width: 90 },
+  { title: '资产类别', dataIndex: ['investmentProfile', 'assetClass'], width: 120 },
   { title: '市场', dataIndex: 'marketCode', width: 90 },
   { title: '交易状态', key: 'tradeStatus', width: 110 },
   { title: '风险等级', dataIndex: 'riskLevel', width: 100 },
+  { title: '数据质量', key: 'dataQuality', width: 160 },
+  { title: 'Mock 门禁', key: 'mockTradable', width: 120 },
   { title: '最低投资金额', key: 'minInvestAmount', width: 150 },
   { title: '费率', key: 'feeRate', width: 100 },
   { title: '上市日期', dataIndex: 'listingDate', width: 120 },
@@ -382,6 +471,15 @@ const quoteColumns: TableColumnsType<MarketQuote> = [
   { title: '收盘', dataIndex: 'closePrice', width: 100 },
   { title: '成交量', dataIndex: 'volume', width: 120 },
   { title: '状态', dataIndex: 'status', width: 100 },
+]
+
+const relationColumns: TableColumnsType<ProductThemeRelation> = [
+  { title: '类型', dataIndex: 'relationType', width: 120 },
+  { title: '编码', dataIndex: 'relationCode', width: 160 },
+  { title: '名称', dataIndex: 'relationName', width: 180 },
+  { title: '权重', key: 'relationWeight', width: 180 },
+  { title: '来源', dataIndex: 'sourceCode', width: 120 },
+  { title: '证据', dataIndex: 'evidence' },
 ]
 
 const loading = ref(false)
@@ -436,6 +534,9 @@ const detailVisible = ref(false)
 const detailLoading = ref(false)
 const detailTab = ref('base')
 const currentProduct = ref<Product>()
+const profilePercent = computed(() =>
+  Math.round((currentProduct.value?.investmentProfile?.dataQualityScore || 0) * 100),
+)
 const latestQuote = ref<MarketQuote>()
 const quotes = ref<MarketQuote[]>([])
 const quotesLoading = ref(false)
@@ -711,6 +812,12 @@ const formatNumber = (value?: number) =>
   typeof value === 'number' ? value.toLocaleString('zh-CN') : '-'
 const formatPercent = (value?: number) =>
   typeof value === 'number' ? `${(value * 100).toFixed(2)}%` : '-'
+const formatPercentNumber = (value?: number) =>
+  typeof value === 'number' ? `${(value * 100).toFixed(2)}%` : '-'
+const mockTradableText = (product: Product) => {
+  if (product.investmentProfile?.mockTradable) return '产品画像允许 Mock 交易'
+  return product.investmentProfile?.tradingNotes || '产品不可 Mock，可能由于数据质量不足、画像缺失或交易限制'
+}
 
 onMounted(fetchData)
 </script>
@@ -740,5 +847,10 @@ onMounted(fetchData)
 .quote-card {
   margin-bottom: 16px;
   background: #fafcff;
+}
+
+.risk-alert,
+.risk-descriptions {
+  margin-bottom: 16px;
 }
 </style>

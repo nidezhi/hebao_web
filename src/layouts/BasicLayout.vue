@@ -10,16 +10,36 @@
       >
         <a-menu-item key="/" @click="navigate('/')">
           <dashboard-outlined />
-          <span>工作台</span>
+          <span>投资驾驶舱</span>
         </a-menu-item>
-        <a-sub-menu key="business">
-          <template #icon><appstore-outlined /></template>
-          <template #title>业务管理</template>
-          <a-menu-item key="/products" @click="navigate('/products')">产品管理</a-menu-item>
+        <a-sub-menu key="workbench">
+          <template #icon><fund-projection-screen-outlined /></template>
+          <template #title>投资工作区</template>
+          <a-menu-item key="/data-quality" @click="navigate('/data-quality')">
+            数据质量
+          </a-menu-item>
+          <a-menu-item key="/product-risk" @click="navigate('/product-risk')">
+            产品风险
+          </a-menu-item>
+          <a-menu-item key="/report-studio" @click="navigate('/report-studio')">
+            投资报告
+          </a-menu-item>
+          <a-menu-item key="/prompt-lab" @click="navigate('/prompt-lab')">
+            Prompt 实验室
+          </a-menu-item>
+          <a-menu-item key="/simulation" @click="navigate('/simulation')">
+            模拟交易
+          </a-menu-item>
+          <a-menu-item key="/review-loop" @click="navigate('/review-loop')">
+            复盘闭环
+          </a-menu-item>
+          <a-menu-item key="/risk-audit" @click="navigate('/risk-audit')">
+            风控审计
+          </a-menu-item>
         </a-sub-menu>
         <a-sub-menu key="investment">
-          <template #icon><fund-projection-screen-outlined /></template>
-          <template #title>投资中心</template>
+          <template #icon><appstore-outlined /></template>
+          <template #title>旧任务中心</template>
           <a-menu-item key="/investment/tasks" @click="navigate('/investment/tasks')">
             任务配置
           </a-menu-item>
@@ -113,18 +133,26 @@ const userStore = useUserStore()
 const selectedKeys = computed(() => [route.path])
 const openKeys = ref<string[]>([])
 const routeGroup = computed(() => {
+  if ([
+    '/data-quality',
+    '/product-risk',
+    '/report-studio',
+    '/prompt-lab',
+    '/simulation',
+    '/review-loop',
+    '/risk-audit',
+  ].includes(route.path)) return 'workbench'
   if (route.path.startsWith('/investment/')) return 'investment'
   if (['/users', '/roles', '/ai-models'].includes(route.path)) return 'system'
-  if (route.path === '/products') return 'business'
   return ''
 })
 const pageContext = computed(() => {
   const labels: Record<string, string> = {
-    business: '业务管理',
-    investment: '投资中心',
+    workbench: '投资驾驶舱 + 工作台',
+    investment: '兼容旧任务路由',
     system: '系统管理',
   }
-  return labels[routeGroup.value] || 'DZCOM 业务管理平台'
+  return labels[routeGroup.value] || 'DZCOM 投资平台'
 })
 
 watch(

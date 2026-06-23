@@ -16,6 +16,9 @@ export const productTypeOptions = [
   { label: '基金', value: 'FUND' },
   { label: '债券', value: 'BOND' },
   { label: 'ETF', value: 'ETF' },
+  { label: '银行理财', value: 'BANK_WMP' },
+  { label: '黄金', value: 'GOLD' },
+  { label: 'REIT', value: 'REIT' },
 ] as const
 
 export const tradeStatusOptions = [
@@ -34,6 +37,41 @@ export const taskExecutionStatusOptions = [
   { label: '运行中', value: 'RUNNING', color: 'processing' },
   { label: '成功', value: 'SUCCEEDED', color: 'success' },
   { label: '失败', value: 'FAILED', color: 'error' },
+] as const
+
+export const qualityLevelOptions = [
+  { label: '高质量', value: 'HIGH', color: 'success' },
+  { label: '可用', value: 'MEDIUM', color: 'processing' },
+  { label: '低质量', value: 'LOW', color: 'warning' },
+  { label: '仅演示', value: 'DEMO_ONLY', color: 'default' },
+] as const
+
+export const promptStatusOptions = [
+  { label: '草稿', value: 'DRAFT', color: 'default' },
+  { label: '校验中', value: 'VALIDATING', color: 'processing' },
+  { label: '生效', value: 'ACTIVE', color: 'success' },
+  { label: '退役', value: 'RETIRED', color: 'default' },
+] as const
+
+export const riskCheckResultOptions = [
+  { label: '通过', value: 'PASS', color: 'success' },
+  { label: '预警', value: 'WARN', color: 'warning' },
+  { label: '拒绝', value: 'REJECT', color: 'error' },
+] as const
+
+export const backtestStatusOptions = [
+  { label: '待运行', value: 'PENDING', color: 'default' },
+  { label: '运行中', value: 'RUNNING', color: 'processing' },
+  { label: '成功', value: 'SUCCEEDED', color: 'success' },
+  { label: '失败', value: 'FAILED', color: 'error' },
+  { label: '已取消', value: 'CANCELLED', color: 'default' },
+] as const
+
+export const feedbackActionOptions = [
+  { label: '采纳', value: 'ADOPT', color: 'success' },
+  { label: '拒绝', value: 'REJECT', color: 'error' },
+  { label: '观察', value: 'WATCH', color: 'warning' },
+  { label: '忽略', value: 'IGNORE', color: 'default' },
 ] as const
 
 export const snapshotTypeOptions = [

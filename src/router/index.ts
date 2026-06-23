@@ -25,13 +25,53 @@ const router = createRouter({
           path: '',
           name: 'home',
           component: () => import('@/views/HomeView.vue'),
-          meta: { title: '工作台' },
+          meta: { title: 'Overview 投资驾驶舱' },
+        },
+        {
+          path: 'data-quality',
+          name: 'data-quality',
+          component: () => import('@/views/data-quality/DataQualityView.vue'),
+          meta: { title: 'Data Quality 数据质量' },
+        },
+        {
+          path: 'product-risk',
+          name: 'product-risk',
+          component: () => import('@/views/product-risk/ProductRiskView.vue'),
+          meta: { title: 'Product & Risk 产品风险' },
+        },
+        {
+          path: 'report-studio',
+          name: 'report-studio',
+          component: () => import('@/views/report-studio/ReportStudioView.vue'),
+          meta: { title: 'Report Studio 投资报告' },
+        },
+        {
+          path: 'prompt-lab',
+          name: 'prompt-lab',
+          component: () => import('@/views/prompt-lab/PromptLabView.vue'),
+          meta: { title: 'Prompt Lab 实验室' },
+        },
+        {
+          path: 'simulation',
+          name: 'simulation',
+          component: () => import('@/views/simulation/SimulationView.vue'),
+          meta: { title: 'Simulation 模拟交易' },
+        },
+        {
+          path: 'review-loop',
+          name: 'review-loop',
+          component: () => import('@/views/review-loop/ReviewLoopView.vue'),
+          meta: { title: 'Review Loop 复盘闭环' },
+        },
+        {
+          path: 'risk-audit',
+          name: 'risk-audit',
+          component: () => import('@/views/risk-audit/RiskAuditView.vue'),
+          meta: { title: 'Risk Audit 风控审计' },
         },
         {
           path: 'products',
-          name: 'products',
-          component: () => import('@/views/products/ProductListView.vue'),
-          meta: { title: '产品管理' },
+          redirect: '/product-risk',
         },
         {
           path: 'users',
@@ -81,9 +121,7 @@ const router = createRouter({
         },
         {
           path: 'investment/analysis',
-          name: 'investment-analysis',
-          component: () => import('@/views/investment/InvestmentTasksView.vue'),
-          meta: { title: '分析报告', investmentSection: 'analysis' },
+          redirect: '/report-studio',
         },
         {
           path: 'ai-models',
