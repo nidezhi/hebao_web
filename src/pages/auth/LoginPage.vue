@@ -37,10 +37,12 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { login } from '@/entities/auth/api'
+import { useRoute, useRouter } from 'vue-router'
+import { useAuthStore } from '@/stores/auth'
 
 const router = useRouter()
+const route = useRoute()
+const authStore = useAuthStore()
 const loading = ref(false)
 const errorMessage = ref('')
 const form = reactive({
@@ -52,8 +54,8 @@ const submit = async () => {
   loading.value = true
   errorMessage.value = ''
   try {
-    await login(form)
-    await router.push('/')
+    await authStore.login(form)
+    await router.push(typeof route.query.redirect === 'string' ? route.query.redirect : '/')
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : '登录失败，请检查账号或密码'
   } finally {

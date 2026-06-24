@@ -8,3 +8,9 @@ export const listBacktests = (data: BacktestListRequest) =>
 
 export const getBacktest = (bizId: string) =>
   postJson<BacktestResultDto, BizIdRequest>(endpoints.backtest.detail, { bizId })
+
+export const saveBacktest = (data: Record<string, unknown>) =>
+  postJson<BacktestResultDto, Record<string, unknown>>(endpoints.backtest.save, data)
+
+export const generateBacktestFromPortfolio = (data: Record<string, unknown>) =>
+  postJson<BacktestResultDto, Record<string, unknown>>(endpoints.backtest.generateFromPortfolio, data)

@@ -74,8 +74,9 @@
         </div>
         <a-space :size="12" class="header-actions">
           <a-tag color="cyan">Business Cockpit</a-tag>
-          <a-tag color="purple">Sci-Fi Cockpit</a-tag>
-          <a-button ghost @click="navigate('/login')">登录</a-button>
+          <a-tag color="blue">{{ authStore.user?.nickname || authStore.user?.username || '未登录' }}</a-tag>
+          <a-button v-if="!authStore.isAuthenticated" @click="navigate('/login')">登录</a-button>
+          <a-button v-else @click="handleLogout">登出</a-button>
         </a-space>
       </a-layout-header>
 
@@ -89,6 +90,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useAuthStore } from '@/stores/auth'
 import {
   ControlOutlined,
   DashboardOutlined,
@@ -100,8 +102,14 @@ import {
 const collapsed = ref(false)
 const route = useRoute()
 const router = useRouter()
+const authStore = useAuthStore()
 const selectedKeys = computed(() => [route.path])
 const openKeys = ref<string[]>(['business', 'admin'])
 
 const navigate = (path: string) => router.push(path)
+
+const handleLogout = async () => {
+  await authStore.logout()
+  await router.push('/login')
+}
 </script>

@@ -8,3 +8,12 @@ export const listDataSources = (data: DataSourceListRequest) =>
 
 export const listDataQualitySnapshots = (data: DataQualitySnapshotListRequest) =>
   postJson<DataQualitySnapshotDto[], DataQualitySnapshotListRequest>(endpoints.dataSource.qualityList, data)
+
+export const saveDataSource = (data: Partial<DataSourceDto>) =>
+  postJson<DataSourceDto, Partial<DataSourceDto>>(endpoints.dataSource.save, data)
+
+export const saveDataSourceHealth = (data: Record<string, unknown>) =>
+  postJson<DataSourceDto, Record<string, unknown>>(endpoints.dataSource.saveHealth, data)
+
+export const saveDataQualitySnapshot = (data: Record<string, unknown>) =>
+  postJson<DataQualitySnapshotDto, Record<string, unknown>>(endpoints.dataSource.saveQuality, data)

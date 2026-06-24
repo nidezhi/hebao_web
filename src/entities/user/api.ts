@@ -29,3 +29,21 @@ export const changeMyPassword = (data: { currentPassword: string; newPassword: s
 
 export const listMyPreferences = () =>
   postJson<PreferenceDto[]>(endpoints.user.preferences, {})
+
+export const setMyPreference = (data: PreferenceDto) =>
+  postJson<PreferenceDto, PreferenceDto>(endpoints.user.setPreference, data)
+
+export const deleteMyPreference = (key: string) =>
+  postJson<void, { key: string }>(endpoints.user.deletePreference, { key })
+
+export const deleteUser = (bizId: string) =>
+  postJson<void, BizIdRequest>(endpoints.user.delete, { bizId })
+
+export const updateUserStatus = (data: { bizId: string; status: string }) =>
+  postJson<UserDto, { bizId: string; status: string }>(endpoints.user.status, data)
+
+export const updateUserKycStatus = (data: { bizId: string; kycStatus: string }) =>
+  postJson<UserDto, { bizId: string; kycStatus: string }>(endpoints.user.kycStatus, data)
+
+export const updateUserRiskLevel = (data: { bizId: string; riskLevel: number }) =>
+  postJson<UserDto, { bizId: string; riskLevel: number }>(endpoints.user.riskLevel, data)

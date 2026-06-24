@@ -10,3 +10,15 @@ export const createRole = (data: CreateRoleRequest) =>
 
 export const configureRolePermissions = (data: ConfigureRolePermissionsRequest) =>
   postJson<RoleDto, ConfigureRolePermissionsRequest>(endpoints.role.configurePermissions, data)
+
+export const updateRole = (data: Record<string, unknown>) =>
+  postJson<RoleDto, Record<string, unknown>>(endpoints.role.update, data)
+
+export const updateRoleStatus = (data: Record<string, unknown>) =>
+  postJson<RoleDto, Record<string, unknown>>(endpoints.role.status, data)
+
+export const assignUserRole = (data: Record<string, unknown>) =>
+  postJson<Record<string, unknown>, Record<string, unknown>>(endpoints.role.assignUser, data)
+
+export const revokeUserRole = (data: Record<string, unknown>) =>
+  postJson<Record<string, unknown>, Record<string, unknown>>(endpoints.role.revokeUser, data)

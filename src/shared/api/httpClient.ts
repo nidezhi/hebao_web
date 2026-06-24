@@ -27,6 +27,9 @@ httpClient.interceptors.response.use(
   },
   (error) => {
     const status = error.response?.status as number | undefined
+    if (status === 401 && typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('dzcom:unauthorized'))
+    }
     const serverMessage = error.response?.data?.message as string | undefined
     throw new ApiClientError(serverMessage || httpStatusMessage(status) || '请求失败，请稍后重试', {
       status,
@@ -39,3 +42,12 @@ export const postJson = <Response, Request extends object = Record<string, never
   url: string,
   data: Request,
 ) => httpClient.post<never, Response>(url, data)
+
+export const postForm = <Response, Request extends object = Record<string, never>>(
+  url: string,
+  data: Request,
+) => httpClient.post<never, Response>(url, data, {
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+  },
+})

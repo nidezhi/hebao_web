@@ -2,21 +2,21 @@
   font-family:
     Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
     "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  color: #dceeff;
-  background: #050a14;
+  color: #1f2937;
+  background: #f4f7fb;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  --deck-bg: #050a14;
-  --deck-panel: rgba(8, 20, 38, 0.78);
-  --deck-panel-strong: rgba(10, 26, 48, 0.94);
-  --deck-line: rgba(32, 247, 255, 0.2);
-  --deck-line-strong: rgba(32, 247, 255, 0.46);
-  --deck-cyan: #20f7ff;
-  --deck-green: #51ffb1;
-  --deck-amber: #ffd166;
-  --deck-red: #ff4d7d;
-  --deck-purple: #9b7cff;
-  --deck-muted: #89a7c8;
+  --deck-bg: #f4f7fb;
+  --deck-panel: #ffffff;
+  --deck-panel-strong: #ffffff;
+  --deck-line: #d9e2ef;
+  --deck-line-strong: #2f6fed;
+  --deck-cyan: #2563eb;
+  --deck-green: #16a34a;
+  --deck-amber: #d97706;
+  --deck-red: #dc2626;
+  --deck-purple: #6d5dfc;
+  --deck-muted: #64748b;
 }
 
 * {
@@ -33,10 +33,7 @@ body,
 
 body {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at 16% 8%, rgba(32, 247, 255, 0.16), transparent 30%),
-    radial-gradient(circle at 82% 14%, rgba(155, 124, 255, 0.13), transparent 28%),
-    linear-gradient(135deg, #050a14 0%, #071426 54%, #050a14 100%);
+  background: #f4f7fb;
 }
 
 body::before {
@@ -46,26 +43,14 @@ body::before {
   pointer-events: none;
   content: "";
   background-image:
-    linear-gradient(rgba(32, 247, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(32, 247, 255, 0.045) 1px, transparent 1px);
+    linear-gradient(rgba(37, 99, 235, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.035) 1px, transparent 1px);
   background-size: 42px 42px;
   mask-image: linear-gradient(to bottom, #000 0%, transparent 90%);
 }
 
 body::after {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  content: "";
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.025),
-    rgba(255, 255, 255, 0.025) 1px,
-    transparent 1px,
-    transparent 6px
-  );
-  mix-blend-mode: screen;
+  display: none;
 }
 
 button,
@@ -77,14 +62,15 @@ select {
 
 .cockpit-layout {
   min-height: 100vh;
-  background: transparent;
+  background: #f4f7fb;
 }
 
 .cockpit-sider {
   position: relative;
   overflow: hidden;
   border-right: 1px solid var(--deck-line);
-  box-shadow: 12px 0 40px rgb(0 0 0 / 24%);
+  background: #0f172a !important;
+  box-shadow: 8px 0 24px rgb(15 23 42 / 8%);
 }
 
 .cockpit-sider::after {
@@ -92,9 +78,7 @@ select {
   inset: 0;
   pointer-events: none;
   content: "";
-  background:
-    linear-gradient(180deg, rgba(32, 247, 255, 0.12), transparent 32%),
-    radial-gradient(circle at 50% 95%, rgba(32, 247, 255, 0.16), transparent 28%);
+  background: none;
 }
 
 .brand-console {
@@ -113,11 +97,11 @@ select {
   width: 42px;
   height: 42px;
   place-items: center;
-  color: #03101f;
+  color: #fff;
   font-weight: 900;
-  background: linear-gradient(135deg, var(--deck-cyan), var(--deck-green));
+  background: linear-gradient(135deg, #2563eb, #14b8a6);
   border-radius: 8px;
-  box-shadow: 0 0 22px rgba(32, 247, 255, 0.45);
+  box-shadow: none;
 }
 
 .brand-copy {
@@ -132,7 +116,7 @@ select {
 
 .brand-copy span,
 .eyebrow {
-  color: var(--deck-cyan);
+  color: #93c5fd;
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -155,8 +139,8 @@ select {
   align-items: center;
   padding: 10px 12px;
   color: var(--deck-muted);
-  background: rgba(32, 247, 255, 0.08);
-  border: 1px solid var(--deck-line);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
 }
 
@@ -165,11 +149,11 @@ select {
   height: 8px;
   background: var(--deck-green);
   border-radius: 999px;
-  box-shadow: 0 0 16px var(--deck-green);
+  box-shadow: none;
 }
 
 .cockpit-main {
-  background: transparent;
+  background: #f4f7fb;
 }
 
 .cockpit-header {
@@ -178,15 +162,15 @@ select {
   align-items: center;
   justify-content: space-between;
   padding: 16px 26px;
-  background: rgba(5, 10, 20, 0.72);
+  background: #fff;
   border-bottom: 1px solid var(--deck-line);
-  backdrop-filter: blur(18px);
+  box-shadow: 0 1px 2px rgb(15 23 42 / 4%);
 }
 
 .page-title {
   margin: 3px 0 0 !important;
-  color: #fff !important;
-  text-shadow: 0 0 18px rgba(32, 247, 255, 0.24);
+  color: #0f172a !important;
+  text-shadow: none;
 }
 
 .header-actions {
@@ -205,13 +189,13 @@ select {
 .business-page .ant-table,
 .business-page .ant-table-thead > tr > th,
 .business-page .ant-table-tbody > tr > td {
-  color: #dceeff;
-  background: transparent !important;
-  border-color: rgba(32, 247, 255, 0.12) !important;
+  color: #1f2937;
+  background: #fff !important;
+  border-color: #eef2f7 !important;
 }
 
 .business-page .ant-table-tbody > tr:hover > td {
-  background: rgba(32, 247, 255, 0.08) !important;
+  background: #f8fafc !important;
 }
 
 .business-page .ant-statistic-title,
@@ -222,7 +206,7 @@ select {
 
 .business-page .ant-statistic-content,
 .business-page .ant-descriptions-item-content {
-  color: #f8fbff !important;
+  color: #111827 !important;
 }
 
 .command-hero {
@@ -231,7 +215,7 @@ select {
 
 .command-hero h2 {
   margin: 8px 0 10px;
-  color: #fff;
+  color: #0f172a;
   font-size: clamp(24px, 3vw, 38px);
   line-height: 1.1;
 }
@@ -245,9 +229,7 @@ select {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(circle at 78% 44%, rgba(32, 247, 255, 0.18), transparent 28%),
-    linear-gradient(120deg, transparent 0%, rgba(32, 247, 255, 0.08) 48%, transparent 70%);
+  background: linear-gradient(120deg, transparent 0%, rgba(37, 99, 235, 0.06) 52%, transparent 78%);
 }
 
 .command-hero__status {
@@ -256,7 +238,7 @@ select {
   place-items: center;
   padding: 20px;
   text-align: center;
-  background: rgba(32, 247, 255, 0.07);
+  background: #f8fafc;
   border: 1px solid var(--deck-line);
   border-radius: 8px;
 }
@@ -288,9 +270,7 @@ select {
   min-height: 110px;
   gap: 5px;
   padding: 16px;
-  background:
-    linear-gradient(135deg, rgba(32, 247, 255, 0.1), transparent),
-    rgba(8, 20, 38, 0.78);
+  background: #fff;
   border: 1px solid var(--deck-line);
   border-radius: 8px;
 }
@@ -300,7 +280,7 @@ select {
 }
 
 .metric-cell strong {
-  color: #fff;
+  color: #0f172a;
   font-size: 26px;
   line-height: 1;
 }
@@ -325,8 +305,8 @@ select {
   align-items: center;
   gap: 8px;
   padding: 10px 12px;
-  color: #dceeff;
-  background: rgba(32, 247, 255, 0.08);
+  color: #1e40af;
+  background: #eff6ff;
   border: 1px solid var(--deck-line);
   border-radius: 8px;
 }
@@ -337,7 +317,7 @@ select {
   content: "";
   background: var(--deck-cyan);
   border-radius: 99px;
-  box-shadow: 0 0 12px var(--deck-cyan);
+  box-shadow: none;
 }
 
 .login-page {
@@ -356,7 +336,7 @@ select {
 
 .login-card h1 {
   margin: 8px 0 10px;
-  color: #fff;
+  color: #0f172a;
   font-size: 32px;
 }
 
@@ -387,9 +367,9 @@ select {
   border: 1px solid var(--deck-line) !important;
   border-radius: 8px !important;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.05),
-    0 18px 48px rgb(0 0 0 / 24%);
-  backdrop-filter: blur(16px);
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 8px 24px rgb(15 23 42 / 6%);
+  backdrop-filter: none;
 }
 
 .cockpit-card::before,
@@ -400,7 +380,7 @@ select {
   left: 0;
   height: 1px;
   content: "";
-  background: linear-gradient(90deg, transparent, var(--deck-cyan), transparent);
+  background: #2f6fed;
 }
 
 .hero-panel {
@@ -412,12 +392,10 @@ select {
   align-items: center;
   overflow: hidden;
   padding: 34px;
-  background:
-    linear-gradient(135deg, rgba(8, 20, 38, 0.92), rgba(9, 28, 48, 0.68)),
-    radial-gradient(circle at 80% 50%, rgba(32, 247, 255, 0.22), transparent 34%);
+  background: #fff;
   border: 1px solid var(--deck-line-strong);
   border-radius: 8px;
-  box-shadow: 0 22px 70px rgb(0 0 0 / 28%);
+  box-shadow: 0 8px 24px rgb(15 23 42 / 6%);
 }
 
 .hero-grid {
@@ -425,8 +403,8 @@ select {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(32, 247, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(32, 247, 255, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
   background-size: 28px 28px;
   mask-image: linear-gradient(90deg, #000, transparent 84%);
 }
@@ -439,7 +417,7 @@ select {
 
 .hero-content h1 {
   margin: 18px 0 14px;
-  color: #fff;
+  color: #0f172a;
   font-size: clamp(34px, 5vw, 68px);
   line-height: 1.03;
   letter-spacing: -0.04em;
@@ -468,7 +446,7 @@ select {
 .radar-ring {
   inset: 0;
   border: 1px solid var(--deck-line-strong);
-  box-shadow: inset 0 0 28px rgba(32, 247, 255, 0.12);
+  box-shadow: none;
 }
 
 .ring-2 {
@@ -482,7 +460,7 @@ select {
 .radar-dot {
   inset: 47%;
   background: var(--deck-cyan);
-  box-shadow: 0 0 32px var(--deck-cyan);
+  box-shadow: none;
 }
 
 .telemetry-grid {
@@ -496,7 +474,7 @@ select {
 .token-cell,
 .mission-step {
   padding: 16px;
-  background: rgba(32, 247, 255, 0.06);
+  background: #fff;
   border: 1px solid var(--deck-line);
   border-radius: 8px;
 }
@@ -558,7 +536,7 @@ select {
 .token-swatch {
   display: block;
   height: 42px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid #d9e2ef;
   border-radius: 6px;
 }
 
@@ -577,7 +555,7 @@ select {
   display: grid;
   place-items: center;
   color: var(--deck-cyan);
-  background: rgba(32, 247, 255, 0.06);
+  background: #f8fafc;
   border: 1px dashed var(--deck-line-strong);
   border-radius: 8px;
 }
@@ -617,7 +595,7 @@ select {
 
 .standby-card h2 {
   margin: 12px 0;
-  color: #fff;
+  color: #0f172a;
   font-size: 34px;
 }
 
