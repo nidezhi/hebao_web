@@ -50,8 +50,8 @@
 
 ```javascript
 {
-    "currentPassword": "OldP@ssw0rd",
-        "newPassword": "NewP@ssw0rd123"
+  "currentPassword": "OldP@ssw0rd",
+  "newPassword": "NewP@ssw0rd123"
 }
 ```
 
@@ -93,9 +93,9 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": {}
+	"code": 200,
+	"message": "success",
+	"data": {}
 }
 ```
 
@@ -116,9 +116,9 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": {}
+	"code": 200,
+	"message": "success",
+	"data": {}
 }
 ```
 
@@ -139,9 +139,9 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": {}
+	"code": 200,
+	"message": "success",
+	"data": {}
 }
 ```
 
@@ -162,9 +162,9 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": {}
+	"code": 200,
+	"message": "success",
+	"data": {}
 }
 ```
 
@@ -193,7 +193,7 @@
 
 ```javascript
 {
-    "key": "ui.theme"
+  "key": "ui.theme"
 }
 ```
 
@@ -234,9 +234,9 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": {}
+	"code": 200,
+	"message": "success",
+	"data": {}
 }
 ```
 
@@ -257,9 +257,9 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": {}
+	"code": 200,
+	"message": "success",
+	"data": {}
 }
 ```
 
@@ -280,9 +280,9 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": {}
+	"code": 200,
+	"message": "success",
+	"data": {}
 }
 ```
 
@@ -303,9 +303,9 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": {}
+	"code": 200,
+	"message": "success",
+	"data": {}
 }
 ```
 
@@ -365,16 +365,16 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": [
-        {
-            "key": "ui.theme",
-            "valueType": "string",
-            "value": {},
-            "updatedAt": ""
-        }
-    ]
+	"code": 200,
+	"message": "success",
+	"data": [
+		{
+			"key": "ui.theme",
+			"valueType": "string",
+			"value": {},
+			"updatedAt": ""
+		}
+	]
 }
 ```
 
@@ -399,16 +399,16 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": [
-        {
-            "key": "ui.theme",
-            "valueType": "string",
-            "value": {},
-            "updatedAt": ""
-        }
-    ]
+	"code": 200,
+	"message": "success",
+	"data": [
+		{
+			"key": "ui.theme",
+			"valueType": "string",
+			"value": {},
+			"updatedAt": ""
+		}
+	]
 }
 ```
 
@@ -433,16 +433,16 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": [
-        {
-            "key": "ui.theme",
-            "valueType": "string",
-            "value": {},
-            "updatedAt": ""
-        }
-    ]
+	"code": 200,
+	"message": "success",
+	"data": [
+		{
+			"key": "ui.theme",
+			"valueType": "string",
+			"value": {},
+			"updatedAt": ""
+		}
+	]
 }
 ```
 
@@ -471,8 +471,8 @@
 
 ```javascript
 {
-    "key": "theme",
-        "value": {}
+  "key": "theme",
+  "value": {}
 }
 ```
 
@@ -518,14 +518,14 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": {
-        "key": "ui.theme",
-            "valueType": "string",
-            "value": {},
-        "updatedAt": ""
-    }
+	"code": 200,
+	"message": "success",
+	"data": {
+		"key": "ui.theme",
+		"valueType": "string",
+		"value": {},
+		"updatedAt": ""
+	}
 }
 ```
 
@@ -550,14 +550,14 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": {
-        "key": "ui.theme",
-            "valueType": "string",
-            "value": {},
-        "updatedAt": ""
-    }
+	"code": 200,
+	"message": "success",
+	"data": {
+		"key": "ui.theme",
+		"valueType": "string",
+		"value": {},
+		"updatedAt": ""
+	}
 }
 ```
 
@@ -582,14 +582,14 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": {
-        "key": "ui.theme",
-            "valueType": "string",
-            "value": {},
-        "updatedAt": ""
-    }
+	"code": 200,
+	"message": "success",
+	"data": {
+		"key": "ui.theme",
+		"valueType": "string",
+		"value": {},
+		"updatedAt": ""
+	}
 }
 ```
 
@@ -614,14 +614,14 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": {
-        "key": "ui.theme",
-            "valueType": "string",
-            "value": {},
-        "updatedAt": ""
-    }
+	"code": 200,
+	"message": "success",
+	"data": {
+		"key": "ui.theme",
+		"valueType": "string",
+		"value": {},
+		"updatedAt": ""
+	}
 }
 ```
 
@@ -650,8 +650,8 @@
 
 ```javascript
 {
-    "email": "alice@example.com",
-        "phone": "+8613800000000"
+  "email": "alice@example.com",
+  "phone": "+8613800000000"
 }
 ```
 
@@ -707,24 +707,24 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": {
-        "bizId": "usr_01Hxxxxx",
-            "userNo": "U202600001",
-            "username": "alice",
-            "email": "alice@example.com",
-            "phone": "+8613800000000",
-            "nickname": "小张",
-            "avatarUrl": "",
-            "status": "ACTIVE",
-            "kycStatus": "VERIFIED",
-            "riskLevel": 3,
-            "roles": [],
-            "permissions": [],
-            "registeredAt": "",
-            "lastLoginAt": ""
-    }
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "usr_01Hxxxxx",
+		"userNo": "U202600001",
+		"username": "alice",
+		"email": "alice@example.com",
+		"phone": "+8613800000000",
+		"nickname": "小张",
+		"avatarUrl": "",
+		"status": "ACTIVE",
+		"kycStatus": "VERIFIED",
+		"riskLevel": 3,
+		"roles": [],
+		"permissions": [],
+		"registeredAt": "",
+		"lastLoginAt": ""
+	}
 }
 ```
 
@@ -759,24 +759,24 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": {
-        "bizId": "usr_01Hxxxxx",
-            "userNo": "U202600001",
-            "username": "alice",
-            "email": "alice@example.com",
-            "phone": "+8613800000000",
-            "nickname": "小张",
-            "avatarUrl": "",
-            "status": "ACTIVE",
-            "kycStatus": "VERIFIED",
-            "riskLevel": 3,
-            "roles": [],
-            "permissions": [],
-            "registeredAt": "",
-            "lastLoginAt": ""
-    }
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "usr_01Hxxxxx",
+		"userNo": "U202600001",
+		"username": "alice",
+		"email": "alice@example.com",
+		"phone": "+8613800000000",
+		"nickname": "小张",
+		"avatarUrl": "",
+		"status": "ACTIVE",
+		"kycStatus": "VERIFIED",
+		"riskLevel": 3,
+		"roles": [],
+		"permissions": [],
+		"registeredAt": "",
+		"lastLoginAt": ""
+	}
 }
 ```
 
@@ -811,24 +811,24 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": {
-        "bizId": "usr_01Hxxxxx",
-            "userNo": "U202600001",
-            "username": "alice",
-            "email": "alice@example.com",
-            "phone": "+8613800000000",
-            "nickname": "小张",
-            "avatarUrl": "",
-            "status": "ACTIVE",
-            "kycStatus": "VERIFIED",
-            "riskLevel": 3,
-            "roles": [],
-            "permissions": [],
-            "registeredAt": "",
-            "lastLoginAt": ""
-    }
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "usr_01Hxxxxx",
+		"userNo": "U202600001",
+		"username": "alice",
+		"email": "alice@example.com",
+		"phone": "+8613800000000",
+		"nickname": "小张",
+		"avatarUrl": "",
+		"status": "ACTIVE",
+		"kycStatus": "VERIFIED",
+		"riskLevel": 3,
+		"roles": [],
+		"permissions": [],
+		"registeredAt": "",
+		"lastLoginAt": ""
+	}
 }
 ```
 
@@ -863,24 +863,24 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": {
-        "bizId": "usr_01Hxxxxx",
-            "userNo": "U202600001",
-            "username": "alice",
-            "email": "alice@example.com",
-            "phone": "+8613800000000",
-            "nickname": "小张",
-            "avatarUrl": "",
-            "status": "ACTIVE",
-            "kycStatus": "VERIFIED",
-            "riskLevel": 3,
-            "roles": [],
-            "permissions": [],
-            "registeredAt": "",
-            "lastLoginAt": ""
-    }
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "usr_01Hxxxxx",
+		"userNo": "U202600001",
+		"username": "alice",
+		"email": "alice@example.com",
+		"phone": "+8613800000000",
+		"nickname": "小张",
+		"avatarUrl": "",
+		"status": "ACTIVE",
+		"kycStatus": "VERIFIED",
+		"riskLevel": 3,
+		"roles": [],
+		"permissions": [],
+		"registeredAt": "",
+		"lastLoginAt": ""
+	}
 }
 ```
 
@@ -912,7 +912,7 @@
 
 ```javascript
 {
-    "bizId": "prd_01Hxxxx"
+  "bizId": "prd_01Hxxxx"
 }
 ```
 
@@ -1325,7 +1325,7 @@
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |productListRequest|产品目录分页查询请求，支持产品条件筛选、分页与排序|body|true|ProductListRequest|ProductListRequest|
 |&emsp;&emsp;keyword|产品编码或名称关键字||false|string||
-|&emsp;&emsp;productType|产品类型,可用值:STOCK,FUND,BOND,ETF||false|string||
+|&emsp;&emsp;productType|产品类型,可用值:STOCK,FUND,BOND,ETF,BANK_WMP||false|string||
 |&emsp;&emsp;tradeStatus|交易状态,可用值:DISABLED,TRADABLE,SUSPENDED||false|string||
 |&emsp;&emsp;riskLevel|风险等级，允许值 1-5||false|integer(int32)||
 |&emsp;&emsp;currency|币种编码||false|string||
@@ -3326,7 +3326,7 @@
 |createProductRequest|管理端创建产品请求，包含基础交易参数|body|true|CreateProductRequest|CreateProductRequest|
 |&emsp;&emsp;productCode|产品编码，唯一||true|string||
 |&emsp;&emsp;productName|产品名称||true|string||
-|&emsp;&emsp;productType|产品类型,可用值:STOCK,FUND,BOND,ETF||true|string||
+|&emsp;&emsp;productType|产品类型,可用值:STOCK,FUND,BOND,ETF,BANK_WMP||true|string||
 |&emsp;&emsp;marketCode|市场编码||true|string||
 |&emsp;&emsp;currency|币种||true|string||
 |&emsp;&emsp;riskLevel|风险等级（1-5）||false|integer(int32)||
@@ -23444,7 +23444,7 @@
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |generateInvestmentAnalysisRequest|生成投资分析报告请求|body|true|GenerateInvestmentAnalysisRequest|GenerateInvestmentAnalysisRequest|
 |&emsp;&emsp;providerCode|可选提供方校验值；实际提供方由 ACTIVE 模型配置决定||false|string||
-|&emsp;&emsp;modelCode|模型稳定编码；为空时使用 local-rule-analysis||false|string||
+|&emsp;&emsp;modelCode|模型稳定编码；为空时使用 openai-compatible-analysis||false|string||
 |&emsp;&emsp;marketScope|市场范围，默认仅中国大陆||false|string||
 |&emsp;&emsp;themeCode|投资主题编码；为空时分析全部中国大陆主题||false|string||
 |&emsp;&emsp;lookbackDays|回看天数，默认 30||false|integer(int32)||
@@ -28856,24 +28856,24 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": {
-        "bizId": "",
-            "modelCode": "",
-            "modelVersion": "",
-            "modelName": "",
-            "modelType": "",
-            "provider": "",
-            "artifactUri": "",
-            "modelConfig": "",
-            "metrics": "",
-            "status": "",
-            "activatedAt": "",
-            "retiredAt": "",
-            "createdAt": "",
-            "updatedAt": ""
-    }
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"modelName": "",
+		"modelType": "",
+		"provider": "",
+		"artifactUri": "",
+		"modelConfig": "",
+		"metrics": "",
+		"status": "",
+		"activatedAt": "",
+		"retiredAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
 }
 ```
 
@@ -29796,23 +29796,23 @@
 **响应示例**:
 ```javascript
 {
-    "code": 200,
-        "message": "success",
-        "data": {
-        "bizId": "",
-            "modelCode": "",
-            "modelVersion": "",
-            "modelName": "",
-            "modelType": "",
-            "provider": "",
-            "artifactUri": "",
-            "modelConfig": "",
-            "metrics": "",
-            "status": "",
-            "activatedAt": "",
-            "retiredAt": "",
-            "createdAt": "",
-            "updatedAt": ""
-    }
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"modelName": "",
+		"modelType": "",
+		"provider": "",
+		"artifactUri": "",
+		"modelConfig": "",
+		"metrics": "",
+		"status": "",
+		"activatedAt": "",
+		"retiredAt": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
 }
 ```
