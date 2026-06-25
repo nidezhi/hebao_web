@@ -5,6 +5,12 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: '/login',
+      name: 'login',
+      component: () => import('@/pages/auth/LoginPage.vue'),
+      meta: { title: '登录投资操作舱', section: 'auth', public: true },
+    },
+    {
       path: '/',
       component: () => import('@/layouts/BasicLayout.vue'),
       children: [
@@ -13,12 +19,6 @@ const router = createRouter({
           name: 'home',
           component: () => import('@/views/HomeView.vue'),
           meta: { title: 'DZCOM 投资业务驾驶舱', section: 'business', requiresAuth: true },
-        },
-        {
-          path: 'login',
-          name: 'login',
-          component: () => import('@/pages/auth/LoginPage.vue'),
-          meta: { title: '登录投资操作舱', section: 'auth', public: true },
         },
         {
           path: 'account',

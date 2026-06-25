@@ -12,5 +12,8 @@ export const getAiPrompt = (bizId: string) =>
 export const previewAiPrompt = (data: AiPromptPreviewRequest) =>
   postJson<AiPromptPreviewDto, AiPromptPreviewRequest>(endpoints.prompt.preview, data)
 
+export const saveAiPrompt = (data: Record<string, unknown>) =>
+  postJson<AiPromptTemplateDto, Record<string, unknown>>(endpoints.prompt.save, data)
+
 export const updateAiPromptStatus = (bizId: string, status: PromptStatus) =>
   postJson<AiPromptTemplateDto, { bizId: string; status: PromptStatus }>(endpoints.prompt.status, { bizId, status })

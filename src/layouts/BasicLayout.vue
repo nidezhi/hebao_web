@@ -19,7 +19,7 @@
         v-model:open-keys="openKeys"
         class="nav-console"
         mode="inline"
-        theme="dark"
+        theme="light"
       >
         <a-menu-item key="/" @click="navigate('/')">
           <dashboard-outlined />
