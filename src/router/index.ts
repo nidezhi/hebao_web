@@ -18,7 +18,7 @@ const router = createRouter({
           path: '',
           name: 'home',
           component: () => import('@/views/HomeView.vue'),
-          meta: { title: 'DZCOM 投资业务驾驶舱', section: 'business', requiresAuth: true },
+          meta: { title: 'DZCOM 驾驶舱', section: 'business', requiresAuth: true },
         },
         {
           path: 'account',
@@ -102,13 +102,13 @@ const router = createRouter({
           path: 'config-center/data-sources',
           name: 'config-data-sources',
           component: () => import('@/pages/config-center/modules/DataSourceConfigPage.vue'),
-          meta: { title: 'Data Source Asset 数据源资产', section: 'config', requiresAuth: true },
+          meta: { title: 'AI Governance Evidence AI 治理证据', section: 'config', requiresAuth: true },
         },
         {
           path: 'config-center/data-source-discovery',
           name: 'config-data-source-discovery',
           component: () => import('@/pages/config-center/modules/DataSourceDiscoveryPage.vue'),
-          meta: { title: 'AI Data Source Discovery 数据源发现', section: 'config', requiresAuth: true },
+          meta: { title: 'AI Governance Hub AI 治理中枢', section: 'config', requiresAuth: true },
         },
         {
           path: 'config-center/tasks',
@@ -207,7 +207,7 @@ router.beforeEach(async (to) => {
 })
 
 router.afterEach((to) => {
-  document.title = `${String(to.meta.title || '投资业务驾驶舱')} - DZCOM`
+  document.title = `${String(to.meta.title || '业务驾驶舱')} - DZCOM`
 })
 
 export default router

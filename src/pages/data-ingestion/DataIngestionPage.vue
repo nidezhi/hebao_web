@@ -1,7 +1,7 @@
 <template>
   <BusinessPageShell
     title="Data Ingestion 采集编排"
-    description="配置 AI 数据源发现、真实采集任务、字段映射和自动闭环总编排。端点为空时明确展示“未配置端点，不写兜底数据”。"
+    description="配置方向化 AI 采集、真实采集任务、字段映射和自动闭环总编排。端点为空时明确展示“未配置端点，不写兜底数据”。"
     :endpoints="[endpoints.task.definitions, endpoints.task.saveDefinition, endpoints.task.trigger, endpoints.task.executions]"
     :icon="CloudSyncOutlined"
     status-text="ORCHESTRATION"

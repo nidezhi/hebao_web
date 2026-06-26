@@ -27,41 +27,34 @@
         </a-menu-item>
         <a-sub-menu key="business">
           <template #icon><fund-projection-screen-outlined /></template>
-          <template #title>投资工作区</template>
+          <template #title>投资闭环</template>
           <a-menu-item key="/overview" @click="navigate('/overview')">Overview</a-menu-item>
-          <a-menu-item key="/data-quality" @click="navigate('/data-quality')">数据质量</a-menu-item>
+          <a-menu-item key="/config-center/data-source-discovery" @click="navigate('/config-center/data-source-discovery')">AI 治理中枢</a-menu-item>
+          <a-menu-item key="/config-center/data-sources" @click="navigate('/config-center/data-sources')">AI 治理证据</a-menu-item>
           <a-menu-item key="/data-ingestion" @click="navigate('/data-ingestion')">采集编排</a-menu-item>
-          <a-menu-item key="/product-risk" @click="navigate('/product-risk')">产品风险</a-menu-item>
           <a-menu-item key="/report-studio" @click="navigate('/report-studio')">投资报告</a-menu-item>
           <a-menu-item key="/prompt-lab" @click="navigate('/prompt-lab')">Prompt 实验室</a-menu-item>
           <a-menu-item key="/simulation" @click="navigate('/simulation')">模拟交易</a-menu-item>
           <a-menu-item key="/review-loop" @click="navigate('/review-loop')">复盘闭环</a-menu-item>
           <a-menu-item key="/risk-audit" @click="navigate('/risk-audit')">风控审计</a-menu-item>
         </a-sub-menu>
-        <a-sub-menu key="admin">
-          <template #icon><team-outlined /></template>
-          <template #title>用户与权限</template>
-          <a-menu-item key="/users" @click="navigate('/users')">用户管理</a-menu-item>
-          <a-menu-item key="/roles" @click="navigate('/roles')">角色权限</a-menu-item>
-          <a-menu-item key="/account" @click="navigate('/account')">本人账户</a-menu-item>
-        </a-sub-menu>
         <a-sub-menu key="config">
           <template #icon><control-outlined /></template>
           <template #title>配置中心</template>
           <a-menu-item key="/config-center" @click="navigate('/config-center')">配置总览</a-menu-item>
-          <a-menu-item key="/config-center/ai-skills" @click="navigate('/config-center/ai-skills')">AI Skill</a-menu-item>
-          <a-menu-item key="/config-center/model-skills" @click="navigate('/config-center/model-skills')">模型 Skill 绑定</a-menu-item>
-          <a-menu-item key="/config-center/data-source-discovery" @click="navigate('/config-center/data-source-discovery')">数据源发现</a-menu-item>
-          <a-menu-item key="/config-center/data-sources" @click="navigate('/config-center/data-sources')">数据源资产</a-menu-item>
-          <a-menu-item key="/config-center/tasks" @click="navigate('/config-center/tasks')">任务配置</a-menu-item>
-          <a-menu-item key="/config-center/products" @click="navigate('/config-center/products')">产品与行情</a-menu-item>
-          <a-menu-item key="/config-center/prompts" @click="navigate('/config-center/prompts')">Prompt 配置</a-menu-item>
-          <a-menu-item key="/config-center/models" @click="navigate('/config-center/models')">模型配置</a-menu-item>
-          <a-menu-item key="/config-center/actions" @click="navigate('/config-center/actions')">业务操作</a-menu-item>
+          <a-menu-item key="/data-quality" @click="navigate('/data-quality')">数据质量</a-menu-item>
+          <a-menu-item key="/product-risk" @click="navigate('/product-risk')">产品风险</a-menu-item>
+        </a-sub-menu>
+        <a-sub-menu key="admin">
+          <template #icon><team-outlined /></template>
+          <template #title>权限与规范</template>
+          <a-menu-item key="/account" @click="navigate('/account')">本人账户</a-menu-item>
+          <a-menu-item key="/users" @click="navigate('/users')">用户管理</a-menu-item>
+          <a-menu-item key="/roles" @click="navigate('/roles')">角色权限</a-menu-item>
         </a-sub-menu>
         <a-sub-menu key="framework">
           <template #icon><safety-certificate-outlined /></template>
-          <template #title>系统规范</template>
+          <template #title>开发规范</template>
           <a-menu-item key="/ui-system" @click="navigate('/ui-system')">UI 操作舱</a-menu-item>
           <a-menu-item key="/development-rules" @click="navigate('/development-rules')">开发铁律</a-menu-item>
           <a-menu-item key="/standby/api" @click="navigate('/standby/api')">API 文档舱</a-menu-item>

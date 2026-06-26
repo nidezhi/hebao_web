@@ -136,7 +136,7 @@ const skillTypeSelectOptions = skillTypeOptions.map((item) => ({ label: item.lab
 const skillStatusSelectOptions = skillStatusOptions.map((item) => ({ label: item.label, value: item.value }))
 const metrics = computed(() => [
   { label: 'Skill 版本', value: skills.value.length, hint: '当前页' },
-  { label: '数据源发现', value: skills.value.filter((item) => item.skillType === 'DATA_SOURCE_DISCOVERY').length, hint: '发现链路' },
+  { label: '方向化采集', value: skills.value.filter((item) => item.skillType === 'DATA_SOURCE_DISCOVERY').length, hint: '治理链路' },
   { label: 'ACTIVE', value: skills.value.filter((item) => item.status === 'ACTIVE').length, hint: '可被调用' },
   { label: '需治理', value: skills.value.filter((item) => ['DRAFT', 'VALIDATING'].includes(item.status || '')).length, hint: '草稿/校验' },
 ])
@@ -163,7 +163,7 @@ const resetForm = (skill?: AiSkillDto) => {
     inputSchema: '{}',
     outputSchema: '{}',
     evaluationPolicy: '{"manualReviewRequired":true}',
-    description: '方向化 LLM 数据源发现默认 Skill；候选需人工审核后沉淀为数据源资产。',
+    description: '方向化 LLM 采集默认 Skill；候选、计划、策略需进入 AI 治理证据链。',
   })
   inputSchemaText.value = skillForm.inputSchema || '{}'
   outputSchemaText.value = skillForm.outputSchema || '{}'

@@ -12,14 +12,14 @@
           从可信数据源到 Mock 交易复盘，把 AI 发现、投资报告、Prompt / Skill 治理和风控审计串成一条可追踪链路。
         </p>
         <div class="home-hero__chips">
-          <span>可复盘</span>
-          <span>可配置</span>
-          <span>可自动成长</span>
-          <span>人工闸门</span>
+          <span><b>TRACE</b> 全链路复盘</span>
+          <span><b>GATE</b> 人工闸门</span>
+          <span><b>SKILL</b> 能力治理</span>
+          <span><b>MOCK</b> 仿真闭环</span>
         </div>
         <a-space wrap>
-          <a-button type="primary" size="large" @click="router.push('/overview')">进入业务驾驶舱</a-button>
-          <a-button size="large" @click="router.push('/config-center/data-source-discovery')">发现数据源</a-button>
+          <a-button type="primary" size="large" @click="router.push('/overview')">进入驾驶舱</a-button>
+          <a-button size="large" @click="router.push('/config-center/data-source-discovery')">AI 治理</a-button>
           <a-button size="large" @click="router.push('/config-center/ai-skills')">维护 AI Skill</a-button>
         </a-space>
       </div>
@@ -93,15 +93,15 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 const metrics = [
-  { label: '主链路', value: '7', hint: '从方向化发现到驾驶舱复盘' },
+  { label: '主链路', value: '7', hint: '从 AI 治理到驾驶舱复盘' },
   { label: '人工闸门', value: '4', hint: '数据源 / Prompt / 模型 / 真实交易' },
   { label: '配置资产', value: '9+', hint: 'Skill、模型、Prompt、任务、产品等' },
   { label: '接口模式', value: 'POST', hint: '统一真实后端 API' },
 ]
 
 const flowSteps = [
-  { no: '01', title: '方向化数据源发现', desc: '按采集方向生成候选源、计划和质量策略', path: '/config-center/data-source-discovery' },
-  { no: '02', title: '数据源资产', desc: '管理已入库来源、健康和质量快照', path: '/config-center/data-sources' },
+  { no: '01', title: 'AI 治理中枢', desc: '检查 Skill、模型绑定、Prompt 和评估回流', path: '/config-center/data-source-discovery' },
+  { no: '02', title: 'AI 治理证据', desc: '追踪闭环运行、任务执行和报告快照证据', path: '/config-center/data-sources' },
   { no: '03', title: '采集编排', desc: '任务运行、触发和参数治理', path: '/data-ingestion' },
   { no: '04', title: '投资报告', desc: '质量门禁后的投资分析报告', path: '/report-studio' },
   { no: '05', title: 'Prompt / Skill', desc: '提示词和模型能力持续治理', path: '/prompt-lab' },
@@ -117,7 +117,7 @@ const guards = [
 ]
 
 const entries = [
-  { title: '配置总览', badge: 'CONFIG', color: 'blue', path: '/config-center', desc: '进入 Skill、模型绑定、数据源资产、任务、产品、Prompt 等配置域。' },
+  { title: '配置总览', badge: 'CONFIG', color: 'blue', path: '/config-center', desc: '进入 AI 治理、模型绑定、任务、产品、Prompt 等配置域。' },
   { title: 'AI Skill 工作台', badge: 'SKILL', color: 'purple', path: '/config-center/ai-skills', desc: '维护方向化采集、Prompt 治理、质量审计等模型能力说明。' },
   { title: '模型 Skill 绑定', badge: 'BINDING', color: 'geekblue', path: '/config-center/model-skills', desc: '按业务场景把模型实例绑定到指定 Skill 版本。' },
   { title: '产品风险', badge: 'RISK', color: 'orange', path: '/product-risk', desc: '查看产品池、风险画像、行情和产品风险上下文。' },

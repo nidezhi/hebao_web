@@ -56,7 +56,7 @@
         </a-tab-pane>
 
         <a-tab-pane key="skills" tab="AI Skill 治理">
-          <a-alert class="mb-12" type="info" show-icon message="Skill 是模型执行数据源发现、Prompt 治理、质量审计等场景的指令资产；具体维护请进入配置中心。" />
+          <a-alert class="mb-12" type="info" show-icon message="Skill 是模型执行方向化采集、Prompt 治理、质量审计等场景的指令资产；具体维护请进入配置中心。" />
           <a-row :gutter="[16, 16]">
             <a-col :xs="24" :xl="12">
               <a-card class="page-card" :bordered="false" title="Skill 资产">

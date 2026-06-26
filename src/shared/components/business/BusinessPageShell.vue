@@ -21,11 +21,12 @@
           </a-space>
         </a-col>
         <a-col :xs="24" :xl="9">
-          <div class="command-hero__status">
-            <component :is="icon" />
-            <span>REAL API LINK</span>
-            <strong>{{ statusText }}</strong>
-          </div>
+          <RuntimeOrbit
+            :label="orbitLabel"
+            :status="statusText"
+            :labels="orbitLabels"
+            :tone="orbitTone"
+          />
         </a-col>
       </a-row>
     </a-card>
@@ -36,6 +37,7 @@
 
 <script setup lang="ts">
 import type { Component } from 'vue'
+import RuntimeOrbit from './RuntimeOrbit.vue'
 
 withDefaults(defineProps<{
   title: string
@@ -44,10 +46,16 @@ withDefaults(defineProps<{
   endpoints: string[]
   icon: Component
   statusText?: string
+  orbitLabel?: string
+  orbitLabels?: string[]
+  orbitTone?: 'blue' | 'green' | 'purple' | 'orange'
   riskNotice?: string
 }>(), {
   eyebrow: 'DZCOM COMMAND WORKSPACE',
   statusText: 'ONLINE',
+  orbitLabel: 'REAL API',
+  orbitLabels: () => ['AI', 'TASK', 'RISK'],
+  orbitTone: 'blue',
   riskNotice: '投资相关数据仅用于分析与 Mock 交易闭环验证，不构成真实收益承诺或投资建议。',
 })
 </script>

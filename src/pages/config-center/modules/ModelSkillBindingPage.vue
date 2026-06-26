@@ -137,7 +137,7 @@ const scenarioSelectOptions = scenarioCodeOptions.map((item) => ({ label: item.l
 const metrics = computed(() => [
   { label: '绑定数', value: bindings.value.length, hint: '当前页' },
   { label: '启用绑定', value: bindings.value.filter((item) => item.enabled).length, hint: '可参与调用' },
-  { label: '数据源发现', value: bindings.value.filter((item) => item.scenarioCode === 'DATA_SOURCE_DISCOVERY').length, hint: '前置治理' },
+  { label: '方向化采集', value: bindings.value.filter((item) => item.scenarioCode === 'DATA_SOURCE_DISCOVERY').length, hint: '前置治理' },
   { label: '可选 Skill', value: skills.value.length, hint: 'ACTIVE 优先' },
 ])
 const modelSelectOptions = computed(() => models.value.map((item) => ({

@@ -47,7 +47,7 @@
           <a-col :span="12"><a-form-item label="时区"><a-input v-model:value="taskForm.zone" /></a-form-item></a-col>
         </a-row>
         <a-form-item label="启用"><a-switch v-model:checked="taskForm.enabled" /></a-form-item>
-        <a-card v-if="taskForm.type === 'AI_DATA_SOURCE_DISCOVERY'" size="small" title="AI 数据源发现参数" class="mb-12">
+        <a-card v-if="taskForm.type === 'AI_DATA_SOURCE_DISCOVERY'" size="small" title="方向化 AI 采集参数" class="mb-12">
           <a-row :gutter="12">
             <a-col :span="12">
               <a-form-item label="方向化任务编码">
