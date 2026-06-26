@@ -130,7 +130,8 @@ const models = ref<AiModelDto[]>([])
 const skills = ref<AiSkillDto[]>([])
 const filters = reactive<AiModelSkillBindingListRequest>({})
 const bindingForm = reactive<Partial<AiModelSkillBindingDto>>({})
-const configText = ref('{"candidateLimit":8,"autoApply":false}')
+const defaultDiscoveryBindingConfig = '{"candidateLimit":8,"collectionDirection":"MULTI_SOURCE","autoRegisterCandidates":true,"autoEnableCandidates":false}'
+const configText = ref(defaultDiscoveryBindingConfig)
 
 const scenarioSelectOptions = scenarioCodeOptions.map((item) => ({ label: item.label, value: item.value }))
 const metrics = computed(() => [
@@ -167,9 +168,9 @@ const resetForm = (binding?: AiModelSkillBindingDto) => {
     scenarioCode: 'DATA_SOURCE_DISCOVERY',
     priority: 10,
     enabled: true,
-    config: '{"candidateLimit":8,"autoApply":false}',
+    config: defaultDiscoveryBindingConfig,
   })
-  configText.value = bindingForm.config || '{"candidateLimit":8,"autoApply":false}'
+  configText.value = bindingForm.config || defaultDiscoveryBindingConfig
 }
 
 const openBinding = (binding?: AiModelSkillBindingDto) => {

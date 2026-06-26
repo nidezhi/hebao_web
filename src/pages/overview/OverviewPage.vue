@@ -200,7 +200,7 @@ const highRiskCount = computed(() => riskChecks.value.filter((item) => item.risk
 const metrics = computed(() => [
   { label: '闭环运行', value: loopSummary.value.total, hint: `运行中 ${loopSummary.value.running}` },
   { label: '闭环成功率', value: formatPercent(loopSummary.value.successRate), hint: `阻断 ${loopSummary.value.blocked}` },
-  { label: 'AI 发现治理', value: activeDiscoveryBindingCount.value, hint: `Skill ${activeDiscoverySkillCount.value}/${aiSkillTotal.value}` },
+  { label: '方向化发现治理', value: activeDiscoveryBindingCount.value, hint: `Skill ${activeDiscoverySkillCount.value}/${aiSkillTotal.value}` },
   { label: '高风险拦截', value: highRiskCount.value, hint: '拒绝 / 高风险' },
 ])
 
@@ -212,8 +212,8 @@ const runOptions = computed(() => closedLoopRuns.value.map((run) => ({
 const actionQueue = computed(() => [
   ...(activeDiscoverySkillCount.value === 0
     ? [{
-        title: '缺少 ACTIVE 数据源发现 Skill',
-        description: '请在 AI Skill 工作台启用 DATA_SOURCE_DISCOVERY Skill',
+        title: '缺少 ACTIVE 方向化采集 Skill',
+        description: '请在 AI Skill 工作台启用 DATA_COLLECTION_* 或 DATA_SOURCE_DISCOVERY Skill',
         level: '治理',
         color: 'warning',
       }]
@@ -221,7 +221,7 @@ const actionQueue = computed(() => [
   ...(activeDiscoveryBindingCount.value === 0
     ? [{
         title: '缺少启用中的模型 Skill 绑定',
-        description: '请在模型 Skill 绑定页配置 DATA_SOURCE_DISCOVERY 场景',
+        description: '请在模型 Skill 绑定页配置 DATA_SOURCE_DISCOVERY 场景，并确认方向化采集 Skill 可用',
         level: '模型',
         color: 'warning',
       }]

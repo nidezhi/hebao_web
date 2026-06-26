@@ -60,7 +60,7 @@
         </a-descriptions>
 
         <a-alert
-          v-if="!selectedTask.parameters?.endpoints && isCollectionTask(selectedTask.type)"
+          v-if="!selectedTask.parameters?.endpoints && isEndpointCollectionTask(selectedTask.type)"
           type="warning"
           show-icon
           message="未配置端点，不写兜底数据"
@@ -70,7 +70,20 @@
           <div class="config-grid">
             <label v-for="field in visibleFields" :key="field.key" class="config-field">
               <span>{{ field.label }}</span>
-              <a-input v-model:value="parameterDraft[field.key]" :placeholder="field.placeholder" />
+              <a-select
+                v-if="field.inputType === 'select'"
+                v-model:value="parameterDraft[field.key]"
+                show-search
+                :options="field.options"
+                :filter-option="filterOption"
+                @change="handleParameterChange(field.key, $event)"
+              />
+              <a-switch
+                v-else-if="field.inputType === 'switch'"
+                :checked="parameterDraft[field.key] === 'true'"
+                @change="handleSwitchChange(field.key, $event)"
+              />
+              <a-input v-else v-model:value="parameterDraft[field.key]" :placeholder="field.placeholder" />
             </label>
           </div>
           <a-divider>安全闸门</a-divider>
@@ -112,6 +125,12 @@ import StatusTag from '@/shared/components/visual/StatusTag.vue'
 import { listTaskDefinitions, listTaskExecutions, saveTaskDefinition, triggerInvestmentTask } from '@/entities/task/api'
 import { ingestionTaskTypeOptions, taskExecutionStatusOptions } from '@/entities/task/dictionary'
 import type { InvestmentTaskDefinitionDto, ScheduledTaskExecutionDto } from '@/entities/task/model'
+import {
+  collectionDirectionDefaults,
+  collectionDirectionOptions,
+  dataCollectionSkillCodeOptions,
+  directionTaskCodeOptions,
+} from '@/entities/ai-skill/dictionary'
 
 const loading = ref(false)
 const saving = ref(false)
@@ -123,9 +142,20 @@ const executions = ref<ScheduledTaskExecutionDto[]>([])
 const selectedTask = ref<InvestmentTaskDefinitionDto>()
 const drawerOpen = ref(false)
 const parameterDraft = reactive<Record<string, string>>({})
+type ParameterField = {
+  key: string
+  label: string
+  placeholder?: string
+  inputType?: 'input' | 'select' | 'switch'
+  options?: { label: string; value: string }[]
+}
 
 const collectionTypes = ['AI_DATA_SOURCE_DISCOVERY', 'REGULATORY_DISCLOSURE_COLLECTION', 'EXCHANGE_ANNOUNCEMENT_COLLECTION', 'WEALTH_PRODUCT_NAV_REFRESH', 'MARKET_MOMENTUM_SCAN', 'HOT_THEME_RETURN', 'NEWS_HEAT_AGGREGATION']
+const endpointCollectionTypes = collectionTypes.filter((type) => type !== 'AI_DATA_SOURCE_DISCOVERY')
 const automationTypes = ['AUTO_INVESTMENT_REPORT_GENERATION', 'AUTO_PROMPT_GOVERNANCE', 'AUTO_INVESTMENT_CLOSED_LOOP_ORCHESTRATION']
+const collectionDirectionSelectOptions = collectionDirectionOptions.map((item) => ({ label: item.label, value: item.value }))
+const dataCollectionSkillSelectOptions = dataCollectionSkillCodeOptions.map((item) => ({ label: item.label, value: item.value }))
+const directionTaskCodeSelectOptions = directionTaskCodeOptions.map((item) => ({ label: item.label, value: item.value }))
 
 const metrics = computed(() => [
   { label: '任务定义', value: definitions.value.length, hint: `启用 ${definitions.value.filter((item) => item.enabled).length}` },
@@ -142,7 +172,7 @@ const filteredDefinitions = computed(() => {
 
 const visibleFields = computed(() => {
   const type = selectedTask.value?.type || ''
-  const base = [
+  const base: ParameterField[] = [
     { key: 'endpoints', label: '端点', placeholder: '数据源名称=https://...|JSON' },
     { key: 'maxItems', label: '最大条数', placeholder: '100' },
     { key: 'itemsPath', label: '列表路径', placeholder: 'data.list' },
@@ -169,13 +199,19 @@ const visibleFields = computed(() => {
   }
   if (type === 'AI_DATA_SOURCE_DISCOVERY') {
     return [
+      { key: 'taskCode', label: '方向任务编码', inputType: 'select', options: directionTaskCodeSelectOptions },
       { key: 'environment', label: '环境', placeholder: 'DEFAULT' },
       { key: 'marketScope', label: '市场范围', placeholder: 'CN_MAINLAND' },
+      { key: 'collectionDirection', label: '采集方向', inputType: 'select', options: collectionDirectionSelectOptions },
+      { key: 'skillCode', label: 'Skill 编码', inputType: 'select', options: dataCollectionSkillSelectOptions },
       { key: 'assetClass', label: '资产类别', placeholder: 'MULTI_ASSET' },
       { key: 'dataTypes', label: '数据类型', placeholder: 'MARKET_QUOTE,NEWS,ANNOUNCEMENT,RESEARCH,REGULATORY' },
+      { key: 'topicKeywords', label: '主题关键词', placeholder: '理财产品,基金净值,ETF净值' },
       { key: 'preferredTrustLevels', label: '偏好等级', placeholder: 'L1,L2,L3,L4' },
       { key: 'candidateLimit', label: '候选上限', placeholder: '8' },
-      { key: 'includeDisabledCandidates', label: '包含暂不可用候选', placeholder: 'true/false' },
+      { key: 'includeDisabledCandidates', label: '包含暂不可用候选', inputType: 'switch' },
+      { key: 'autoRegisterCandidates', label: '自动沉淀候选', inputType: 'switch' },
+      { key: 'autoEnableCandidates', label: '自动启用候选', inputType: 'switch' },
     ]
   }
   return [
@@ -194,7 +230,7 @@ const columns = [
   { title: '启用', customRender: ({ record }: { record: InvestmentTaskDefinitionDto }) => h(StatusTag, { value: record.enabled, options: [{ label: '启用', value: true, color: 'success' }, { label: '停用', value: false, color: 'default' }] }) },
 ]
 
-const isCollectionTask = (type: string) => collectionTypes.includes(type)
+const isEndpointCollectionTask = (type: string) => endpointCollectionTypes.includes(type)
 
 const rowEvents = (record: InvestmentTaskDefinitionDto) => ({ onClick: () => openTask(record) })
 
@@ -204,6 +240,13 @@ const openTask = (task: InvestmentTaskDefinitionDto) => {
   Object.entries(task.parameters || {}).forEach(([key, value]) => {
     parameterDraft[key] = String(value ?? '')
   })
+  if (task.type === 'AI_DATA_SOURCE_DISCOVERY') {
+    const defaults = defaultDiscoveryDraft()
+    Object.entries(defaults).forEach(([key, value]) => {
+      if (parameterDraft[key] === undefined || parameterDraft[key] === '') parameterDraft[key] = String(value)
+    })
+    parameterDraft.taskCode = task.code || parameterDraft.taskCode
+  }
   drawerOpen.value = true
 }
 
@@ -211,9 +254,13 @@ const saveSelected = async () => {
   if (!selectedTask.value) return
   saving.value = true
   try {
+    const parameters = selectedTask.value.type === 'AI_DATA_SOURCE_DISCOVERY'
+      ? normalizeDiscoveryParameters(parameterDraft)
+      : { ...parameterDraft }
     await saveTaskDefinition({
       ...selectedTask.value,
-      parameters: { ...parameterDraft },
+      code: selectedTask.value.type === 'AI_DATA_SOURCE_DISCOVERY' ? (parameterDraft.taskCode || selectedTask.value.code) : selectedTask.value.code,
+      parameters,
     })
     message.success('任务定义已保存，调度将按后端规则刷新')
     await load()
@@ -228,13 +275,63 @@ const triggerSelected = async () => {
   if (!selectedTask.value) return
   triggering.value = true
   try {
-    const result = await triggerInvestmentTask({ taskCode: selectedTask.value.code, parameters: { ...parameterDraft } })
+    const taskCode = selectedTask.value.type === 'AI_DATA_SOURCE_DISCOVERY' ? (parameterDraft.taskCode || selectedTask.value.code) : selectedTask.value.code
+    const parameters = selectedTask.value.type === 'AI_DATA_SOURCE_DISCOVERY'
+      ? normalizeDiscoveryParameters(parameterDraft)
+      : { ...parameterDraft }
+    const result = await triggerInvestmentTask({ taskCode, parameters })
     message.success(`已触发任务：${result.eventId}`)
     await loadExecutions()
   } catch (error) {
     message.error(error instanceof Error ? error.message : '触发失败')
   } finally {
     triggering.value = false
+  }
+}
+
+const filterOption = (input: string, option?: { label?: string; value?: string }) =>
+  `${option?.label || ''}${option?.value || ''}`.toLowerCase().includes(input.toLowerCase())
+
+const defaultDiscoveryDraft = () => ({
+  taskCode: collectionDirectionDefaults.MULTI_SOURCE.taskCode,
+  environment: 'DEFAULT',
+  marketScope: 'CN_MAINLAND',
+  collectionDirection: 'MULTI_SOURCE',
+  skillCode: collectionDirectionDefaults.MULTI_SOURCE.skillCode,
+  assetClass: collectionDirectionDefaults.MULTI_SOURCE.assetClass,
+  dataTypes: collectionDirectionDefaults.MULTI_SOURCE.dataTypes,
+  topicKeywords: collectionDirectionDefaults.MULTI_SOURCE.topicKeywords,
+  preferredTrustLevels: collectionDirectionDefaults.MULTI_SOURCE.preferredTrustLevels,
+  candidateLimit: 8,
+  includeDisabledCandidates: true,
+  autoRegisterCandidates: true,
+  autoEnableCandidates: false,
+})
+
+const handleParameterChange = (key: string, value: unknown) => {
+  if (key !== 'collectionDirection') return
+  const next = collectionDirectionDefaults[String(value)]
+  if (!next) return
+  parameterDraft.taskCode = next.taskCode
+  parameterDraft.skillCode = next.skillCode
+  parameterDraft.assetClass = next.assetClass
+  parameterDraft.dataTypes = next.dataTypes
+  parameterDraft.topicKeywords = next.topicKeywords
+  parameterDraft.preferredTrustLevels = next.preferredTrustLevels
+}
+
+const handleSwitchChange = (key: string, checked: boolean) => {
+  parameterDraft[key] = String(checked)
+}
+
+const normalizeDiscoveryParameters = (draft: Record<string, string>) => {
+  const { taskCode: _taskCode, ...rest } = draft
+  return {
+    ...rest,
+    candidateLimit: Number(rest.candidateLimit || 8),
+    includeDisabledCandidates: rest.includeDisabledCandidates === 'true',
+    autoRegisterCandidates: rest.autoRegisterCandidates === 'true',
+    autoEnableCandidates: rest.autoEnableCandidates === 'true',
   }
 }
 

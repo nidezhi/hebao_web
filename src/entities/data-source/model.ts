@@ -63,6 +63,8 @@ export interface DiscoverDataSourcesRequest {
   assetClass?: string
   dataTypes?: string
   topicKeywords?: string
+  collectionDirection?: string
+  skillCode?: string
   preferredTrustLevels?: string
   candidateLimit?: number
   environment?: string
@@ -81,6 +83,8 @@ export interface DataSourceDiscoveryCandidateDto {
   recommendedTaskType?: string
   suggestedParameters?: Record<string, unknown>
   fieldMappings?: Record<string, unknown>
+  collectionPlan?: string
+  qualityPolicy?: string
   confidence?: number
   reasons?: string[]
   requiresReview?: boolean
@@ -88,6 +92,7 @@ export interface DataSourceDiscoveryCandidateDto {
 
 export interface DataSourceDiscoveryDto {
   scenarioCode?: string
+  collectionDirection?: string
   modelCode?: string
   providerCode?: string
   environment?: string

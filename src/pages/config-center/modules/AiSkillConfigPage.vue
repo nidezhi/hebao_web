@@ -154,12 +154,16 @@ const columns = [
 const resetForm = (skill?: AiSkillDto) => {
   Object.keys(skillForm).forEach((key) => delete skillForm[key as keyof AiSkillDto])
   Object.assign(skillForm, skill || {
+    skillCode: 'DATA_COLLECTION_MULTI_SOURCE',
     skillType: 'DATA_SOURCE_DISCOVERY',
+    skillName: '多源综合采集 Skill',
     status: 'DRAFT',
     skillVersion: 'v1',
+    instructionContent: '围绕投资闭环需要，按采集方向整理可信数据源候选，输出来源说明、采集计划、字段映射、质量策略和人工审核建议。',
     inputSchema: '{}',
     outputSchema: '{}',
     evaluationPolicy: '{"manualReviewRequired":true}',
+    description: '方向化 LLM 数据源发现默认 Skill；候选需人工审核后沉淀为数据源资产。',
   })
   inputSchemaText.value = skillForm.inputSchema || '{}'
   outputSchemaText.value = skillForm.outputSchema || '{}'

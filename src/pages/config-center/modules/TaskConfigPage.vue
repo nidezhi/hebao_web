@@ -49,16 +49,44 @@
         <a-form-item label="启用"><a-switch v-model:checked="taskForm.enabled" /></a-form-item>
         <a-card v-if="taskForm.type === 'AI_DATA_SOURCE_DISCOVERY'" size="small" title="AI 数据源发现参数" class="mb-12">
           <a-row :gutter="12">
+            <a-col :span="12">
+              <a-form-item label="方向化任务编码">
+                <a-select v-model:value="taskForm.code" :options="directionTaskCodeSelectOptions" />
+              </a-form-item>
+            </a-col>
+            <a-col :span="12">
+              <a-form-item label="采集方向">
+                <a-select v-model:value="discoveryDraft.collectionDirection" :options="collectionDirectionSelectOptions" @change="handleDirectionChange" />
+              </a-form-item>
+            </a-col>
+          </a-row>
+          <a-row :gutter="12">
             <a-col :span="12"><a-form-item label="环境"><a-input v-model:value="discoveryDraft.environment" /></a-form-item></a-col>
             <a-col :span="12"><a-form-item label="市场范围"><a-input v-model:value="discoveryDraft.marketScope" /></a-form-item></a-col>
           </a-row>
           <a-row :gutter="12">
             <a-col :span="12"><a-form-item label="资产类别"><a-input v-model:value="discoveryDraft.assetClass" /></a-form-item></a-col>
+            <a-col :span="12">
+              <a-form-item label="Skill 编码">
+                <a-select
+                  v-model:value="discoveryDraft.skillCode"
+                  show-search
+                  :options="dataCollectionSkillSelectOptions"
+                  :filter-option="filterOption"
+                />
+              </a-form-item>
+            </a-col>
+          </a-row>
+          <a-row :gutter="12">
             <a-col :span="12"><a-form-item label="候选上限"><a-input-number v-model:value="discoveryDraft.candidateLimit" class="full-width" :min="1" :max="50" /></a-form-item></a-col>
+            <a-col :span="12"><a-form-item label="自动沉淀候选"><a-switch v-model:checked="discoveryDraft.autoRegisterCandidates" /></a-form-item></a-col>
           </a-row>
           <a-form-item label="数据类型"><a-input v-model:value="discoveryDraft.dataTypes" /></a-form-item>
           <a-form-item label="偏好等级"><a-input v-model:value="discoveryDraft.preferredTrustLevels" /></a-form-item>
-          <a-form-item label="包含暂不可用/需授权候选"><a-switch v-model:checked="discoveryDraft.includeDisabledCandidates" /></a-form-item>
+          <a-row :gutter="12">
+            <a-col :span="12"><a-form-item label="包含暂不可用/需授权候选"><a-switch v-model:checked="discoveryDraft.includeDisabledCandidates" /></a-form-item></a-col>
+            <a-col :span="12"><a-form-item label="自动启用候选"><a-switch v-model:checked="discoveryDraft.autoEnableCandidates" /></a-form-item></a-col>
+          </a-row>
         </a-card>
         <a-form-item label="参数 JSON（高级字段）"><a-textarea v-model:value="parametersText" :auto-size="{ minRows: 8, maxRows: 14 }" /></a-form-item>
         <a-form-item label="描述"><a-textarea v-model:value="taskForm.description" /></a-form-item>
@@ -84,6 +112,12 @@ import PageState from '@/shared/components/business/PageState.vue'
 import { listTaskDefinitions, listTaskExecutions, saveTaskDefinition, triggerInvestmentTask } from '@/entities/task/api'
 import { ingestionTaskTypeOptions } from '@/entities/task/dictionary'
 import type { InvestmentTaskDefinitionDto, ScheduledTaskExecutionDto } from '@/entities/task/model'
+import {
+  collectionDirectionOptions,
+  collectionDirectionDefaults,
+  dataCollectionSkillCodeOptions,
+  directionTaskCodeOptions,
+} from '@/entities/ai-skill/dictionary'
 
 const loading = ref(false)
 const saving = ref(false)
@@ -96,6 +130,9 @@ const parametersText = ref('{}')
 const discoveryDraft = reactive<Record<string, string | number | boolean>>({})
 
 const taskTypeSelectOptions = ingestionTaskTypeOptions.map((item) => ({ label: item.label, value: item.value }))
+const collectionDirectionSelectOptions = collectionDirectionOptions.map((item) => ({ label: item.label, value: item.value }))
+const dataCollectionSkillSelectOptions = dataCollectionSkillCodeOptions.map((item) => ({ label: item.label, value: item.value }))
+const directionTaskCodeSelectOptions = directionTaskCodeOptions.map((item) => ({ label: item.label, value: item.value }))
 const metrics = computed(() => [
   { label: '任务定义', value: tasks.value.length, hint: `启用 ${tasks.value.filter((item) => item.enabled).length}` },
   { label: '闭环任务', value: tasks.value.filter((item) => item.type === 'AUTO_INVESTMENT_CLOSED_LOOP_ORCHESTRATION').length, hint: '总编排' },
@@ -119,7 +156,7 @@ const executionColumns = [
 
 const resetTaskForm = (task?: InvestmentTaskDefinitionDto) => {
   Object.keys(taskForm).forEach((key) => delete taskForm[key as keyof InvestmentTaskDefinitionDto])
-  Object.assign(taskForm, task || { code: 'ai-data-source-discovery', zone: 'Asia/Shanghai', enabled: false, type: 'AI_DATA_SOURCE_DISCOVERY', parameters: defaultDiscoveryParameters() })
+  Object.assign(taskForm, task || { code: 'llm-data-collection-multi-source', zone: 'Asia/Shanghai', enabled: false, type: 'AI_DATA_SOURCE_DISCOVERY', parameters: defaultDiscoveryParameters() })
   resetDiscoveryDraft(taskForm.parameters || {})
   parametersText.value = JSON.stringify(taskForm.parameters || {}, null, 2)
 }
@@ -154,16 +191,37 @@ const submitTask = async () => {
 const defaultDiscoveryParameters = () => ({
   environment: 'DEFAULT',
   marketScope: 'CN_MAINLAND',
-  assetClass: 'MULTI_ASSET',
-  dataTypes: 'MARKET_QUOTE,NEWS,ANNOUNCEMENT,RESEARCH,REGULATORY',
-  preferredTrustLevels: 'L1,L2,L3,L4',
+  collectionDirection: 'MULTI_SOURCE',
+  skillCode: collectionDirectionDefaults.MULTI_SOURCE.skillCode,
+  assetClass: collectionDirectionDefaults.MULTI_SOURCE.assetClass,
+  dataTypes: collectionDirectionDefaults.MULTI_SOURCE.dataTypes,
+  topicKeywords: collectionDirectionDefaults.MULTI_SOURCE.topicKeywords,
+  preferredTrustLevels: collectionDirectionDefaults.MULTI_SOURCE.preferredTrustLevels,
   candidateLimit: 8,
   includeDisabledCandidates: true,
+  autoRegisterCandidates: true,
+  autoEnableCandidates: false,
 })
 
 const resetDiscoveryDraft = (parameters: Record<string, unknown>) => {
   Object.keys(discoveryDraft).forEach((key) => delete discoveryDraft[key])
   Object.assign(discoveryDraft, { ...defaultDiscoveryParameters(), ...parameters })
+}
+
+const filterOption = (input: string, option?: { label?: string; value?: string }) =>
+  `${option?.label || ''}${option?.value || ''}`.toLowerCase().includes(input.toLowerCase())
+
+const handleDirectionChange = (value: string | number | boolean) => {
+  const next = collectionDirectionDefaults[String(value)]
+  if (!next) return
+  taskForm.code = next.taskCode
+  Object.assign(discoveryDraft, {
+    skillCode: next.skillCode,
+    assetClass: next.assetClass,
+    dataTypes: next.dataTypes,
+    topicKeywords: next.topicKeywords,
+    preferredTrustLevels: next.preferredTrustLevels,
+  })
 }
 
 const toggleTask = (task: InvestmentTaskDefinitionDto) => {

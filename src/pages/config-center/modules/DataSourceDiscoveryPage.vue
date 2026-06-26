@@ -1,7 +1,7 @@
 <template>
   <BusinessPageShell
-    title="AI 数据源发现"
-    description="通过模型 Skill 发现高质量数据源候选。候选不会自动保存，必须人工审核后写入数据源或生成采集任务。"
+    title="方向化数据源发现"
+    description="按采集方向调用模型 Skill 发现高质量数据源候选。候选不会自动保存，必须人工审核后写入数据源或生成采集任务。"
     :endpoints="[endpoints.dataSource.discover, endpoints.dataSource.save, endpoints.task.saveDefinition]"
     :icon="RadarChartOutlined"
     status-text="DISCOVERY REVIEW"
@@ -26,6 +26,23 @@
             </a-col>
             <a-col :xs="24" :md="8">
               <a-form-item label="资产类别"><a-input v-model:value="form.assetClass" placeholder="MULTI_ASSET" /></a-form-item>
+            </a-col>
+          </a-row>
+          <a-row :gutter="12">
+            <a-col :xs="24" :md="10">
+              <a-form-item label="采集方向">
+                <a-select v-model:value="form.collectionDirection" :options="collectionDirectionSelectOptions" />
+              </a-form-item>
+            </a-col>
+            <a-col :xs="24" :md="14">
+              <a-form-item label="Skill 编码">
+                <a-select
+                  v-model:value="form.skillCode"
+                  show-search
+                  :options="dataCollectionSkillSelectOptions"
+                  :filter-option="filterOption"
+                />
+              </a-form-item>
             </a-col>
           </a-row>
           <a-row :gutter="12">
@@ -59,6 +76,7 @@
       <a-card v-if="discovery" class="page-card" :bordered="false" title="发现结果摘要">
         <a-descriptions bordered size="small" :column="2">
           <a-descriptions-item label="场景">{{ discovery.scenarioCode || '-' }}</a-descriptions-item>
+          <a-descriptions-item label="采集方向">{{ discovery.collectionDirection || form.collectionDirection || '-' }}</a-descriptions-item>
           <a-descriptions-item label="环境">{{ discovery.environment || '-' }}</a-descriptions-item>
           <a-descriptions-item label="模型">{{ discovery.modelCode || '-' }}</a-descriptions-item>
           <a-descriptions-item label="Provider">{{ discovery.providerCode || '-' }}</a-descriptions-item>
@@ -103,6 +121,9 @@
             <template v-else-if="column.key === 'review'">
               <a-tag :color="record.requiresReview ? 'warning' : 'success'">{{ record.requiresReview ? '需审核' : '低风险' }}</a-tag>
             </template>
+            <template v-else-if="column.key === 'plan'">
+              <span class="muted-line">{{ record.collectionPlan || record.qualityPolicy || '-' }}</span>
+            </template>
             <template v-else-if="column.key === 'reasons'">
               <a-space wrap>
                 <a-tag v-for="reason in record.reasons || []" :key="reason">{{ reason }}</a-tag>
@@ -137,6 +158,12 @@
         </a-descriptions>
         <a-card size="small" title="推荐理由">
           <a-space wrap><a-tag v-for="reason in selectedCandidate.reasons || []" :key="reason">{{ reason }}</a-tag></a-space>
+        </a-card>
+        <a-card size="small" title="采集计划">
+          <pre class="text-preview">{{ selectedCandidate.collectionPlan || '-' }}</pre>
+        </a-card>
+        <a-card size="small" title="质量策略">
+          <pre class="text-preview">{{ selectedCandidate.qualityPolicy || '-' }}</pre>
         </a-card>
         <a-card size="small" title="建议参数"><JsonPreview :value="selectedCandidate.suggestedParameters" /></a-card>
         <a-card size="small" title="字段映射"><JsonPreview :value="selectedCandidate.fieldMappings" /></a-card>
@@ -181,6 +208,7 @@ import { discoverDataSources, saveDataSource } from '@/entities/data-source/api'
 import type { DataSourceDiscoveryCandidateDto, DataSourceDiscoveryDto, DiscoverDataSourcesRequest } from '@/entities/data-source/model'
 import { saveTaskDefinition } from '@/entities/task/api'
 import type { InvestmentTaskDefinitionDto } from '@/entities/task/model'
+import { collectionDirectionOptions, dataCollectionSkillCodeOptions } from '@/entities/ai-skill/dictionary'
 
 const loading = ref(false)
 const discovering = ref(false)
@@ -193,6 +221,8 @@ const taskOpen = ref(false)
 const form = reactive<DiscoverDataSourcesRequest>({})
 const taskForm = reactive<Partial<InvestmentTaskDefinitionDto>>({})
 const taskParametersText = ref('{}')
+const collectionDirectionSelectOptions = collectionDirectionOptions.map((item) => ({ label: item.label, value: item.value }))
+const dataCollectionSkillSelectOptions = dataCollectionSkillCodeOptions.map((item) => ({ label: item.label, value: item.value }))
 
 const candidates = computed(() => discovery.value?.candidates || [])
 const metrics = computed(() => [
@@ -206,11 +236,15 @@ const columns = [
   { title: '类型', dataIndex: 'sourceType', width: 130 },
   { title: '等级', key: 'trustLevel', width: 90 },
   { title: '推荐任务', dataIndex: 'recommendedTaskType', width: 180 },
+  { title: '计划 / 策略', key: 'plan' },
   { title: '置信度', key: 'confidence', width: 90 },
   { title: '审核', key: 'review', width: 90 },
-  { title: '理由', key: 'reasons' },
+  { title: '理由', key: 'reasons', width: 180 },
   { title: '操作', key: 'actions', width: 230 },
 ]
+
+const filterOption = (input: string, option?: { label?: string; value?: string }) =>
+  `${option?.label || ''}${option?.value || ''}`.toLowerCase().includes(input.toLowerCase())
 
 const resetForm = () => {
   Object.assign(form, {
@@ -218,6 +252,8 @@ const resetForm = () => {
     marketScope: 'CN_MAINLAND',
     assetClass: 'MULTI_ASSET',
     dataTypes: 'MARKET_QUOTE,NEWS,ANNOUNCEMENT,RESEARCH,REGULATORY',
+    collectionDirection: 'MULTI_SOURCE',
+    skillCode: 'DATA_COLLECTION_MULTI_SOURCE',
     preferredTrustLevels: 'L1,L2,L3,L4',
     candidateLimit: 8,
     includeDisabledCandidates: true,
@@ -275,7 +311,11 @@ const openTaskDrawer = (candidate: DataSourceDiscoveryCandidateDto) => {
     ...(candidate.suggestedParameters || {}),
     sourceCode: candidate.sourceCode,
     baseUrl: candidate.baseUrl,
+    collectionDirection: discovery.value?.collectionDirection || form.collectionDirection,
+    skillCode: discovery.value?.skillCode || form.skillCode,
     fieldMappings: candidate.fieldMappings || {},
+    collectionPlan: candidate.collectionPlan,
+    qualityPolicy: candidate.qualityPolicy,
   }
   Object.assign(taskForm, {
     code: `${candidate.sourceCode || 'candidate'}-collection`.toLowerCase().replace(/[^a-z0-9-]/g, '-'),

@@ -93,14 +93,14 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 const metrics = [
-  { label: '主链路', value: '7', hint: '从数据源发现到驾驶舱复盘' },
+  { label: '主链路', value: '7', hint: '从方向化发现到驾驶舱复盘' },
   { label: '人工闸门', value: '4', hint: '数据源 / Prompt / 模型 / 真实交易' },
   { label: '配置资产', value: '9+', hint: 'Skill、模型、Prompt、任务、产品等' },
   { label: '接口模式', value: 'POST', hint: '统一真实后端 API' },
 ]
 
 const flowSteps = [
-  { no: '01', title: 'AI 数据源发现', desc: '生成候选源、字段映射和任务建议', path: '/config-center/data-source-discovery' },
+  { no: '01', title: '方向化数据源发现', desc: '按采集方向生成候选源、计划和质量策略', path: '/config-center/data-source-discovery' },
   { no: '02', title: '数据源资产', desc: '管理已入库来源、健康和质量快照', path: '/config-center/data-sources' },
   { no: '03', title: '采集编排', desc: '任务运行、触发和参数治理', path: '/data-ingestion' },
   { no: '04', title: '投资报告', desc: '质量门禁后的投资分析报告', path: '/report-studio' },
@@ -118,7 +118,7 @@ const guards = [
 
 const entries = [
   { title: '配置总览', badge: 'CONFIG', color: 'blue', path: '/config-center', desc: '进入 Skill、模型绑定、数据源资产、任务、产品、Prompt 等配置域。' },
-  { title: 'AI Skill 工作台', badge: 'SKILL', color: 'purple', path: '/config-center/ai-skills', desc: '维护数据源发现、Prompt 治理、质量审计等模型能力说明。' },
+  { title: 'AI Skill 工作台', badge: 'SKILL', color: 'purple', path: '/config-center/ai-skills', desc: '维护方向化采集、Prompt 治理、质量审计等模型能力说明。' },
   { title: '模型 Skill 绑定', badge: 'BINDING', color: 'geekblue', path: '/config-center/model-skills', desc: '按业务场景把模型实例绑定到指定 Skill 版本。' },
   { title: '产品风险', badge: 'RISK', color: 'orange', path: '/product-risk', desc: '查看产品池、风险画像、行情和产品风险上下文。' },
   { title: '风控审计', badge: 'AUDIT', color: 'red', path: '/risk-audit', desc: '追踪质量不足、现金不足、风险不匹配等拦截原因。' },
