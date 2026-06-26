@@ -1,55 +1,86 @@
 <template>
   <main class="login-screen">
-    <section class="login-intro">
-      <div class="login-brand">
-        <span>DZ</span>
-        <strong>DZCOM</strong>
-      </div>
-      <h1>投资业务驾驶舱</h1>
-      <p>数据质量、产品风险、投资报告、Prompt、Mock 交易与风控审计统一联调入口。</p>
-      <div class="login-highlights">
-        <span>真实 API</span>
-        <span>Cookie 会话</span>
-        <span>ADMIN 联调</span>
-      </div>
-    </section>
+    <div class="login-stage">
+      <section class="login-intro">
+        <div class="login-brand">
+          <span>DZ</span>
+          <strong>DZCOM</strong>
+          <small>INVESTMENT DECK</small>
+        </div>
+        <h1>
+          <span>投资闭环</span>
+          <strong>安全登录舱</strong>
+        </h1>
+        <p>登录后进入真实后端 API 联调环境，统一访问数据质量、投资报告、Prompt、Mock 交易与风控审计。</p>
+        <div class="login-highlights">
+          <span>真实 API</span>
+          <span>Cookie 会话</span>
+          <span>ADMIN 联调</span>
+        </div>
+        <div class="login-status-panel">
+          <div class="login-orbit">
+            <div class="login-orbit__ring ring-a" />
+            <div class="login-orbit__ring ring-b" />
+            <div class="login-orbit__core">
+              <span>AUTH API</span>
+              <strong>ONLINE</strong>
+            </div>
+          </div>
+          <div class="login-status-copy">
+            <span>RUNTIME STATUS</span>
+            <strong>后端鉴权链路在线</strong>
+            <p>登录成功后自动写入会话 Cookie，并进入受保护业务接口。</p>
+            <div class="login-status-points">
+              <b>AUTH</b>
+              <b>SESSION</b>
+              <b>REAL API</b>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <a-card class="login-card" :bordered="false">
-      <span class="eyebrow">SECURE ACCESS</span>
-      <h2>登录</h2>
-      <p>使用后端账号登录，成功后自动携带 DZCOM_SESSION 访问受保护接口。</p>
+      <a-card class="login-card" :bordered="false">
+        <div class="login-card__head">
+          <div>
+            <span class="eyebrow">SECURE ACCESS</span>
+            <h2>登录</h2>
+          </div>
+          <a-tag color="green">ONLINE</a-tag>
+        </div>
+        <p>使用后端账号登录，成功后自动携带 DZCOM_SESSION 访问受保护接口。</p>
 
-      <a-alert v-if="errorMessage" show-icon type="warning" :message="errorMessage" />
+        <a-alert v-if="errorMessage" show-icon type="warning" :message="errorMessage" />
 
-      <form class="login-form" @submit.prevent="submit">
-        <label class="login-field">
-          <span>账号</span>
-          <input v-model="form.account" autocomplete="username" placeholder="用户名 / 邮箱 / 手机号" @keyup.enter="submit" />
-        </label>
-        <label class="login-field">
-          <span>密码</span>
-          <input
-            v-model="form.password"
-            autocomplete="current-password"
-            placeholder="请输入密码"
-            type="password"
-            @keyup.enter="submit"
-          />
-        </label>
-        <button ref="submitButtonRef" class="login-submit" type="button" :disabled="loading" @click="submit">
-          {{ loading ? '正在登录...' : '进入业务驾驶舱' }}
-        </button>
-        <small v-if="loginHint" class="login-hint">{{ loginHint }}</small>
-      </form>
+        <form class="login-form" @submit.prevent="submit">
+          <label class="login-field">
+            <span>账号</span>
+            <input v-model="form.account" autocomplete="username" placeholder="用户名 / 邮箱 / 手机号" @keyup.enter="submit" />
+          </label>
+          <label class="login-field">
+            <span>密码</span>
+            <input
+              v-model="form.password"
+              autocomplete="current-password"
+              placeholder="请输入密码"
+              type="password"
+              @keyup.enter="submit"
+            />
+          </label>
+          <button ref="submitButtonRef" class="login-submit" type="button" :disabled="loading" @click="submit">
+            {{ loading ? '正在登录...' : '进入业务驾驶舱' }}
+          </button>
+          <small v-if="loginHint" class="login-hint">{{ loginHint }}</small>
+        </form>
 
-      <a-divider />
-      <a-alert
-        type="info"
-        show-icon
-        message="联调账号：demo_admin / ADMIN"
-        description="密码已按本次会话提供值预填，方便验证后端鉴权链路。"
-      />
-    </a-card>
+        <a-divider />
+        <a-alert
+          type="info"
+          show-icon
+          message="联调账号：demo_admin / ADMIN"
+          description="密码已按本次会话提供值预填，方便验证后端鉴权链路。"
+        />
+      </a-card>
+    </div>
   </main>
 </template>
 

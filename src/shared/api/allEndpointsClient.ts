@@ -35,6 +35,7 @@ export const allApi = {
     revokeUser: (data: UnknownRecord) => postJson(endpoints.role.revokeUser, data),
   },
   dataSource: {
+    discover: (data: UnknownRecord) => postJson(endpoints.dataSource.discover, data),
     saveHealth: (data: UnknownRecord) => postJson(endpoints.dataSource.saveHealth, data),
     list: (data: UnknownRecord) => postJson(endpoints.dataSource.list, data),
     qualityList: (data: UnknownRecord) => postJson(endpoints.dataSource.qualityList, data),
@@ -86,6 +87,18 @@ export const allApi = {
     list: (data: UnknownRecord) => postJson(endpoints.aiModel.list, data),
     save: (data: UnknownRecord) => postJson(endpoints.aiModel.save, data),
     status: (data: UnknownRecord) => postJson(endpoints.aiModel.status, data),
+  },
+  aiSkill: {
+    detail: (data: UnknownRecord) => postJson(endpoints.aiSkill.detail, data),
+    list: (data: UnknownRecord) => postJson(endpoints.aiSkill.list, data),
+    save: (data: UnknownRecord) => postJson(endpoints.aiSkill.save, data),
+    status: (data: UnknownRecord) => postJson(endpoints.aiSkill.status, data),
+  },
+  aiModelSkill: {
+    byModel: (data: UnknownRecord) => postJson(endpoints.aiModelSkill.byModel, data),
+    detail: (data: UnknownRecord) => postJson(endpoints.aiModelSkill.detail, data),
+    list: (data: UnknownRecord) => postJson(endpoints.aiModelSkill.list, data),
+    save: (data: UnknownRecord) => postJson(endpoints.aiModelSkill.save, data),
   },
   task: {
     articleRelations: (data: UnknownRecord) => postJson(endpoints.task.articleRelations, data),

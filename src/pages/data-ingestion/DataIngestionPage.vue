@@ -1,125 +1,256 @@
 <template>
   <BusinessPageShell
     title="Data Ingestion 采集编排"
-    description="展示 L1/L2 专用采集任务、Cron、启用状态、执行结果与失败原因；手动触发必须带可追踪上下文。"
-    :endpoints="[endpoints.task.definitions, endpoints.task.executions, endpoints.task.trigger]"
-    :icon="ThunderboltOutlined"
-    :status-text="errorMessage ? 'SCHEDULER WAITING' : 'TASK LINK'"
+    description="配置 AI 数据源发现、真实采集任务、字段映射和自动闭环总编排。端点为空时明确展示“未配置端点，不写兜底数据”。"
+    :endpoints="[endpoints.task.definitions, endpoints.task.saveDefinition, endpoints.task.trigger, endpoints.task.executions]"
+    :icon="CloudSyncOutlined"
+    status-text="ORCHESTRATION"
   >
     <PageState :loading="loading" :error-message="errorMessage">
       <MetricStrip :metrics="metrics" />
+      <a-tabs v-model:active-key="activeTab">
+        <a-tab-pane key="all" tab="全部任务" />
+        <a-tab-pane key="collection" tab="采集任务" />
+        <a-tab-pane key="automation" tab="自动报告 / Prompt / 闭环" />
+      </a-tabs>
 
-      <a-row :gutter="[18, 18]">
-        <a-col :xs="24" :xl="11">
-          <a-card class="cockpit-card" :bordered="false" title="任务定义">
+      <a-row :gutter="[16, 16]">
+        <a-col :xs="24" :xl="14">
+          <a-card class="page-card" :bordered="false" title="任务定义">
             <a-table
               row-key="code"
               size="small"
-              :data-source="definitions"
-              :columns="definitionColumns"
-              :pagination="{ pageSize: 6 }"
-            >
-              <template #bodyCell="{ column, record }">
-                <template v-if="column.key === 'enabled'">
-                  <a-tag :color="record.enabled ? 'success' : 'default'">
-                    {{ record.enabled ? '启用' : '停用' }}
-                  </a-tag>
-                </template>
-                <template v-if="column.key === 'parameters'">
-                  <a-tag color="cyan">{{ Object.keys(record.parameters || {}).length }} 参数</a-tag>
-                </template>
-              </template>
-            </a-table>
+              :pagination="{ pageSize: 10 }"
+              :data-source="filteredDefinitions"
+              :columns="columns"
+              @row="rowEvents"
+            />
           </a-card>
         </a-col>
-
-        <a-col :xs="24" :xl="13">
-          <a-card class="cockpit-card" :bordered="false" title="执行记录">
-            <a-table
-              row-key="bizId"
-              size="small"
-              :data-source="executions"
-              :columns="executionColumns"
-              :pagination="{ pageSize: 6 }"
-            >
-              <template #bodyCell="{ column, record }">
-                <template v-if="column.key === 'status'">
-                  <a-tag :color="statusColor(record.status)">
-                    {{ record.status }}
-                  </a-tag>
-                </template>
-                <template v-if="column.key === 'summary'">
-                  {{ record.resultSummary || record.failureReason || '-' }}
-                </template>
+        <a-col :xs="24" :xl="10">
+          <a-card class="page-card" :bordered="false" title="最近执行记录">
+            <a-list :data-source="executions" size="small">
+              <template #renderItem="{ item }">
+                <a-list-item>
+                  <a-list-item-meta
+                    :title="item.taskCode"
+                    :description="item.failureReason || item.resultSummary || formatDateTime(item.startedAt)"
+                  />
+                  <StatusTag :value="item.status" :options="taskExecutionStatusOptions" />
+                </a-list-item>
               </template>
-            </a-table>
+              <template #empty>
+                <EmptyEvidence description="暂无任务执行记录。" />
+              </template>
+            </a-list>
           </a-card>
         </a-col>
       </a-row>
     </PageState>
+
+    <a-drawer v-model:open="drawerOpen" width="860" title="任务详情 / 配置 / 触发">
+      <a-space v-if="selectedTask" direction="vertical" :size="16" class="full-width">
+        <a-descriptions bordered size="small" :column="2">
+          <a-descriptions-item label="编码">{{ selectedTask.code }}</a-descriptions-item>
+          <a-descriptions-item label="类型">{{ optionLabel(ingestionTaskTypeOptions, selectedTask.type) }}</a-descriptions-item>
+          <a-descriptions-item label="Cron">{{ selectedTask.cron }}</a-descriptions-item>
+          <a-descriptions-item label="时区">{{ selectedTask.zone }}</a-descriptions-item>
+          <a-descriptions-item label="状态">{{ selectedTask.enabled ? '启用' : '停用' }}</a-descriptions-item>
+          <a-descriptions-item label="描述">{{ selectedTask.description || '-' }}</a-descriptions-item>
+        </a-descriptions>
+
+        <a-alert
+          v-if="!selectedTask.parameters?.endpoints && isCollectionTask(selectedTask.type)"
+          type="warning"
+          show-icon
+          message="未配置端点，不写兜底数据"
+        />
+
+        <a-card size="small" title="参数表单视图">
+          <div class="config-grid">
+            <label v-for="field in visibleFields" :key="field.key" class="config-field">
+              <span>{{ field.label }}</span>
+              <a-input v-model:value="parameterDraft[field.key]" :placeholder="field.placeholder" />
+            </label>
+          </div>
+          <a-divider>安全闸门</a-divider>
+          <div class="guard-grid">
+            <div class="guard-item" :class="parameterDraft.allowAutoMockTrade === 'true' ? 'guard-item--ok' : 'guard-item--hold'">
+              <span>自动 Mock</span><strong>{{ parameterDraft.allowAutoMockTrade === 'true' ? '允许' : '关闭' }}</strong>
+            </div>
+            <div class="guard-item guard-item--hold"><span>Prompt 启用</span><strong>人工确认</strong></div>
+            <div class="guard-item guard-item--hold"><span>模型启用</span><strong>灰度开关</strong></div>
+            <div class="guard-item guard-item--danger"><span>真实交易</span><strong>禁用</strong></div>
+          </div>
+          <a-space class="mt-12">
+            <a-button type="primary" :loading="saving" @click="saveSelected">保存任务定义</a-button>
+            <a-button :loading="triggering" @click="triggerSelected">手动触发</a-button>
+          </a-space>
+        </a-card>
+
+        <a-card size="small" title="原始参数证据">
+          <JsonPreview :value="selectedTask.parameters" />
+        </a-card>
+      </a-space>
+    </a-drawer>
   </BusinessPageShell>
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
-import { ThunderboltOutlined } from '@ant-design/icons-vue'
+import { computed, h, onMounted, reactive, ref } from 'vue'
+import { message } from 'ant-design-vue'
+import { CloudSyncOutlined } from '@ant-design/icons-vue'
+import { endpoints } from '@/shared/api/endpoints'
+import { formatDateTime } from '@/shared/utils/format'
+import { optionLabel } from '@/shared/dictionaries/status'
 import BusinessPageShell from '@/shared/components/business/BusinessPageShell.vue'
 import MetricStrip from '@/shared/components/business/MetricStrip.vue'
 import PageState from '@/shared/components/business/PageState.vue'
-import { endpoints } from '@/shared/api/endpoints'
-import { listTaskDefinitions, listTaskExecutions } from '@/entities/task/api'
+import EmptyEvidence from '@/shared/components/visual/EmptyEvidence.vue'
+import JsonPreview from '@/shared/components/visual/JsonPreview.vue'
+import StatusTag from '@/shared/components/visual/StatusTag.vue'
+import { listTaskDefinitions, listTaskExecutions, saveTaskDefinition, triggerInvestmentTask } from '@/entities/task/api'
+import { ingestionTaskTypeOptions, taskExecutionStatusOptions } from '@/entities/task/dictionary'
 import type { InvestmentTaskDefinitionDto, ScheduledTaskExecutionDto } from '@/entities/task/model'
-import { summarizeExecutions } from '@/entities/task/adapter'
-import { formatDateTime } from '@/shared/utils/format'
 
 const loading = ref(false)
+const saving = ref(false)
+const triggering = ref(false)
 const errorMessage = ref('')
+const activeTab = ref('all')
 const definitions = ref<InvestmentTaskDefinitionDto[]>([])
 const executions = ref<ScheduledTaskExecutionDto[]>([])
+const selectedTask = ref<InvestmentTaskDefinitionDto>()
+const drawerOpen = ref(false)
+const parameterDraft = reactive<Record<string, string>>({})
 
-const executionSummary = computed(() => summarizeExecutions(executions.value))
+const collectionTypes = ['AI_DATA_SOURCE_DISCOVERY', 'REGULATORY_DISCLOSURE_COLLECTION', 'EXCHANGE_ANNOUNCEMENT_COLLECTION', 'WEALTH_PRODUCT_NAV_REFRESH', 'MARKET_MOMENTUM_SCAN', 'HOT_THEME_RETURN', 'NEWS_HEAT_AGGREGATION']
+const automationTypes = ['AUTO_INVESTMENT_REPORT_GENERATION', 'AUTO_PROMPT_GOVERNANCE', 'AUTO_INVESTMENT_CLOSED_LOOP_ORCHESTRATION']
+
 const metrics = computed(() => [
-  { label: '任务定义', value: definitions.value.length, hint: 'YAML / 环境配置' },
-  { label: '运行中', value: executionSummary.value.running, hint: 'RUNNING' },
-  { label: '成功执行', value: executionSummary.value.succeeded, hint: '最近记录' },
-  { label: '失败执行', value: executionSummary.value.failed, hint: '需复核原因' },
+  { label: '任务定义', value: definitions.value.length, hint: `启用 ${definitions.value.filter((item) => item.enabled).length}` },
+  { label: '采集任务', value: definitions.value.filter((item) => collectionTypes.includes(item.type)).length, hint: 'L1/L2/主题/资讯' },
+  { label: '自动闭环', value: definitions.value.filter((item) => item.type === 'AUTO_INVESTMENT_CLOSED_LOOP_ORCHESTRATION').length, hint: '总编排任务' },
+  { label: '失败执行', value: executions.value.filter((item) => item.status === 'FAILED').length, hint: '需处理' },
 ])
 
-const definitionColumns = [
-  { title: '任务编码', dataIndex: 'code', key: 'code' },
-  { title: '类型', dataIndex: 'type', key: 'type' },
-  { title: 'Cron', dataIndex: 'cron', key: 'cron' },
-  { title: '启用', key: 'enabled' },
-  { title: '参数', key: 'parameters' },
+const filteredDefinitions = computed(() => {
+  if (activeTab.value === 'collection') return definitions.value.filter((item) => collectionTypes.includes(item.type))
+  if (activeTab.value === 'automation') return definitions.value.filter((item) => automationTypes.includes(item.type))
+  return definitions.value
+})
+
+const visibleFields = computed(() => {
+  const type = selectedTask.value?.type || ''
+  const base = [
+    { key: 'endpoints', label: '端点', placeholder: '数据源名称=https://...|JSON' },
+    { key: 'maxItems', label: '最大条数', placeholder: '100' },
+    { key: 'itemsPath', label: '列表路径', placeholder: 'data.list' },
+  ]
+  if (type === 'WEALTH_PRODUCT_NAV_REFRESH') {
+    return [
+      ...base,
+      { key: 'productMarketCode', label: '产品市场', placeholder: 'CN_MAINLAND' },
+      { key: 'productCurrency', label: '币种', placeholder: 'CNY' },
+      { key: 'quoteInterval', label: '行情周期', placeholder: '1D' },
+      { key: 'extraFieldPaths', label: '扩展字段映射', placeholder: 'productCode=productCode;nav=nav' },
+    ]
+  }
+  if (type === 'AUTO_INVESTMENT_CLOSED_LOOP_ORCHESTRATION') {
+    return [
+      { key: 'automationLevel', label: '自动化等级', placeholder: 'FULL_MOCK' },
+      { key: 'dataTaskCodes', label: '数据任务编码', placeholder: 'code-a,code-b' },
+      { key: 'reportTaskCode', label: '报告任务编码', placeholder: 'auto-report' },
+      { key: 'promptTaskCode', label: 'Prompt 任务编码', placeholder: 'auto-prompt-governance' },
+      { key: 'mockUserBizId', label: 'Mock 用户 BizId', placeholder: 'user-biz-id' },
+      { key: 'minQualityScore', label: '最低质量分', placeholder: '0.45' },
+      { key: 'allowAutoMockTrade', label: '允许自动 Mock', placeholder: 'true/false' },
+    ]
+  }
+  if (type === 'AI_DATA_SOURCE_DISCOVERY') {
+    return [
+      { key: 'environment', label: '环境', placeholder: 'DEFAULT' },
+      { key: 'marketScope', label: '市场范围', placeholder: 'CN_MAINLAND' },
+      { key: 'assetClass', label: '资产类别', placeholder: 'MULTI_ASSET' },
+      { key: 'dataTypes', label: '数据类型', placeholder: 'MARKET_QUOTE,NEWS,ANNOUNCEMENT,RESEARCH,REGULATORY' },
+      { key: 'preferredTrustLevels', label: '偏好等级', placeholder: 'L1,L2,L3,L4' },
+      { key: 'candidateLimit', label: '候选上限', placeholder: '8' },
+      { key: 'includeDisabledCandidates', label: '包含暂不可用候选', placeholder: 'true/false' },
+    ]
+  }
+  return [
+    ...base,
+    { key: 'externalIdPath', label: '外部 ID 路径', placeholder: 'id' },
+    { key: 'titlePath', label: '标题路径', placeholder: 'title' },
+    { key: 'publishTimePath', label: '发布时间路径', placeholder: 'publishTime' },
+    { key: 'includeKeywords', label: '包含关键词', placeholder: '黄金,ETF' },
+  ]
+})
+
+const columns = [
+  { title: '任务编码', dataIndex: 'code' },
+  { title: '任务类型', customRender: ({ record }: { record: InvestmentTaskDefinitionDto }) => optionLabel(ingestionTaskTypeOptions, record.type) },
+  { title: 'Cron', dataIndex: 'cron' },
+  { title: '启用', customRender: ({ record }: { record: InvestmentTaskDefinitionDto }) => h(StatusTag, { value: record.enabled, options: [{ label: '启用', value: true, color: 'success' }, { label: '停用', value: false, color: 'default' }] }) },
 ]
 
-const executionColumns = [
-  { title: '任务', dataIndex: 'taskCode', key: 'taskCode' },
-  { title: '状态', key: 'status' },
-  { title: '触发', dataIndex: 'triggerSource', key: 'triggerSource' },
-  { title: '开始时间', key: 'startedAt', customRender: ({ record }: { record: ScheduledTaskExecutionDto }) => formatDateTime(record.startedAt) },
-  { title: '结果摘要', key: 'summary' },
-]
+const isCollectionTask = (type: string) => collectionTypes.includes(type)
 
-const statusColor = (status?: string) => {
-  if (status === 'SUCCEEDED') return 'success'
-  if (status === 'FAILED') return 'error'
-  if (status === 'RUNNING') return 'processing'
-  return 'default'
+const rowEvents = (record: InvestmentTaskDefinitionDto) => ({ onClick: () => openTask(record) })
+
+const openTask = (task: InvestmentTaskDefinitionDto) => {
+  selectedTask.value = task
+  Object.keys(parameterDraft).forEach((key) => delete parameterDraft[key])
+  Object.entries(task.parameters || {}).forEach(([key, value]) => {
+    parameterDraft[key] = String(value ?? '')
+  })
+  drawerOpen.value = true
+}
+
+const saveSelected = async () => {
+  if (!selectedTask.value) return
+  saving.value = true
+  try {
+    await saveTaskDefinition({
+      ...selectedTask.value,
+      parameters: { ...parameterDraft },
+    })
+    message.success('任务定义已保存，调度将按后端规则刷新')
+    await load()
+  } catch (error) {
+    message.error(error instanceof Error ? error.message : '保存失败')
+  } finally {
+    saving.value = false
+  }
+}
+
+const triggerSelected = async () => {
+  if (!selectedTask.value) return
+  triggering.value = true
+  try {
+    const result = await triggerInvestmentTask({ taskCode: selectedTask.value.code, parameters: { ...parameterDraft } })
+    message.success(`已触发任务：${result.eventId}`)
+    await loadExecutions()
+  } catch (error) {
+    message.error(error instanceof Error ? error.message : '触发失败')
+  } finally {
+    triggering.value = false
+  }
+}
+
+const loadExecutions = async () => {
+  const page = await listTaskExecutions({ page: 1, size: 20, sort: 'startedAt', direction: 'desc' })
+  executions.value = page.items || []
 }
 
 const load = async () => {
   loading.value = true
   errorMessage.value = ''
   try {
-    const [definitionItems, executionPage] = await Promise.all([
-      listTaskDefinitions(),
-      listTaskExecutions({ page: 1, size: 30 }),
-    ])
-    definitions.value = definitionItems || []
-    executions.value = executionPage.items || []
+    const [taskList] = await Promise.all([listTaskDefinitions(), loadExecutions()])
+    definitions.value = taskList || []
   } catch (error) {
-    errorMessage.value = error instanceof Error ? error.message : '请求失败，请稍后重试'
+    errorMessage.value = error instanceof Error ? error.message : '采集编排接口加载失败'
   } finally {
     loading.value = false
   }

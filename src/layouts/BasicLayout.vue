@@ -45,10 +45,20 @@
           <a-menu-item key="/roles" @click="navigate('/roles')">角色权限</a-menu-item>
           <a-menu-item key="/account" @click="navigate('/account')">本人账户</a-menu-item>
         </a-sub-menu>
-        <a-menu-item key="/config-center" @click="navigate('/config-center')">
-          <control-outlined />
-          <span>配置中心</span>
-        </a-menu-item>
+        <a-sub-menu key="config">
+          <template #icon><control-outlined /></template>
+          <template #title>配置中心</template>
+          <a-menu-item key="/config-center" @click="navigate('/config-center')">配置总览</a-menu-item>
+          <a-menu-item key="/config-center/ai-skills" @click="navigate('/config-center/ai-skills')">AI Skill</a-menu-item>
+          <a-menu-item key="/config-center/model-skills" @click="navigate('/config-center/model-skills')">模型 Skill 绑定</a-menu-item>
+          <a-menu-item key="/config-center/data-source-discovery" @click="navigate('/config-center/data-source-discovery')">数据源发现</a-menu-item>
+          <a-menu-item key="/config-center/data-sources" @click="navigate('/config-center/data-sources')">数据源资产</a-menu-item>
+          <a-menu-item key="/config-center/tasks" @click="navigate('/config-center/tasks')">任务配置</a-menu-item>
+          <a-menu-item key="/config-center/products" @click="navigate('/config-center/products')">产品与行情</a-menu-item>
+          <a-menu-item key="/config-center/prompts" @click="navigate('/config-center/prompts')">Prompt 配置</a-menu-item>
+          <a-menu-item key="/config-center/models" @click="navigate('/config-center/models')">模型配置</a-menu-item>
+          <a-menu-item key="/config-center/actions" @click="navigate('/config-center/actions')">业务操作</a-menu-item>
+        </a-sub-menu>
         <a-sub-menu key="framework">
           <template #icon><safety-certificate-outlined /></template>
           <template #title>系统规范</template>
@@ -104,12 +114,15 @@ const route = useRoute()
 const router = useRouter()
 const authStore = useAuthStore()
 const selectedKeys = computed(() => [route.path])
-const openKeys = ref<string[]>(['business', 'admin'])
+const openKeys = ref<string[]>(['business', 'admin', 'config'])
 
 const navigate = (path: string) => router.push(path)
 
 const handleLogout = async () => {
-  await authStore.logout()
-  await router.push('/login')
+  try {
+    await authStore.logout()
+  } finally {
+    await router.push('/login')
+  }
 }
 </script>

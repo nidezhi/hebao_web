@@ -15,7 +15,7 @@ const route = useRoute()
 const authStore = useAuthStore()
 
 const handleUnauthorized = () => {
-  authStore.setUser(null)
+  authStore.clearAuthState()
   if (route.name !== 'login') {
     router.push({ path: '/login', query: { redirect: route.fullPath } })
   }

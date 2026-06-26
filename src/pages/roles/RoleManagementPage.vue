@@ -1,229 +1,210 @@
 <template>
   <BusinessPageShell
     title="Roles 角色权限"
-    description="查看角色、角色类型、启用状态与权限集合；权限覆盖配置通过矩阵化编辑入口提交。"
-    :endpoints="[
-      endpoints.role.list,
-      endpoints.role.create,
-      endpoints.role.update,
-      endpoints.role.status,
-      endpoints.role.configurePermissions,
-      endpoints.role.assignUser,
-      endpoints.role.revokeUser,
-    ]"
-    :icon="KeyOutlined"
-    :status-text="errorMessage ? 'RBAC WAITING' : 'RBAC OPS'"
+    description="通用管理列表：创建/编辑角色、启停角色、配置权限、分配或撤销用户角色。"
+    :endpoints="[endpoints.role.list, endpoints.role.create, endpoints.role.update, endpoints.role.status, endpoints.role.configurePermissions, endpoints.role.assignUser, endpoints.role.revokeUser]"
+    :icon="SafetyCertificateOutlined"
+    status-text="RBAC"
   >
-    <PageState :loading="loading" :error-message="errorMessage" :empty="loaded && roles.length === 0">
+    <PageState :loading="loading" :error-message="errorMessage">
       <MetricStrip :metrics="metrics" />
-
-      <a-row :gutter="[18, 18]">
+      <a-row :gutter="[16, 16]">
         <a-col :xs="24" :xl="14">
-          <a-card class="cockpit-card" :bordered="false" title="角色权限矩阵">
-            <a-table
-              row-key="roleCode"
-              size="small"
-              :data-source="roles"
-              :columns="columns"
-              :pagination="{ pageSize: 10 }"
-              :row-class-name="rowClassName"
-              @row="rowHandlers"
-            >
+          <a-card class="page-card" :bordered="false" title="角色管理">
+            <template #extra>
+              <a-space>
+                <a-button @click="load">刷新</a-button>
+                <a-button type="primary" @click="openRole()">新增角色</a-button>
+              </a-space>
+            </template>
+            <a-table row-key="roleCode" size="small" :data-source="roles" :columns="columns">
               <template #bodyCell="{ column, record }">
                 <template v-if="column.key === 'enabled'">
-                  <a-tag :color="record.enabled === false ? 'default' : 'success'">
-                    {{ record.enabled === false ? '停用' : '启用' }}
-                  </a-tag>
+                  <a-tag :color="record.enabled === false ? 'default' : 'success'">{{ record.enabled === false ? '停用' : '启用' }}</a-tag>
                 </template>
-                <template v-if="column.key === 'permissions'">
-                  <a-tooltip :title="(record.permissions || []).join(', ')">
-                    <a-tag color="purple">{{ record.permissions?.length || 0 }} 权限</a-tag>
-                  </a-tooltip>
+                <template v-else-if="column.key === 'permissions'">{{ record.permissions?.length || 0 }}</template>
+                <template v-else-if="column.key === 'actions'">
+                  <a-space>
+                    <a-button size="small" type="link" @click="selectedRole = record">权限</a-button>
+                    <a-button size="small" type="link" @click="openRole(record)">编辑</a-button>
+                    <a-button size="small" type="link" @click="toggleRole(record)">{{ record.enabled === false ? '启用' : '停用' }}</a-button>
+                    <a-button size="small" type="link" @click="openPermission(record)">配置权限</a-button>
+                    <a-button size="small" type="link" @click="openAssign(record)">用户授权</a-button>
+                  </a-space>
                 </template>
               </template>
             </a-table>
           </a-card>
         </a-col>
-
         <a-col :xs="24" :xl="10">
-          <a-card class="cockpit-card" :bordered="false">
-            <template #title>角色配置</template>
-            <template #extra>
-              <a-space>
-                <a-button :disabled="!selectedRole" :loading="saving" @click="saveRoleBase">保存角色</a-button>
-                <a-button type="primary" :disabled="!selectedRole" :loading="savingPermissions" @click="savePermissions">
-                  保存权限
-                </a-button>
-              </a-space>
-            </template>
-            <a-empty v-if="!selectedRole" description="选择角色后配置权限" />
-            <a-space v-else direction="vertical" style="width: 100%">
-              <a-form layout="vertical">
-                <a-form-item label="角色编码"><a-input v-model:value="roleForm.roleCode" disabled /></a-form-item>
-                <a-form-item label="角色名称"><a-input v-model:value="roleForm.roleName" /></a-form-item>
-                <a-form-item label="角色类型"><a-input v-model:value="roleForm.roleType" /></a-form-item>
-                <a-form-item label="启用状态">
-                  <a-switch v-model:checked="roleForm.enabled" @change="saveRoleEnabled" />
-                </a-form-item>
-                <a-form-item label="说明"><a-textarea v-model:value="roleForm.description" :rows="3" /></a-form-item>
-              </a-form>
-
-              <a-divider orientation="left">权限集合</a-divider>
-              <a-checkbox-group v-model:value="selectedPermissions" class="permission-grid">
-                <a-checkbox v-for="permission in permissionOptions" :key="permission" :value="permission">
-                  {{ permission }}
-                </a-checkbox>
-              </a-checkbox-group>
-
-              <a-alert
-                type="info"
-                show-icon
-                message="权限候选来自当前角色列表返回"
-                description="如果后端新增权限编码，列表刷新后会自动进入候选集合；不会在前端硬编码业务权限。"
-              />
+          <a-card class="page-card" :bordered="false" title="权限矩阵">
+            <EmptyEvidence v-if="!selectedRole" description="请选择角色查看权限。" />
+            <a-space v-else direction="vertical" class="full-width">
+              <a-descriptions bordered size="small" :column="2">
+                <a-descriptions-item label="角色编码">{{ selectedRole.roleCode }}</a-descriptions-item>
+                <a-descriptions-item label="角色类型">{{ selectedRole.roleType || '-' }}</a-descriptions-item>
+              </a-descriptions>
+              <div>
+                <a-tag v-for="permission in selectedRole.permissions || []" :key="permission" color="blue">{{ permission }}</a-tag>
+              </div>
+              <EmptyEvidence v-if="!selectedRole.permissions?.length" description="该角色暂无权限集合。" />
             </a-space>
           </a-card>
         </a-col>
       </a-row>
     </PageState>
+
+    <a-drawer v-model:open="roleOpen" width="560" :title="roleForm.roleCode ? '编辑角色' : '新增角色'">
+      <a-form layout="vertical">
+        <a-form-item label="角色编码"><a-input v-model:value="roleForm.roleCode" /></a-form-item>
+        <a-form-item label="角色名称"><a-input v-model:value="roleForm.roleName" /></a-form-item>
+        <a-form-item label="描述"><a-textarea v-model:value="roleForm.description" /></a-form-item>
+        <a-button type="primary" :loading="saving" @click="submitRole">保存</a-button>
+      </a-form>
+    </a-drawer>
+
+    <a-drawer v-model:open="permissionOpen" width="640" title="配置权限">
+      <a-form layout="vertical">
+        <a-form-item label="角色编码"><a-input v-model:value="permissionForm.roleCode" disabled /></a-form-item>
+        <a-form-item label="权限列表（一行一个）"><a-textarea v-model:value="permissionsText" :auto-size="{ minRows: 8, maxRows: 14 }" /></a-form-item>
+        <a-button type="primary" :loading="saving" @click="submitPermissions">保存权限</a-button>
+      </a-form>
+    </a-drawer>
+
+    <a-drawer v-model:open="assignOpen" width="520" title="用户角色授权">
+      <a-form layout="vertical">
+        <a-form-item label="角色编码"><a-input v-model:value="assignForm.roleCode" disabled /></a-form-item>
+        <a-form-item label="用户业务 ID"><a-input v-model:value="assignForm.userBizId" /></a-form-item>
+        <a-space>
+          <a-button type="primary" :loading="saving" @click="submitAssign">分配角色</a-button>
+          <a-button danger :loading="saving" @click="submitRevoke">撤销角色</a-button>
+        </a-space>
+      </a-form>
+    </a-drawer>
   </BusinessPageShell>
 </template>
 
 <script setup lang="ts">
 import { computed, onMounted, reactive, ref } from 'vue'
-import { message } from 'ant-design-vue'
-import { KeyOutlined } from '@ant-design/icons-vue'
+import { Modal, message } from 'ant-design-vue'
+import { SafetyCertificateOutlined } from '@ant-design/icons-vue'
+import { endpoints } from '@/shared/api/endpoints'
 import BusinessPageShell from '@/shared/components/business/BusinessPageShell.vue'
 import MetricStrip from '@/shared/components/business/MetricStrip.vue'
 import PageState from '@/shared/components/business/PageState.vue'
-import { endpoints } from '@/shared/api/endpoints'
-import { configureRolePermissions, listRoles, updateRole, updateRoleStatus } from '@/entities/role/api'
+import EmptyEvidence from '@/shared/components/visual/EmptyEvidence.vue'
+import { assignUserRole, configureRolePermissions, createRole, listRoles, revokeUserRole, updateRole, updateRoleStatus } from '@/entities/role/api'
 import type { RoleDto } from '@/entities/role/model'
 
 const loading = ref(false)
 const saving = ref(false)
-const savingPermissions = ref(false)
-const loaded = ref(false)
 const errorMessage = ref('')
 const roles = ref<RoleDto[]>([])
 const selectedRole = ref<RoleDto>()
-const selectedPermissions = ref<string[]>([])
-const roleForm = reactive<{
-  roleCode?: string
-  roleName?: string
-  roleType?: string
-  description?: string
-  enabled?: boolean
-}>({})
-
-const permissionOptions = computed(() => {
-  const values = roles.value.flatMap((role) => role.permissions || [])
-  return Array.from(new Set(values)).sort()
-})
-
+const roleOpen = ref(false)
+const permissionOpen = ref(false)
+const assignOpen = ref(false)
+const roleForm = reactive<Record<string, unknown>>({})
+const permissionForm = reactive<{ roleCode?: string }>({})
+const assignForm = reactive<{ roleCode?: string; userBizId?: string }>({})
+const permissionsText = ref('')
 const metrics = computed(() => [
-  { label: '角色数', value: roles.value.length, hint: '系统 + 自定义' },
-  { label: '启用角色', value: roles.value.filter((item) => item.enabled !== false).length, hint: '可参与授权' },
-  { label: '系统角色', value: roles.value.filter((item) => item.roleType === 'SYSTEM').length, hint: '不可随意改动' },
-  { label: '权限候选', value: permissionOptions.value.length, hint: '权限编码集合' },
+  { label: '角色数', value: roles.value.length, hint: '真实返回' },
+  { label: '启用角色', value: roles.value.filter((item) => item.enabled !== false).length, hint: '可分配' },
+  { label: '权限点', value: new Set(roles.value.flatMap((item) => item.permissions || [])).size, hint: '去重统计' },
+  { label: '当前角色权限', value: selectedRole.value?.permissions?.length || 0, hint: selectedRole.value?.roleCode || '-' },
 ])
-
 const columns = [
-  { title: '角色编码', dataIndex: 'roleCode', key: 'roleCode' },
-  { title: '角色名称', dataIndex: 'roleName', key: 'roleName' },
-  { title: '类型', dataIndex: 'roleType', key: 'roleType' },
-  { title: '状态', key: 'enabled' },
-  { title: '权限', key: 'permissions' },
-  { title: '说明', dataIndex: 'description', key: 'description' },
+  { title: '角色编码', dataIndex: 'roleCode' },
+  { title: '角色名称', dataIndex: 'roleName' },
+  { title: '启用', key: 'enabled' },
+  { title: '权限数', key: 'permissions' },
+  { title: '操作', key: 'actions', width: 360 },
 ]
-
-const syncForm = (role: RoleDto) => {
-  roleForm.roleCode = role.roleCode
-  roleForm.roleName = role.roleName
-  roleForm.roleType = role.roleType
-  roleForm.description = role.description
-  roleForm.enabled = role.enabled !== false
-  selectedPermissions.value = [...(role.permissions || [])]
+const resetObject = (target: Record<string, unknown>, next: Record<string, unknown>) => {
+  Object.keys(target).forEach((key) => delete target[key])
+  Object.assign(target, next)
 }
-
-const updateLocalRole = (role: RoleDto) => {
-  selectedRole.value = role
-  roles.value = roles.value.map((item) => (item.roleCode === role.roleCode ? role : item))
-  syncForm(role)
+const openRole = (role?: RoleDto) => {
+  resetObject(roleForm, role ? { ...role } : {})
+  roleOpen.value = true
 }
-
-const rowHandlers = (record: RoleDto) => ({
-  onClick: () => {
-    selectedRole.value = record
-    syncForm(record)
-  },
-})
-
-const rowClassName = (record: RoleDto) =>
-  record.roleCode === selectedRole.value?.roleCode ? 'selected-business-row' : ''
-
-const saveRoleBase = async () => {
-  if (!selectedRole.value || !roleForm.roleCode) return
+const submitRole = async () => {
   saving.value = true
   try {
-    const role = await updateRole({
-      roleCode: roleForm.roleCode,
-      roleName: roleForm.roleName,
-      roleType: roleForm.roleType,
-      description: roleForm.description,
-      enabled: roleForm.enabled,
-    })
-    updateLocalRole(role)
-    message.success('角色配置已保存')
-  } catch (error) {
-    errorMessage.value = error instanceof Error ? error.message : '保存角色失败'
+    if (roles.value.some((item) => item.roleCode === roleForm.roleCode)) await updateRole({ ...roleForm })
+    else await createRole({ roleCode: String(roleForm.roleCode || ''), roleName: String(roleForm.roleName || ''), description: String(roleForm.description || '') || undefined })
+    message.success('角色已保存')
+    roleOpen.value = false
+    await load()
   } finally {
     saving.value = false
   }
 }
-
-const saveRoleEnabled = async () => {
-  if (!selectedRole.value || !roleForm.roleCode) return
-  const role = await updateRoleStatus({
-    roleCode: roleForm.roleCode,
-    enabled: roleForm.enabled,
+const toggleRole = (role: RoleDto) => {
+  Modal.confirm({
+    title: `${role.enabled === false ? '启用' : '停用'}角色？`,
+    content: role.roleCode,
+    onOk: async () => {
+      await updateRoleStatus({ roleCode: role.roleCode, enabled: role.enabled === false })
+      message.success('角色状态已更新')
+      await load()
+    },
   })
-  updateLocalRole(role)
 }
-
-const savePermissions = async () => {
-  if (!selectedRole.value) return
-  savingPermissions.value = true
+const openPermission = (role: RoleDto) => {
+  permissionForm.roleCode = role.roleCode
+  permissionsText.value = (role.permissions || []).join('\n')
+  permissionOpen.value = true
+}
+const submitPermissions = async () => {
+  saving.value = true
   try {
-    const role = await configureRolePermissions({
-      roleCode: selectedRole.value.roleCode,
-      permissions: selectedPermissions.value,
+    await configureRolePermissions({
+      roleCode: permissionForm.roleCode || '',
+      permissions: permissionsText.value.split('\n').map((item) => item.trim()).filter(Boolean),
     })
-    updateLocalRole(role)
-    message.success('角色权限已保存')
-  } catch (error) {
-    errorMessage.value = error instanceof Error ? error.message : '保存权限失败'
+    message.success('权限已保存')
+    permissionOpen.value = false
+    await load()
   } finally {
-    savingPermissions.value = false
+    saving.value = false
   }
 }
-
+const openAssign = (role: RoleDto) => {
+  assignForm.roleCode = role.roleCode
+  assignForm.userBizId = ''
+  assignOpen.value = true
+}
+const submitAssign = async () => {
+  saving.value = true
+  try {
+    await assignUserRole({ roleCode: assignForm.roleCode, userBizId: assignForm.userBizId })
+    message.success('角色已分配')
+  } finally {
+    saving.value = false
+  }
+}
+const submitRevoke = async () => {
+  saving.value = true
+  try {
+    await revokeUserRole({ roleCode: assignForm.roleCode, userBizId: assignForm.userBizId })
+    message.success('角色已撤销')
+  } finally {
+    saving.value = false
+  }
+}
 const load = async () => {
   loading.value = true
   errorMessage.value = ''
   try {
     roles.value = await listRoles()
-    if (roles.value[0]) {
-      selectedRole.value = roles.value[0]
-      syncForm(roles.value[0])
-    }
-    loaded.value = true
+    selectedRole.value = roles.value[0]
   } catch (error) {
-    errorMessage.value = error instanceof Error ? error.message : '请求失败，请稍后重试'
+    errorMessage.value = error instanceof Error ? error.message : '角色列表加载失败'
   } finally {
     loading.value = false
   }
 }
-
 onMounted(load)
 </script>

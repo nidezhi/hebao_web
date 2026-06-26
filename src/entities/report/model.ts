@@ -20,8 +20,9 @@ export interface InvestmentAnalysisReportDto {
   themeName?: string
   status: InvestmentAnalysisStatus
   confidenceLevel?: string
+  dataQualityScore?: number
   qualityScore?: number
-  dataQualityGate?: DataQualityGateDto
+  dataQualityGate?: DataQualityGateDto | string
   investmentSummary?: string
   trend?: string
   investmentPlan?: string

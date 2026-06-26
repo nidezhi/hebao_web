@@ -57,3 +57,49 @@ export interface DataQualitySnapshotListRequest {
   dataType?: string
   limit?: number
 }
+
+export interface DiscoverDataSourcesRequest {
+  marketScope?: string
+  assetClass?: string
+  dataTypes?: string
+  topicKeywords?: string
+  preferredTrustLevels?: string
+  candidateLimit?: number
+  environment?: string
+  includeDisabledCandidates?: boolean
+}
+
+export interface DataSourceDiscoveryCandidateDto {
+  sourceCode: string
+  sourceName: string
+  sourceType: string
+  trustLevel: string
+  baseUrl?: string
+  fetchFrequency?: string
+  owner?: string
+  description?: string
+  recommendedTaskType?: string
+  suggestedParameters?: Record<string, unknown>
+  fieldMappings?: Record<string, unknown>
+  confidence?: number
+  reasons?: string[]
+  requiresReview?: boolean
+}
+
+export interface DataSourceDiscoveryDto {
+  scenarioCode?: string
+  modelCode?: string
+  providerCode?: string
+  environment?: string
+  marketScope?: string
+  assetClass?: string
+  dataTypes?: string
+  topicKeywords?: string
+  modelBindingConfig?: Record<string, unknown>
+  skillCode?: string
+  skillVersion?: string
+  skillInstruction?: string
+  candidates?: DataSourceDiscoveryCandidateDto[]
+  reviewPolicy?: string
+  promptPreview?: string
+}

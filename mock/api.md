@@ -20861,6 +20861,345 @@
 # 数据源治理
 
 
+## AI发现数据源候选
+
+
+**接口地址**:`/api/admin/data-sources/discover`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>按市场、资产类别、采集方向和数据类型调用大模型生成高质量数据源候选；接口只返回候选，定时任务可配置为沉淀候选但默认不启用。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "marketScope": "",
+  "assetClass": "",
+  "dataTypes": "",
+  "topicKeywords": "",
+  "collectionDirection": "",
+  "skillCode": "",
+  "preferredTrustLevels": "",
+  "candidateLimit": 0,
+  "environment": "",
+  "includeDisabledCandidates": true
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|discoverDataSourcesRequest|AI 数据源发现请求|body|true|DiscoverDataSourcesRequest|DiscoverDataSourcesRequest|
+|&emsp;&emsp;marketScope|市场范围，默认 CN_MAINLAND||false|string||
+|&emsp;&emsp;assetClass|资产类别，例如 BANK_WMP/FUND/ETF/STOCK/MULTI_ASSET||false|string||
+|&emsp;&emsp;dataTypes|目标数据类型，逗号分隔：MARKET_QUOTE/NEWS/ANNOUNCEMENT/RESEARCH/REGULATORY||false|string||
+|&emsp;&emsp;topicKeywords|主题关键词，逗号分隔||false|string||
+|&emsp;&emsp;collectionDirection|采集方向，例如 OFFICIAL_DISCLOSURE/NEWS_RESEARCH/PRODUCT_NAV/MULTI_SOURCE||false|string||
+|&emsp;&emsp;skillCode|本次使用的 Skill 编码，空值按数据类型和采集方向自动选择||false|string||
+|&emsp;&emsp;preferredTrustLevels|偏好的来源等级，逗号分隔：L1/L2/L3/L4/L5||false|string||
+|&emsp;&emsp;candidateLimit|候选数量上限，默认取模型挂靠配置||false|integer(int32)||
+|&emsp;&emsp;environment|模型挂靠配置环境，默认 DEFAULT||false|string||
+|&emsp;&emsp;includeDisabledCandidates|是否包含需要授权或暂不可用的候选||false|boolean||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|发现成功，返回候选数据源|ResultDataSourceDiscoveryResponse|
+|400|参数或模型挂靠配置不合法|ResultDataSourceDiscoveryResponse|
+|500|系统错误|ResultDataSourceDiscoveryResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|DataSourceDiscoveryResponse|DataSourceDiscoveryResponse|
+|&emsp;&emsp;scenarioCode|场景编码|string||
+|&emsp;&emsp;modelCode|使用的模型编码|string||
+|&emsp;&emsp;providerCode|模型提供方|string||
+|&emsp;&emsp;environment|环境|string||
+|&emsp;&emsp;marketScope|市场范围|string||
+|&emsp;&emsp;assetClass|资产类别|string||
+|&emsp;&emsp;dataTypes|数据类型|string||
+|&emsp;&emsp;topicKeywords|主题关键词|string||
+|&emsp;&emsp;collectionDirection|采集方向|string||
+|&emsp;&emsp;modelBindingConfig|模型挂靠配置|object||
+|&emsp;&emsp;skillCode|本次发现使用的 Skill 编码|string||
+|&emsp;&emsp;skillVersion|本次发现使用的 Skill 版本|string||
+|&emsp;&emsp;skillInstruction|Skill 指令摘要|string||
+|&emsp;&emsp;candidates|候选数据源|array|DataSourceDiscoveryCandidateResponse|
+|&emsp;&emsp;&emsp;&emsp;sourceCode|建议数据源编码|string||
+|&emsp;&emsp;&emsp;&emsp;sourceName|建议数据源名称|string||
+|&emsp;&emsp;&emsp;&emsp;sourceType|数据源类型|string||
+|&emsp;&emsp;&emsp;&emsp;trustLevel|来源等级|string||
+|&emsp;&emsp;&emsp;&emsp;baseUrl|入口地址|string||
+|&emsp;&emsp;&emsp;&emsp;fetchFrequency|建议采集频率|string||
+|&emsp;&emsp;&emsp;&emsp;owner|建议负责人或维护方|string||
+|&emsp;&emsp;&emsp;&emsp;description|说明|string||
+|&emsp;&emsp;&emsp;&emsp;recommendedTaskType|推荐任务类型|string||
+|&emsp;&emsp;&emsp;&emsp;suggestedParameters|建议任务参数|object||
+|&emsp;&emsp;&emsp;&emsp;fieldMappings|建议字段映射|object||
+|&emsp;&emsp;&emsp;&emsp;collectionPlan|AI 整理出的采集计划、接口说明、限制和样例|string||
+|&emsp;&emsp;&emsp;&emsp;qualityPolicy|AI 整理出的质量校验规则|string||
+|&emsp;&emsp;&emsp;&emsp;confidence|候选置信度|number||
+|&emsp;&emsp;&emsp;&emsp;reasons|推荐理由|array|string|
+|&emsp;&emsp;&emsp;&emsp;requiresReview|是否需要人工审核|boolean||
+|&emsp;&emsp;reviewPolicy|审核策略|string||
+|&emsp;&emsp;promptPreview|Prompt 预览|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"scenarioCode": "",
+		"modelCode": "",
+		"providerCode": "",
+		"environment": "",
+		"marketScope": "",
+		"assetClass": "",
+		"dataTypes": "",
+		"topicKeywords": "",
+		"collectionDirection": "",
+		"modelBindingConfig": {},
+		"skillCode": "",
+		"skillVersion": "",
+		"skillInstruction": "",
+		"candidates": [
+			{
+				"sourceCode": "",
+				"sourceName": "",
+				"sourceType": "",
+				"trustLevel": "",
+				"baseUrl": "",
+				"fetchFrequency": "",
+				"owner": "",
+				"description": "",
+				"recommendedTaskType": "",
+				"suggestedParameters": {},
+				"fieldMappings": {},
+				"collectionPlan": "",
+				"qualityPolicy": "",
+				"confidence": 0,
+				"reasons": [],
+				"requiresReview": true
+			}
+		],
+		"reviewPolicy": "",
+		"promptPreview": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|DataSourceDiscoveryResponse|DataSourceDiscoveryResponse|
+|&emsp;&emsp;scenarioCode|场景编码|string||
+|&emsp;&emsp;modelCode|使用的模型编码|string||
+|&emsp;&emsp;providerCode|模型提供方|string||
+|&emsp;&emsp;environment|环境|string||
+|&emsp;&emsp;marketScope|市场范围|string||
+|&emsp;&emsp;assetClass|资产类别|string||
+|&emsp;&emsp;dataTypes|数据类型|string||
+|&emsp;&emsp;topicKeywords|主题关键词|string||
+|&emsp;&emsp;collectionDirection|采集方向|string||
+|&emsp;&emsp;modelBindingConfig|模型挂靠配置|object||
+|&emsp;&emsp;skillCode|本次发现使用的 Skill 编码|string||
+|&emsp;&emsp;skillVersion|本次发现使用的 Skill 版本|string||
+|&emsp;&emsp;skillInstruction|Skill 指令摘要|string||
+|&emsp;&emsp;candidates|候选数据源|array|DataSourceDiscoveryCandidateResponse|
+|&emsp;&emsp;&emsp;&emsp;sourceCode|建议数据源编码|string||
+|&emsp;&emsp;&emsp;&emsp;sourceName|建议数据源名称|string||
+|&emsp;&emsp;&emsp;&emsp;sourceType|数据源类型|string||
+|&emsp;&emsp;&emsp;&emsp;trustLevel|来源等级|string||
+|&emsp;&emsp;&emsp;&emsp;baseUrl|入口地址|string||
+|&emsp;&emsp;&emsp;&emsp;fetchFrequency|建议采集频率|string||
+|&emsp;&emsp;&emsp;&emsp;owner|建议负责人或维护方|string||
+|&emsp;&emsp;&emsp;&emsp;description|说明|string||
+|&emsp;&emsp;&emsp;&emsp;recommendedTaskType|推荐任务类型|string||
+|&emsp;&emsp;&emsp;&emsp;suggestedParameters|建议任务参数|object||
+|&emsp;&emsp;&emsp;&emsp;fieldMappings|建议字段映射|object||
+|&emsp;&emsp;&emsp;&emsp;collectionPlan|AI 整理出的采集计划、接口说明、限制和样例|string||
+|&emsp;&emsp;&emsp;&emsp;qualityPolicy|AI 整理出的质量校验规则|string||
+|&emsp;&emsp;&emsp;&emsp;confidence|候选置信度|number||
+|&emsp;&emsp;&emsp;&emsp;reasons|推荐理由|array|string|
+|&emsp;&emsp;&emsp;&emsp;requiresReview|是否需要人工审核|boolean||
+|&emsp;&emsp;reviewPolicy|审核策略|string||
+|&emsp;&emsp;promptPreview|Prompt 预览|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"scenarioCode": "",
+		"modelCode": "",
+		"providerCode": "",
+		"environment": "",
+		"marketScope": "",
+		"assetClass": "",
+		"dataTypes": "",
+		"topicKeywords": "",
+		"collectionDirection": "",
+		"modelBindingConfig": {},
+		"skillCode": "",
+		"skillVersion": "",
+		"skillInstruction": "",
+		"candidates": [
+			{
+				"sourceCode": "",
+				"sourceName": "",
+				"sourceType": "",
+				"trustLevel": "",
+				"baseUrl": "",
+				"fetchFrequency": "",
+				"owner": "",
+				"description": "",
+				"recommendedTaskType": "",
+				"suggestedParameters": {},
+				"fieldMappings": {},
+				"collectionPlan": "",
+				"qualityPolicy": "",
+				"confidence": 0,
+				"reasons": [],
+				"requiresReview": true
+			}
+		],
+		"reviewPolicy": "",
+		"promptPreview": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|DataSourceDiscoveryResponse|DataSourceDiscoveryResponse|
+|&emsp;&emsp;scenarioCode|场景编码|string||
+|&emsp;&emsp;modelCode|使用的模型编码|string||
+|&emsp;&emsp;providerCode|模型提供方|string||
+|&emsp;&emsp;environment|环境|string||
+|&emsp;&emsp;marketScope|市场范围|string||
+|&emsp;&emsp;assetClass|资产类别|string||
+|&emsp;&emsp;dataTypes|数据类型|string||
+|&emsp;&emsp;topicKeywords|主题关键词|string||
+|&emsp;&emsp;collectionDirection|采集方向|string||
+|&emsp;&emsp;modelBindingConfig|模型挂靠配置|object||
+|&emsp;&emsp;skillCode|本次发现使用的 Skill 编码|string||
+|&emsp;&emsp;skillVersion|本次发现使用的 Skill 版本|string||
+|&emsp;&emsp;skillInstruction|Skill 指令摘要|string||
+|&emsp;&emsp;candidates|候选数据源|array|DataSourceDiscoveryCandidateResponse|
+|&emsp;&emsp;&emsp;&emsp;sourceCode|建议数据源编码|string||
+|&emsp;&emsp;&emsp;&emsp;sourceName|建议数据源名称|string||
+|&emsp;&emsp;&emsp;&emsp;sourceType|数据源类型|string||
+|&emsp;&emsp;&emsp;&emsp;trustLevel|来源等级|string||
+|&emsp;&emsp;&emsp;&emsp;baseUrl|入口地址|string||
+|&emsp;&emsp;&emsp;&emsp;fetchFrequency|建议采集频率|string||
+|&emsp;&emsp;&emsp;&emsp;owner|建议负责人或维护方|string||
+|&emsp;&emsp;&emsp;&emsp;description|说明|string||
+|&emsp;&emsp;&emsp;&emsp;recommendedTaskType|推荐任务类型|string||
+|&emsp;&emsp;&emsp;&emsp;suggestedParameters|建议任务参数|object||
+|&emsp;&emsp;&emsp;&emsp;fieldMappings|建议字段映射|object||
+|&emsp;&emsp;&emsp;&emsp;collectionPlan|AI 整理出的采集计划、接口说明、限制和样例|string||
+|&emsp;&emsp;&emsp;&emsp;qualityPolicy|AI 整理出的质量校验规则|string||
+|&emsp;&emsp;&emsp;&emsp;confidence|候选置信度|number||
+|&emsp;&emsp;&emsp;&emsp;reasons|推荐理由|array|string|
+|&emsp;&emsp;&emsp;&emsp;requiresReview|是否需要人工审核|boolean||
+|&emsp;&emsp;reviewPolicy|审核策略|string||
+|&emsp;&emsp;promptPreview|Prompt 预览|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"scenarioCode": "",
+		"modelCode": "",
+		"providerCode": "",
+		"environment": "",
+		"marketScope": "",
+		"assetClass": "",
+		"dataTypes": "",
+		"topicKeywords": "",
+		"collectionDirection": "",
+		"modelBindingConfig": {},
+		"skillCode": "",
+		"skillVersion": "",
+		"skillInstruction": "",
+		"candidates": [
+			{
+				"sourceCode": "",
+				"sourceName": "",
+				"sourceType": "",
+				"trustLevel": "",
+				"baseUrl": "",
+				"fetchFrequency": "",
+				"owner": "",
+				"description": "",
+				"recommendedTaskType": "",
+				"suggestedParameters": {},
+				"fieldMappings": {},
+				"collectionPlan": "",
+				"qualityPolicy": "",
+				"confidence": 0,
+				"reasons": [],
+				"requiresReview": true
+			}
+		],
+		"reviewPolicy": "",
+		"promptPreview": ""
+	}
+}
+```
+
+
 ## 保存数据源健康状态
 
 
@@ -24585,7 +24924,7 @@
 |&emsp;&emsp;cron|Spring Cron 表达式||true|string||
 |&emsp;&emsp;zone|Cron 时区||false|string||
 |&emsp;&emsp;enabled|是否启用||false|boolean||
-|&emsp;&emsp;parameters|任务参数；收益、动量和资讯热度任务默认只处理 CN_MAINLAND||false|object||
+|&emsp;&emsp;parameters|任务参数；支持字符串、数字、布尔、对象和数组，对象/数组会在接口层序列化为 JSON 字符串||false|object||
 |&emsp;&emsp;description|配置说明||false|string||
 
 
@@ -24758,7 +25097,7 @@
 |taskExecutionListRequest|投资任务执行记录分页请求|body|true|TaskExecutionListRequest|TaskExecutionListRequest|
 |&emsp;&emsp;taskCode|任务编码||false|string||
 |&emsp;&emsp;taskType|任务类型||false|string||
-|&emsp;&emsp;status|执行状态：RUNNING/SUCCEEDED/FAILED||false|string||
+|&emsp;&emsp;status|执行状态：RUNNING/SUCCEEDED/BLOCKED/FAILED||false|string||
 |&emsp;&emsp;startedFrom|执行开始时间起点||false|string(date-time)||
 |&emsp;&emsp;startedTo|执行开始时间终点||false|string(date-time)||
 |&emsp;&emsp;page|页码，从 1 开始；传 0 会兼容为第一页||false|integer(int32)||
@@ -24793,7 +25132,7 @@
 |&emsp;&emsp;&emsp;&emsp;taskCode|任务编码|string||
 |&emsp;&emsp;&emsp;&emsp;taskType|任务类型|string||
 |&emsp;&emsp;&emsp;&emsp;triggerSource|触发来源：SCHEDULE/MANUAL|string||
-|&emsp;&emsp;&emsp;&emsp;status|执行状态：RUNNING/SUCCEEDED/FAILED|string||
+|&emsp;&emsp;&emsp;&emsp;status|执行状态：RUNNING/SUCCEEDED/BLOCKED/FAILED|string||
 |&emsp;&emsp;&emsp;&emsp;eventId|Kafka 事件 ID|string||
 |&emsp;&emsp;&emsp;&emsp;resultSummary|执行结果摘要|string||
 |&emsp;&emsp;&emsp;&emsp;failureReason|失败原因；成功时为空|string||
@@ -24852,7 +25191,7 @@
 |&emsp;&emsp;&emsp;&emsp;taskCode|任务编码|string||
 |&emsp;&emsp;&emsp;&emsp;taskType|任务类型|string||
 |&emsp;&emsp;&emsp;&emsp;triggerSource|触发来源：SCHEDULE/MANUAL|string||
-|&emsp;&emsp;&emsp;&emsp;status|执行状态：RUNNING/SUCCEEDED/FAILED|string||
+|&emsp;&emsp;&emsp;&emsp;status|执行状态：RUNNING/SUCCEEDED/BLOCKED/FAILED|string||
 |&emsp;&emsp;&emsp;&emsp;eventId|Kafka 事件 ID|string||
 |&emsp;&emsp;&emsp;&emsp;resultSummary|执行结果摘要|string||
 |&emsp;&emsp;&emsp;&emsp;failureReason|失败原因；成功时为空|string||
@@ -24911,7 +25250,7 @@
 |&emsp;&emsp;&emsp;&emsp;taskCode|任务编码|string||
 |&emsp;&emsp;&emsp;&emsp;taskType|任务类型|string||
 |&emsp;&emsp;&emsp;&emsp;triggerSource|触发来源：SCHEDULE/MANUAL|string||
-|&emsp;&emsp;&emsp;&emsp;status|执行状态：RUNNING/SUCCEEDED/FAILED|string||
+|&emsp;&emsp;&emsp;&emsp;status|执行状态：RUNNING/SUCCEEDED/BLOCKED/FAILED|string||
 |&emsp;&emsp;&emsp;&emsp;eventId|Kafka 事件 ID|string||
 |&emsp;&emsp;&emsp;&emsp;resultSummary|执行结果摘要|string||
 |&emsp;&emsp;&emsp;&emsp;failureReason|失败原因；成功时为空|string||
@@ -25258,7 +25597,7 @@
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |triggerInvestmentTaskRequest|手动触发投资任务请求|body|true|TriggerInvestmentTaskRequest|TriggerInvestmentTaskRequest|
 |&emsp;&emsp;taskCode|任务编码，必须存在于 investment.tasks.definitions 配置中||true|string||
-|&emsp;&emsp;parameters|本次手动触发覆盖参数；为空时使用配置默认参数||false|object||
+|&emsp;&emsp;parameters|本次手动触发覆盖参数；支持字符串、数字、布尔、对象和数组，对象/数组会在接口层序列化为 JSON 字符串||false|object||
 
 
 **响应状态**:
@@ -26225,6 +26564,712 @@
 		"permissions": [],
 		"registeredAt": "",
 		"lastLoginAt": ""
+	}
+}
+```
+
+
+# 自动投资闭环
+
+
+## 查询自动投资闭环详情
+
+
+**接口地址**:`/api/investment/closed-loop/runs/detail`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>返回单轮闭环运行详情及步骤输入摘要、输出摘要、失败或阻断原因。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "bizId": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|closedLoopRunDetailRequest|自动投资闭环运行详情请求|body|true|ClosedLoopRunDetailRequest|ClosedLoopRunDetailRequest|
+|&emsp;&emsp;bizId|闭环运行业务唯一标识||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回闭环运行详情|ResultClosedLoopRunResponse|
+|404|闭环运行不存在|ResultClosedLoopRunResponse|
+|500|系统错误|ResultClosedLoopRunResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|ClosedLoopRunResponse|ClosedLoopRunResponse|
+|&emsp;&emsp;bizId|闭环运行业务唯一标识|string||
+|&emsp;&emsp;runNo|运行编号|string||
+|&emsp;&emsp;taskCode|任务编码|string||
+|&emsp;&emsp;triggerSource|触发来源：SCHEDULE/MANUAL/RETRY|string||
+|&emsp;&emsp;runStatus|运行状态：RUNNING/SUCCEEDED/BLOCKED/FAILED|string||
+|&emsp;&emsp;automationLevel|自动化等级：DATA_ONLY/MOCK_ONLY/FULL_MOCK|string||
+|&emsp;&emsp;marketScope|市场范围|string||
+|&emsp;&emsp;themeCode|主题编码|string||
+|&emsp;&emsp;mockUserBizId|自动 Mock 用户业务标识|string||
+|&emsp;&emsp;portfolioBizId|Mock 组合业务标识|string||
+|&emsp;&emsp;reportBizId|报告业务标识|string||
+|&emsp;&emsp;promptBizId|Prompt 业务标识|string||
+|&emsp;&emsp;promptCode|Prompt 编码|string||
+|&emsp;&emsp;promptVersion|Prompt 版本|string||
+|&emsp;&emsp;backtestBizId|回测业务标识|string||
+|&emsp;&emsp;qualityScore|质量分|number||
+|&emsp;&emsp;gateResult|门禁结果：PENDING/PASS/BLOCK|string||
+|&emsp;&emsp;summary|运行摘要 JSON|string||
+|&emsp;&emsp;failureReason|失败或阻断原因|string||
+|&emsp;&emsp;startedAt|开始时间|string(date-time)||
+|&emsp;&emsp;completedAt|完成时间|string(date-time)||
+|&emsp;&emsp;steps|步骤记录|array|ClosedLoopStepResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|步骤业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;stepCode|步骤编码|string||
+|&emsp;&emsp;&emsp;&emsp;stepName|步骤名称|string||
+|&emsp;&emsp;&emsp;&emsp;stepOrder|步骤顺序|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;stepStatus|步骤状态：SUCCEEDED/SKIPPED/BLOCKED/FAILED|string||
+|&emsp;&emsp;&emsp;&emsp;inputSummary|输入摘要 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;outputSummary|输出摘要 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;failureReason|失败或阻断原因|string||
+|&emsp;&emsp;&emsp;&emsp;startedAt|开始时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"runNo": "",
+		"taskCode": "",
+		"triggerSource": "",
+		"runStatus": "",
+		"automationLevel": "",
+		"marketScope": "",
+		"themeCode": "",
+		"mockUserBizId": "",
+		"portfolioBizId": "",
+		"reportBizId": "",
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"backtestBizId": "",
+		"qualityScore": 0,
+		"gateResult": "",
+		"summary": "",
+		"failureReason": "",
+		"startedAt": "",
+		"completedAt": "",
+		"steps": [
+			{
+				"bizId": "",
+				"stepCode": "",
+				"stepName": "",
+				"stepOrder": 0,
+				"stepStatus": "",
+				"inputSummary": "",
+				"outputSummary": "",
+				"failureReason": "",
+				"startedAt": "",
+				"completedAt": ""
+			}
+		]
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|ClosedLoopRunResponse|ClosedLoopRunResponse|
+|&emsp;&emsp;bizId|闭环运行业务唯一标识|string||
+|&emsp;&emsp;runNo|运行编号|string||
+|&emsp;&emsp;taskCode|任务编码|string||
+|&emsp;&emsp;triggerSource|触发来源：SCHEDULE/MANUAL/RETRY|string||
+|&emsp;&emsp;runStatus|运行状态：RUNNING/SUCCEEDED/BLOCKED/FAILED|string||
+|&emsp;&emsp;automationLevel|自动化等级：DATA_ONLY/MOCK_ONLY/FULL_MOCK|string||
+|&emsp;&emsp;marketScope|市场范围|string||
+|&emsp;&emsp;themeCode|主题编码|string||
+|&emsp;&emsp;mockUserBizId|自动 Mock 用户业务标识|string||
+|&emsp;&emsp;portfolioBizId|Mock 组合业务标识|string||
+|&emsp;&emsp;reportBizId|报告业务标识|string||
+|&emsp;&emsp;promptBizId|Prompt 业务标识|string||
+|&emsp;&emsp;promptCode|Prompt 编码|string||
+|&emsp;&emsp;promptVersion|Prompt 版本|string||
+|&emsp;&emsp;backtestBizId|回测业务标识|string||
+|&emsp;&emsp;qualityScore|质量分|number||
+|&emsp;&emsp;gateResult|门禁结果：PENDING/PASS/BLOCK|string||
+|&emsp;&emsp;summary|运行摘要 JSON|string||
+|&emsp;&emsp;failureReason|失败或阻断原因|string||
+|&emsp;&emsp;startedAt|开始时间|string(date-time)||
+|&emsp;&emsp;completedAt|完成时间|string(date-time)||
+|&emsp;&emsp;steps|步骤记录|array|ClosedLoopStepResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|步骤业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;stepCode|步骤编码|string||
+|&emsp;&emsp;&emsp;&emsp;stepName|步骤名称|string||
+|&emsp;&emsp;&emsp;&emsp;stepOrder|步骤顺序|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;stepStatus|步骤状态：SUCCEEDED/SKIPPED/BLOCKED/FAILED|string||
+|&emsp;&emsp;&emsp;&emsp;inputSummary|输入摘要 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;outputSummary|输出摘要 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;failureReason|失败或阻断原因|string||
+|&emsp;&emsp;&emsp;&emsp;startedAt|开始时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"runNo": "",
+		"taskCode": "",
+		"triggerSource": "",
+		"runStatus": "",
+		"automationLevel": "",
+		"marketScope": "",
+		"themeCode": "",
+		"mockUserBizId": "",
+		"portfolioBizId": "",
+		"reportBizId": "",
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"backtestBizId": "",
+		"qualityScore": 0,
+		"gateResult": "",
+		"summary": "",
+		"failureReason": "",
+		"startedAt": "",
+		"completedAt": "",
+		"steps": [
+			{
+				"bizId": "",
+				"stepCode": "",
+				"stepName": "",
+				"stepOrder": 0,
+				"stepStatus": "",
+				"inputSummary": "",
+				"outputSummary": "",
+				"failureReason": "",
+				"startedAt": "",
+				"completedAt": ""
+			}
+		]
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|ClosedLoopRunResponse|ClosedLoopRunResponse|
+|&emsp;&emsp;bizId|闭环运行业务唯一标识|string||
+|&emsp;&emsp;runNo|运行编号|string||
+|&emsp;&emsp;taskCode|任务编码|string||
+|&emsp;&emsp;triggerSource|触发来源：SCHEDULE/MANUAL/RETRY|string||
+|&emsp;&emsp;runStatus|运行状态：RUNNING/SUCCEEDED/BLOCKED/FAILED|string||
+|&emsp;&emsp;automationLevel|自动化等级：DATA_ONLY/MOCK_ONLY/FULL_MOCK|string||
+|&emsp;&emsp;marketScope|市场范围|string||
+|&emsp;&emsp;themeCode|主题编码|string||
+|&emsp;&emsp;mockUserBizId|自动 Mock 用户业务标识|string||
+|&emsp;&emsp;portfolioBizId|Mock 组合业务标识|string||
+|&emsp;&emsp;reportBizId|报告业务标识|string||
+|&emsp;&emsp;promptBizId|Prompt 业务标识|string||
+|&emsp;&emsp;promptCode|Prompt 编码|string||
+|&emsp;&emsp;promptVersion|Prompt 版本|string||
+|&emsp;&emsp;backtestBizId|回测业务标识|string||
+|&emsp;&emsp;qualityScore|质量分|number||
+|&emsp;&emsp;gateResult|门禁结果：PENDING/PASS/BLOCK|string||
+|&emsp;&emsp;summary|运行摘要 JSON|string||
+|&emsp;&emsp;failureReason|失败或阻断原因|string||
+|&emsp;&emsp;startedAt|开始时间|string(date-time)||
+|&emsp;&emsp;completedAt|完成时间|string(date-time)||
+|&emsp;&emsp;steps|步骤记录|array|ClosedLoopStepResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|步骤业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;stepCode|步骤编码|string||
+|&emsp;&emsp;&emsp;&emsp;stepName|步骤名称|string||
+|&emsp;&emsp;&emsp;&emsp;stepOrder|步骤顺序|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;stepStatus|步骤状态：SUCCEEDED/SKIPPED/BLOCKED/FAILED|string||
+|&emsp;&emsp;&emsp;&emsp;inputSummary|输入摘要 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;outputSummary|输出摘要 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;failureReason|失败或阻断原因|string||
+|&emsp;&emsp;&emsp;&emsp;startedAt|开始时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"runNo": "",
+		"taskCode": "",
+		"triggerSource": "",
+		"runStatus": "",
+		"automationLevel": "",
+		"marketScope": "",
+		"themeCode": "",
+		"mockUserBizId": "",
+		"portfolioBizId": "",
+		"reportBizId": "",
+		"promptBizId": "",
+		"promptCode": "",
+		"promptVersion": "",
+		"backtestBizId": "",
+		"qualityScore": 0,
+		"gateResult": "",
+		"summary": "",
+		"failureReason": "",
+		"startedAt": "",
+		"completedAt": "",
+		"steps": [
+			{
+				"bizId": "",
+				"stepCode": "",
+				"stepName": "",
+				"stepOrder": 0,
+				"stepStatus": "",
+				"inputSummary": "",
+				"outputSummary": "",
+				"failureReason": "",
+				"startedAt": "",
+				"completedAt": ""
+			}
+		]
+	}
+}
+```
+
+
+## 分页查询自动投资闭环运行
+
+
+**接口地址**:`/api/investment/closed-loop/runs/list`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>查询每轮自动闭环运行状态、质量门禁、报告、组合、回测和失败原因，用于前端驾驶舱。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "taskCode": "auto-investment-closed-loop-orchestration",
+  "runStatus": "SUCCEEDED",
+  "automationLevel": "FULL_MOCK",
+  "marketScope": "CN_MAINLAND",
+  "themeCode": "AI人工智能",
+  "mockUserBizId": "",
+  "startedFrom": "2026-06-25T00:00:00",
+  "startedTo": "2026-06-25T23:59:59",
+  "page": 1,
+  "size": 20,
+  "sort": "startedAt",
+  "direction": "desc"
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|closedLoopRunListRequest|自动投资闭环运行分页请求|body|true|ClosedLoopRunListRequest|ClosedLoopRunListRequest|
+|&emsp;&emsp;taskCode|任务编码||false|string||
+|&emsp;&emsp;runStatus|运行状态：RUNNING/SUCCEEDED/BLOCKED/FAILED||false|string||
+|&emsp;&emsp;automationLevel|自动化等级：DATA_ONLY/MOCK_ONLY/FULL_MOCK||false|string||
+|&emsp;&emsp;marketScope|市场范围||false|string||
+|&emsp;&emsp;themeCode|主题编码||false|string||
+|&emsp;&emsp;mockUserBizId|自动 Mock 用户业务标识||false|string||
+|&emsp;&emsp;startedFrom|运行开始时间起点||false|string(date-time)||
+|&emsp;&emsp;startedTo|运行开始时间终点||false|string(date-time)||
+|&emsp;&emsp;page|页码，从 1 开始||false|integer(int32)||
+|&emsp;&emsp;size|每页条数，1-100||false|integer(int32)||
+|&emsp;&emsp;sort|排序字段：startedAt/completedAt/updatedAt/runNo/taskCode/runStatus/automationLevel/qualityScore||false|string||
+|&emsp;&emsp;direction|排序方向：asc/desc||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回闭环运行分页响应|ResultPageResponseClosedLoopRunResponse|
+|400|分页或排序参数不合法|ResultPageResponseClosedLoopRunResponse|
+|500|系统错误|ResultPageResponseClosedLoopRunResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseClosedLoopRunResponse|PageResponseClosedLoopRunResponse|
+|&emsp;&emsp;items|当前页数据列表|array|ClosedLoopRunResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|闭环运行业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;runNo|运行编号|string||
+|&emsp;&emsp;&emsp;&emsp;taskCode|任务编码|string||
+|&emsp;&emsp;&emsp;&emsp;triggerSource|触发来源：SCHEDULE/MANUAL/RETRY|string||
+|&emsp;&emsp;&emsp;&emsp;runStatus|运行状态：RUNNING/SUCCEEDED/BLOCKED/FAILED|string||
+|&emsp;&emsp;&emsp;&emsp;automationLevel|自动化等级：DATA_ONLY/MOCK_ONLY/FULL_MOCK|string||
+|&emsp;&emsp;&emsp;&emsp;marketScope|市场范围|string||
+|&emsp;&emsp;&emsp;&emsp;themeCode|主题编码|string||
+|&emsp;&emsp;&emsp;&emsp;mockUserBizId|自动 Mock 用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|Mock 组合业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;reportBizId|报告业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt 业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptCode|Prompt 编码|string||
+|&emsp;&emsp;&emsp;&emsp;promptVersion|Prompt 版本|string||
+|&emsp;&emsp;&emsp;&emsp;backtestBizId|回测业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;qualityScore|质量分|number||
+|&emsp;&emsp;&emsp;&emsp;gateResult|门禁结果：PENDING/PASS/BLOCK|string||
+|&emsp;&emsp;&emsp;&emsp;summary|运行摘要 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;failureReason|失败或阻断原因|string||
+|&emsp;&emsp;&emsp;&emsp;startedAt|开始时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;steps|步骤记录|array|ClosedLoopStepResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|步骤业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;stepCode|步骤编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;stepName|步骤名称|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;stepOrder|步骤顺序|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;stepStatus|步骤状态：SUCCEEDED/SKIPPED/BLOCKED/FAILED|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;inputSummary|输入摘要 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;outputSummary|输出摘要 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;failureReason|失败或阻断原因|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;startedAt|开始时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;completedAt|完成时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"runNo": "",
+				"taskCode": "",
+				"triggerSource": "",
+				"runStatus": "",
+				"automationLevel": "",
+				"marketScope": "",
+				"themeCode": "",
+				"mockUserBizId": "",
+				"portfolioBizId": "",
+				"reportBizId": "",
+				"promptBizId": "",
+				"promptCode": "",
+				"promptVersion": "",
+				"backtestBizId": "",
+				"qualityScore": 0,
+				"gateResult": "",
+				"summary": "",
+				"failureReason": "",
+				"startedAt": "",
+				"completedAt": "",
+				"steps": [
+					{
+						"bizId": "",
+						"stepCode": "",
+						"stepName": "",
+						"stepOrder": 0,
+						"stepStatus": "",
+						"inputSummary": "",
+						"outputSummary": "",
+						"failureReason": "",
+						"startedAt": "",
+						"completedAt": ""
+					}
+				]
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseClosedLoopRunResponse|PageResponseClosedLoopRunResponse|
+|&emsp;&emsp;items|当前页数据列表|array|ClosedLoopRunResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|闭环运行业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;runNo|运行编号|string||
+|&emsp;&emsp;&emsp;&emsp;taskCode|任务编码|string||
+|&emsp;&emsp;&emsp;&emsp;triggerSource|触发来源：SCHEDULE/MANUAL/RETRY|string||
+|&emsp;&emsp;&emsp;&emsp;runStatus|运行状态：RUNNING/SUCCEEDED/BLOCKED/FAILED|string||
+|&emsp;&emsp;&emsp;&emsp;automationLevel|自动化等级：DATA_ONLY/MOCK_ONLY/FULL_MOCK|string||
+|&emsp;&emsp;&emsp;&emsp;marketScope|市场范围|string||
+|&emsp;&emsp;&emsp;&emsp;themeCode|主题编码|string||
+|&emsp;&emsp;&emsp;&emsp;mockUserBizId|自动 Mock 用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|Mock 组合业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;reportBizId|报告业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt 业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptCode|Prompt 编码|string||
+|&emsp;&emsp;&emsp;&emsp;promptVersion|Prompt 版本|string||
+|&emsp;&emsp;&emsp;&emsp;backtestBizId|回测业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;qualityScore|质量分|number||
+|&emsp;&emsp;&emsp;&emsp;gateResult|门禁结果：PENDING/PASS/BLOCK|string||
+|&emsp;&emsp;&emsp;&emsp;summary|运行摘要 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;failureReason|失败或阻断原因|string||
+|&emsp;&emsp;&emsp;&emsp;startedAt|开始时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;steps|步骤记录|array|ClosedLoopStepResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|步骤业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;stepCode|步骤编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;stepName|步骤名称|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;stepOrder|步骤顺序|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;stepStatus|步骤状态：SUCCEEDED/SKIPPED/BLOCKED/FAILED|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;inputSummary|输入摘要 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;outputSummary|输出摘要 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;failureReason|失败或阻断原因|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;startedAt|开始时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;completedAt|完成时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"runNo": "",
+				"taskCode": "",
+				"triggerSource": "",
+				"runStatus": "",
+				"automationLevel": "",
+				"marketScope": "",
+				"themeCode": "",
+				"mockUserBizId": "",
+				"portfolioBizId": "",
+				"reportBizId": "",
+				"promptBizId": "",
+				"promptCode": "",
+				"promptVersion": "",
+				"backtestBizId": "",
+				"qualityScore": 0,
+				"gateResult": "",
+				"summary": "",
+				"failureReason": "",
+				"startedAt": "",
+				"completedAt": "",
+				"steps": [
+					{
+						"bizId": "",
+						"stepCode": "",
+						"stepName": "",
+						"stepOrder": 0,
+						"stepStatus": "",
+						"inputSummary": "",
+						"outputSummary": "",
+						"failureReason": "",
+						"startedAt": "",
+						"completedAt": ""
+					}
+				]
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseClosedLoopRunResponse|PageResponseClosedLoopRunResponse|
+|&emsp;&emsp;items|当前页数据列表|array|ClosedLoopRunResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|闭环运行业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;runNo|运行编号|string||
+|&emsp;&emsp;&emsp;&emsp;taskCode|任务编码|string||
+|&emsp;&emsp;&emsp;&emsp;triggerSource|触发来源：SCHEDULE/MANUAL/RETRY|string||
+|&emsp;&emsp;&emsp;&emsp;runStatus|运行状态：RUNNING/SUCCEEDED/BLOCKED/FAILED|string||
+|&emsp;&emsp;&emsp;&emsp;automationLevel|自动化等级：DATA_ONLY/MOCK_ONLY/FULL_MOCK|string||
+|&emsp;&emsp;&emsp;&emsp;marketScope|市场范围|string||
+|&emsp;&emsp;&emsp;&emsp;themeCode|主题编码|string||
+|&emsp;&emsp;&emsp;&emsp;mockUserBizId|自动 Mock 用户业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;portfolioBizId|Mock 组合业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;reportBizId|报告业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptBizId|Prompt 业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;promptCode|Prompt 编码|string||
+|&emsp;&emsp;&emsp;&emsp;promptVersion|Prompt 版本|string||
+|&emsp;&emsp;&emsp;&emsp;backtestBizId|回测业务标识|string||
+|&emsp;&emsp;&emsp;&emsp;qualityScore|质量分|number||
+|&emsp;&emsp;&emsp;&emsp;gateResult|门禁结果：PENDING/PASS/BLOCK|string||
+|&emsp;&emsp;&emsp;&emsp;summary|运行摘要 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;failureReason|失败或阻断原因|string||
+|&emsp;&emsp;&emsp;&emsp;startedAt|开始时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;completedAt|完成时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;steps|步骤记录|array|ClosedLoopStepResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|步骤业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;stepCode|步骤编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;stepName|步骤名称|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;stepOrder|步骤顺序|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;stepStatus|步骤状态：SUCCEEDED/SKIPPED/BLOCKED/FAILED|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;inputSummary|输入摘要 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;outputSummary|输出摘要 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;failureReason|失败或阻断原因|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;startedAt|开始时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;completedAt|完成时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"runNo": "",
+				"taskCode": "",
+				"triggerSource": "",
+				"runStatus": "",
+				"automationLevel": "",
+				"marketScope": "",
+				"themeCode": "",
+				"mockUserBizId": "",
+				"portfolioBizId": "",
+				"reportBizId": "",
+				"promptBizId": "",
+				"promptCode": "",
+				"promptVersion": "",
+				"backtestBizId": "",
+				"qualityScore": 0,
+				"gateResult": "",
+				"summary": "",
+				"failureReason": "",
+				"startedAt": "",
+				"completedAt": "",
+				"steps": [
+					{
+						"bizId": "",
+						"stepCode": "",
+						"stepName": "",
+						"stepOrder": 0,
+						"stepStatus": "",
+						"inputSummary": "",
+						"outputSummary": "",
+						"failureReason": "",
+						"startedAt": "",
+						"completedAt": ""
+					}
+				]
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
 	}
 }
 ```
@@ -28671,6 +29716,1337 @@
 ```
 
 
+# AI Skill管理
+
+
+## 查询AI Skill详情
+
+
+**接口地址**:`/api/ai/skills/detail`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>根据 Skill 业务 ID 查询完整指令、Schema、评估策略和生命周期状态。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "bizId": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|aiSkillBizIdRequest|AI Skill 业务 ID 请求|body|true|AiSkillBizIdRequest|AiSkillBizIdRequest|
+|&emsp;&emsp;bizId|Skill 业务 ID||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回 Skill 详情|ResultAiSkillResponse|
+|404|Skill 不存在|ResultAiSkillResponse|
+|500|系统错误|ResultAiSkillResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiSkillResponse|AiSkillResponse|
+|&emsp;&emsp;bizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;skillName|Skill 名称|string||
+|&emsp;&emsp;skillType|Skill 类型|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;instructionContent|Skill 指令内容|string||
+|&emsp;&emsp;inputSchema|输入 JSON Schema|string||
+|&emsp;&emsp;outputSchema|输出 JSON Schema|string||
+|&emsp;&emsp;evaluationPolicy|评估策略 JSON|string||
+|&emsp;&emsp;description|Skill 说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"skillCode": "",
+		"skillVersion": "",
+		"skillName": "",
+		"skillType": "",
+		"status": "",
+		"instructionContent": "",
+		"inputSchema": "",
+		"outputSchema": "",
+		"evaluationPolicy": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiSkillResponse|AiSkillResponse|
+|&emsp;&emsp;bizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;skillName|Skill 名称|string||
+|&emsp;&emsp;skillType|Skill 类型|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;instructionContent|Skill 指令内容|string||
+|&emsp;&emsp;inputSchema|输入 JSON Schema|string||
+|&emsp;&emsp;outputSchema|输出 JSON Schema|string||
+|&emsp;&emsp;evaluationPolicy|评估策略 JSON|string||
+|&emsp;&emsp;description|Skill 说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"skillCode": "",
+		"skillVersion": "",
+		"skillName": "",
+		"skillType": "",
+		"status": "",
+		"instructionContent": "",
+		"inputSchema": "",
+		"outputSchema": "",
+		"evaluationPolicy": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiSkillResponse|AiSkillResponse|
+|&emsp;&emsp;bizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;skillName|Skill 名称|string||
+|&emsp;&emsp;skillType|Skill 类型|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;instructionContent|Skill 指令内容|string||
+|&emsp;&emsp;inputSchema|输入 JSON Schema|string||
+|&emsp;&emsp;outputSchema|输出 JSON Schema|string||
+|&emsp;&emsp;evaluationPolicy|评估策略 JSON|string||
+|&emsp;&emsp;description|Skill 说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"skillCode": "",
+		"skillVersion": "",
+		"skillName": "",
+		"skillType": "",
+		"status": "",
+		"instructionContent": "",
+		"inputSchema": "",
+		"outputSchema": "",
+		"evaluationPolicy": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+## 分页查询AI Skill
+
+
+**接口地址**:`/api/ai/skills/list`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>按编码、类型、状态和关键词查询 AI Skill。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "skillCode": "",
+  "skillType": "",
+  "status": "",
+  "keyword": "",
+  "page": 0,
+  "size": 0,
+  "sort": "",
+  "direction": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|aiSkillListRequest|AI Skill 列表请求|body|true|AiSkillListRequest|AiSkillListRequest|
+|&emsp;&emsp;skillCode|Skill 编码||false|string||
+|&emsp;&emsp;skillType|Skill 类型||false|string||
+|&emsp;&emsp;status|状态||false|string||
+|&emsp;&emsp;keyword|关键词||false|string||
+|&emsp;&emsp;page|页码，从 1 开始||false|integer(int32)||
+|&emsp;&emsp;size|每页数量||false|integer(int32)||
+|&emsp;&emsp;sort|排序字段：updatedAt/skillCode/skillVersion/skillType/status||false|string||
+|&emsp;&emsp;direction|排序方向：asc/desc||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回 Skill 分页响应|ResultPageResponseAiSkillResponse|
+|400|分页或排序参数不合法|ResultPageResponseAiSkillResponse|
+|500|系统错误|ResultPageResponseAiSkillResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseAiSkillResponse|PageResponseAiSkillResponse|
+|&emsp;&emsp;items|当前页数据列表|array|AiSkillResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;skillName|Skill 名称|string||
+|&emsp;&emsp;&emsp;&emsp;skillType|Skill 类型|string||
+|&emsp;&emsp;&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;&emsp;&emsp;instructionContent|Skill 指令内容|string||
+|&emsp;&emsp;&emsp;&emsp;inputSchema|输入 JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;outputSchema|输出 JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;evaluationPolicy|评估策略 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|Skill 说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"skillCode": "",
+				"skillVersion": "",
+				"skillName": "",
+				"skillType": "",
+				"status": "",
+				"instructionContent": "",
+				"inputSchema": "",
+				"outputSchema": "",
+				"evaluationPolicy": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseAiSkillResponse|PageResponseAiSkillResponse|
+|&emsp;&emsp;items|当前页数据列表|array|AiSkillResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;skillName|Skill 名称|string||
+|&emsp;&emsp;&emsp;&emsp;skillType|Skill 类型|string||
+|&emsp;&emsp;&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;&emsp;&emsp;instructionContent|Skill 指令内容|string||
+|&emsp;&emsp;&emsp;&emsp;inputSchema|输入 JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;outputSchema|输出 JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;evaluationPolicy|评估策略 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|Skill 说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"skillCode": "",
+				"skillVersion": "",
+				"skillName": "",
+				"skillType": "",
+				"status": "",
+				"instructionContent": "",
+				"inputSchema": "",
+				"outputSchema": "",
+				"evaluationPolicy": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseAiSkillResponse|PageResponseAiSkillResponse|
+|&emsp;&emsp;items|当前页数据列表|array|AiSkillResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;skillName|Skill 名称|string||
+|&emsp;&emsp;&emsp;&emsp;skillType|Skill 类型|string||
+|&emsp;&emsp;&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;&emsp;&emsp;instructionContent|Skill 指令内容|string||
+|&emsp;&emsp;&emsp;&emsp;inputSchema|输入 JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;outputSchema|输出 JSON Schema|string||
+|&emsp;&emsp;&emsp;&emsp;evaluationPolicy|评估策略 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|Skill 说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"skillCode": "",
+				"skillVersion": "",
+				"skillName": "",
+				"skillType": "",
+				"status": "",
+				"instructionContent": "",
+				"inputSchema": "",
+				"outputSchema": "",
+				"evaluationPolicy": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+## 保存AI Skill
+
+
+**接口地址**:`/api/ai/skills/save`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>新增或更新 AI Skill 版本、指令、输入输出 Schema 和评估策略。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "skillCode": "",
+  "skillVersion": "",
+  "skillName": "",
+  "skillType": "",
+  "status": "",
+  "instructionContent": "",
+  "inputSchema": "",
+  "outputSchema": "",
+  "evaluationPolicy": "",
+  "description": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|saveAiSkillRequest|保存 AI Skill 请求|body|true|SaveAiSkillRequest|SaveAiSkillRequest|
+|&emsp;&emsp;skillCode|Skill 编码||true|string||
+|&emsp;&emsp;skillVersion|Skill 版本||true|string||
+|&emsp;&emsp;skillName|Skill 名称||true|string||
+|&emsp;&emsp;skillType|Skill 类型：DATA_SOURCE_DISCOVERY/PROMPT_GOVERNANCE等||true|string||
+|&emsp;&emsp;status|生命周期状态：DRAFT/VALIDATING/ACTIVE/RETIRED/ARCHIVED||false|string||
+|&emsp;&emsp;instructionContent|Skill 指令内容||true|string||
+|&emsp;&emsp;inputSchema|输入 JSON Schema||false|string||
+|&emsp;&emsp;outputSchema|输出 JSON Schema||false|string||
+|&emsp;&emsp;evaluationPolicy|评估策略 JSON||false|string||
+|&emsp;&emsp;description|Skill 说明||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回保存后的 Skill|ResultAiSkillResponse|
+|400|参数校验失败|ResultAiSkillResponse|
+|500|系统错误|ResultAiSkillResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiSkillResponse|AiSkillResponse|
+|&emsp;&emsp;bizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;skillName|Skill 名称|string||
+|&emsp;&emsp;skillType|Skill 类型|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;instructionContent|Skill 指令内容|string||
+|&emsp;&emsp;inputSchema|输入 JSON Schema|string||
+|&emsp;&emsp;outputSchema|输出 JSON Schema|string||
+|&emsp;&emsp;evaluationPolicy|评估策略 JSON|string||
+|&emsp;&emsp;description|Skill 说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"skillCode": "",
+		"skillVersion": "",
+		"skillName": "",
+		"skillType": "",
+		"status": "",
+		"instructionContent": "",
+		"inputSchema": "",
+		"outputSchema": "",
+		"evaluationPolicy": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiSkillResponse|AiSkillResponse|
+|&emsp;&emsp;bizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;skillName|Skill 名称|string||
+|&emsp;&emsp;skillType|Skill 类型|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;instructionContent|Skill 指令内容|string||
+|&emsp;&emsp;inputSchema|输入 JSON Schema|string||
+|&emsp;&emsp;outputSchema|输出 JSON Schema|string||
+|&emsp;&emsp;evaluationPolicy|评估策略 JSON|string||
+|&emsp;&emsp;description|Skill 说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"skillCode": "",
+		"skillVersion": "",
+		"skillName": "",
+		"skillType": "",
+		"status": "",
+		"instructionContent": "",
+		"inputSchema": "",
+		"outputSchema": "",
+		"evaluationPolicy": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiSkillResponse|AiSkillResponse|
+|&emsp;&emsp;bizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;skillName|Skill 名称|string||
+|&emsp;&emsp;skillType|Skill 类型|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;instructionContent|Skill 指令内容|string||
+|&emsp;&emsp;inputSchema|输入 JSON Schema|string||
+|&emsp;&emsp;outputSchema|输出 JSON Schema|string||
+|&emsp;&emsp;evaluationPolicy|评估策略 JSON|string||
+|&emsp;&emsp;description|Skill 说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"skillCode": "",
+		"skillVersion": "",
+		"skillName": "",
+		"skillType": "",
+		"status": "",
+		"instructionContent": "",
+		"inputSchema": "",
+		"outputSchema": "",
+		"evaluationPolicy": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+## 变更AI Skill状态
+
+
+**接口地址**:`/api/ai/skills/status`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>将 Skill 状态变更为 DRAFT、VALIDATING、ACTIVE、RETIRED 或 ARCHIVED。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "bizId": "",
+  "status": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|aiSkillStatusRequest|AI Skill 状态变更请求|body|true|AiSkillStatusRequest|AiSkillStatusRequest|
+|&emsp;&emsp;bizId|Skill 业务 ID||true|string||
+|&emsp;&emsp;status|目标状态：DRAFT/VALIDATING/ACTIVE/RETIRED/ARCHIVED||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回变更后的 Skill|ResultAiSkillResponse|
+|400|参数校验失败|ResultAiSkillResponse|
+|404|Skill 不存在|ResultAiSkillResponse|
+|500|系统错误|ResultAiSkillResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiSkillResponse|AiSkillResponse|
+|&emsp;&emsp;bizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;skillName|Skill 名称|string||
+|&emsp;&emsp;skillType|Skill 类型|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;instructionContent|Skill 指令内容|string||
+|&emsp;&emsp;inputSchema|输入 JSON Schema|string||
+|&emsp;&emsp;outputSchema|输出 JSON Schema|string||
+|&emsp;&emsp;evaluationPolicy|评估策略 JSON|string||
+|&emsp;&emsp;description|Skill 说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"skillCode": "",
+		"skillVersion": "",
+		"skillName": "",
+		"skillType": "",
+		"status": "",
+		"instructionContent": "",
+		"inputSchema": "",
+		"outputSchema": "",
+		"evaluationPolicy": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiSkillResponse|AiSkillResponse|
+|&emsp;&emsp;bizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;skillName|Skill 名称|string||
+|&emsp;&emsp;skillType|Skill 类型|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;instructionContent|Skill 指令内容|string||
+|&emsp;&emsp;inputSchema|输入 JSON Schema|string||
+|&emsp;&emsp;outputSchema|输出 JSON Schema|string||
+|&emsp;&emsp;evaluationPolicy|评估策略 JSON|string||
+|&emsp;&emsp;description|Skill 说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"skillCode": "",
+		"skillVersion": "",
+		"skillName": "",
+		"skillType": "",
+		"status": "",
+		"instructionContent": "",
+		"inputSchema": "",
+		"outputSchema": "",
+		"evaluationPolicy": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiSkillResponse|AiSkillResponse|
+|&emsp;&emsp;bizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;skillName|Skill 名称|string||
+|&emsp;&emsp;skillType|Skill 类型|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;instructionContent|Skill 指令内容|string||
+|&emsp;&emsp;inputSchema|输入 JSON Schema|string||
+|&emsp;&emsp;outputSchema|输出 JSON Schema|string||
+|&emsp;&emsp;evaluationPolicy|评估策略 JSON|string||
+|&emsp;&emsp;description|Skill 说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"skillCode": "",
+		"skillVersion": "",
+		"skillName": "",
+		"skillType": "",
+		"status": "",
+		"instructionContent": "",
+		"inputSchema": "",
+		"outputSchema": "",
+		"evaluationPolicy": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiSkillResponse|AiSkillResponse|
+|&emsp;&emsp;bizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;skillName|Skill 名称|string||
+|&emsp;&emsp;skillType|Skill 类型|string||
+|&emsp;&emsp;status|生命周期状态|string||
+|&emsp;&emsp;instructionContent|Skill 指令内容|string||
+|&emsp;&emsp;inputSchema|输入 JSON Schema|string||
+|&emsp;&emsp;outputSchema|输出 JSON Schema|string||
+|&emsp;&emsp;evaluationPolicy|评估策略 JSON|string||
+|&emsp;&emsp;description|Skill 说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"skillCode": "",
+		"skillVersion": "",
+		"skillName": "",
+		"skillType": "",
+		"status": "",
+		"instructionContent": "",
+		"inputSchema": "",
+		"outputSchema": "",
+		"evaluationPolicy": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+# AI模型挂靠配置
+
+
+## 查询AI模型挂靠配置详情
+
+
+**接口地址**:`/api/ai/model-bindings/detail`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>根据场景编码和环境查询模型挂靠配置。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "scenarioCode": "",
+  "environment": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|aiModelBindingDetailRequest|AI 模型挂靠配置详情请求|body|true|AiModelBindingDetailRequest|AiModelBindingDetailRequest|
+|&emsp;&emsp;scenarioCode|业务场景编码||true|string||
+|&emsp;&emsp;environment|环境编码，默认 DEFAULT||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|ResultAiModelBindingResponse|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelBindingResponse|AiModelBindingResponse|
+|&emsp;&emsp;bizId|配置业务唯一标识|string||
+|&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;scenarioName|业务场景展示名称|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;providerCode|模型提供方|string||
+|&emsp;&emsp;environment|环境编码|string||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;config|场景级配置 JSON|string||
+|&emsp;&emsp;description|配置说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"scenarioCode": "",
+		"scenarioName": "",
+		"modelCode": "",
+		"providerCode": "",
+		"environment": "",
+		"enabled": true,
+		"config": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+## 分页查询AI模型挂靠配置
+
+
+**接口地址**:`/api/ai/model-bindings/list`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>按场景、模型、提供方、环境和启用状态查询模型挂靠配置。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "scenarioCode": "",
+  "modelCode": "",
+  "providerCode": "",
+  "environment": "",
+  "enabled": true,
+  "page": 0,
+  "size": 0,
+  "sort": "",
+  "direction": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|aiModelBindingListRequest|AI 模型挂靠配置列表请求|body|true|AiModelBindingListRequest|AiModelBindingListRequest|
+|&emsp;&emsp;scenarioCode|业务场景编码||false|string||
+|&emsp;&emsp;modelCode|模型编码||false|string||
+|&emsp;&emsp;providerCode|模型提供方||false|string||
+|&emsp;&emsp;environment|环境编码||false|string||
+|&emsp;&emsp;enabled|是否启用||false|boolean||
+|&emsp;&emsp;page|页码，从 1 开始||false|integer(int32)||
+|&emsp;&emsp;size|每页数量||false|integer(int32)||
+|&emsp;&emsp;sort|排序字段：updatedAt/scenarioCode/modelCode/providerCode/environment/enabled||false|string||
+|&emsp;&emsp;direction|排序方向：asc/desc||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|ResultPageResponseAiModelBindingResponse|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseAiModelBindingResponse|PageResponseAiModelBindingResponse|
+|&emsp;&emsp;items|当前页数据列表|array|AiModelBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|配置业务唯一标识|string||
+|&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;scenarioName|业务场景展示名称|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;providerCode|模型提供方|string||
+|&emsp;&emsp;&emsp;&emsp;environment|环境编码|string||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;config|场景级配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|配置说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"scenarioCode": "",
+				"scenarioName": "",
+				"modelCode": "",
+				"providerCode": "",
+				"environment": "",
+				"enabled": true,
+				"config": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+## 保存AI模型挂靠配置
+
+
+**接口地址**:`/api/ai/model-bindings/save`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>按业务场景和环境保存模型挂靠配置，前端可统一配置所有需要挂靠大模型的节点。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "scenarioCode": "",
+  "scenarioName": "",
+  "modelCode": "",
+  "providerCode": "",
+  "environment": "",
+  "enabled": true,
+  "config": "",
+  "description": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|saveAiModelBindingRequest|保存 AI 模型挂靠配置请求|body|true|SaveAiModelBindingRequest|SaveAiModelBindingRequest|
+|&emsp;&emsp;scenarioCode|业务场景编码，例如 DATA_SOURCE_DISCOVERY/AUTO_REPORT_GENERATION||true|string||
+|&emsp;&emsp;scenarioName|业务场景展示名称||true|string||
+|&emsp;&emsp;modelCode|模型稳定编码||true|string||
+|&emsp;&emsp;providerCode|模型提供方一致性校验编码||false|string||
+|&emsp;&emsp;environment|生效环境，默认 DEFAULT||false|string||
+|&emsp;&emsp;enabled|是否启用||false|boolean||
+|&emsp;&emsp;config|场景级模型参数 JSON||false|string||
+|&emsp;&emsp;description|配置说明||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|保存成功|ResultAiModelBindingResponse|
+|400|参数不合法或模型未启用|ResultAiModelBindingResponse|
+|500|系统错误|ResultAiModelBindingResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelBindingResponse|AiModelBindingResponse|
+|&emsp;&emsp;bizId|配置业务唯一标识|string||
+|&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;scenarioName|业务场景展示名称|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;providerCode|模型提供方|string||
+|&emsp;&emsp;environment|环境编码|string||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;config|场景级配置 JSON|string||
+|&emsp;&emsp;description|配置说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"scenarioCode": "",
+		"scenarioName": "",
+		"modelCode": "",
+		"providerCode": "",
+		"environment": "",
+		"enabled": true,
+		"config": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelBindingResponse|AiModelBindingResponse|
+|&emsp;&emsp;bizId|配置业务唯一标识|string||
+|&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;scenarioName|业务场景展示名称|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;providerCode|模型提供方|string||
+|&emsp;&emsp;environment|环境编码|string||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;config|场景级配置 JSON|string||
+|&emsp;&emsp;description|配置说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"scenarioCode": "",
+		"scenarioName": "",
+		"modelCode": "",
+		"providerCode": "",
+		"environment": "",
+		"enabled": true,
+		"config": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelBindingResponse|AiModelBindingResponse|
+|&emsp;&emsp;bizId|配置业务唯一标识|string||
+|&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;scenarioName|业务场景展示名称|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;providerCode|模型提供方|string||
+|&emsp;&emsp;environment|环境编码|string||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;config|场景级配置 JSON|string||
+|&emsp;&emsp;description|配置说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"scenarioCode": "",
+		"scenarioName": "",
+		"modelCode": "",
+		"providerCode": "",
+		"environment": "",
+		"enabled": true,
+		"config": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
 # AI模型管理
 
 
@@ -28747,6 +31123,21 @@
 |&emsp;&emsp;retiredAt|停用时间|string(date-time)||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;skills|当前模型实例启用的 Skill 绑定|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
 
 
 **响应示例**:
@@ -28768,7 +31159,25 @@
 		"activatedAt": "",
 		"retiredAt": "",
 		"createdAt": "",
-		"updatedAt": ""
+		"updatedAt": "",
+		"skills": [
+			{
+				"bizId": "",
+				"modelBizId": "",
+				"modelCode": "",
+				"modelVersion": "",
+				"skillBizId": "",
+				"skillCode": "",
+				"skillVersion": "",
+				"scenarioCode": "",
+				"priority": 0,
+				"enabled": true,
+				"config": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		]
 	}
 }
 ```
@@ -28799,6 +31208,21 @@
 |&emsp;&emsp;retiredAt|停用时间|string(date-time)||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;skills|当前模型实例启用的 Skill 绑定|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
 
 
 **响应示例**:
@@ -28820,7 +31244,25 @@
 		"activatedAt": "",
 		"retiredAt": "",
 		"createdAt": "",
-		"updatedAt": ""
+		"updatedAt": "",
+		"skills": [
+			{
+				"bizId": "",
+				"modelBizId": "",
+				"modelCode": "",
+				"modelVersion": "",
+				"skillBizId": "",
+				"skillCode": "",
+				"skillVersion": "",
+				"scenarioCode": "",
+				"priority": 0,
+				"enabled": true,
+				"config": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		]
 	}
 }
 ```
@@ -28851,6 +31293,21 @@
 |&emsp;&emsp;retiredAt|停用时间|string(date-time)||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;skills|当前模型实例启用的 Skill 绑定|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
 
 
 **响应示例**:
@@ -28872,7 +31329,25 @@
 		"activatedAt": "",
 		"retiredAt": "",
 		"createdAt": "",
-		"updatedAt": ""
+		"updatedAt": "",
+		"skills": [
+			{
+				"bizId": "",
+				"modelBizId": "",
+				"modelCode": "",
+				"modelVersion": "",
+				"skillBizId": "",
+				"skillCode": "",
+				"skillVersion": "",
+				"scenarioCode": "",
+				"priority": 0,
+				"enabled": true,
+				"config": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		]
 	}
 }
 ```
@@ -28951,6 +31426,21 @@
 |&emsp;&emsp;retiredAt|停用时间|string(date-time)||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;skills|当前模型实例启用的 Skill 绑定|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
 
 
 **响应示例**:
@@ -28972,7 +31462,25 @@
 		"activatedAt": "",
 		"retiredAt": "",
 		"createdAt": "",
-		"updatedAt": ""
+		"updatedAt": "",
+		"skills": [
+			{
+				"bizId": "",
+				"modelBizId": "",
+				"modelCode": "",
+				"modelVersion": "",
+				"skillBizId": "",
+				"skillCode": "",
+				"skillVersion": "",
+				"scenarioCode": "",
+				"priority": 0,
+				"enabled": true,
+				"config": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		]
 	}
 }
 ```
@@ -29003,6 +31511,21 @@
 |&emsp;&emsp;retiredAt|停用时间|string(date-time)||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;skills|当前模型实例启用的 Skill 绑定|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
 
 
 **响应示例**:
@@ -29024,7 +31547,25 @@
 		"activatedAt": "",
 		"retiredAt": "",
 		"createdAt": "",
-		"updatedAt": ""
+		"updatedAt": "",
+		"skills": [
+			{
+				"bizId": "",
+				"modelBizId": "",
+				"modelCode": "",
+				"modelVersion": "",
+				"skillBizId": "",
+				"skillCode": "",
+				"skillVersion": "",
+				"scenarioCode": "",
+				"priority": 0,
+				"enabled": true,
+				"config": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		]
 	}
 }
 ```
@@ -29055,6 +31596,21 @@
 |&emsp;&emsp;retiredAt|停用时间|string(date-time)||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;skills|当前模型实例启用的 Skill 绑定|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
 
 
 **响应示例**:
@@ -29076,7 +31632,25 @@
 		"activatedAt": "",
 		"retiredAt": "",
 		"createdAt": "",
-		"updatedAt": ""
+		"updatedAt": "",
+		"skills": [
+			{
+				"bizId": "",
+				"modelBizId": "",
+				"modelCode": "",
+				"modelVersion": "",
+				"skillBizId": "",
+				"skillCode": "",
+				"skillVersion": "",
+				"scenarioCode": "",
+				"priority": 0,
+				"enabled": true,
+				"config": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		]
 	}
 }
 ```
@@ -29170,6 +31744,21 @@
 |&emsp;&emsp;&emsp;&emsp;retiredAt|停用时间|string(date-time)||
 |&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;skills|当前模型实例启用的 Skill 绑定|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
 |&emsp;&emsp;total|数据总条数|integer(int64)||
 |&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
 |&emsp;&emsp;size|每页条数|integer(int32)||
@@ -29197,7 +31786,25 @@
 				"activatedAt": "",
 				"retiredAt": "",
 				"createdAt": "",
-				"updatedAt": ""
+				"updatedAt": "",
+				"skills": [
+					{
+						"bizId": "",
+						"modelBizId": "",
+						"modelCode": "",
+						"modelVersion": "",
+						"skillBizId": "",
+						"skillCode": "",
+						"skillVersion": "",
+						"scenarioCode": "",
+						"priority": 0,
+						"enabled": true,
+						"config": "",
+						"description": "",
+						"createdAt": "",
+						"updatedAt": ""
+					}
+				]
 			}
 		],
 		"total": 128,
@@ -29235,6 +31842,21 @@
 |&emsp;&emsp;&emsp;&emsp;retiredAt|停用时间|string(date-time)||
 |&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;skills|当前模型实例启用的 Skill 绑定|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
 |&emsp;&emsp;total|数据总条数|integer(int64)||
 |&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
 |&emsp;&emsp;size|每页条数|integer(int32)||
@@ -29262,7 +31884,25 @@
 				"activatedAt": "",
 				"retiredAt": "",
 				"createdAt": "",
-				"updatedAt": ""
+				"updatedAt": "",
+				"skills": [
+					{
+						"bizId": "",
+						"modelBizId": "",
+						"modelCode": "",
+						"modelVersion": "",
+						"skillBizId": "",
+						"skillCode": "",
+						"skillVersion": "",
+						"scenarioCode": "",
+						"priority": 0,
+						"enabled": true,
+						"config": "",
+						"description": "",
+						"createdAt": "",
+						"updatedAt": ""
+					}
+				]
 			}
 		],
 		"total": 128,
@@ -29300,6 +31940,21 @@
 |&emsp;&emsp;&emsp;&emsp;retiredAt|停用时间|string(date-time)||
 |&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;skills|当前模型实例启用的 Skill 绑定|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
 |&emsp;&emsp;total|数据总条数|integer(int64)||
 |&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
 |&emsp;&emsp;size|每页条数|integer(int32)||
@@ -29327,7 +31982,25 @@
 				"activatedAt": "",
 				"retiredAt": "",
 				"createdAt": "",
-				"updatedAt": ""
+				"updatedAt": "",
+				"skills": [
+					{
+						"bizId": "",
+						"modelBizId": "",
+						"modelCode": "",
+						"modelVersion": "",
+						"skillBizId": "",
+						"skillCode": "",
+						"skillVersion": "",
+						"scenarioCode": "",
+						"priority": 0,
+						"enabled": true,
+						"config": "",
+						"description": "",
+						"createdAt": "",
+						"updatedAt": ""
+					}
+				]
 			}
 		],
 		"total": 128,
@@ -29428,6 +32101,21 @@
 |&emsp;&emsp;retiredAt|停用时间|string(date-time)||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;skills|当前模型实例启用的 Skill 绑定|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
 
 
 **响应示例**:
@@ -29449,7 +32137,25 @@
 		"activatedAt": "",
 		"retiredAt": "",
 		"createdAt": "",
-		"updatedAt": ""
+		"updatedAt": "",
+		"skills": [
+			{
+				"bizId": "",
+				"modelBizId": "",
+				"modelCode": "",
+				"modelVersion": "",
+				"skillBizId": "",
+				"skillCode": "",
+				"skillVersion": "",
+				"scenarioCode": "",
+				"priority": 0,
+				"enabled": true,
+				"config": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		]
 	}
 }
 ```
@@ -29480,6 +32186,21 @@
 |&emsp;&emsp;retiredAt|停用时间|string(date-time)||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;skills|当前模型实例启用的 Skill 绑定|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
 
 
 **响应示例**:
@@ -29501,7 +32222,25 @@
 		"activatedAt": "",
 		"retiredAt": "",
 		"createdAt": "",
-		"updatedAt": ""
+		"updatedAt": "",
+		"skills": [
+			{
+				"bizId": "",
+				"modelBizId": "",
+				"modelCode": "",
+				"modelVersion": "",
+				"skillBizId": "",
+				"skillCode": "",
+				"skillVersion": "",
+				"scenarioCode": "",
+				"priority": 0,
+				"enabled": true,
+				"config": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		]
 	}
 }
 ```
@@ -29532,6 +32271,21 @@
 |&emsp;&emsp;retiredAt|停用时间|string(date-time)||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;skills|当前模型实例启用的 Skill 绑定|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
 
 
 **响应示例**:
@@ -29553,7 +32307,25 @@
 		"activatedAt": "",
 		"retiredAt": "",
 		"createdAt": "",
-		"updatedAt": ""
+		"updatedAt": "",
+		"skills": [
+			{
+				"bizId": "",
+				"modelBizId": "",
+				"modelCode": "",
+				"modelVersion": "",
+				"skillBizId": "",
+				"skillCode": "",
+				"skillVersion": "",
+				"scenarioCode": "",
+				"priority": 0,
+				"enabled": true,
+				"config": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		]
 	}
 }
 ```
@@ -29635,6 +32407,21 @@
 |&emsp;&emsp;retiredAt|停用时间|string(date-time)||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;skills|当前模型实例启用的 Skill 绑定|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
 
 
 **响应示例**:
@@ -29656,7 +32443,25 @@
 		"activatedAt": "",
 		"retiredAt": "",
 		"createdAt": "",
-		"updatedAt": ""
+		"updatedAt": "",
+		"skills": [
+			{
+				"bizId": "",
+				"modelBizId": "",
+				"modelCode": "",
+				"modelVersion": "",
+				"skillBizId": "",
+				"skillCode": "",
+				"skillVersion": "",
+				"scenarioCode": "",
+				"priority": 0,
+				"enabled": true,
+				"config": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		]
 	}
 }
 ```
@@ -29687,6 +32492,21 @@
 |&emsp;&emsp;retiredAt|停用时间|string(date-time)||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;skills|当前模型实例启用的 Skill 绑定|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
 
 
 **响应示例**:
@@ -29708,7 +32528,25 @@
 		"activatedAt": "",
 		"retiredAt": "",
 		"createdAt": "",
-		"updatedAt": ""
+		"updatedAt": "",
+		"skills": [
+			{
+				"bizId": "",
+				"modelBizId": "",
+				"modelCode": "",
+				"modelVersion": "",
+				"skillBizId": "",
+				"skillCode": "",
+				"skillVersion": "",
+				"scenarioCode": "",
+				"priority": 0,
+				"enabled": true,
+				"config": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		]
 	}
 }
 ```
@@ -29739,6 +32577,21 @@
 |&emsp;&emsp;retiredAt|停用时间|string(date-time)||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;skills|当前模型实例启用的 Skill 绑定|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
 
 
 **响应示例**:
@@ -29760,7 +32613,25 @@
 		"activatedAt": "",
 		"retiredAt": "",
 		"createdAt": "",
-		"updatedAt": ""
+		"updatedAt": "",
+		"skills": [
+			{
+				"bizId": "",
+				"modelBizId": "",
+				"modelCode": "",
+				"modelVersion": "",
+				"skillBizId": "",
+				"skillCode": "",
+				"skillVersion": "",
+				"scenarioCode": "",
+				"priority": 0,
+				"enabled": true,
+				"config": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		]
 	}
 }
 ```
@@ -29791,6 +32662,21 @@
 |&emsp;&emsp;retiredAt|停用时间|string(date-time)||
 |&emsp;&emsp;createdAt|创建时间|string(date-time)||
 |&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;skills|当前模型实例启用的 Skill 绑定|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
 
 
 **响应示例**:
@@ -29811,6 +32697,969 @@
 		"status": "",
 		"activatedAt": "",
 		"retiredAt": "",
+		"createdAt": "",
+		"updatedAt": "",
+		"skills": [
+			{
+				"bizId": "",
+				"modelBizId": "",
+				"modelCode": "",
+				"modelVersion": "",
+				"skillBizId": "",
+				"skillCode": "",
+				"skillVersion": "",
+				"scenarioCode": "",
+				"priority": 0,
+				"enabled": true,
+				"config": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		]
+	}
+}
+```
+
+
+# AI模型Skill绑定
+
+
+## 查询模型已启用Skill
+
+
+**接口地址**:`/api/ai/model-skills/by-model`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>查询指定模型实例当前启用的 Skill 绑定，用于模型详情和复盘页展示。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "modelBizId": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|aiModelSkillsRequest|查询模型启用 Skill 请求|body|true|AiModelSkillsRequest|AiModelSkillsRequest|
+|&emsp;&emsp;modelBizId|模型业务 ID||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回启用绑定列表|ResultListAiModelSkillBindingResponse|
+|400|参数校验失败|ResultListAiModelSkillBindingResponse|
+|500|系统错误|ResultListAiModelSkillBindingResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": [
+		{
+			"bizId": "",
+			"modelBizId": "",
+			"modelCode": "",
+			"modelVersion": "",
+			"skillBizId": "",
+			"skillCode": "",
+			"skillVersion": "",
+			"scenarioCode": "",
+			"priority": 0,
+			"enabled": true,
+			"config": "",
+			"description": "",
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	]
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": [
+		{
+			"bizId": "",
+			"modelBizId": "",
+			"modelCode": "",
+			"modelVersion": "",
+			"skillBizId": "",
+			"skillCode": "",
+			"skillVersion": "",
+			"scenarioCode": "",
+			"priority": 0,
+			"enabled": true,
+			"config": "",
+			"description": "",
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	]
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": [
+		{
+			"bizId": "",
+			"modelBizId": "",
+			"modelCode": "",
+			"modelVersion": "",
+			"skillBizId": "",
+			"skillCode": "",
+			"skillVersion": "",
+			"scenarioCode": "",
+			"priority": 0,
+			"enabled": true,
+			"config": "",
+			"description": "",
+			"createdAt": "",
+			"updatedAt": ""
+		}
+	]
+}
+```
+
+
+## 查询模型Skill绑定详情
+
+
+**接口地址**:`/api/ai/model-skills/detail`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>根据绑定业务 ID 查询模型、Skill、场景和配置。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "bizId": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|aiModelSkillBindingBizIdRequest|AI 模型 Skill 绑定业务 ID 请求|body|true|AiModelSkillBindingBizIdRequest|AiModelSkillBindingBizIdRequest|
+|&emsp;&emsp;bizId|绑定业务 ID||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回绑定详情|ResultAiModelSkillBindingResponse|
+|404|绑定不存在|ResultAiModelSkillBindingResponse|
+|500|系统错误|ResultAiModelSkillBindingResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelSkillBindingResponse|AiModelSkillBindingResponse|
+|&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelBizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"skillBizId": "",
+		"skillCode": "",
+		"skillVersion": "",
+		"scenarioCode": "",
+		"priority": 0,
+		"enabled": true,
+		"config": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelSkillBindingResponse|AiModelSkillBindingResponse|
+|&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelBizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"skillBizId": "",
+		"skillCode": "",
+		"skillVersion": "",
+		"scenarioCode": "",
+		"priority": 0,
+		"enabled": true,
+		"config": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelSkillBindingResponse|AiModelSkillBindingResponse|
+|&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelBizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"skillBizId": "",
+		"skillCode": "",
+		"skillVersion": "",
+		"scenarioCode": "",
+		"priority": 0,
+		"enabled": true,
+		"config": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+## 分页查询模型Skill绑定
+
+
+**接口地址**:`/api/ai/model-skills/list`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>按模型、Skill、业务场景和启用状态查询绑定。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "modelBizId": "",
+  "modelCode": "",
+  "skillCode": "",
+  "scenarioCode": "",
+  "enabled": true,
+  "page": 0,
+  "size": 0,
+  "sort": "",
+  "direction": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|aiModelSkillBindingListRequest|AI 模型 Skill 绑定列表请求|body|true|AiModelSkillBindingListRequest|AiModelSkillBindingListRequest|
+|&emsp;&emsp;modelBizId|模型业务 ID||false|string||
+|&emsp;&emsp;modelCode|模型编码||false|string||
+|&emsp;&emsp;skillCode|Skill 编码||false|string||
+|&emsp;&emsp;scenarioCode|业务场景编码||false|string||
+|&emsp;&emsp;enabled|是否启用||false|boolean||
+|&emsp;&emsp;page|页码，从 1 开始||false|integer(int32)||
+|&emsp;&emsp;size|每页数量||false|integer(int32)||
+|&emsp;&emsp;sort|排序字段：updatedAt/modelCode/skillCode/scenarioCode/priority/enabled||false|string||
+|&emsp;&emsp;direction|排序方向：asc/desc||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回绑定分页响应|ResultPageResponseAiModelSkillBindingResponse|
+|400|分页或排序参数不合法|ResultPageResponseAiModelSkillBindingResponse|
+|500|系统错误|ResultPageResponseAiModelSkillBindingResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseAiModelSkillBindingResponse|PageResponseAiModelSkillBindingResponse|
+|&emsp;&emsp;items|当前页数据列表|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"modelBizId": "",
+				"modelCode": "",
+				"modelVersion": "",
+				"skillBizId": "",
+				"skillCode": "",
+				"skillVersion": "",
+				"scenarioCode": "",
+				"priority": 0,
+				"enabled": true,
+				"config": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseAiModelSkillBindingResponse|PageResponseAiModelSkillBindingResponse|
+|&emsp;&emsp;items|当前页数据列表|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"modelBizId": "",
+				"modelCode": "",
+				"modelVersion": "",
+				"skillBizId": "",
+				"skillCode": "",
+				"skillVersion": "",
+				"scenarioCode": "",
+				"priority": 0,
+				"enabled": true,
+				"config": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|PageResponseAiModelSkillBindingResponse|PageResponseAiModelSkillBindingResponse|
+|&emsp;&emsp;items|当前页数据列表|array|AiModelSkillBindingResponse|
+|&emsp;&emsp;&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+|&emsp;&emsp;total|数据总条数|integer(int64)||
+|&emsp;&emsp;page|当前页码，从 1 开始|integer(int32)||
+|&emsp;&emsp;size|每页条数|integer(int32)||
+|&emsp;&emsp;totalPages|总页数|integer(int32)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"items": [
+			{
+				"bizId": "",
+				"modelBizId": "",
+				"modelCode": "",
+				"modelVersion": "",
+				"skillBizId": "",
+				"skillCode": "",
+				"skillVersion": "",
+				"scenarioCode": "",
+				"priority": 0,
+				"enabled": true,
+				"config": "",
+				"description": "",
+				"createdAt": "",
+				"updatedAt": ""
+			}
+		],
+		"total": 128,
+		"page": 1,
+		"size": 20,
+		"totalPages": 7
+	}
+}
+```
+
+
+## 保存模型Skill绑定
+
+
+**接口地址**:`/api/ai/model-skills/save`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>将模型实例绑定到指定 Skill 版本和业务场景。</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "modelBizId": "",
+  "skillBizId": "",
+  "scenarioCode": "",
+  "priority": 0,
+  "enabled": true,
+  "config": "",
+  "description": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|saveAiModelSkillBindingRequest|保存 AI 模型 Skill 绑定请求|body|true|SaveAiModelSkillBindingRequest|SaveAiModelSkillBindingRequest|
+|&emsp;&emsp;modelBizId|模型业务 ID||true|string||
+|&emsp;&emsp;skillBizId|Skill 业务 ID||true|string||
+|&emsp;&emsp;scenarioCode|业务场景编码||true|string||
+|&emsp;&emsp;priority|优先级，数值越小越优先||false|integer(int32)||
+|&emsp;&emsp;enabled|是否启用||false|boolean||
+|&emsp;&emsp;config|场景级绑定配置 JSON||false|string||
+|&emsp;&emsp;description|绑定说明||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|成功，返回保存后的绑定|ResultAiModelSkillBindingResponse|
+|400|参数校验失败|ResultAiModelSkillBindingResponse|
+|404|模型或 Skill 不存在|ResultAiModelSkillBindingResponse|
+|500|系统错误|ResultAiModelSkillBindingResponse|
+
+
+**响应状态码-200**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelSkillBindingResponse|AiModelSkillBindingResponse|
+|&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelBizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"skillBizId": "",
+		"skillCode": "",
+		"skillVersion": "",
+		"scenarioCode": "",
+		"priority": 0,
+		"enabled": true,
+		"config": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-400**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelSkillBindingResponse|AiModelSkillBindingResponse|
+|&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelBizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"skillBizId": "",
+		"skillCode": "",
+		"skillVersion": "",
+		"scenarioCode": "",
+		"priority": 0,
+		"enabled": true,
+		"config": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-404**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelSkillBindingResponse|AiModelSkillBindingResponse|
+|&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelBizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"skillBizId": "",
+		"skillCode": "",
+		"skillVersion": "",
+		"scenarioCode": "",
+		"priority": 0,
+		"enabled": true,
+		"config": "",
+		"description": "",
+		"createdAt": "",
+		"updatedAt": ""
+	}
+}
+```
+
+
+**响应状态码-500**:
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|业务响应码，与 HTTP 状态语义保持一致|integer(int32)|integer(int32)|
+|message|响应消息；成功时通常为 success，失败时为可读错误信息|string||
+|data|业务响应数据；无返回数据时为 null|AiModelSkillBindingResponse|AiModelSkillBindingResponse|
+|&emsp;&emsp;bizId|绑定业务 ID|string||
+|&emsp;&emsp;modelBizId|模型业务 ID|string||
+|&emsp;&emsp;modelCode|模型编码|string||
+|&emsp;&emsp;modelVersion|模型版本|string||
+|&emsp;&emsp;skillBizId|Skill 业务 ID|string||
+|&emsp;&emsp;skillCode|Skill 编码|string||
+|&emsp;&emsp;skillVersion|Skill 版本|string||
+|&emsp;&emsp;scenarioCode|业务场景编码|string||
+|&emsp;&emsp;priority|优先级|integer(int32)||
+|&emsp;&emsp;enabled|是否启用|boolean||
+|&emsp;&emsp;config|场景级绑定配置 JSON|string||
+|&emsp;&emsp;description|绑定说明|string||
+|&emsp;&emsp;createdAt|创建时间|string(date-time)||
+|&emsp;&emsp;updatedAt|更新时间|string(date-time)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 200,
+	"message": "success",
+	"data": {
+		"bizId": "",
+		"modelBizId": "",
+		"modelCode": "",
+		"modelVersion": "",
+		"skillBizId": "",
+		"skillCode": "",
+		"skillVersion": "",
+		"scenarioCode": "",
+		"priority": 0,
+		"enabled": true,
+		"config": "",
+		"description": "",
 		"createdAt": "",
 		"updatedAt": ""
 	}

@@ -1,121 +1,127 @@
 <template>
-  <BusinessPageShell
-    title="DZCOM 投资业务驾驶舱"
-    eyebrow="INVESTMENT COMMAND CENTER"
-    description="这里是业务入口，不是开发控制台：聚合数据质量、产品风险、报告门禁、Mock 组合、复盘反馈和风控审计。"
-    :endpoints="[
-      endpoints.dataSource.list,
-      endpoints.product.list,
-      endpoints.report.list,
-      endpoints.portfolio.mine,
-      endpoints.risk.checks,
-    ]"
-    :icon="DashboardOutlined"
-    :status-text="errorMessage ? 'DEGRADED' : 'BUSINESS ONLINE'"
-  >
-    <PageState :loading="loading" :error-message="errorMessage">
-      <MetricStrip :metrics="metrics" />
+  <div class="home-command">
+    <section class="home-hero">
+      <div class="home-hero__grid" />
+      <div class="home-hero__content">
+        <a-tag color="blue">DZCOM INVESTMENT CLOSED LOOP</a-tag>
+        <h1>
+          <span>投资闭环</span>
+          <strong>业务驾驶舱</strong>
+        </h1>
+        <p class="home-hero__lead">
+          从可信数据源到 Mock 交易复盘，把 AI 发现、投资报告、Prompt / Skill 治理和风控审计串成一条可追踪链路。
+        </p>
+        <div class="home-hero__chips">
+          <span>可复盘</span>
+          <span>可配置</span>
+          <span>可自动成长</span>
+          <span>人工闸门</span>
+        </div>
+        <a-space wrap>
+          <a-button type="primary" size="large" @click="router.push('/overview')">进入业务驾驶舱</a-button>
+          <a-button size="large" @click="router.push('/config-center/data-source-discovery')">发现数据源</a-button>
+          <a-button size="large" @click="router.push('/config-center/ai-skills')">维护 AI Skill</a-button>
+        </a-space>
+      </div>
+      <div class="home-orbit">
+        <div class="home-orbit__ring ring-a" />
+        <div class="home-orbit__ring ring-b" />
+        <div class="home-orbit__ring ring-c" />
+        <div class="home-orbit__core">
+          <span>REAL API</span>
+          <strong>ONLINE</strong>
+        </div>
+        <div class="home-orbit__label label-a">SKILL</div>
+        <div class="home-orbit__label label-b">MOCK</div>
+        <div class="home-orbit__label label-c">RISK</div>
+      </div>
+    </section>
 
-      <a-row :gutter="[18, 18]">
-        <a-col :xs="24" :xl="15">
-          <a-card class="cockpit-card" :bordered="false" title="业务闭环导航">
-            <div class="mini-flow">
-              <RouterLink v-for="node in flowNodes" :key="node.path" class="mini-flow__node" :to="node.path">
-                {{ node.label }}
-              </RouterLink>
-            </div>
-          </a-card>
-        </a-col>
-        <a-col :xs="24" :xl="9">
-          <a-card class="cockpit-card" :bordered="false" title="今日重点">
-            <a-list size="small" :data-source="focusItems">
-              <template #renderItem="{ item }">
-                <a-list-item>{{ item }}</a-list-item>
-              </template>
-            </a-list>
-          </a-card>
-        </a-col>
-      </a-row>
-    </PageState>
-  </BusinessPageShell>
+    <a-row :gutter="[16, 16]">
+      <a-col v-for="metric in metrics" :key="metric.label" :xs="24" :sm="12" :xl="6">
+        <div class="home-metric">
+          <span>{{ metric.label }}</span>
+          <strong>{{ metric.value }}</strong>
+          <small>{{ metric.hint }}</small>
+        </div>
+      </a-col>
+    </a-row>
+
+    <a-row :gutter="[16, 16]">
+      <a-col :xs="24" :xl="15">
+        <a-card class="page-card" :bordered="false" title="业务闭环主链路">
+          <div class="home-flow">
+            <button v-for="step in flowSteps" :key="step.title" class="home-flow__step" @click="router.push(step.path)">
+              <span>{{ step.no }}</span>
+              <strong>{{ step.title }}</strong>
+              <small>{{ step.desc }}</small>
+            </button>
+          </div>
+        </a-card>
+      </a-col>
+      <a-col :xs="24" :xl="9">
+        <a-card class="page-card" :bordered="false" title="系统边界">
+          <a-list :data-source="guards" size="small">
+            <template #renderItem="{ item }">
+              <a-list-item>
+                <a-list-item-meta :title="item.title" :description="item.desc" />
+                <a-tag :color="item.color">{{ item.badge }}</a-tag>
+              </a-list-item>
+            </template>
+          </a-list>
+        </a-card>
+      </a-col>
+    </a-row>
+
+    <a-row :gutter="[16, 16]">
+      <a-col v-for="entry in entries" :key="entry.path" :xs="24" :md="12" :xl="8">
+        <a-card class="page-card home-entry" :bordered="false" @click="router.push(entry.path)">
+          <a-space direction="vertical" :size="8">
+            <a-tag :color="entry.color">{{ entry.badge }}</a-tag>
+            <h3>{{ entry.title }}</h3>
+            <p>{{ entry.desc }}</p>
+          </a-space>
+        </a-card>
+      </a-col>
+    </a-row>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
-import { RouterLink } from 'vue-router'
-import { DashboardOutlined } from '@ant-design/icons-vue'
-import BusinessPageShell from '@/shared/components/business/BusinessPageShell.vue'
-import MetricStrip from '@/shared/components/business/MetricStrip.vue'
-import PageState from '@/shared/components/business/PageState.vue'
-import { endpoints } from '@/shared/api/endpoints'
-import { listDataSources } from '@/entities/data-source/api'
-import { summarizeDataSources, type DataSourceHealthSummary } from '@/entities/data-source/adapter'
-import { listProducts } from '@/entities/product/api'
-import { summarizeProducts } from '@/entities/product/adapter'
-import { listInvestmentReports } from '@/entities/report/api'
-import { summarizeReports } from '@/entities/report/adapter'
-import { listMyMockPortfolios } from '@/entities/portfolio/api'
-import { listRiskChecks } from '@/entities/risk/api'
-import { formatPercent } from '@/shared/utils/format'
+import { useRouter } from 'vue-router'
 
-const loading = ref(false)
-const errorMessage = ref('')
-const dataSummary = ref<DataSourceHealthSummary>({ total: 0, enabled: 0, degraded: 0 })
-const productSummary = ref({ total: 0, tradable: 0, mockTradable: 0, highRisk: 0, averageQuality: undefined as number | undefined })
-const reportSummary = ref({ total: 0, succeeded: 0, blocked: 0, unusable: 0 })
-const portfolioCount = ref(0)
-const riskCount = ref(0)
+const router = useRouter()
 
-const metrics = computed(() => [
-  { label: '数据质量', value: formatPercent(dataSummary.value.averageQuality), hint: `${dataSummary.value.enabled}/${dataSummary.value.total} 来源启用` },
-  { label: 'Mock 标的', value: productSummary.value.mockTradable, hint: `产品池 ${productSummary.value.total}` },
-  { label: '报告门禁', value: reportSummary.value.blocked, hint: `需补数 / 共 ${reportSummary.value.total}` },
-  { label: '风控审计', value: riskCount.value, hint: '最近风险检查' },
-  { label: 'Mock 组合', value: portfolioCount.value, hint: '当前用户组合' },
-  { label: '高风险产品', value: productSummary.value.highRisk, hint: 'riskLevel >= 4' },
-  { label: '成功报告', value: reportSummary.value.succeeded, hint: '可解释报告' },
-  { label: '降级来源', value: dataSummary.value.degraded, hint: 'LOW / DEMO_ONLY' },
-])
-
-const flowNodes = [
-  { label: '数据质量', path: '/data-quality' },
-  { label: '采集编排', path: '/data-ingestion' },
-  { label: '产品风险', path: '/product-risk' },
-  { label: '投资报告', path: '/report-studio' },
-  { label: 'Prompt 实验室', path: '/prompt-lab' },
-  { label: '模拟交易', path: '/simulation' },
-  { label: '复盘闭环', path: '/review-loop' },
-  { label: '风控审计', path: '/risk-audit' },
+const metrics = [
+  { label: '主链路', value: '7', hint: '从数据源发现到驾驶舱复盘' },
+  { label: '人工闸门', value: '4', hint: '数据源 / Prompt / 模型 / 真实交易' },
+  { label: '配置资产', value: '9+', hint: 'Skill、模型、Prompt、任务、产品等' },
+  { label: '接口模式', value: 'POST', hint: '统一真实后端 API' },
 ]
 
-const focusItems = computed(() => [
-  dataSummary.value.degraded > 0 ? `有 ${dataSummary.value.degraded} 个数据源处于降级状态，优先补数。` : '数据源无显式降级记录。',
-  reportSummary.value.blocked > 0 ? `有 ${reportSummary.value.blocked} 份报告被质量门禁拦截。` : '报告质量门禁暂无阻断。',
-  productSummary.value.highRisk > 0 ? `有 ${productSummary.value.highRisk} 个高风险产品，需要风险匹配提示。` : '产品风险雷达暂无高风险聚集。',
-])
+const flowSteps = [
+  { no: '01', title: 'AI 数据源发现', desc: '生成候选源、字段映射和任务建议', path: '/config-center/data-source-discovery' },
+  { no: '02', title: '数据源资产', desc: '管理已入库来源、健康和质量快照', path: '/config-center/data-sources' },
+  { no: '03', title: '采集编排', desc: '任务运行、触发和参数治理', path: '/data-ingestion' },
+  { no: '04', title: '投资报告', desc: '质量门禁后的投资分析报告', path: '/report-studio' },
+  { no: '05', title: 'Prompt / Skill', desc: '提示词和模型能力持续治理', path: '/prompt-lab' },
+  { no: '06', title: 'Mock 交易', desc: '组合、下单、调仓和估值刷新', path: '/simulation' },
+  { no: '07', title: '复盘闭环', desc: '回测、反馈、风控审计和驾驶舱', path: '/overview' },
+]
 
-const load = async () => {
-  loading.value = true
-  errorMessage.value = ''
-  try {
-    const [sourcePage, productPage, reportPage, portfolioPage, riskPage] = await Promise.all([
-      listDataSources({ page: 1, size: 50 }),
-      listProducts({ page: 1, size: 50 }),
-      listInvestmentReports({ page: 1, size: 50 }),
-      listMyMockPortfolios({ page: 1, size: 20 }),
-      listRiskChecks({ page: 1, size: 20 }),
-    ])
-    dataSummary.value = summarizeDataSources(sourcePage.items || [])
-    productSummary.value = summarizeProducts(productPage.items || [])
-    reportSummary.value = summarizeReports(reportPage.items || [])
-    portfolioCount.value = portfolioPage.items?.length || 0
-    riskCount.value = riskPage.items?.length || 0
-  } catch (error) {
-    errorMessage.value = error instanceof Error ? error.message : '请求失败，请稍后重试'
-  } finally {
-    loading.value = false
-  }
-}
+const guards = [
+  { title: '候选数据源不自动启用', desc: 'AI 只发现候选，保存后仍需人工审核。', badge: 'REVIEW', color: 'warning' },
+  { title: 'Prompt 不自动上线', desc: '生成和评分后，需要人工确认 ACTIVE。', badge: 'HUMAN', color: 'purple' },
+  { title: '模型不自动生效', desc: '模型候选停留在 DRAFT / VALIDATING。', badge: 'GATE', color: 'blue' },
+  { title: '真实交易禁用', desc: '当前闭环只允许 Mock 交易自动执行。', badge: 'SAFE', color: 'red' },
+]
 
-onMounted(load)
+const entries = [
+  { title: '配置总览', badge: 'CONFIG', color: 'blue', path: '/config-center', desc: '进入 Skill、模型绑定、数据源资产、任务、产品、Prompt 等配置域。' },
+  { title: 'AI Skill 工作台', badge: 'SKILL', color: 'purple', path: '/config-center/ai-skills', desc: '维护数据源发现、Prompt 治理、质量审计等模型能力说明。' },
+  { title: '模型 Skill 绑定', badge: 'BINDING', color: 'geekblue', path: '/config-center/model-skills', desc: '按业务场景把模型实例绑定到指定 Skill 版本。' },
+  { title: '产品风险', badge: 'RISK', color: 'orange', path: '/product-risk', desc: '查看产品池、风险画像、行情和产品风险上下文。' },
+  { title: '风控审计', badge: 'AUDIT', color: 'red', path: '/risk-audit', desc: '追踪质量不足、现金不足、风险不匹配等拦截原因。' },
+  { title: '回测反馈', badge: 'REVIEW', color: 'green', path: '/review-loop', desc: '把 Mock 和回测结果反馈给 Prompt、模型和 Skill 治理。' },
+]
 </script>

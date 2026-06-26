@@ -32,6 +32,7 @@ export const endpoints = {
   dataSource: {
     list: '/api/admin/data-sources/list',
     save: '/api/admin/data-sources/save',
+    discover: '/api/admin/data-sources/discover',
     saveHealth: '/api/admin/data-sources/health/save',
     qualityList: '/api/admin/data-sources/quality/list',
     saveQuality: '/api/admin/data-sources/quality/save',
@@ -44,6 +45,10 @@ export const endpoints = {
     articles: '/api/investment/tasks/articles/list',
     articleRelations: '/api/investment/tasks/article-relations/list',
     snapshots: '/api/investment/tasks/snapshots/list',
+  },
+  closedLoop: {
+    runs: '/api/investment/closed-loop/runs/list',
+    detail: '/api/investment/closed-loop/runs/detail',
   },
   product: {
     list: '/api/products/list',
@@ -109,6 +114,18 @@ export const endpoints = {
     list: '/api/ai/models/list',
     save: '/api/ai/models/save',
     status: '/api/ai/models/status',
+  },
+  aiSkill: {
+    detail: '/api/ai/skills/detail',
+    list: '/api/ai/skills/list',
+    save: '/api/ai/skills/save',
+    status: '/api/ai/skills/status',
+  },
+  aiModelSkill: {
+    byModel: '/api/ai/model-skills/by-model',
+    detail: '/api/ai/model-skills/detail',
+    list: '/api/ai/model-skills/list',
+    save: '/api/ai/model-skills/save',
   },
 } as const
 

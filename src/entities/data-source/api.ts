@@ -1,7 +1,14 @@
 import { endpoints } from '@/shared/api/endpoints'
 import { postJson } from '@/shared/api/httpClient'
 import type { PageResult } from '@/shared/api/types'
-import type { DataQualitySnapshotDto, DataQualitySnapshotListRequest, DataSourceDto, DataSourceListRequest } from './model'
+import type {
+  DataQualitySnapshotDto,
+  DataQualitySnapshotListRequest,
+  DataSourceDiscoveryDto,
+  DataSourceDto,
+  DataSourceListRequest,
+  DiscoverDataSourcesRequest,
+} from './model'
 
 export const listDataSources = (data: DataSourceListRequest) =>
   postJson<PageResult<DataSourceDto>, DataSourceListRequest>(endpoints.dataSource.list, data)
@@ -11,6 +18,9 @@ export const listDataQualitySnapshots = (data: DataQualitySnapshotListRequest) =
 
 export const saveDataSource = (data: Partial<DataSourceDto>) =>
   postJson<DataSourceDto, Partial<DataSourceDto>>(endpoints.dataSource.save, data)
+
+export const discoverDataSources = (data: DiscoverDataSourcesRequest) =>
+  postJson<DataSourceDiscoveryDto, DiscoverDataSourcesRequest>(endpoints.dataSource.discover, data)
 
 export const saveDataSourceHealth = (data: Record<string, unknown>) =>
   postJson<DataSourceDto, Record<string, unknown>>(endpoints.dataSource.saveHealth, data)

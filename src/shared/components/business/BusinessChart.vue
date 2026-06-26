@@ -1,62 +1,60 @@
 <template>
-  <div ref="chartRef" class="business-chart" :style="{ height }" />
+  <div class="business-chart">
+    <div v-if="title || unit" class="business-chart__head">
+      <strong>{{ title }}</strong>
+      <span>{{ unit }}</span>
+    </div>
+    <EmptyEvidence v-if="empty" :description="emptyText" />
+    <div v-else ref="chartRef" class="business-chart__canvas" />
+  </div>
 </template>
 
 <script setup lang="ts">
-import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import * as echarts from 'echarts/core'
 import { BarChart, LineChart, PieChart } from 'echarts/charts'
-import {
-  GridComponent,
-  LegendComponent,
-  TitleComponent,
-  TooltipComponent,
-} from 'echarts/components'
+import { GridComponent, LegendComponent, TooltipComponent } from 'echarts/components'
 import { CanvasRenderer } from 'echarts/renderers'
-import type { ECharts, EChartsCoreOption } from 'echarts/core'
+import type { EChartsCoreOption } from 'echarts/core'
+import EmptyEvidence from '@/shared/components/visual/EmptyEvidence.vue'
 
-echarts.use([
-  BarChart,
-  LineChart,
-  PieChart,
-  GridComponent,
-  LegendComponent,
-  TitleComponent,
-  TooltipComponent,
-  CanvasRenderer,
-])
+echarts.use([BarChart, LineChart, PieChart, GridComponent, LegendComponent, TooltipComponent, CanvasRenderer])
 
 const props = withDefaults(defineProps<{
-  option: EChartsCoreOption
-  height?: string
+  option?: EChartsCoreOption
+  title?: string
+  unit?: string
+  empty?: boolean
+  emptyText?: string
 }>(), {
-  height: '260px',
+  title: '',
+  unit: '',
+  empty: false,
+  emptyText: '暂无可绘制数据；不生成假图表。',
 })
 
-const chartRef = ref<HTMLDivElement>()
-let chart: ECharts | undefined
-let resizeObserver: ResizeObserver | undefined
+const chartRef = ref<HTMLElement>()
+let chart: echarts.ECharts | undefined
 
-const render = async () => {
-  await nextTick()
-  if (!chartRef.value) return
+const option = computed(() => props.option || {})
+
+const render = () => {
+  if (!chartRef.value || props.empty) return
   chart ||= echarts.init(chartRef.value)
-  chart.setOption(props.option, true)
+  chart.setOption(option.value, true)
 }
 
-onMounted(() => {
-  void render()
-  if (chartRef.value) {
-    resizeObserver = new ResizeObserver(() => chart?.resize())
-    resizeObserver.observe(chartRef.value)
-  }
-})
+const resize = () => chart?.resize()
 
-watch(() => props.option, () => void render(), { deep: true })
+onMounted(() => {
+  render()
+  window.addEventListener('resize', resize)
+})
 
 onBeforeUnmount(() => {
-  resizeObserver?.disconnect()
+  window.removeEventListener('resize', resize)
   chart?.dispose()
-  chart = undefined
 })
+
+watch(() => [props.option, props.empty], render, { deep: true })
 </script>

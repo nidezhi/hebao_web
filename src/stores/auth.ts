@@ -4,6 +4,7 @@ import { getCurrentUser, login as loginApi, logout as logoutApi } from '@/entiti
 import type { AuthUserDto, LoginRequest } from '@/entities/auth/model'
 
 const storageKey = 'dzcom.auth.user'
+const sessionCookieName = 'DZCOM_SESSION'
 
 const readCachedUser = (): AuthUserDto | null => {
   const raw = localStorage.getItem(storageKey)
@@ -14,6 +15,15 @@ const readCachedUser = (): AuthUserDto | null => {
     localStorage.removeItem(storageKey)
     return null
   }
+}
+
+const clearSessionCookieFallback = () => {
+  if (typeof document === 'undefined') return
+  const expires = 'Thu, 01 Jan 1970 00:00:00 GMT'
+  const base = `${sessionCookieName}=; expires=${expires}; max-age=0; path=`
+  document.cookie = `${base}/`
+  document.cookie = `${base}/api`
+  document.cookie = `${base}${window.location.pathname || '/'}`
 }
 
 export const useAuthStore = defineStore('auth', () => {
@@ -30,6 +40,11 @@ export const useAuthStore = defineStore('auth', () => {
     } else {
       localStorage.removeItem(storageKey)
     }
+  }
+
+  const clearAuthState = () => {
+    setUser(null)
+    clearSessionCookieFallback()
   }
 
   const bootstrap = async () => {
@@ -64,9 +79,12 @@ export const useAuthStore = defineStore('auth', () => {
     loading.value = true
     try {
       await logoutApi()
+    } catch {
+      // 登出必须是“本地态优先”的幂等动作：即使后端会话已过期或清 Cookie 失败，
+      // 前端也要清理本地身份并允许页面跳转到登录页。
     } finally {
-      setUser(null)
-      initialized.value = true
+      clearAuthState()
+      initialized.value = false
       loading.value = false
     }
   }
@@ -80,5 +98,6 @@ export const useAuthStore = defineStore('auth', () => {
     login,
     logout,
     setUser,
+    clearAuthState,
   }
 })
