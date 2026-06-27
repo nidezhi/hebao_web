@@ -41,11 +41,13 @@ import {
 } from '@/entities/product/api'
 import { generateInvestmentReport } from '@/entities/report/api'
 import { saveAiPrompt, updateAiPromptStatus } from '@/entities/prompt/api'
+import { saveAiSkill, updateAiSkillStatus } from '@/entities/ai-skill/api'
 import {
   archiveAiModel,
   saveAiModel,
   updateAiModelStatus,
 } from '@/entities/ai-model/api'
+import { saveAiModelSkillBinding } from '@/entities/ai-model-skill/api'
 import {
   buyMockOrder,
   buyMockOrderFromReport,
@@ -58,6 +60,7 @@ import {
 import { generateBacktestFromPortfolio, saveBacktest } from '@/entities/backtest/api'
 import { saveInvestmentFeedback, savePromptEvaluation } from '@/entities/feedback/api'
 import type { PromptStatus } from '@/entities/prompt/model'
+import type { AiSkillStatus } from '@/entities/ai-skill/model'
 
 const textOf = (payload: Record<string, unknown>, key: string) => String(payload[key] || '')
 const numberOf = (payload: Record<string, unknown>, key: string) => Number(payload[key] || 0)
@@ -396,6 +399,73 @@ export const modelMutationActions: ApiMutationAction[] = [
   },
 ]
 
+export const aiSkillMutationActions: ApiMutationAction[] = [
+  {
+    id: 'ai-skill-save',
+    title: '保存 AI Skill',
+    description: '新增或更新 Skill 版本、指令、Schema 和评估策略。',
+    endpoint: endpoints.aiSkill.save,
+    defaultPayload: {
+      skillCode: 'DATA_SOURCE_DISCOVERY_CORE',
+      skillVersion: 'v1',
+      skillName: '数据源发现 Skill',
+      skillType: 'DATA_SOURCE_DISCOVERY',
+      status: 'DRAFT',
+      instructionContent: '请按业务场景输出结构化候选数据源。',
+      inputSchema: '{}',
+      outputSchema: '{}',
+      evaluationPolicy: '{}',
+      description: '',
+    },
+    execute: (payload) => saveAiSkill({
+      skillCode: textOf(payload, 'skillCode'),
+      skillVersion: textOf(payload, 'skillVersion'),
+      skillName: textOf(payload, 'skillName'),
+      skillType: textOf(payload, 'skillType'),
+      status: textOf(payload, 'status') as AiSkillStatus,
+      instructionContent: textOf(payload, 'instructionContent'),
+      inputSchema: textOf(payload, 'inputSchema') || undefined,
+      outputSchema: textOf(payload, 'outputSchema') || undefined,
+      evaluationPolicy: textOf(payload, 'evaluationPolicy') || undefined,
+      description: textOf(payload, 'description') || undefined,
+    }),
+  },
+  {
+    id: 'ai-skill-status',
+    title: '变更 AI Skill 状态',
+    description: 'DRAFT / VALIDATING / ACTIVE / RETIRED / ARCHIVED。',
+    endpoint: endpoints.aiSkill.status,
+    danger: true,
+    defaultPayload: { bizId: '', status: 'VALIDATING' },
+    execute: (payload) => updateAiSkillStatus({ bizId: textOf(payload, 'bizId'), status: textOf(payload, 'status') as AiSkillStatus }),
+  },
+  {
+    id: 'model-skill-save',
+    title: '保存模型 Skill 绑定',
+    description: '把模型实例绑定到业务 Skill 场景和版本。',
+    endpoint: endpoints.aiModelSkill.save,
+    danger: true,
+    defaultPayload: {
+      modelBizId: '',
+      skillBizId: '',
+      scenarioCode: 'DATA_SOURCE_DISCOVERY',
+      priority: 10,
+      enabled: true,
+      config: '{"candidateLimit":4,"collectionDirection":"MULTI_SOURCE","autoRegisterCandidates":true,"autoEnableCandidates":false}',
+      description: '',
+    },
+    execute: (payload) => saveAiModelSkillBinding({
+      modelBizId: textOf(payload, 'modelBizId'),
+      skillBizId: textOf(payload, 'skillBizId'),
+      scenarioCode: textOf(payload, 'scenarioCode'),
+      priority: numberOf(payload, 'priority'),
+      enabled: Boolean(payload.enabled),
+      config: textOf(payload, 'config') || undefined,
+      description: textOf(payload, 'description') || undefined,
+    }),
+  },
+]
+
 export const operationMutationActions: ApiMutationAction[] = [
   {
     id: 'report-generate',
@@ -501,3 +571,71 @@ export const operationMutationActions: ApiMutationAction[] = [
     execute: savePromptEvaluation,
   },
 ]
+
+export interface MutationActionGroup {
+  key: string
+  title: string
+  badge: string
+  color: string
+  description: string
+  actions: ApiMutationAction[]
+}
+
+export const mutationActionGroups: MutationActionGroup[] = [
+  {
+    key: 'closed-loop',
+    title: '闭环 / 任务 / 报告',
+    badge: 'LOOP',
+    color: 'cyan',
+    description: '真实采集、任务触发、报告生成和闭环总编排动作。',
+    actions: [
+      ...taskMutationActions,
+      operationMutationActions.find((action) => action.id === 'report-generate')!,
+    ],
+  },
+  {
+    key: 'data-assets',
+    title: '数据源 / 产品 / 行情',
+    badge: 'DATA',
+    color: 'green',
+    description: '数据源、质量快照、产品资产、风险画像和行情写入。',
+    actions: [
+      ...dataSourceMutationActions,
+      ...productMutationActions,
+    ],
+  },
+  {
+    key: 'ai-capability',
+    title: 'AI 能力 / 模型绑定',
+    badge: 'AI',
+    color: 'purple',
+    description: 'Skill、模型、模型 Skill 绑定和 Prompt 生命周期。',
+    actions: [
+      ...aiSkillMutationActions,
+      ...modelMutationActions,
+      ...promptMutationActions,
+    ],
+  },
+  {
+    key: 'mock-loop',
+    title: 'Mock / 回测 / 反馈',
+    badge: 'MOCK',
+    color: 'volcano',
+    description: 'Mock 组合、模拟订单、组合估值、回测和反馈复核。',
+    actions: operationMutationActions.filter((action) => action.id !== 'report-generate'),
+  },
+  {
+    key: 'identity-governance',
+    title: '用户 / 角色 / 偏好',
+    badge: 'IAM',
+    color: 'gold',
+    description: '账户资料、用户状态、KYC、风险等级和角色权限。',
+    actions: [
+      ...accountMutationActions,
+      ...userMutationActions,
+      ...roleMutationActions,
+    ],
+  },
+]
+
+export const allMutationActions = mutationActionGroups.flatMap((group) => group.actions)

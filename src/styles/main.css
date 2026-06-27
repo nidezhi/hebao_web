@@ -609,6 +609,68 @@ select {
   white-space: nowrap;
 }
 
+.action-governance-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.action-governance-card {
+  display: grid;
+  min-width: 0;
+  min-height: 148px;
+  gap: 8px;
+  align-content: start;
+  padding: 14px;
+  text-align: left;
+  background: #fff;
+  border: 1px solid var(--deck-line);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.action-governance-card:hover,
+.action-governance-card--active {
+  background: #f8fbff;
+  border-color: rgba(37, 99, 235, 0.44);
+}
+
+.action-governance-card strong {
+  color: #0f172a;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.action-governance-card small {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--deck-muted);
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.action-filter-bar {
+  margin-bottom: 12px;
+}
+
+.action-filter-bar .ant-card-body {
+  padding: 10px 14px !important;
+}
+
+.action-filter-tabs {
+  min-width: min(720px, 100%);
+}
+
+.action-filter-tabs .ant-tabs-nav {
+  margin-bottom: 0;
+}
+
+.action-search-input {
+  width: min(340px, 100%);
+}
+
 .risk-ribbon {
   border-color: rgba(255, 209, 102, 0.26) !important;
   background: rgba(255, 209, 102, 0.08) !important;
@@ -1326,6 +1388,10 @@ select {
 }
 
 @media (max-width: 1180px) {
+  .action-governance-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .ops-command-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1358,6 +1424,10 @@ select {
 }
 
 @media (max-width: 760px) {
+  .action-governance-grid {
+    grid-template-columns: 1fr;
+  }
+
   .report-generate-bar,
   .report-brief__stats,
   .report-metric-grid,
