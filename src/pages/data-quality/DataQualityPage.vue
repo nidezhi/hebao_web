@@ -5,9 +5,40 @@
     :endpoints="[endpoints.dataSource.list, endpoints.dataSource.qualityList]"
     :icon="DatabaseOutlined"
     status-text="QUALITY GATE"
+    compact
   >
     <PageState :loading="loading" :error-message="errorMessage">
       <MetricStrip :metrics="metrics" />
+
+      <section class="data-readiness-panel page-card">
+        <div class="data-readiness-panel__head">
+          <div>
+            <span class="eyebrow">REAL DATA READINESS</span>
+            <h3>报告生成前置门禁</h3>
+          </div>
+          <a-tag :color="reportGenerationReady ? 'green' : 'orange'">
+            {{ reportGenerationReady ? '允许报告验证' : '先补真实数据' }}
+          </a-tag>
+        </div>
+        <div class="data-readiness-grid">
+          <div
+            v-for="item in readinessItems"
+            :key="item.label"
+            class="data-readiness-item"
+            :class="{ 'data-readiness-item--ready': item.ready }"
+          >
+            <span>{{ item.label }}</span>
+            <strong>{{ item.value }}</strong>
+            <small>{{ item.hint }}</small>
+          </div>
+        </div>
+        <a-alert
+          class="mt-12"
+          :type="reportGenerationReady ? 'success' : 'warning'"
+          show-icon
+          :message="readinessMessage"
+        />
+      </section>
 
       <a-row :gutter="[16, 16]">
         <a-col :xs="24" :xl="10">
@@ -102,16 +133,52 @@ import StatusTag from '@/shared/components/visual/StatusTag.vue'
 import { listDataQualitySnapshots, listDataSources } from '@/entities/data-source/api'
 import { summarizeDataSources } from '@/entities/data-source/adapter'
 import type { DataQualitySnapshotDto, DataSourceDto } from '@/entities/data-source/model'
+import { listProducts } from '@/entities/product/api'
+import type { ProductDto } from '@/entities/product/model'
+import { listInvestmentReports } from '@/entities/report/api'
+import { normalizeReport, reportGateMessage, reportQualityGatePassed } from '@/entities/report/adapter'
+import type { InvestmentAnalysisReportDto } from '@/entities/report/model'
 import { qualityLevelOptions } from '@/shared/dictionaries/status'
 
 const loading = ref(false)
 const errorMessage = ref('')
 const sources = ref<DataSourceDto[]>([])
+const products = ref<ProductDto[]>([])
+const reports = ref<InvestmentAnalysisReportDto[]>([])
 const qualitySnapshots = ref<DataQualitySnapshotDto[]>([])
 const selectedSource = ref<DataSourceDto>()
 const drawerOpen = ref(false)
 
 const summary = computed(() => summarizeDataSources(sources.value))
+const latestReport = computed(() => reports.value[0] ? normalizeReport(reports.value[0]) : undefined)
+const quoteReadyProducts = computed(() => products.value.filter((item) => item.latestQuoteTime || item.latestNav !== undefined).length)
+const sourceQualityReady = computed(() =>
+  sources.value.filter((item) => typeof item.latestQuality?.qualityScore === 'number' || Number(item.latestQuality?.sampleCount || 0) > 0).length,
+)
+const latestNewsCount = computed(() =>
+  latestReport.value?.investmentSummaryView?.newsCount
+  ?? latestReport.value?.dataQualityGateView?.newsCount
+  ?? latestReport.value?.newsCount
+  ?? 0,
+)
+const reportGenerationReady = computed(() =>
+  products.value.length > 0
+  && quoteReadyProducts.value > 0
+  && latestNewsCount.value > 0
+  && sourceQualityReady.value > 0
+  && (!latestReport.value || reportQualityGatePassed(latestReport.value)),
+)
+const readinessItems = computed(() => [
+  { label: '产品池', value: products.value.length, hint: products.value.length ? '产品已落库' : '等待 REAL_PRODUCT_UNIVERSE_SYNC', ready: products.value.length > 0 },
+  { label: '行情/净值', value: quoteReadyProducts.value, hint: quoteReadyProducts.value ? '产品有最新行情' : '等待 REAL_MARKET_QUOTE_SYNC', ready: quoteReadyProducts.value > 0 },
+  { label: '近端新闻', value: latestNewsCount.value, hint: latestNewsCount.value ? '报告有关联新闻' : '等待 REAL_NEWS_SYNC', ready: latestNewsCount.value > 0 },
+  { label: '质量快照', value: sourceQualityReady.value, hint: sourceQualityReady.value ? '质量可追踪' : '等待 REAL_DATA_QUALITY_SNAPSHOT', ready: sourceQualityReady.value > 0 },
+])
+const readinessMessage = computed(() => {
+  if (!latestReport.value && !reportGenerationReady.value) return '真实数据尚未形成完整闭环；先同步产品、行情、资讯和质量快照，再触发报告。'
+  if (latestReport.value && !reportQualityGatePassed(latestReport.value)) return reportGateMessage(latestReport.value)
+  return '真实数据准备度满足当前报告验证要求；仍需以后端质量门禁为准。'
+})
 const gaps = computed(() => sources.value.filter((item) =>
   ['LOW', 'DEMO_ONLY'].includes(item.qualityLevel || '')
   || Number(item.latestQuality?.qualityScore ?? 1) < 0.45
@@ -192,8 +259,15 @@ const load = async () => {
   loading.value = true
   errorMessage.value = ''
   try {
-    const page = await listDataSources({ page: 1, size: 100, sort: 'updatedAt', direction: 'desc' })
+    const [sourcePage, productPage, reportPage] = await Promise.all([
+      listDataSources({ page: 1, size: 100, sort: 'updatedAt', direction: 'desc' }),
+      listProducts({ page: 1, size: 100, sort: 'updatedAt', direction: 'desc' }),
+      listInvestmentReports({ page: 1, size: 5, sort: 'generatedAt', direction: 'desc' }),
+    ])
+    const page = sourcePage
     sources.value = page.items || []
+    products.value = productPage.items || []
+    reports.value = reportPage.items || []
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : '数据质量接口加载失败'
   } finally {

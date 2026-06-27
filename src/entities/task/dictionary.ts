@@ -6,6 +6,11 @@ export const taskExecutionStatusOptions = [
 ] as const
 
 export const ingestionTaskTypeOptions = [
+  { label: '真实产品池同步', value: 'REAL_PRODUCT_UNIVERSE_SYNC' },
+  { label: '真实行情同步', value: 'REAL_MARKET_QUOTE_SYNC' },
+  { label: '真实新闻同步', value: 'REAL_NEWS_SYNC' },
+  { label: '真实披露同步', value: 'REAL_DISCLOSURE_SYNC' },
+  { label: '真实数据质量快照', value: 'REAL_DATA_QUALITY_SNAPSHOT' },
   { label: 'AI 数据源发现', value: 'AI_DATA_SOURCE_DISCOVERY' },
   { label: '监管披露采集', value: 'REGULATORY_DISCLOSURE_COLLECTION' },
   { label: '交易所公告采集', value: 'EXCHANGE_ANNOUNCEMENT_COLLECTION' },

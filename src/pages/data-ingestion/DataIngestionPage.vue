@@ -5,14 +5,23 @@
     :endpoints="[endpoints.task.definitions, endpoints.task.saveDefinition, endpoints.task.trigger, endpoints.task.executions]"
     :icon="CloudSyncOutlined"
     status-text="ORCHESTRATION"
+    compact
   >
     <PageState :loading="loading" :error-message="errorMessage">
       <MetricStrip :metrics="metrics" />
       <a-tabs v-model:active-key="activeTab">
         <a-tab-pane key="all" tab="全部任务" />
-        <a-tab-pane key="collection" tab="采集任务" />
+        <a-tab-pane key="real-data" tab="真实数据采集" />
+        <a-tab-pane key="collection" tab="AI / 旧采集" />
         <a-tab-pane key="automation" tab="自动报告 / Prompt / 闭环" />
       </a-tabs>
+
+      <a-alert
+        class="mb-12"
+        type="info"
+        show-icon
+        message="真实落库优先走确定性采集器；AI 数据源发现只生成候选、字段映射和质量策略，不直接替代行情/新闻落库。"
+      />
 
       <a-row :gutter="[16, 16]">
         <a-col :xs="24" :xl="14">
@@ -150,6 +159,7 @@ type ParameterField = {
   options?: { label: string; value: string }[]
 }
 
+const realDataTypes = ['REAL_PRODUCT_UNIVERSE_SYNC', 'REAL_MARKET_QUOTE_SYNC', 'REAL_NEWS_SYNC', 'REAL_DISCLOSURE_SYNC', 'REAL_DATA_QUALITY_SNAPSHOT']
 const collectionTypes = ['AI_DATA_SOURCE_DISCOVERY', 'REGULATORY_DISCLOSURE_COLLECTION', 'EXCHANGE_ANNOUNCEMENT_COLLECTION', 'WEALTH_PRODUCT_NAV_REFRESH', 'MARKET_MOMENTUM_SCAN', 'HOT_THEME_RETURN', 'NEWS_HEAT_AGGREGATION']
 const endpointCollectionTypes = collectionTypes.filter((type) => type !== 'AI_DATA_SOURCE_DISCOVERY')
 const automationTypes = ['AUTO_INVESTMENT_REPORT_GENERATION', 'AUTO_PROMPT_GOVERNANCE', 'AUTO_INVESTMENT_CLOSED_LOOP_ORCHESTRATION']
@@ -158,13 +168,14 @@ const dataCollectionSkillSelectOptions = dataCollectionSkillCodeOptions.map((ite
 const directionTaskCodeSelectOptions = directionTaskCodeOptions.map((item) => ({ label: item.label, value: item.value }))
 
 const metrics = computed(() => [
-  { label: '任务定义', value: definitions.value.length, hint: `启用 ${definitions.value.filter((item) => item.enabled).length}` },
-  { label: '采集任务', value: definitions.value.filter((item) => collectionTypes.includes(item.type)).length, hint: 'L1/L2/主题/资讯' },
+  { label: '任务定义', value: definitions.value.length, hint: `启用 ${definitions.value.filter((item) => item.enabled).length} / 失败 ${executions.value.filter((item) => item.status === 'FAILED').length}` },
+  { label: '真实采集', value: definitions.value.filter((item) => realDataTypes.includes(item.type)).length, hint: '产品/行情/新闻/质量' },
+  { label: 'AI 发现', value: definitions.value.filter((item) => item.type === 'AI_DATA_SOURCE_DISCOVERY').length, hint: '候选不自动启用' },
   { label: '自动闭环', value: definitions.value.filter((item) => item.type === 'AUTO_INVESTMENT_CLOSED_LOOP_ORCHESTRATION').length, hint: '总编排任务' },
-  { label: '失败执行', value: executions.value.filter((item) => item.status === 'FAILED').length, hint: '需处理' },
 ])
 
 const filteredDefinitions = computed(() => {
+  if (activeTab.value === 'real-data') return definitions.value.filter((item) => realDataTypes.includes(item.type))
   if (activeTab.value === 'collection') return definitions.value.filter((item) => collectionTypes.includes(item.type))
   if (activeTab.value === 'automation') return definitions.value.filter((item) => automationTypes.includes(item.type))
   return definitions.value
@@ -197,6 +208,46 @@ const visibleFields = computed(() => {
       { key: 'allowAutoMockTrade', label: '允许自动 Mock', placeholder: 'true/false' },
     ]
   }
+  if (type === 'REAL_PRODUCT_UNIVERSE_SYNC') {
+    return [
+      { key: 'marketScope', label: '市场范围', placeholder: 'CN_MAINLAND' },
+      { key: 'sourceCode', label: '来源编码', placeholder: 'AKSHARE' },
+      { key: 'providerBaseUrl', label: 'Provider Base URL', placeholder: 'http://127.0.0.1:8080' },
+      { key: 'themes', label: '主题标的', placeholder: '黄金=518880,159934;半导体=512480,159995' },
+      { key: 'defaultCurrency', label: '默认币种', placeholder: 'CNY' },
+      { key: 'defaultRiskLevel', label: '默认风险等级', placeholder: '3' },
+    ]
+  }
+  if (type === 'REAL_MARKET_QUOTE_SYNC') {
+    return [
+      { key: 'marketScope', label: '市场范围', placeholder: 'CN_MAINLAND' },
+      { key: 'sourceCode', label: '来源编码', placeholder: 'AKSHARE' },
+      { key: 'providerBaseUrl', label: 'Provider Base URL', placeholder: 'http://127.0.0.1:8080' },
+      { key: 'quoteInterval', label: '行情周期', placeholder: '1D' },
+      { key: 'lookbackDays', label: '回看天数', placeholder: '10' },
+      { key: 'themes', label: '主题标的', placeholder: '黄金=518880,159934;半导体=512480,159995' },
+    ]
+  }
+  if (type === 'REAL_NEWS_SYNC') {
+    return [
+      { key: 'marketScope', label: '市场范围', placeholder: 'CN_MAINLAND' },
+      { key: 'sourceCode', label: '来源编码', placeholder: 'AKSHARE_NEWS' },
+      { key: 'providerBaseUrl', label: 'Provider Base URL', placeholder: 'http://127.0.0.1:8080' },
+      { key: 'keywords', label: '关键词', placeholder: 'AI,人工智能,半导体,黄金' },
+      { key: 'freshnessHours', label: '新鲜度小时', placeholder: '72' },
+      { key: 'maxItems', label: '最大条数', placeholder: '100' },
+    ]
+  }
+  if (type === 'REAL_DATA_QUALITY_SNAPSHOT') {
+    return [
+      { key: 'marketScope', label: '市场范围', placeholder: 'CN_MAINLAND' },
+      { key: 'minProductCoverage', label: '产品覆盖阈值', placeholder: '0.8' },
+      { key: 'minQuoteCoverage', label: '行情覆盖阈值', placeholder: '0.8' },
+      { key: 'maxQuoteAgeDays', label: '行情最大滞后天数', placeholder: '3' },
+      { key: 'minNewsCount', label: '72小时资讯阈值', placeholder: '20' },
+      { key: 'minQualityScore', label: '综合质量阈值', placeholder: '0.60' },
+    ]
+  }
   if (type === 'AI_DATA_SOURCE_DISCOVERY') {
     return [
       { key: 'taskCode', label: '方向任务编码', inputType: 'select', options: directionTaskCodeSelectOptions },
@@ -208,7 +259,7 @@ const visibleFields = computed(() => {
       { key: 'dataTypes', label: '数据类型', placeholder: 'MARKET_QUOTE,NEWS,ANNOUNCEMENT,RESEARCH,REGULATORY' },
       { key: 'topicKeywords', label: '主题关键词', placeholder: '理财产品,基金净值,ETF净值' },
       { key: 'preferredTrustLevels', label: '偏好等级', placeholder: 'L1,L2,L3,L4' },
-      { key: 'candidateLimit', label: '候选上限', placeholder: '8' },
+      { key: 'candidateLimit', label: '候选上限', placeholder: '4' },
       { key: 'includeDisabledCandidates', label: '包含暂不可用候选', inputType: 'switch' },
       { key: 'autoRegisterCandidates', label: '自动沉淀候选', inputType: 'switch' },
       { key: 'autoEnableCandidates', label: '自动启用候选', inputType: 'switch' },
@@ -302,7 +353,7 @@ const defaultDiscoveryDraft = () => ({
   dataTypes: collectionDirectionDefaults.MULTI_SOURCE.dataTypes,
   topicKeywords: collectionDirectionDefaults.MULTI_SOURCE.topicKeywords,
   preferredTrustLevels: collectionDirectionDefaults.MULTI_SOURCE.preferredTrustLevels,
-  candidateLimit: 8,
+  candidateLimit: 4,
   includeDisabledCandidates: true,
   autoRegisterCandidates: true,
   autoEnableCandidates: false,
@@ -328,7 +379,7 @@ const normalizeDiscoveryParameters = (draft: Record<string, string>) => {
   const { taskCode: _taskCode, ...rest } = draft
   return {
     ...rest,
-    candidateLimit: Number(rest.candidateLimit || 8),
+    candidateLimit: Number(rest.candidateLimit || 4),
     includeDisabledCandidates: rest.includeDisabledCandidates === 'true',
     autoRegisterCandidates: rest.autoRegisterCandidates === 'true',
     autoEnableCandidates: rest.autoEnableCandidates === 'true',

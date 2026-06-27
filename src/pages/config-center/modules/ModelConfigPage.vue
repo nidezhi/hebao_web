@@ -5,9 +5,17 @@
     :endpoints="[endpoints.aiModel.list, endpoints.aiModel.detail, endpoints.aiModel.save, endpoints.aiModel.status, endpoints.aiModel.archive, endpoints.aiModelSkill.byModel]"
     :icon="DeploymentUnitOutlined"
     status-text="MODEL CONFIG"
+    compact
   >
     <PageState :loading="loading" :error-message="errorMessage">
       <a-alert class="mb-12" type="warning" show-icon message="模型 ACTIVE / ARCHIVED 属于高风险生命周期动作，页面会二次确认。" />
+      <a-alert
+        v-if="mockEnabledModels.length"
+        class="mb-12"
+        type="error"
+        show-icon
+        :message="`${mockEnabledModels.length} 个模型仍开启 mockEnabled=true，闭环真实报告会被后端拒绝远程调用。`"
+      />
       <MetricStrip :metrics="metrics" />
       <a-card class="page-card" :bordered="false" title="AI 模型管理">
         <template #extra>
@@ -16,9 +24,21 @@
             <a-button type="primary" @click="openModel()">新增模型</a-button>
           </a-space>
         </template>
-        <a-table row-key="bizId" size="small" :data-source="models" :columns="columns">
+        <a-table row-key="bizId" size="small" :data-source="models" :columns="columns" :scroll="{ x: 1180 }">
           <template #bodyCell="{ column, record }">
             <template v-if="column.key === 'status'"><StatusTag :value="record.status" :options="aiModelStatusOptions" /></template>
+            <template v-else-if="column.key === 'config'">
+              <a-space direction="vertical" :size="2" class="model-config-summary">
+                <a-space :size="6" wrap>
+                  <a-tag :color="modelMockEnabled(record) ? 'red' : 'green'">
+                    {{ modelMockEnabled(record) ? 'MOCK' : 'REAL' }}
+                  </a-tag>
+                  <a-tag color="blue">{{ modelRuntimeName(record) }}</a-tag>
+                </a-space>
+                <span class="muted-line">{{ modelBaseUrl(record) }}</span>
+                <span class="muted-line">timeout {{ modelTimeout(record) }}s / tokens {{ modelTokenLimit(record) }}</span>
+              </a-space>
+            </template>
             <template v-else-if="column.key === 'skills'">
               <a-space wrap>
                 <a-tag v-for="skill in record.skills || []" :key="skill.bizId" :color="skill.enabled ? 'blue' : 'default'">
@@ -102,17 +122,30 @@ const modelForm = reactive<Record<string, unknown>>({})
 const modelConfigText = ref('{}')
 const metricsText = ref('{}')
 const modelStatusSelectOptions = aiModelStatusOptions.map((item) => ({ label: item.label, value: item.value }))
+const modelConfigView = (model: AiModelDto) => normalizeAiModel(model).modelConfigView || {}
+const modelConfigField = (model: AiModelDto, key: string) => modelConfigView(model)[key]
+const modelMockEnabled = (model: AiModelDto) => {
+  const value = modelConfigField(model, 'mockEnabled')
+  return value === true || String(value).toLowerCase() === 'true'
+}
+const modelBaseUrl = (model: AiModelDto) => String(modelConfigField(model, 'baseUrl') || '未配置 baseUrl')
+const modelRuntimeName = (model: AiModelDto) => String(modelConfigField(model, 'model') || model.modelName || model.modelCode)
+const modelTimeout = (model: AiModelDto) => String(modelConfigField(model, 'timeoutSeconds') || '-')
+const modelTokenLimit = (model: AiModelDto) => String(modelConfigField(model, 'maxTokens') || modelConfigField(model, 'maxCompletionTokens') || '-')
+const realInvocationModels = computed(() => models.value.filter((item) => !modelMockEnabled(item) && modelConfigField(item, 'baseUrl') && modelConfigField(item, 'model')))
+const mockEnabledModels = computed(() => models.value.filter(modelMockEnabled))
 const metrics = computed(() => [
   { label: '模型数', value: models.value.length, hint: '当前扫描' },
   { label: 'ACTIVE', value: models.value.filter((item) => item.status === 'ACTIVE').length, hint: '生效' },
-  { label: '候选', value: models.value.filter((item) => normalizeAiModel(item).isClosedLoopCandidate).length, hint: '需确认' },
-  { label: '归档', value: models.value.filter((item) => item.status === 'ARCHIVED').length, hint: '停用' },
+  { label: '真实调用就绪', value: realInvocationModels.value.length, hint: 'baseUrl + model' },
+  { label: 'Mock 开启', value: mockEnabledModels.value.length, hint: '报告门禁会拦截' },
 ])
 const columns = [
   { title: '编码', dataIndex: 'modelCode' },
   { title: '版本', dataIndex: 'modelVersion' },
   { title: 'Provider', dataIndex: 'provider' },
   { title: '类型', dataIndex: 'modelType' },
+  { title: '调用配置', key: 'config', width: 260 },
   { title: 'Skill 绑定', key: 'skills' },
   { title: '状态', key: 'status' },
   { title: '操作', key: 'actions', width: 260 },

@@ -5,10 +5,18 @@
     :endpoints="[endpoints.aiModelSkill.list, endpoints.aiModelSkill.detail, endpoints.aiModelSkill.byModel, endpoints.aiModelSkill.save]"
     :icon="BranchesOutlined"
     status-text="MODEL SKILL"
+    compact
   >
     <PageState :loading="loading" :error-message="errorMessage">
       <MetricStrip :metrics="metrics" />
       <a-alert class="mb-12" type="info" show-icon message="同一场景可配置多个绑定，后端按 priority 和 enabled 选择。配置 JSON 只放候选数量、自动应用等高级策略。" />
+      <a-alert
+        v-if="driftBindings.length"
+        class="mb-12"
+        type="warning"
+        show-icon
+        :message="`发现 ${driftBindings.length} 个启用绑定仍指向旧模型版本，后端按绑定版本执行，建议重新绑定 ACTIVE 版本。`"
+      />
       <a-card class="page-card" :bordered="false" title="绑定管理">
         <template #extra>
           <a-space>
@@ -26,12 +34,18 @@
             <a-button type="primary" @click="openBinding()">新增绑定</a-button>
           </a-space>
         </template>
-        <a-table row-key="bizId" size="small" :data-source="bindings" :columns="columns" :pagination="{ pageSize: 12 }">
+        <a-table row-key="bizId" size="small" :data-source="bindings" :columns="columns" :pagination="{ pageSize: 12 }" :scroll="{ x: 1120 }">
           <template #bodyCell="{ column, record }">
             <template v-if="column.key === 'model'">
               <a-space direction="vertical" :size="0">
-                <strong>{{ record.modelCode || record.modelBizId }}</strong>
-                <span class="muted-line">{{ record.modelVersion }}</span>
+                <a-space :size="6" wrap>
+                  <strong>{{ record.modelCode || record.modelBizId }}</strong>
+                  <a-tag v-if="bindingVersionDrift(record)" color="orange">版本漂移</a-tag>
+                </a-space>
+                <span class="muted-line">
+                  绑定 {{ record.modelVersion || '-' }}
+                  <template v-if="activeModelVersion(record)"> / ACTIVE {{ activeModelVersion(record) }}</template>
+                </span>
               </a-space>
             </template>
             <template v-else-if="column.key === 'skill'">
@@ -130,15 +144,29 @@ const models = ref<AiModelDto[]>([])
 const skills = ref<AiSkillDto[]>([])
 const filters = reactive<AiModelSkillBindingListRequest>({})
 const bindingForm = reactive<Partial<AiModelSkillBindingDto>>({})
-const defaultDiscoveryBindingConfig = '{"candidateLimit":8,"collectionDirection":"MULTI_SOURCE","autoRegisterCandidates":true,"autoEnableCandidates":false}'
+const defaultDiscoveryBindingConfig = '{"candidateLimit":4,"collectionDirection":"MULTI_SOURCE","autoRegisterCandidates":true,"autoEnableCandidates":false}'
 const configText = ref(defaultDiscoveryBindingConfig)
 
 const scenarioSelectOptions = scenarioCodeOptions.map((item) => ({ label: item.label, value: item.value }))
+const activeModelVersionMap = computed(() => {
+  const map = new Map<string, string>()
+  models.value
+    .filter((item) => item.status === 'ACTIVE' && item.modelCode && item.modelVersion)
+    .forEach((item) => map.set(item.modelCode, item.modelVersion))
+  return map
+})
+const activeModelVersion = (binding: AiModelSkillBindingDto) =>
+  binding.modelCode ? activeModelVersionMap.value.get(binding.modelCode) : undefined
+const bindingVersionDrift = (binding: AiModelSkillBindingDto) => {
+  const activeVersion = activeModelVersion(binding)
+  return Boolean(binding.enabled && activeVersion && binding.modelVersion && activeVersion !== binding.modelVersion)
+}
+const driftBindings = computed(() => bindings.value.filter(bindingVersionDrift))
 const metrics = computed(() => [
   { label: '绑定数', value: bindings.value.length, hint: '当前页' },
   { label: '启用绑定', value: bindings.value.filter((item) => item.enabled).length, hint: '可参与调用' },
   { label: '方向化采集', value: bindings.value.filter((item) => item.scenarioCode === 'DATA_SOURCE_DISCOVERY').length, hint: '前置治理' },
-  { label: '可选 Skill', value: skills.value.length, hint: 'ACTIVE 优先' },
+  { label: '版本漂移', value: driftBindings.value.length, hint: '绑定 vs ACTIVE' },
 ])
 const modelSelectOptions = computed(() => models.value.map((item) => ({
   label: `${item.modelCode}@${item.modelVersion} · ${item.status || '-'}`,

@@ -91,7 +91,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import {
@@ -102,12 +102,17 @@ import {
   TeamOutlined,
 } from '@ant-design/icons-vue'
 
-const collapsed = ref(false)
+const shouldCollapseForViewport = () => typeof window !== 'undefined' && window.innerWidth <= 760
+const collapsed = ref(shouldCollapseForViewport())
 const route = useRoute()
 const router = useRouter()
 const authStore = useAuthStore()
 const selectedKeys = computed(() => [route.path])
 const openKeys = ref<string[]>(['business', 'admin', 'config'])
+
+const syncMobileCollapse = () => {
+  if (shouldCollapseForViewport()) collapsed.value = true
+}
 
 const navigate = (path: string) => router.push(path)
 
@@ -118,4 +123,13 @@ const handleLogout = async () => {
     await router.push('/login')
   }
 }
+
+onMounted(() => {
+  syncMobileCollapse()
+  window.addEventListener('resize', syncMobileCollapse)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', syncMobileCollapse)
+})
 </script>

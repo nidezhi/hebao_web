@@ -13,9 +13,51 @@
     ]"
     :icon="FundProjectionScreenOutlined"
     status-text="CLOSED LOOP"
+    compact
   >
     <PageState :loading="loading" :error-message="errorMessage">
       <MetricStrip :metrics="metrics" />
+
+      <section class="ops-command-grid">
+        <div class="ops-command-card ops-command-card--primary">
+          <span class="eyebrow">CURRENT RUN</span>
+          <div class="ops-command-card__title">
+            <strong>{{ latestRun?.runNo || '暂无闭环运行' }}</strong>
+            <StatusTag :value="latestRun?.runStatus || 'NO_RUN'" :options="closedLoopRunStatusOptions" />
+          </div>
+          <p>{{ latestRunSignal }}</p>
+          <div class="ops-command-card__meta">
+            <span>质量 {{ formatPercent(latestRun?.qualityScore) }}</span>
+            <span>门禁 {{ latestRun?.gateResult || '-' }}</span>
+            <span>{{ formatDateTime(latestRun?.startedAt) }}</span>
+          </div>
+        </div>
+
+        <div class="ops-command-card" :class="{ 'ops-command-card--blocked': latestReportBlocked }">
+          <span class="eyebrow">REPORT GATE</span>
+          <div class="ops-command-card__title">
+            <strong>{{ latestReportView?.themeName || latestReportView?.themeCode || '暂无报告' }}</strong>
+            <a-tag :color="latestReportBlocked ? 'orange' : 'green'">{{ latestReportView?.confidenceLevel || '-' }}</a-tag>
+          </div>
+          <p>{{ latestReportGateText }}</p>
+          <div class="ops-command-card__meta">
+            <span>质量 {{ formatPercent(latestReportView?.normalizedQualityScore) }}</span>
+            <span>序列 {{ latestReportView?.seriesCount ?? 0 }}</span>
+            <span>新闻 {{ latestReportView?.newsCount ?? 0 }}</span>
+          </div>
+        </div>
+
+        <div class="ops-command-card" :class="{ 'ops-command-card--blocked': !realDataReady }">
+          <span class="eyebrow">REAL DATA</span>
+          <div class="ops-readiness-grid">
+            <div v-for="item in readinessItems" :key="item.label" class="ops-readiness-item" :class="{ 'ops-readiness-item--ok': item.ready }">
+              <span>{{ item.label }}</span>
+              <strong>{{ item.value }}</strong>
+              <small>{{ item.hint }}</small>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <a-row :gutter="[16, 16]">
         <a-col :xs="24" :xl="16">
@@ -140,7 +182,7 @@ import { computed, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { FundProjectionScreenOutlined } from '@ant-design/icons-vue'
 import { endpoints } from '@/shared/api/endpoints'
-import { formatMoney, formatPercent } from '@/shared/utils/format'
+import { formatDateTime, formatMoney, formatPercent } from '@/shared/utils/format'
 import BusinessPageShell from '@/shared/components/business/BusinessPageShell.vue'
 import MetricStrip from '@/shared/components/business/MetricStrip.vue'
 import PageState from '@/shared/components/business/PageState.vue'
@@ -159,8 +201,10 @@ import type { DataSourceDto } from '@/entities/data-source/model'
 import { listTaskExecutions } from '@/entities/task/api'
 import type { ScheduledTaskExecutionDto } from '@/entities/task/model'
 import { listInvestmentReports } from '@/entities/report/api'
-import { normalizeReport } from '@/entities/report/adapter'
+import { normalizeReport, reportGateMessage, reportQualityGatePassed, type ReportView } from '@/entities/report/adapter'
 import type { InvestmentAnalysisReportDto } from '@/entities/report/model'
+import { listProducts } from '@/entities/product/api'
+import type { ProductDto } from '@/entities/product/model'
 import { listMyMockPortfolios } from '@/entities/portfolio/api'
 import type { MockPortfolioDto } from '@/entities/portfolio/model'
 import { listRiskChecks } from '@/entities/risk/api'
@@ -186,6 +230,7 @@ const activeDiscoverySkillCount = ref(0)
 const activeDiscoveryBindingCount = ref(0)
 const taskExecutions = ref<ScheduledTaskExecutionDto[]>([])
 const reports = ref<InvestmentAnalysisReportDto[]>([])
+const products = ref<ProductDto[]>([])
 const portfolios = ref<MockPortfolioDto[]>([])
 const riskChecks = ref<RiskCheckDto[]>([])
 const backtests = ref<BacktestResultDto[]>([])
@@ -194,8 +239,49 @@ const detailOpen = ref(false)
 const selectedStep = ref<ClosedLoopStepView>()
 
 const latestRun = computed(() => closedLoopRuns.value[0])
+const latestReportView = computed<ReportView | undefined>(() => reports.value[0] ? normalizeReport(reports.value[0]) : undefined)
+const latestReportBlocked = computed(() => latestReportView.value ? !reportQualityGatePassed(latestReportView.value) : true)
 const loopSummary = computed(() => summarizeClosedLoopRuns(closedLoopRuns.value))
 const highRiskCount = computed(() => riskChecks.value.filter((item) => item.riskLevel === 'HIGH' || item.checkResult === 'REJECT').length)
+const latestBlockedStep = computed(() =>
+  selectedRun.value?.stepsView.find((step) => ['BLOCKED', 'FAILED'].includes(step.stepStatus)),
+)
+const latestRunSignal = computed(() => {
+  if (!latestRun.value) return '还没有闭环运行证据，先从采集编排触发手动验证。'
+  return latestBlockedStep.value?.failureReason
+    || latestRun.value.failureReason
+    || latestRun.value.summary
+    || '闭环运行中，查看时间线确认每个步骤的证据。'
+})
+const latestReportGateText = computed(() => {
+  if (!latestReportView.value) return '还没有投资报告，需先完成真实数据准备和报告生成。'
+  if (latestReportBlocked.value) return reportGateMessage(latestReportView.value)
+  return '质量门禁通过，可继续进入 Prompt、Mock 和回测链路。'
+})
+const productQuoteReadyCount = computed(() =>
+  products.value.filter((item) => item.latestQuoteTime || item.latestNav !== undefined).length,
+)
+const qualitySnapshotReadyCount = computed(() =>
+  dataSources.value.filter((item) => typeof item.latestQuality?.qualityScore === 'number' || Number(item.latestQuality?.sampleCount || 0) > 0).length,
+)
+const recentNewsCount = computed(() =>
+  latestReportView.value?.investmentSummaryView?.newsCount
+  ?? latestReportView.value?.dataQualityGateView?.newsCount
+  ?? latestReportView.value?.newsCount
+  ?? 0,
+)
+const realDataReady = computed(() =>
+  products.value.length > 0
+  && productQuoteReadyCount.value > 0
+  && recentNewsCount.value > 0
+  && qualitySnapshotReadyCount.value > 0,
+)
+const readinessItems = computed(() => [
+  { label: '产品池', value: products.value.length, hint: products.value.length ? '已有标的' : '待同步', ready: products.value.length > 0 },
+  { label: '行情', value: productQuoteReadyCount.value, hint: '有净值/报价', ready: productQuoteReadyCount.value > 0 },
+  { label: '新闻', value: recentNewsCount.value, hint: '报告关联', ready: recentNewsCount.value > 0 },
+  { label: '质量', value: qualitySnapshotReadyCount.value, hint: '快照源', ready: qualitySnapshotReadyCount.value > 0 },
+])
 
 const metrics = computed(() => [
   { label: '闭环运行', value: loopSummary.value.total, hint: `运行中 ${loopSummary.value.running}` },
@@ -282,6 +368,7 @@ const load = async () => {
       sourcePage,
       executionPage,
       reportPage,
+      productPage,
       portfolioPage,
       riskPage,
       backtestPage,
@@ -293,6 +380,7 @@ const load = async () => {
       listDataSources({ page: 1, size: 50 }),
       listTaskExecutions({ page: 1, size: 10, sort: 'startedAt', direction: 'desc' }),
       listInvestmentReports({ page: 1, size: 8, sort: 'generatedAt', direction: 'desc' }),
+      listProducts({ page: 1, size: 50, sort: 'updatedAt', direction: 'desc' }),
       listMyMockPortfolios({ page: 1, size: 5, sort: 'createdAt', direction: 'desc' }),
       listRiskChecks({ page: 1, size: 8, sort: 'checkedAt', direction: 'desc' }),
       listBacktests({ page: 1, size: 5, sort: 'createdAt', direction: 'desc' }),
@@ -307,6 +395,7 @@ const load = async () => {
     activeDiscoveryBindingCount.value = (bindingPage.items || []).filter((item) => item.enabled).length
     taskExecutions.value = executionPage.items || []
     reports.value = reportPage.items || []
+    products.value = productPage.items || []
     portfolios.value = portfolioPage.items || []
     riskChecks.value = riskPage.items || []
     backtests.value = backtestPage.items || []
