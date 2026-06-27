@@ -42,9 +42,19 @@ const nodes = computed(() => {
     return {
       key: code,
       title: step?.displayName || closedLoopStepNameMap[code] || code,
-      subtitle: step?.failureReason || step?.stepStatus || '等待运行',
+      subtitle: step ? stepSubtitle(step.stepStatus, step.failureReason) : '等待运行',
       status: step?.stepStatus || 'PENDING',
     }
   })
 })
+
+const stepSubtitle = (status?: string, reason?: string) => {
+  if (status === 'SUCCEEDED') return '已完成'
+  if (status === 'RUNNING') return '执行中'
+  if (status === 'PENDING') return '等待运行'
+  if (status === 'SKIPPED') return '已跳过'
+  if (status === 'FAILED') return reason ? '失败 · 查看证据' : '执行失败'
+  if (status === 'BLOCKED') return reason ? '阻断 · 查看证据' : '已阻断'
+  return status || '等待运行'
+}
 </script>

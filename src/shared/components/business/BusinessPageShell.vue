@@ -1,5 +1,10 @@
 <template>
-  <a-space direction="vertical" :size="18" class="deck-page business-page">
+  <a-space
+    direction="vertical"
+    :size="compact ? 12 : 18"
+    class="deck-page business-page"
+    :class="{ 'business-page--compact': compact }"
+  >
     <a-alert
       show-icon
       type="warning"
@@ -20,7 +25,7 @@
             </a-tag>
           </a-space>
         </a-col>
-        <a-col :xs="24" :xl="9">
+        <a-col v-if="!compact" :xs="24" :xl="9">
           <RuntimeOrbit
             :label="orbitLabel"
             :status="statusText"
@@ -50,6 +55,7 @@ withDefaults(defineProps<{
   orbitLabels?: string[]
   orbitTone?: 'blue' | 'green' | 'purple' | 'orange'
   riskNotice?: string
+  compact?: boolean
 }>(), {
   eyebrow: 'DZCOM COMMAND WORKSPACE',
   statusText: 'ONLINE',
@@ -57,5 +63,6 @@ withDefaults(defineProps<{
   orbitLabels: () => ['AI', 'TASK', 'RISK'],
   orbitTone: 'blue',
   riskNotice: '投资相关数据仅用于分析与 Mock 交易闭环验证，不构成真实收益承诺或投资建议。',
+  compact: false,
 })
 </script>
