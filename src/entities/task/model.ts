@@ -46,3 +46,22 @@ export interface InvestmentTaskTriggerResultDto {
   triggerSource: string
   triggeredAt: string
 }
+
+export interface InvestmentThemeOptionDto {
+  themeCode: string
+  themeName?: string
+  displayName: string
+  marketScope?: string
+  summary?: string
+  latestSnapshotType?: string
+  latestSnapshotTime?: string
+  sampleCount?: number
+  returnRate?: number
+  momentumScore?: number
+  heatScore?: number
+}
+
+export interface InvestmentThemeOptionListRequest extends PageQuery {
+  keyword?: string
+  marketScope?: string
+}

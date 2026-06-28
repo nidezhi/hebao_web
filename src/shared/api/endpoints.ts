@@ -45,6 +45,7 @@ export const endpoints = {
     articles: '/api/investment/tasks/articles/list',
     articleRelations: '/api/investment/tasks/article-relations/list',
     snapshots: '/api/investment/tasks/snapshots/list',
+    themeOptions: '/api/investment/tasks/theme-options',
   },
   closedLoop: {
     runs: '/api/investment/closed-loop/runs/list',

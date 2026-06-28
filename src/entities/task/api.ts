@@ -4,6 +4,8 @@ import type { PageResult } from '@/shared/api/types'
 import type {
   InvestmentTaskDefinitionDto,
   InvestmentTaskTriggerResultDto,
+  InvestmentThemeOptionDto,
+  InvestmentThemeOptionListRequest,
   ScheduledTaskExecutionDto,
   TaskExecutionListRequest,
   TriggerInvestmentTaskRequest,
@@ -29,3 +31,6 @@ export const listTaskArticleRelations = (data: Record<string, unknown>) =>
 
 export const listTaskSnapshots = (data: Record<string, unknown>) =>
   postJson<PageResult<Record<string, unknown>>, Record<string, unknown>>(endpoints.task.snapshots, data)
+
+export const listThemeOptions = (data: InvestmentThemeOptionListRequest) =>
+  postJson<PageResult<InvestmentThemeOptionDto>, InvestmentThemeOptionListRequest>(endpoints.task.themeOptions, data)

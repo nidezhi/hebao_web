@@ -19,7 +19,17 @@
           </div>
 
           <div class="report-generate-bar">
-            <a-input v-model:value="generateForm.themeCode" placeholder="主题，如 GOLD" />
+            <a-select
+              v-model:value="generateForm.themeCode"
+              allow-clear
+              show-search
+              :filter-option="false"
+              :loading="themeLoading"
+              :options="themeSelectOptions"
+              placeholder="选择真实主题"
+              @search="searchThemes"
+              @focus="loadThemeOptions()"
+            />
             <a-input-number v-model:value="generateForm.lookbackDays" :min="1" :max="365" />
             <a-button type="primary" :loading="generating" @click="generateReport">
               <template #icon><FileTextOutlined /></template>
@@ -268,6 +278,8 @@ import {
 } from '@/entities/report/adapter'
 import { investmentAnalysisStatusOptions } from '@/entities/report/dictionary'
 import type { InvestmentAnalysisReportDto } from '@/entities/report/model'
+import { listThemeOptions } from '@/entities/task/api'
+import type { InvestmentThemeOptionDto } from '@/entities/task/model'
 
 const router = useRouter()
 const loading = ref(false)
@@ -275,6 +287,8 @@ const generating = ref(false)
 const errorMessage = ref('')
 const reports = ref<InvestmentAnalysisReportDto[]>([])
 const selectedReport = ref<InvestmentAnalysisReportDto>()
+const themeLoading = ref(false)
+const themeOptions = ref<InvestmentThemeOptionDto[]>([])
 const generateForm = reactive({
   providerCode: 'OPENAI_COMPATIBLE',
   modelCode: 'openai-compatible-analysis',
@@ -287,6 +301,10 @@ const generateForm = reactive({
 const reportViews = computed(() => reports.value.map(normalizeReport))
 const selectedReportView = computed(() => selectedReport.value ? normalizeReport(selectedReport.value) : undefined)
 const summary = computed(() => summarizeReports(reports.value))
+const themeSelectOptions = computed(() => themeOptions.value.map((theme) => ({
+  value: theme.themeCode,
+  label: `${theme.displayName || theme.themeName || theme.themeCode} · ${theme.summary || theme.marketScope || '-'}`,
+})))
 const gateReasons = computed(() => [
   ...(selectedReportView.value?.dataQualityGateView?.reasons || []),
   ...(selectedReportView.value?.dataQualityGateView?.missingReasons || []),
@@ -394,6 +412,25 @@ const formatNumber = (value?: number) =>
 const go = (path: string) => router.push(path)
 const selectReport = (report: InvestmentAnalysisReportDto | ReportView) => { selectedReport.value = report }
 
+const loadThemeOptions = async (keyword = '') => {
+  themeLoading.value = true
+  try {
+    const page = await listThemeOptions({
+      keyword: keyword || undefined,
+      marketScope: generateForm.marketScope,
+      page: 1,
+      size: 30,
+    })
+    themeOptions.value = page.items || []
+  } finally {
+    themeLoading.value = false
+  }
+}
+
+const searchThemes = (keyword: string) => {
+  void loadThemeOptions(keyword)
+}
+
 const load = async () => {
   loading.value = true
   errorMessage.value = ''
@@ -423,4 +460,5 @@ const generateReport = async () => {
 }
 
 onMounted(load)
+onMounted(() => { void loadThemeOptions() })
 </script>
