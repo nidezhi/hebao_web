@@ -133,6 +133,8 @@ const sections: RuleSection[] = [
       { no: '2.5', text: '字典集中管理，筛选项、下拉、Tag、图例、文案共用同一份定义。' },
       { no: '2.6', text: '图表数据必须在 adapter 层转换，组件只消费稳定展示模型。', critical: true },
       { no: '2.7', text: 'JSON 字符串必须结构化解析，解析失败必须有明确降级状态。' },
+      { no: '2.8', text: '所有需要用户选择并回传的 bizId、*BizId、businessBizId、targetBizId、userBizId 等字段，必须使用对象选择器或可搜索下拉；界面展示名称、编码、状态、时间等可识别信息，提交值才是真实 id。裸 id 输入只允许出现在只读证据、禁用字段或明确的高级调试模式。', critical: true },
+      { no: '2.9', text: '当后端接口缺少列表、搜索、详情摘要、display 字段、状态字典、关联对象信息或错误上下文，导致前端无法满足开发铁律时，前端不得用手填 id、假数据、硬编码或堆 JSON 绕过；必须列出后端补齐清单，标明缺口接口、缺口字段、影响页面和阻塞的铁律。', critical: true },
     ],
   },
   {

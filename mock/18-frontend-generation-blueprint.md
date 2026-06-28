@@ -117,6 +117,8 @@ interface PageResult<T> {
 - Mock 收益必须标记为模拟结果。
 - 风控拒绝必须展示原因、等级、关联对象和审计入口。
 - Prompt、模型、真实交易启用必须展示人工确认或灰度闸门。
+- 任何需要用户选择并回传的 `bizId`、`*BizId`、`businessBizId`、`targetBizId`、`userBizId` 等字段，必须使用对象选择器或可搜索下拉；前端展示名称、编码、状态、时间等可识别信息，提交值才是真实 id。禁止把裸 BizId 作为普通输入框暴露给用户，只读证据和高级调试模式除外。
+- 如果后端接口缺少列表、搜索、详情摘要、display 字段、状态字典、关联对象信息或错误上下文，导致前端无法满足开发铁律，前端不得用手填 id、假数据、硬编码或堆 JSON 绕过；必须输出后端补齐清单，逐项标明缺口接口、缺口字段、影响页面和阻塞的铁律。
 
 ### 3.3 业务铁律
 
@@ -1640,7 +1642,7 @@ POST /api/risk/checks/list
 | `dataTaskCodes` | MultiSelect |
 | `reportTaskCode` | Select |
 | `promptTaskCode` | Select |
-| `mockUserBizId` | Select / Input |
+| `mockUserBizId` | User object picker |
 | `minQualityScore` | Slider + InputNumber |
 | `allowAutoMockTrade` | Switch |
 | `allowPromptCandidate` | Switch |

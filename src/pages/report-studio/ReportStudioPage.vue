@@ -82,6 +82,71 @@
               </div>
             </section>
 
+            <section class="report-core-grid">
+              <div class="report-info-block">
+                <span class="eyebrow">SUMMARY</span>
+                <h3>投资摘要</h3>
+                <div class="report-metric-grid">
+                  <div class="report-metric">
+                    <span>样本数</span>
+                    <strong>{{ selectedReportView.investmentSummaryView?.sampleCount ?? '-' }}</strong>
+                  </div>
+                  <div class="report-metric">
+                    <span>新闻数</span>
+                    <strong>{{ selectedReportView.investmentSummaryView?.newsCount ?? '-' }}</strong>
+                  </div>
+                  <div class="report-metric">
+                    <span>平均收益</span>
+                    <strong>{{ formatPercent(selectedReportView.investmentSummaryView?.averageReturn) }}</strong>
+                  </div>
+                  <div class="report-metric">
+                    <span>平均热度</span>
+                    <strong>{{ formatNumber(selectedReportView.investmentSummaryView?.averageHeat) }}</strong>
+                  </div>
+                </div>
+                <p>{{ summaryNarrative }}</p>
+              </div>
+
+              <div class="report-info-block" :class="{ 'report-info-block--muted': !reportQualityGatePassed(selectedReportView) }">
+                <span class="eyebrow">PLAN</span>
+                <h3>投资方案</h3>
+                <p>{{ selectedReportView.investmentPlanView?.suggestedAction || '-' }}</p>
+                <div class="report-plan-line">
+                  <span>仓位 {{ formatPercent(planAllocationRate) }}</span>
+                  <span>金额 {{ formatMoney(planAmount) }}</span>
+                </div>
+                <small>{{ selectedReportView.investmentPlanView?.riskNotice || 'AI 分析仅为辅助信息。' }}</small>
+              </div>
+
+              <div class="report-info-block">
+                <span class="eyebrow">SIMULATION</span>
+                <h3>模拟收益</h3>
+                <div class="return-scenario-grid return-scenario-grid--compact">
+                  <div class="return-scenario">
+                    <span>本金</span>
+                    <strong>{{ formatMoney(simulatedPrincipal) }}</strong>
+                    <small>初始资金 {{ formatMoney(selectedReportView.simulatedReturnView?.initialCapital) }}</small>
+                  </div>
+                  <div class="return-scenario">
+                    <span>基准收益</span>
+                    <strong>{{ formatMoney(selectedReportView.simulatedReturnView?.estimatedProfit) }}</strong>
+                    <small>期末 {{ formatMoney(selectedReportView.simulatedReturnView?.estimatedFinalCapital) }}</small>
+                  </div>
+                  <div class="return-scenario return-scenario--stress">
+                    <span>压力</span>
+                    <strong>{{ formatMoney(selectedReportView.simulatedReturnView?.stressLoss) }}</strong>
+                    <small>历史样本估算</small>
+                  </div>
+                  <div class="return-scenario return-scenario--optimistic">
+                    <span>乐观</span>
+                    <strong>{{ formatMoney(selectedReportView.simulatedReturnView?.optimisticProfit) }}</strong>
+                    <small>{{ formatPercent(selectedReportView.simulatedReturnView?.returnRate) }}</small>
+                  </div>
+                </div>
+                <small>{{ selectedReportView.simulatedReturnView?.assumption || '模拟收益只反映历史样本，不代表未来收益。' }}</small>
+              </div>
+            </section>
+
             <section class="report-chart-panel">
               <div class="report-panel-head">
                 <div>
@@ -131,44 +196,6 @@
             </section>
 
             <a-tabs class="report-detail-tabs">
-              <a-tab-pane key="summary" tab="结论">
-                <div class="report-info-grid">
-                  <div class="report-info-block">
-                    <span class="eyebrow">SUMMARY</span>
-                    <h3>投资摘要</h3>
-                    <div class="report-metric-grid">
-                      <div class="report-metric">
-                        <span>样本数</span>
-                        <strong>{{ selectedReportView.investmentSummaryView?.sampleCount ?? '-' }}</strong>
-                      </div>
-                      <div class="report-metric">
-                        <span>新闻数</span>
-                        <strong>{{ selectedReportView.investmentSummaryView?.newsCount ?? '-' }}</strong>
-                      </div>
-                      <div class="report-metric">
-                        <span>平均收益</span>
-                        <strong>{{ formatPercent(selectedReportView.investmentSummaryView?.averageReturn) }}</strong>
-                      </div>
-                      <div class="report-metric">
-                        <span>平均热度</span>
-                        <strong>{{ formatNumber(selectedReportView.investmentSummaryView?.averageHeat) }}</strong>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="report-info-block" :class="{ 'report-info-block--muted': !reportQualityGatePassed(selectedReportView) }">
-                    <span class="eyebrow">PLAN</span>
-                    <h3>投资方案</h3>
-                    <p>{{ selectedReportView.investmentPlanView?.suggestedAction || '-' }}</p>
-                    <div class="report-plan-line">
-                      <span>仓位 {{ formatPercent(planAllocationRate) }}</span>
-                      <span>金额 {{ formatMoney(planAmount) }}</span>
-                    </div>
-                    <small>{{ selectedReportView.investmentPlanView?.riskNotice || 'AI 分析仅为辅助信息。' }}</small>
-                  </div>
-                </div>
-              </a-tab-pane>
-
               <a-tab-pane key="gate" tab="门禁">
                 <a-descriptions bordered size="small" :column="{ xs: 1, md: 2 }">
                   <a-descriptions-item label="可信等级">{{ selectedReportView.confidenceLevel || '-' }}</a-descriptions-item>
@@ -189,32 +216,6 @@
                     <span v-else>按状态与门禁自动降级</span>
                   </a-descriptions-item>
                 </a-descriptions>
-              </a-tab-pane>
-
-              <a-tab-pane key="simulation" tab="模拟">
-                <div class="return-scenario-grid">
-                  <div class="return-scenario">
-                    <span>本金</span>
-                    <strong>{{ formatMoney(simulatedPrincipal) }}</strong>
-                    <small>初始资金 {{ formatMoney(selectedReportView.simulatedReturnView?.initialCapital) }}</small>
-                  </div>
-                  <div class="return-scenario">
-                    <span>基准收益</span>
-                    <strong>{{ formatMoney(selectedReportView.simulatedReturnView?.estimatedProfit) }}</strong>
-                    <small>期末 {{ formatMoney(selectedReportView.simulatedReturnView?.estimatedFinalCapital) }}</small>
-                  </div>
-                  <div class="return-scenario return-scenario--stress">
-                    <span>压力情景</span>
-                    <strong>{{ formatMoney(selectedReportView.simulatedReturnView?.stressLoss) }}</strong>
-                    <small>使用历史样本估算</small>
-                  </div>
-                  <div class="return-scenario return-scenario--optimistic">
-                    <span>乐观情景</span>
-                    <strong>{{ formatMoney(selectedReportView.simulatedReturnView?.optimisticProfit) }}</strong>
-                    <small>收益率 {{ formatPercent(selectedReportView.simulatedReturnView?.returnRate) }}</small>
-                  </div>
-                </div>
-                <a-alert class="mt-12" type="info" show-icon :message="selectedReportView.simulatedReturnView?.assumption || '模拟收益只反映历史样本，不代表未来收益。'" />
               </a-tab-pane>
 
               <a-tab-pane key="evidence" tab="证据">
@@ -311,6 +312,14 @@ const conciseConclusion = computed(() => {
   return selectedReportView.value.investmentPlanView?.suggestedAction
     || reportGateMessage(selectedReportView.value)
     || '请选择报告查看结构化结论。'
+})
+const summaryNarrative = computed(() => {
+  const view = selectedReportView.value
+  if (!view) return '-'
+  const direction = view.trendView?.direction || '趋势未知'
+  const averageReturn = formatPercent(view.investmentSummaryView?.averageReturn)
+  const quality = formatPercent(view.normalizedQualityScore)
+  return `${direction}，平均收益 ${averageReturn}，数据质量 ${quality}。`
 })
 const coreStats = computed(() => [
   {

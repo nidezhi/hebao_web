@@ -31,6 +31,7 @@
                     </a-menu>
                   </template>
                 </a-dropdown>
+                <a-button size="small" type="link" @click="openAttribute(record)">属性</a-button>
                 <a-button size="small" type="link" @click="openProfile(record)">画像</a-button>
                 <a-button size="small" type="link" @click="openQuote(record)">行情</a-button>
                 <a-button size="small" type="link" danger @click="confirmDelete(record)">删除</a-button>
@@ -82,6 +83,15 @@
       </a-form>
     </a-drawer>
 
+    <a-drawer v-model:open="attributeOpen" width="560" title="保存产品属性">
+      <a-form layout="vertical">
+        <a-form-item label="产品业务 ID"><a-input v-model:value="attributeForm.productBizId" disabled /></a-form-item>
+        <a-form-item label="属性编码"><a-input v-model:value="attributeForm.attributeCode" /></a-form-item>
+        <a-form-item label="属性值"><a-textarea v-model:value="attributeForm.attributeValue" :auto-size="{ minRows: 4, maxRows: 9 }" /></a-form-item>
+        <a-button type="primary" :loading="saving" @click="submitAttribute">保存属性</a-button>
+      </a-form>
+    </a-drawer>
+
     <a-drawer v-model:open="quoteOpen" width="560" title="保存行情点">
       <a-form layout="vertical">
         <a-form-item label="产品业务 ID"><a-input v-model:value="quoteForm.productBizId" disabled /></a-form-item>
@@ -105,7 +115,7 @@ import { formatPercent, safeParseJson } from '@/shared/utils/format'
 import BusinessPageShell from '@/shared/components/business/BusinessPageShell.vue'
 import MetricStrip from '@/shared/components/business/MetricStrip.vue'
 import PageState from '@/shared/components/business/PageState.vue'
-import { createProduct, deleteProduct, listProducts, saveProductInvestmentProfile, saveProductQuote, updateProduct, updateProductStatus } from '@/entities/product/api'
+import { createProduct, deleteProduct, listProducts, saveProductAttribute, saveProductInvestmentProfile, saveProductQuote, updateProduct, updateProductStatus } from '@/entities/product/api'
 import { productTypeOptions, tradeStatusOptions } from '@/entities/product/dictionary'
 import type { ProductDto } from '@/entities/product/model'
 
@@ -114,9 +124,11 @@ const saving = ref(false)
 const errorMessage = ref('')
 const products = ref<ProductDto[]>([])
 const productOpen = ref(false)
+const attributeOpen = ref(false)
 const profileOpen = ref(false)
 const quoteOpen = ref(false)
 const productForm = reactive<Record<string, unknown>>({})
+const attributeForm = reactive<Record<string, unknown>>({})
 const profileForm = reactive<Record<string, unknown>>({})
 const quoteForm = reactive<Record<string, unknown>>({})
 const themeRelationsText = ref('[]')
@@ -154,6 +166,10 @@ const openProfile = (product: ProductDto) => {
   resetObject(profileForm, { productBizId: product.bizId, ...(product.investmentProfile || {}), mockTradable: product.investmentProfile?.mockTradable ?? true })
   themeRelationsText.value = JSON.stringify(product.themeRelations || [], null, 2)
   profileOpen.value = true
+}
+const openAttribute = (product: ProductDto) => {
+  resetObject(attributeForm, { productBizId: product.bizId, attributeCode: 'riskNote', attributeValue: '' })
+  attributeOpen.value = true
 }
 const openQuote = (product: ProductDto) => {
   resetObject(quoteForm, { productBizId: product.bizId, quoteInterval: '1D', nav: product.latestNav || 1, sourceCode: product.sourceCode || 'CHINA_WEALTH', status: 'VALID' })
@@ -207,6 +223,17 @@ const submitProfile = async () => {
     await saveProductInvestmentProfile({ ...profileForm, themeRelations })
     message.success('画像已保存')
     profileOpen.value = false
+    await load()
+  } finally {
+    saving.value = false
+  }
+}
+const submitAttribute = async () => {
+  saving.value = true
+  try {
+    await saveProductAttribute({ ...attributeForm })
+    message.success('产品属性已保存')
+    attributeOpen.value = false
     await load()
   } finally {
     saving.value = false

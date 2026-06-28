@@ -74,7 +74,15 @@
     <a-drawer v-model:open="assignOpen" width="520" title="用户角色授权">
       <a-form layout="vertical">
         <a-form-item label="角色编码"><a-input v-model:value="assignForm.roleCode" disabled /></a-form-item>
-        <a-form-item label="用户业务 ID"><a-input v-model:value="assignForm.userBizId" /></a-form-item>
+        <a-form-item label="用户">
+          <a-select
+            v-model:value="assignForm.userBizId"
+            show-search
+            option-filter-prop="label"
+            placeholder="选择用户"
+            :options="userOptions"
+          />
+        </a-form-item>
         <a-space>
           <a-button type="primary" :loading="saving" @click="submitAssign">分配角色</a-button>
           <a-button danger :loading="saving" @click="submitRevoke">撤销角色</a-button>
@@ -95,11 +103,14 @@ import PageState from '@/shared/components/business/PageState.vue'
 import EmptyEvidence from '@/shared/components/visual/EmptyEvidence.vue'
 import { assignUserRole, configureRolePermissions, createRole, listRoles, revokeUserRole, updateRole, updateRoleStatus } from '@/entities/role/api'
 import type { RoleDto } from '@/entities/role/model'
+import { listUsers } from '@/entities/user/api'
+import type { UserDto } from '@/entities/user/model'
 
 const loading = ref(false)
 const saving = ref(false)
 const errorMessage = ref('')
 const roles = ref<RoleDto[]>([])
+const users = ref<UserDto[]>([])
 const selectedRole = ref<RoleDto>()
 const roleOpen = ref(false)
 const permissionOpen = ref(false)
@@ -121,6 +132,10 @@ const columns = [
   { title: '权限数', key: 'permissions' },
   { title: '操作', key: 'actions', width: 360 },
 ]
+const userOptions = computed(() => users.value.map((item) => ({
+  value: item.bizId,
+  label: `${item.username}${item.nickname ? ` / ${item.nickname}` : ''} · ${item.status || 'UNKNOWN'} · ${item.userNo || item.email || item.bizId}`,
+})))
 const resetObject = (target: Record<string, unknown>, next: Record<string, unknown>) => {
   Object.keys(target).forEach((key) => delete target[key])
   Object.assign(target, next)
@@ -177,6 +192,10 @@ const openAssign = (role: RoleDto) => {
   assignOpen.value = true
 }
 const submitAssign = async () => {
+  if (!assignForm.userBizId) {
+    message.warning('请选择用户')
+    return
+  }
   saving.value = true
   try {
     await assignUserRole({ roleCode: assignForm.roleCode, userBizId: assignForm.userBizId })
@@ -186,6 +205,10 @@ const submitAssign = async () => {
   }
 }
 const submitRevoke = async () => {
+  if (!assignForm.userBizId) {
+    message.warning('请选择用户')
+    return
+  }
   saving.value = true
   try {
     await revokeUserRole({ roleCode: assignForm.roleCode, userBizId: assignForm.userBizId })
@@ -198,7 +221,12 @@ const load = async () => {
   loading.value = true
   errorMessage.value = ''
   try {
-    roles.value = await listRoles()
+    const [roleItems, userPage] = await Promise.all([
+      listRoles(),
+      listUsers({ page: 1, size: 100, sort: 'registeredAt', direction: 'desc' }),
+    ])
+    roles.value = roleItems
+    users.value = userPage.items || []
     selectedRole.value = roles.value[0]
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : '角色列表加载失败'

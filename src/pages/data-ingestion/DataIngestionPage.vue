@@ -140,6 +140,8 @@ import {
   dataCollectionSkillCodeOptions,
   directionTaskCodeOptions,
 } from '@/entities/ai-skill/dictionary'
+import { listUsers } from '@/entities/user/api'
+import type { UserDto } from '@/entities/user/model'
 
 const loading = ref(false)
 const saving = ref(false)
@@ -148,6 +150,7 @@ const errorMessage = ref('')
 const activeTab = ref('all')
 const definitions = ref<InvestmentTaskDefinitionDto[]>([])
 const executions = ref<ScheduledTaskExecutionDto[]>([])
+const users = ref<UserDto[]>([])
 const selectedTask = ref<InvestmentTaskDefinitionDto>()
 const drawerOpen = ref(false)
 const parameterDraft = reactive<Record<string, string>>({})
@@ -166,6 +169,10 @@ const automationTypes = ['AUTO_INVESTMENT_REPORT_GENERATION', 'AUTO_PROMPT_GOVER
 const collectionDirectionSelectOptions = collectionDirectionOptions.map((item) => ({ label: item.label, value: item.value }))
 const dataCollectionSkillSelectOptions = dataCollectionSkillCodeOptions.map((item) => ({ label: item.label, value: item.value }))
 const directionTaskCodeSelectOptions = directionTaskCodeOptions.map((item) => ({ label: item.label, value: item.value }))
+const userSelectOptions = computed(() => users.value.map((item) => ({
+  value: item.bizId,
+  label: `${item.username}${item.nickname ? ` / ${item.nickname}` : ''} · ${item.status || 'UNKNOWN'} · ${item.userNo || item.email || item.bizId}`,
+})))
 
 const metrics = computed(() => [
   { label: '任务定义', value: definitions.value.length, hint: `启用 ${definitions.value.filter((item) => item.enabled).length} / 失败 ${executions.value.filter((item) => item.status === 'FAILED').length}` },
@@ -203,7 +210,7 @@ const visibleFields = computed(() => {
       { key: 'dataTaskCodes', label: '数据任务编码', placeholder: 'code-a,code-b' },
       { key: 'reportTaskCode', label: '报告任务编码', placeholder: 'auto-report' },
       { key: 'promptTaskCode', label: 'Prompt 任务编码', placeholder: 'auto-prompt-governance' },
-      { key: 'mockUserBizId', label: 'Mock 用户 BizId', placeholder: 'user-biz-id' },
+      { key: 'mockUserBizId', label: 'Mock 用户', inputType: 'select', options: userSelectOptions.value },
       { key: 'minQualityScore', label: '最低质量分', placeholder: '0.45' },
       { key: 'allowAutoMockTrade', label: '允许自动 Mock', placeholder: 'true/false' },
     ]
@@ -395,8 +402,13 @@ const load = async () => {
   loading.value = true
   errorMessage.value = ''
   try {
-    const [taskList] = await Promise.all([listTaskDefinitions(), loadExecutions()])
+    const [taskList, , userPage] = await Promise.all([
+      listTaskDefinitions(),
+      loadExecutions(),
+      listUsers({ page: 1, size: 100, sort: 'registeredAt', direction: 'desc' }),
+    ])
     definitions.value = taskList || []
+    users.value = userPage.items || []
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : '采集编排接口加载失败'
   } finally {

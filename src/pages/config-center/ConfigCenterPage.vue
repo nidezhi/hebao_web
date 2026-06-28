@@ -75,7 +75,7 @@ const domains = [
       { title: 'AI 治理中枢', short: '治', badge: 'HUB', tagColor: 'cyan', color: '#0891b2', path: '/config-center/data-source-discovery', description: '查看 Skill、模型绑定、Prompt、评估回流和方向化任务覆盖。' },
       { title: 'AI 治理证据', short: '证', badge: 'EVIDENCE', tagColor: 'blue', color: '#2563eb', path: '/config-center/data-sources', description: '聚合闭环运行、任务执行、报告快照、反馈和 Prompt 评估证据。' },
       { title: '任务配置', short: '任', badge: 'TASK', tagColor: 'geekblue', color: '#4f46e5', path: '/config-center/tasks', description: '方向化 LLM 任务、闭环调度、手动触发和执行记录。' },
-      { title: '业务操作管理', short: '动', badge: 'ACTION', tagColor: 'volcano', color: '#ea580c', path: '/config-center/actions', description: '报告、Mock、回测、反馈等跨业务动作表单。' },
+      { title: '业务操作管理', short: '动', badge: 'ACTION', tagColor: 'volcano', color: '#ea580c', path: '/config-center/actions', description: '写操作归属检查、业务页面导航和待补齐缺口。' },
     ],
   },
   {
