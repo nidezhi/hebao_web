@@ -1,7 +1,14 @@
 import { endpoints } from '@/shared/api/endpoints'
 import { postJson } from '@/shared/api/httpClient'
 import type { BizIdRequest, PageResult } from '@/shared/api/types'
-import type { ProductDto, ProductListRequest } from './model'
+import type {
+  LatestMarketQuoteRequest,
+  MarketQuoteDto,
+  MarketQuoteHistoryRequest,
+  ProductDto,
+  ProductListRequest,
+  SaveMarketQuoteRequest,
+} from './model'
 
 export const listProducts = (data: ProductListRequest) =>
   postJson<PageResult<ProductDto>, ProductListRequest>(endpoints.product.list, data)
@@ -27,11 +34,11 @@ export const saveProductAttribute = (data: Record<string, unknown>) =>
 export const saveProductInvestmentProfile = (data: Record<string, unknown>) =>
   postJson<ProductDto, Record<string, unknown>>(endpoints.product.saveInvestmentProfile, data)
 
-export const listProductQuoteHistory = (data: Record<string, unknown>) =>
-  postJson<Record<string, unknown>[], Record<string, unknown>>(endpoints.marketQuote.history, data)
+export const listProductQuoteHistory = (data: MarketQuoteHistoryRequest) =>
+  postJson<MarketQuoteDto[], MarketQuoteHistoryRequest>(endpoints.marketQuote.history, data)
 
-export const getLatestProductQuote = (data: Record<string, unknown>) =>
-  postJson<Record<string, unknown>, Record<string, unknown>>(endpoints.marketQuote.latest, data)
+export const getLatestProductQuote = (data: LatestMarketQuoteRequest) =>
+  postJson<MarketQuoteDto, LatestMarketQuoteRequest>(endpoints.marketQuote.latest, data)
 
-export const saveProductQuote = (data: Record<string, unknown>) =>
-  postJson<Record<string, unknown>, Record<string, unknown>>(endpoints.marketQuote.save, data)
+export const saveProductQuote = (data: SaveMarketQuoteRequest) =>
+  postJson<MarketQuoteDto, SaveMarketQuoteRequest>(endpoints.marketQuote.save, data)

@@ -148,6 +148,7 @@ const entries = [
   { title: '配置总览', badge: 'CONFIG', color: 'blue', path: '/config-center', desc: '进入 AI 治理、模型绑定、任务、产品、Prompt 等配置域。' },
   { title: 'AI Skill 工作台', badge: 'SKILL', color: 'purple', path: '/config-center/ai-skills', desc: '维护方向化采集、Prompt 治理、质量审计等模型能力说明。' },
   { title: '模型 Skill 绑定', badge: 'BINDING', color: 'geekblue', path: '/config-center/model-skills', desc: '按业务场景把模型实例绑定到指定 Skill 版本。' },
+  { title: '运行模型绑定', badge: 'RUNTIME', color: 'cyan', path: '/config-center/model-bindings', desc: '按场景和环境指定后端执行时使用的 ACTIVE 模型。' },
   { title: '产品风险', badge: 'RISK', color: 'orange', path: '/product-risk', desc: '查看产品池、风险画像、行情和产品风险上下文。' },
   { title: '风控审计', badge: 'AUDIT', color: 'red', path: '/risk-audit', desc: '追踪质量不足、现金不足、风险不匹配等拦截原因。' },
   { title: '回测反馈', badge: 'REVIEW', color: 'green', path: '/review-loop', desc: '把 Mock 和回测结果反馈给 Prompt、模型和 Skill 治理。' },

@@ -147,6 +147,18 @@ const router = createRouter({
           meta: { title: 'Model Skill Binding 模型 Skill 绑定', section: 'config', requiresAuth: true },
         },
         {
+          path: 'config-center/model-bindings',
+          name: 'config-model-bindings',
+          component: () => import('@/pages/config-center/modules/ModelBindingPage.vue'),
+          meta: { title: 'Model Binding 运行模型绑定', section: 'config', requiresAuth: true },
+        },
+        {
+          path: 'config-center/system-configs',
+          name: 'config-system-configs',
+          component: () => import('@/pages/config-center/modules/SystemConfigPage.vue'),
+          meta: { title: 'System Config 系统配置', section: 'config', requiresAuth: true },
+        },
+        {
           path: 'config-center/actions',
           name: 'config-actions',
           component: () => import('@/pages/config-center/modules/ApiMutationConsolePage.vue'),

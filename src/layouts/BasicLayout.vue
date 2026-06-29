@@ -29,21 +29,34 @@
           <template #icon><fund-projection-screen-outlined /></template>
           <template #title>投资闭环</template>
           <a-menu-item key="/overview" @click="navigate('/overview')">Overview</a-menu-item>
-          <a-menu-item key="/config-center/data-source-discovery" @click="navigate('/config-center/data-source-discovery')">AI 治理中枢</a-menu-item>
-          <a-menu-item key="/config-center/data-sources" @click="navigate('/config-center/data-sources')">AI 治理证据</a-menu-item>
-          <a-menu-item key="/data-ingestion" @click="navigate('/data-ingestion')">采集编排</a-menu-item>
           <a-menu-item key="/report-studio" @click="navigate('/report-studio')">投资报告</a-menu-item>
           <a-menu-item key="/prompt-lab" @click="navigate('/prompt-lab')">Prompt 实验室</a-menu-item>
           <a-menu-item key="/simulation" @click="navigate('/simulation')">模拟交易</a-menu-item>
           <a-menu-item key="/review-loop" @click="navigate('/review-loop')">复盘闭环</a-menu-item>
           <a-menu-item key="/risk-audit" @click="navigate('/risk-audit')">风控审计</a-menu-item>
         </a-sub-menu>
-        <a-sub-menu key="config">
-          <template #icon><control-outlined /></template>
-          <template #title>配置中心</template>
-          <a-menu-item key="/config-center" @click="navigate('/config-center')">配置总览</a-menu-item>
+        <a-sub-menu key="data-assets">
+          <template #icon><database-outlined /></template>
+          <template #title>数据与资产</template>
           <a-menu-item key="/data-quality" @click="navigate('/data-quality')">数据质量</a-menu-item>
+          <a-menu-item key="/data-ingestion" @click="navigate('/data-ingestion')">采集编排</a-menu-item>
           <a-menu-item key="/product-risk" @click="navigate('/product-risk')">产品风险</a-menu-item>
+          <a-menu-item key="/config-center/products" @click="navigate('/config-center/products')">产品与行情配置</a-menu-item>
+          <a-menu-item key="/config-center/data-sources" @click="navigate('/config-center/data-sources')">数据源与治理证据</a-menu-item>
+        </a-sub-menu>
+        <a-sub-menu key="ai-config">
+          <template #icon><control-outlined /></template>
+          <template #title>AI 配置</template>
+          <a-menu-item key="/config-center" @click="navigate('/config-center')">配置总览</a-menu-item>
+          <a-menu-item key="/config-center/data-source-discovery" @click="navigate('/config-center/data-source-discovery')">AI 治理中枢</a-menu-item>
+          <a-menu-item key="/config-center/tasks" @click="navigate('/config-center/tasks')">任务配置</a-menu-item>
+          <a-menu-item key="/config-center/prompts" @click="navigate('/config-center/prompts')">Prompt 配置</a-menu-item>
+          <a-menu-item key="/config-center/models" @click="navigate('/config-center/models')">模型配置</a-menu-item>
+          <a-menu-item key="/config-center/ai-skills" @click="navigate('/config-center/ai-skills')">AI Skill 工作台</a-menu-item>
+          <a-menu-item key="/config-center/model-skills" @click="navigate('/config-center/model-skills')">模型 Skill 绑定</a-menu-item>
+          <a-menu-item key="/config-center/model-bindings" @click="navigate('/config-center/model-bindings')">运行模型绑定</a-menu-item>
+          <a-menu-item key="/config-center/system-configs" @click="navigate('/config-center/system-configs')">系统配置</a-menu-item>
+          <a-menu-item key="/config-center/actions" @click="navigate('/config-center/actions')">业务操作管理</a-menu-item>
         </a-sub-menu>
         <a-sub-menu key="admin">
           <template #icon><team-outlined /></template>
@@ -97,6 +110,7 @@ import { useAuthStore } from '@/stores/auth'
 import {
   ControlOutlined,
   DashboardOutlined,
+  DatabaseOutlined,
   FundProjectionScreenOutlined,
   SafetyCertificateOutlined,
   TeamOutlined,
@@ -108,7 +122,7 @@ const route = useRoute()
 const router = useRouter()
 const authStore = useAuthStore()
 const selectedKeys = computed(() => [route.path])
-const openKeys = ref<string[]>(['business', 'admin', 'config'])
+const openKeys = ref<string[]>(['business', 'data-assets', 'ai-config', 'admin'])
 
 const syncMobileCollapse = () => {
   if (shouldCollapseForViewport()) collapsed.value = true

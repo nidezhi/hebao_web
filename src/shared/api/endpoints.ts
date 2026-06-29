@@ -25,6 +25,7 @@ export const endpoints = {
     create: '/api/admin/roles/create',
     update: '/api/admin/roles/update',
     status: '/api/admin/roles/status',
+    permissionCatalog: '/api/admin/roles/permissions/catalog',
     configurePermissions: '/api/admin/roles/permissions/configure',
     assignUser: '/api/admin/roles/users/assign',
     revokeUser: '/api/admin/roles/users/revoke',
@@ -78,6 +79,7 @@ export const endpoints = {
     status: '/api/ai/prompts/status',
   },
   portfolio: {
+    automationPool: '/api/mock/portfolios/automation-pool',
     create: '/api/mock/portfolios/create',
     detail: '/api/mock/portfolios/detail',
     mine: '/api/mock/portfolios/mine',
@@ -86,6 +88,7 @@ export const endpoints = {
     sell: '/api/mock/portfolios/orders/sell',
     cancelOrder: '/api/mock/portfolios/orders/cancel',
     orderEvents: '/api/mock/portfolios/orders/events',
+    portfolioOrderEvents: '/api/mock/portfolios/orders/events/by-portfolio',
     performanceCurve: '/api/mock/portfolios/performance/curve',
     rebalance: '/api/mock/portfolios/rebalance/execute',
     refreshValuation: '/api/mock/portfolios/valuations/refresh',
@@ -109,12 +112,24 @@ export const endpoints = {
     list: '/api/ai/prompt-evaluations/list',
     save: '/api/ai/prompt-evaluations/save',
   },
+  reviewLoop: {
+    metadata: '/api/review-loop/metadata',
+  },
   aiModel: {
     archive: '/api/ai/models/archive',
     detail: '/api/ai/models/detail',
     list: '/api/ai/models/list',
     save: '/api/ai/models/save',
     status: '/api/ai/models/status',
+  },
+  aiModelBinding: {
+    detail: '/api/ai/model-bindings/detail',
+    list: '/api/ai/model-bindings/list',
+    save: '/api/ai/model-bindings/save',
+  },
+  systemConfig: {
+    list: '/api/admin/system-configs/list',
+    save: '/api/admin/system-configs/save',
   },
   aiSkill: {
     detail: '/api/ai/skills/detail',

@@ -60,15 +60,16 @@
               <div class="simulation-hero__head">
                 <div>
                   <a-space wrap>
+                    <a-tag v-if="isAutomationPool(selectedPortfolio)" color="purple">AI资金池</a-tag>
                     <a-tag color="blue">{{ portfolioStatusText(selectedPortfolio.status) }}</a-tag>
                     <a-tag>{{ selectedPortfolio.baseCurrency || 'CNY' }}</a-tag>
                     <a-tag>{{ selectedPortfolio.latestValuation?.sourceCode || 'NO VALUATION' }}</a-tag>
                   </a-space>
                   <h2>{{ selectedPortfolio.portfolioName }}</h2>
-                  <p>{{ selectedPortfolio.portfolioNo || selectedPortfolio.bizId }}</p>
+                  <p>{{ selectedPortfolio.portfolioNo || selectedPortfolio.bizId }} · 自动估值 {{ autoRefreshText }}</p>
                 </div>
                 <a-space wrap>
-                  <a-button :loading="valuationRefreshing" @click="refreshValuation">刷新估值</a-button>
+                  <a-button :loading="valuationRefreshing" @click="() => refreshValuation()">刷新估值</a-button>
                   <a-button type="primary" @click="tradeMode = 'buy'">去交易</a-button>
                 </a-space>
               </div>
@@ -179,11 +180,6 @@
                     </template>
                   </template>
                 </a-table>
-                <a-collapse ghost class="mt-12">
-                  <a-collapse-panel key="raw" header="原始订单事件">
-                    <JsonPreview :value="orderEvents" />
-                  </a-collapse-panel>
-                </a-collapse>
               </a-tab-pane>
               <a-tab-pane key="rebalance" tab="再平衡">
                 <a-alert type="info" show-icon message="目标权重必须合规；现金不足、产品不可 Mock、行情缺失会由后端风控拒绝并可在 Risk Audit 追踪。" />
@@ -224,7 +220,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, reactive, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, reactive, ref } from 'vue'
+import { useRoute } from 'vue-router'
 import { message } from 'ant-design-vue'
 import { StockOutlined } from '@ant-design/icons-vue'
 import { endpoints } from '@/shared/api/endpoints'
@@ -234,16 +231,16 @@ import BusinessPageShell from '@/shared/components/business/BusinessPageShell.vu
 import MetricStrip from '@/shared/components/business/MetricStrip.vue'
 import PageState from '@/shared/components/business/PageState.vue'
 import EmptyEvidence from '@/shared/components/visual/EmptyEvidence.vue'
-import JsonPreview from '@/shared/components/visual/JsonPreview.vue'
-import { buyMockOrder, buyMockOrderFromReport, cancelMockOrder, createMockPortfolio, executeMockRebalance, getMockPortfolio, getPortfolioPerformanceCurve, listMockOrderEvents, listMyMockPortfolios, refreshPortfolioValuation, sellMockOrder } from '@/entities/portfolio/api'
+import { buyMockOrder, buyMockOrderFromReport, cancelMockOrder, createMockPortfolio, executeMockRebalance, getAutomationMockPortfolio, getMockPortfolio, getPortfolioPerformanceCurve, listMyMockPortfolios, listPortfolioOrderEvents, refreshPortfolioValuation, sellMockOrder } from '@/entities/portfolio/api'
 import { portfolioStatusText } from '@/entities/portfolio/adapter'
-import type { MockPortfolioDto, MockPositionDto, PortfolioPerformancePointDto } from '@/entities/portfolio/model'
+import type { MockPortfolioDto, MockPositionDto, PortfolioOrderEventDto, PortfolioPerformancePointDto } from '@/entities/portfolio/model'
 import { listProducts } from '@/entities/product/api'
 import type { ProductDto } from '@/entities/product/model'
 import { listInvestmentReports } from '@/entities/report/api'
 import type { InvestmentAnalysisReportDto } from '@/entities/report/model'
 
 const loading = ref(false)
+const route = useRoute()
 const ordering = ref(false)
 const reportOrdering = ref(false)
 const canceling = ref(false)
@@ -255,8 +252,11 @@ const portfolios = ref<MockPortfolioDto[]>([])
 const products = ref<ProductDto[]>([])
 const reports = ref<InvestmentAnalysisReportDto[]>([])
 const selectedPortfolio = ref<MockPortfolioDto>()
+const automationPortfolioBizId = ref('')
 const performanceCurve = ref<PortfolioPerformancePointDto[]>([])
-const orderEvents = ref<Record<string, unknown>[]>([])
+const orderEvents = ref<PortfolioOrderEventDto[]>([])
+const autoRefreshTimer = ref<number>()
+const lastAutoRefreshAt = ref<string>()
 const portfolioOpen = ref(false)
 const portfolioForm = reactive({ portfolioName: '我的模拟组合', baseCurrency: 'CNY', initialCash: 100000 })
 const orderForm = reactive({ productBizId: '', amount: 1000 })
@@ -264,6 +264,7 @@ const reportOrderForm = reactive({ reportBizId: '', productBizId: '' })
 const cancelForm = reactive({ orderBizId: '' })
 const rebalanceTargets = ref([{ productBizId: '', targetWeight: 0.4 }])
 const tradeMode = ref<'buy' | 'sell' | 'report' | 'cancel'>('buy')
+const AUTO_REFRESH_MS = 120000
 
 const metrics = computed(() => [
   { label: 'Mock 组合', value: portfolios.value.length, hint: '仅模拟' },
@@ -279,6 +280,9 @@ const valuationCards = computed(() => [
   { label: '浮动盈亏', value: formatMoney(selectedPortfolio.value?.latestValuation?.unrealizedProfit, selectedPortfolio.value?.baseCurrency), hint: '未实现' },
   { label: '已实现盈亏', value: formatMoney(selectedPortfolio.value?.latestValuation?.realizedProfit, selectedPortfolio.value?.baseCurrency), hint: '已成交' },
 ])
+const autoRefreshText = computed(() =>
+  lastAutoRefreshAt.value ? `每2分钟 · ${formatDateTime(lastAutoRefreshAt.value)}` : '每2分钟',
+)
 
 const performanceOption = computed(() => ({
   tooltip: { trigger: 'axis' },
@@ -303,6 +307,7 @@ const positionColumns = [
 const orderColumns = [
   { title: '订单', dataIndex: 'orderBizId', width: 150 },
   { title: '产品', key: 'product', width: 180 },
+  { title: '方向', dataIndex: 'orderSide', width: 90 },
   { title: '事件', dataIndex: 'eventType', width: 110 },
   { title: '状态', key: 'status', width: 100 },
   { title: '金额/数量', key: 'amount', width: 120 },
@@ -310,18 +315,15 @@ const orderColumns = [
   { title: '操作', key: 'actions', width: 80 },
 ]
 
-const textOf = (value: Record<string, unknown>, keys: string[], fallback = '-') => {
-  const matched = keys.map((key) => value[key]).find((item) => item !== undefined && item !== null && item !== '')
-  return matched === undefined ? fallback : String(matched)
-}
 const orderRows = computed(() => orderEvents.value.map((event, index) => ({
-  rowKey: textOf(event, ['bizId', 'orderBizId', 'orderNo'], `event-${index}`),
-  orderBizId: textOf(event, ['orderBizId', 'orderBizID', 'bizId', 'orderNo']),
-  productBizId: textOf(event, ['productBizId', 'productBizID', 'productCode']),
-  eventType: textOf(event, ['eventType', 'type', 'side']),
-  status: textOf(event, ['orderStatus', 'status', 'eventStatus']),
-  amount: textOf(event, ['amount', 'quantity', 'tradeAmount', 'tradeQuantity']),
-  eventTime: formatDateTime(textOf(event, ['eventTime', 'createdAt', 'updatedAt'], '')),
+  rowKey: event.bizId || `${event.orderBizId}-${index}`,
+  orderBizId: event.orderBizId,
+  productBizId: event.productBizId,
+  orderSide: event.orderSide || '-',
+  eventType: event.eventType || '-',
+  status: event.orderStatus || event.toStatus || '-',
+  amount: orderAmountText(event),
+  eventTime: formatDateTime(event.occurredAt),
 })))
 const productOptions = computed(() => products.value.map((item) => ({
   value: item.bizId,
@@ -342,6 +344,18 @@ const productLabel = (productBizId?: string) => {
   const product = products.value.find((item) => item.bizId === productBizId)
   if (!product) return productBizId || '-'
   return `${product.productName || product.productCode} · ${product.productCode || product.productNo}`
+}
+
+const isAutomationPool = (portfolio?: MockPortfolioDto) =>
+  Boolean(portfolio?.bizId && portfolio.bizId === automationPortfolioBizId.value)
+
+const orderAmountText = (event: PortfolioOrderEventDto) => {
+  const amount = event.executedAmount ?? event.requestedAmount
+  const quantity = event.executedQuantity ?? event.requestedQuantity
+  if (amount != null && quantity != null) return `${amount} / ${quantity}`
+  if (amount != null) return String(amount)
+  if (quantity != null) return String(quantity)
+  return '-'
 }
 
 const addRebalanceTarget = () => {
@@ -367,6 +381,13 @@ const fillCancel = (orderBizId: string) => {
   tradeMode.value = 'cancel'
 }
 
+const applyOrderQuery = () => {
+  const orderBizId = typeof route.query.orderBizId === 'string' ? route.query.orderBizId : ''
+  if (!orderBizId) return
+  cancelForm.orderBizId = orderBizId
+  tradeMode.value = 'cancel'
+}
+
 const selectPortfolio = async (portfolio: MockPortfolioDto) => {
   selectedPortfolio.value = portfolio
   performanceCurve.value = []
@@ -374,13 +395,23 @@ const selectPortfolio = async (portfolio: MockPortfolioDto) => {
   try {
     const [curve, events] = await Promise.all([
       getPortfolioPerformanceCurve({ portfolioBizId: portfolio.bizId, limit: 120 }),
-      listMockOrderEvents({ portfolioBizId: portfolio.bizId, page: 1, size: 20 }),
+      listPortfolioOrderEvents({ portfolioBizId: portfolio.bizId, limit: 20 }),
     ])
-    performanceCurve.value = curve || []
+    performanceCurve.value = curve?.valuations || []
     orderEvents.value = Array.isArray(events) ? events : []
+    applyOrderQuery()
   } catch (error) {
     message.warning(error instanceof Error ? error.message : '组合子数据加载失败')
   }
+}
+
+const startAutoRefresh = () => {
+  if (autoRefreshTimer.value) {
+    window.clearInterval(autoRefreshTimer.value)
+  }
+  autoRefreshTimer.value = window.setInterval(() => {
+    void refreshValuation(true)
+  }, AUTO_REFRESH_MS)
 }
 
 const reloadSelectedPortfolio = async () => {
@@ -502,15 +533,16 @@ const rebalance = async () => {
   }
 }
 
-const refreshValuation = async () => {
+const refreshValuation = async (silent = false) => {
   if (!selectedPortfolio.value) return
   valuationRefreshing.value = true
   try {
     await refreshPortfolioValuation({ portfolioBizId: selectedPortfolio.value.bizId })
-    message.success('组合估值已刷新')
+    lastAutoRefreshAt.value = new Date().toISOString()
+    if (!silent) message.success('组合估值已刷新')
     await reloadSelectedPortfolio()
   } catch (error) {
-    message.error(error instanceof Error ? error.message : '估值刷新失败')
+    if (!silent) message.error(error instanceof Error ? error.message : '估值刷新失败')
   } finally {
     valuationRefreshing.value = false
   }
@@ -520,12 +552,18 @@ const load = async (preferredBizId?: string) => {
   loading.value = true
   errorMessage.value = ''
   try {
-    const [portfolioPage, productPage, reportPage] = await Promise.all([
+    const [portfolioPage, productPage, reportPage, automationPortfolio] = await Promise.all([
       listMyMockPortfolios({ page: 1, size: 20, sort: 'createdAt', direction: 'desc' }),
       listProducts({ page: 1, size: 100, sort: 'updatedAt', direction: 'desc' }),
       listInvestmentReports({ page: 1, size: 50, sort: 'generatedAt', direction: 'desc' }),
+      getAutomationMockPortfolio(),
     ])
-    portfolios.value = portfolioPage.items || []
+    automationPortfolioBizId.value = automationPortfolio.bizId
+    const mine = portfolioPage.items || []
+    portfolios.value = [
+      automationPortfolio,
+      ...mine.filter((item) => item.bizId !== automationPortfolio.bizId),
+    ]
     products.value = productPage.items || []
     reports.value = reportPage.items || []
     const nextPortfolio = portfolios.value.find((item) => item.bizId === preferredBizId)
@@ -539,5 +577,15 @@ const load = async (preferredBizId?: string) => {
   }
 }
 
-onMounted(load)
+onMounted(() => {
+  const preferredPortfolioBizId = typeof route.query.portfolioBizId === 'string' ? route.query.portfolioBizId : undefined
+  void load(preferredPortfolioBizId)
+  startAutoRefresh()
+})
+
+onBeforeUnmount(() => {
+  if (autoRefreshTimer.value) {
+    window.clearInterval(autoRefreshTimer.value)
+  }
+})
 </script>

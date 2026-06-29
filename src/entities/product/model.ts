@@ -54,3 +54,52 @@ export interface ProductListRequest extends PageQuery {
   riskLevel?: number
   currency?: string
 }
+
+export type QuoteStatus = 'VALID' | 'INVALID' | 'SUSPECT' | string
+
+export interface MarketQuoteDto {
+  bizId: string
+  productBizId: string
+  sourceCode: string
+  interval: string
+  quoteTime: string
+  openPrice?: number
+  highPrice?: number
+  lowPrice?: number
+  closePrice: number
+  previousClosePrice?: number
+  volume?: number
+  turnoverAmount?: number
+  status?: QuoteStatus
+  receivedAt?: string
+}
+
+export interface MarketQuoteHistoryRequest {
+  productBizId: string
+  interval?: string
+  sourceCode?: string
+  from: string
+  to: string
+  limit?: number
+}
+
+export interface LatestMarketQuoteRequest {
+  productBizId: string
+  interval?: string
+  sourceCode?: string
+}
+
+export interface SaveMarketQuoteRequest {
+  productBizId: string
+  sourceCode: string
+  interval: string
+  quoteTime: string
+  openPrice?: number
+  highPrice?: number
+  lowPrice?: number
+  closePrice: number
+  previousClosePrice?: number
+  volume?: number
+  turnoverAmount?: number
+  status?: QuoteStatus
+}

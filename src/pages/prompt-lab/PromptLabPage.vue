@@ -37,11 +37,32 @@
                     </a-col>
                   </a-row>
                   <a-card size="small" title="预览变量">
-                    <a-textarea v-model:value="previewVariablesText" :auto-size="{ minRows: 4, maxRows: 8 }" />
-                    <a-button class="mt-12" type="primary" :loading="previewing" @click="previewPrompt">预览 Prompt</a-button>
+                    <EmptyEvidence v-if="!selectedPrompt.variables.length" description="当前 Prompt 未声明变量，可直接预览。" />
+                    <a-row v-else :gutter="12">
+                      <a-col v-for="variable in selectedPrompt.variables" :key="variable.variableName" :span="24">
+                        <a-form-item :label="variable.variableName" :extra="variable.description || variable.sourcePath">
+                          <a-textarea
+                            v-if="variable.previewValueType === 'json' || variable.previewValueType === 'textarea'"
+                            v-model:value="previewVariables[variable.variableName]"
+                            :placeholder="variable.previewExampleValue || variable.previewDefaultValue || variable.sourcePath"
+                            :auto-size="{ minRows: variable.previewValueType === 'json' ? 4 : 2, maxRows: 8 }"
+                          />
+                          <a-input
+                            v-else
+                            v-model:value="previewVariables[variable.variableName]"
+                            :placeholder="variable.previewExampleValue || variable.previewDefaultValue || variable.sourcePath"
+                          />
+                        </a-form-item>
+                      </a-col>
+                    </a-row>
+                    <a-space class="mt-12" wrap>
+                      <a-button type="primary" :loading="previewing" @click="previewPrompt">预览 Prompt</a-button>
+                      <a-button @click="fillPreviewExamples">填入示例值</a-button>
+                    </a-space>
                   </a-card>
                   <a-card v-if="previewResult" size="small" title="预览结果">
                     <a-alert v-if="previewResult.missingVariables?.length" type="warning" show-icon :message="`缺失变量：${previewResult.missingVariables.join(', ')}`" />
+                    <a-alert v-else-if="previewResult.displayMessage" :type="previewResult.readyForModel ? 'success' : 'info'" show-icon :message="previewResult.displayMessage" />
                     <pre class="text-preview">{{ previewResult.renderedPrompt }}</pre>
                   </a-card>
                 </a-space>
@@ -80,11 +101,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed, h, onMounted, ref } from 'vue'
+import { computed, h, onMounted, reactive, ref, watch } from 'vue'
 import { message } from 'ant-design-vue'
 import { ExperimentOutlined } from '@ant-design/icons-vue'
 import { endpoints } from '@/shared/api/endpoints'
-import { safeParseJson } from '@/shared/utils/format'
 import BusinessPageShell from '@/shared/components/business/BusinessPageShell.vue'
 import MetricStrip from '@/shared/components/business/MetricStrip.vue'
 import PageState from '@/shared/components/business/PageState.vue'
@@ -114,7 +134,7 @@ const skills = ref<AiSkillDto[]>([])
 const modelSkillBindings = ref<AiModelSkillBindingDto[]>([])
 const evaluations = ref<AiPromptEvaluationDto[]>([])
 const selectedPrompt = ref<AiPromptTemplateDto>()
-const previewVariablesText = ref('{\n  "investmentReport": "{}"\n}')
+const previewVariables = reactive<Record<string, string>>({})
 const previewResult = ref<AiPromptPreviewDto>()
 
 const metrics = computed(() => [
@@ -164,16 +184,30 @@ const bindingColumns = [
 
 const promptRowEvents = (record: AiPromptTemplateDto) => ({ onClick: () => { selectedPrompt.value = record; previewResult.value = undefined } })
 
+const resetPreviewVariables = (prompt?: AiPromptTemplateDto) => {
+  Object.keys(previewVariables).forEach((key) => delete previewVariables[key])
+  prompt?.variables.forEach((variable) => {
+    previewVariables[variable.variableName] = variable.previewDefaultValue || ''
+  })
+}
+
+const fillPreviewExamples = () => {
+  selectedPrompt.value?.variables.forEach((variable) => {
+    previewVariables[variable.variableName] = variable.previewExampleValue || variable.previewDefaultValue || ''
+  })
+}
+
 const previewPrompt = async () => {
   if (!selectedPrompt.value) return
-  const variables = safeParseJson<Record<string, unknown>>(previewVariablesText.value)
-  if (!variables) {
-    message.warning('预览变量 JSON 不可解析')
+  const missing = selectedPrompt.value.variables.find((variable) =>
+    variable.required && !previewVariables[variable.variableName]?.trim())
+  if (missing) {
+    message.warning(`请填写预览变量 ${missing.variableName}`)
     return
   }
   previewing.value = true
   try {
-    previewResult.value = await previewAiPrompt({ promptBizId: selectedPrompt.value.bizId, variables })
+    previewResult.value = await previewAiPrompt({ promptBizId: selectedPrompt.value.bizId, variables: { ...previewVariables } })
   } catch (error) {
     message.error(error instanceof Error ? error.message : '预览失败')
   } finally {
@@ -198,12 +232,15 @@ const load = async () => {
     modelSkillBindings.value = bindingPage.items || []
     evaluations.value = evaluationPage.items || []
     selectedPrompt.value = prompts.value[0]
+    resetPreviewVariables(selectedPrompt.value)
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : 'Prompt 实验室接口加载失败'
   } finally {
     loading.value = false
   }
 }
+
+watch(selectedPrompt, (prompt) => resetPreviewVariables(prompt))
 
 onMounted(load)
 </script>

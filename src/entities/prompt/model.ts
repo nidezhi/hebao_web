@@ -9,6 +9,9 @@ export interface AiPromptVariableDto {
   sourcePath?: string
   required?: boolean
   description?: string
+  previewValueType?: 'text' | 'textarea' | 'json'
+  previewDefaultValue?: string
+  previewExampleValue?: string
   createdAt?: string
 }
 
@@ -47,13 +50,16 @@ export interface AiPromptPreviewRequest {
   promptBizId?: string
   promptCode?: string
   promptVersion?: string
-  variables?: Record<string, unknown>
+  variables?: Record<string, string>
 }
 
 export interface AiPromptPreviewDto {
   promptBizId: string
   promptCode: string
   promptVersion: string
+  scenario?: string
   renderedPrompt: string
   missingVariables?: string[]
+  readyForModel?: boolean
+  displayMessage?: string
 }

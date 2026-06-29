@@ -2,7 +2,7 @@
   <BusinessPageShell
     title="Roles 角色权限"
     description="通用管理列表：创建/编辑角色、启停角色、配置权限、分配或撤销用户角色。"
-    :endpoints="[endpoints.role.list, endpoints.role.create, endpoints.role.update, endpoints.role.status, endpoints.role.configurePermissions, endpoints.role.assignUser, endpoints.role.revokeUser]"
+    :endpoints="[endpoints.role.list, endpoints.role.permissionCatalog, endpoints.role.create, endpoints.role.update, endpoints.role.status, endpoints.role.configurePermissions, endpoints.role.assignUser, endpoints.role.revokeUser]"
     :icon="SafetyCertificateOutlined"
     status-text="RBAC"
   >
@@ -44,8 +44,11 @@
                 <a-descriptions-item label="角色编码">{{ selectedRole.roleCode }}</a-descriptions-item>
                 <a-descriptions-item label="角色类型">{{ selectedRole.roleType || '-' }}</a-descriptions-item>
               </a-descriptions>
-              <div>
-                <a-tag v-for="permission in selectedRole.permissions || []" :key="permission" color="blue">{{ permission }}</a-tag>
+              <div class="permission-tag-list">
+                <a-tooltip v-for="permission in selectedRole.permissions || []" :key="permission">
+                  <template #title>{{ permissionDescription(permission) }}</template>
+                  <a-tag color="blue">{{ permissionLabel(permission) }}</a-tag>
+                </a-tooltip>
               </div>
               <EmptyEvidence v-if="!selectedRole.permissions?.length" description="该角色暂无权限集合。" />
             </a-space>
@@ -66,7 +69,27 @@
     <a-drawer v-model:open="permissionOpen" width="640" title="配置权限">
       <a-form layout="vertical">
         <a-form-item label="角色编码"><a-input v-model:value="permissionForm.roleCode" disabled /></a-form-item>
-        <a-form-item label="权限列表（一行一个）"><a-textarea v-model:value="permissionsText" :auto-size="{ minRows: 8, maxRows: 14 }" /></a-form-item>
+        <a-alert class="mb-12" type="info" show-icon message="权限来自后端注册表；提交值仍是稳定权限编码。" />
+        <a-empty v-if="!permissionCatalog.length" description="暂无权限目录，请确认后端权限 catalog 接口。" />
+        <a-collapse v-else v-model:active-key="activePermissionGroups" ghost>
+          <a-collapse-panel v-for="group in permissionGroups" :key="group.groupName" :header="`${group.groupName} · ${group.items.length}`">
+            <a-checkbox-group v-model:value="selectedPermissionCodes" class="permission-check-list">
+              <a-row :gutter="[12, 12]">
+                <a-col v-for="permission in group.items" :key="permission.permissionCode" :xs="24" :md="12">
+                  <label class="permission-option">
+                    <a-checkbox :value="permission.permissionCode" />
+                    <span>
+                      <strong>{{ permission.displayName }}</strong>
+                      <small>{{ permission.permissionCode }}</small>
+                      <em>{{ permission.description || '-' }}</em>
+                    </span>
+                    <a-tag :color="riskColor(permission.riskLevel)">{{ permission.riskLevel || 'LOW' }}</a-tag>
+                  </label>
+                </a-col>
+              </a-row>
+            </a-checkbox-group>
+          </a-collapse-panel>
+        </a-collapse>
         <a-button type="primary" :loading="saving" @click="submitPermissions">保存权限</a-button>
       </a-form>
     </a-drawer>
@@ -101,8 +124,8 @@ import BusinessPageShell from '@/shared/components/business/BusinessPageShell.vu
 import MetricStrip from '@/shared/components/business/MetricStrip.vue'
 import PageState from '@/shared/components/business/PageState.vue'
 import EmptyEvidence from '@/shared/components/visual/EmptyEvidence.vue'
-import { assignUserRole, configureRolePermissions, createRole, listRoles, revokeUserRole, updateRole, updateRoleStatus } from '@/entities/role/api'
-import type { RoleDto } from '@/entities/role/model'
+import { assignUserRole, configureRolePermissions, createRole, listPermissionCatalog, listRoles, revokeUserRole, updateRole, updateRoleStatus } from '@/entities/role/api'
+import type { PermissionCatalogDto, RoleDto } from '@/entities/role/model'
 import { listUsers } from '@/entities/user/api'
 import type { UserDto } from '@/entities/user/model'
 
@@ -111,6 +134,7 @@ const saving = ref(false)
 const errorMessage = ref('')
 const roles = ref<RoleDto[]>([])
 const users = ref<UserDto[]>([])
+const permissionCatalog = ref<PermissionCatalogDto[]>([])
 const selectedRole = ref<RoleDto>()
 const roleOpen = ref(false)
 const permissionOpen = ref(false)
@@ -118,11 +142,12 @@ const assignOpen = ref(false)
 const roleForm = reactive<Record<string, unknown>>({})
 const permissionForm = reactive<{ roleCode?: string }>({})
 const assignForm = reactive<{ roleCode?: string; userBizId?: string }>({})
-const permissionsText = ref('')
+const selectedPermissionCodes = ref<string[]>([])
+const activePermissionGroups = ref<string[]>([])
 const metrics = computed(() => [
   { label: '角色数', value: roles.value.length, hint: '真实返回' },
   { label: '启用角色', value: roles.value.filter((item) => item.enabled !== false).length, hint: '可分配' },
-  { label: '权限点', value: new Set(roles.value.flatMap((item) => item.permissions || [])).size, hint: '去重统计' },
+  { label: '权限目录', value: permissionCatalog.value.length, hint: '后端注册表' },
   { label: '当前角色权限', value: selectedRole.value?.permissions?.length || 0, hint: selectedRole.value?.roleCode || '-' },
 ])
 const columns = [
@@ -136,6 +161,20 @@ const userOptions = computed(() => users.value.map((item) => ({
   value: item.bizId,
   label: `${item.username}${item.nickname ? ` / ${item.nickname}` : ''} · ${item.status || 'UNKNOWN'} · ${item.userNo || item.email || item.bizId}`,
 })))
+const permissionGroups = computed(() => {
+  const map = new Map<string, PermissionCatalogDto[]>()
+  permissionCatalog.value.forEach((permission) => {
+    const key = permission.groupName || '其他权限'
+    map.set(key, [...(map.get(key) || []), permission])
+  })
+  return [...map.entries()].map(([groupName, items]) => ({
+    groupName,
+    items: items.sort((a, b) => a.permissionCode.localeCompare(b.permissionCode)),
+  }))
+})
+const permissionMap = computed(() =>
+  new Map(permissionCatalog.value.map((permission) => [permission.permissionCode, permission])),
+)
 const resetObject = (target: Record<string, unknown>, next: Record<string, unknown>) => {
   Object.keys(target).forEach((key) => delete target[key])
   Object.assign(target, next)
@@ -169,7 +208,8 @@ const toggleRole = (role: RoleDto) => {
 }
 const openPermission = (role: RoleDto) => {
   permissionForm.roleCode = role.roleCode
-  permissionsText.value = (role.permissions || []).join('\n')
+  selectedPermissionCodes.value = [...(role.permissions || [])]
+  activePermissionGroups.value = permissionGroups.value.map((group) => group.groupName)
   permissionOpen.value = true
 }
 const submitPermissions = async () => {
@@ -177,7 +217,7 @@ const submitPermissions = async () => {
   try {
     await configureRolePermissions({
       roleCode: permissionForm.roleCode || '',
-      permissions: permissionsText.value.split('\n').map((item) => item.trim()).filter(Boolean),
+      permissions: selectedPermissionCodes.value,
     })
     message.success('权限已保存')
     permissionOpen.value = false
@@ -217,16 +257,30 @@ const submitRevoke = async () => {
     saving.value = false
   }
 }
+const permissionLabel = (permissionCode: string) => {
+  const permission = permissionMap.value.get(permissionCode)
+  return permission ? `${permission.displayName} · ${permission.permissionCode}` : permissionCode
+}
+const permissionDescription = (permissionCode: string) =>
+  permissionMap.value.get(permissionCode)?.description || permissionCode
+const riskColor = (riskLevel?: string) => {
+  if (riskLevel === 'CRITICAL') return 'red'
+  if (riskLevel === 'HIGH') return 'volcano'
+  if (riskLevel === 'MEDIUM') return 'orange'
+  return 'blue'
+}
 const load = async () => {
   loading.value = true
   errorMessage.value = ''
   try {
-    const [roleItems, userPage] = await Promise.all([
+    const [roleItems, userPage, catalogItems] = await Promise.all([
       listRoles(),
       listUsers({ page: 1, size: 100, sort: 'registeredAt', direction: 'desc' }),
+      listPermissionCatalog(),
     ])
     roles.value = roleItems
     users.value = userPage.items || []
+    permissionCatalog.value = catalogItems
     selectedRole.value = roles.value[0]
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : '角色列表加载失败'

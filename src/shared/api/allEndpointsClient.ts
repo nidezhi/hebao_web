@@ -28,6 +28,7 @@ export const allApi = {
   role: {
     create: (data: UnknownRecord) => postJson(endpoints.role.create, data),
     list: () => postJson(endpoints.role.list, {}),
+    permissionCatalog: () => postJson(endpoints.role.permissionCatalog, {}),
     configurePermissions: (data: UnknownRecord) => postJson(endpoints.role.configurePermissions, data),
     status: (data: UnknownRecord) => postJson(endpoints.role.status, data),
     update: (data: UnknownRecord) => postJson(endpoints.role.update, data),
@@ -74,6 +75,9 @@ export const allApi = {
     list: (data: UnknownRecord) => postJson(endpoints.promptEvaluation.list, data),
     save: (data: UnknownRecord) => postJson(endpoints.promptEvaluation.save, data),
   },
+  reviewLoop: {
+    metadata: (data: UnknownRecord = {}) => postJson(endpoints.reviewLoop.metadata, data),
+  },
   prompt: {
     detail: (data: UnknownRecord) => postJson(endpoints.prompt.detail, data),
     list: (data: UnknownRecord) => postJson(endpoints.prompt.list, data),
@@ -87,6 +91,11 @@ export const allApi = {
     list: (data: UnknownRecord) => postJson(endpoints.aiModel.list, data),
     save: (data: UnknownRecord) => postJson(endpoints.aiModel.save, data),
     status: (data: UnknownRecord) => postJson(endpoints.aiModel.status, data),
+  },
+  aiModelBinding: {
+    detail: (data: UnknownRecord) => postJson(endpoints.aiModelBinding.detail, data),
+    list: (data: UnknownRecord) => postJson(endpoints.aiModelBinding.list, data),
+    save: (data: UnknownRecord) => postJson(endpoints.aiModelBinding.save, data),
   },
   aiSkill: {
     detail: (data: UnknownRecord) => postJson(endpoints.aiSkill.detail, data),

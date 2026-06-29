@@ -106,7 +106,7 @@ import StatusTag from '@/shared/components/visual/StatusTag.vue'
 import { getProductDetail, listProductQuoteHistory, listProducts } from '@/entities/product/api'
 import { isProductMockTradable, productMockGateText, summarizeProducts } from '@/entities/product/adapter'
 import { productTypeOptions, tradeStatusOptions } from '@/entities/product/dictionary'
-import type { ProductDto } from '@/entities/product/model'
+import type { MarketQuoteDto, ProductDto } from '@/entities/product/model'
 import { listRiskChecks } from '@/entities/risk/api'
 import type { RiskCheckDto } from '@/entities/risk/model'
 
@@ -115,7 +115,7 @@ const errorMessage = ref('')
 const keyword = ref('')
 const products = ref<ProductDto[]>([])
 const selectedProduct = ref<ProductDto>()
-const quoteHistory = ref<Record<string, unknown>[]>([])
+const quoteHistory = ref<MarketQuoteDto[]>([])
 const riskChecks = ref<RiskCheckDto[]>([])
 
 const summary = computed(() => summarizeProducts(products.value))
@@ -129,12 +129,12 @@ const metrics = computed(() => [
 const quoteOption = computed(() => ({
   tooltip: { trigger: 'axis' },
   grid: { left: 46, right: 20, top: 24, bottom: 36 },
-  xAxis: { type: 'category', data: quoteHistory.value.map((item) => String(item.quoteTime || item.valuationTime || item.createdAt || '')) },
+  xAxis: { type: 'category', data: quoteHistory.value.map((item) => formatDateTime(item.quoteTime)) },
   yAxis: { type: 'value' },
   series: [{
     name: '净值',
     type: 'line',
-    data: quoteHistory.value.map((item) => Number(item.nav || item.closePrice || item.price || 0)),
+    data: quoteHistory.value.map((item) => item.closePrice ?? 0),
   }],
 }))
 
@@ -149,14 +149,24 @@ const columns = [
 
 const rowEvents = (record: ProductDto) => ({ onClick: () => openProduct(record) })
 
+const toApiDateTime = (date: Date) => date.toISOString().slice(0, 19)
+
+const defaultQuoteRange = () => {
+  const to = new Date()
+  const from = new Date(to)
+  from.setDate(from.getDate() - 180)
+  return { from: toApiDateTime(from), to: toApiDateTime(to) }
+}
+
 const openProduct = async (product: ProductDto) => {
   selectedProduct.value = product
   quoteHistory.value = []
   riskChecks.value = []
   try {
+    const range = defaultQuoteRange()
     const [detail, history, risks] = await Promise.all([
       getProductDetail(product.bizId),
-      listProductQuoteHistory({ productBizId: product.bizId, quoteInterval: '1D', limit: 120 }),
+      listProductQuoteHistory({ productBizId: product.bizId, interval: '1D', from: range.from, to: range.to, limit: 120 }),
       listRiskChecks({ businessType: 'PRODUCT', businessBizId: product.bizId, page: 1, size: 10, sort: 'checkedAt', direction: 'desc' }),
     ])
     selectedProduct.value = detail

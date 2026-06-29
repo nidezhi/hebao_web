@@ -76,8 +76,8 @@
         <a-alert
           type="info"
           show-icon
-          message="联调账号：demo_admin / ADMIN"
-          description="密码已按本次会话提供值预填，方便验证后端鉴权链路。"
+          message="请输入后端已开通账号"
+          description="页面不再预填账号或密码；联调账号以当前环境真实配置为准。"
         />
       </a-card>
     </div>
@@ -97,8 +97,8 @@ const errorMessage = ref('')
 const loginHint = ref('')
 const submitButtonRef = ref<HTMLButtonElement | null>(null)
 const form = reactive({
-  account: 'demo_admin',
-  password: 'Demo@123456',
+  account: '',
+  password: '',
 })
 
 const submit = async () => {

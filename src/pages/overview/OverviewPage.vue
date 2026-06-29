@@ -59,39 +59,84 @@
         </div>
       </section>
 
-      <a-row :gutter="[16, 16]">
-        <a-col :xs="24" :xl="16">
-          <a-card class="page-card" :bordered="false">
-            <template #title>
-              <a-space>
-                <span>自动闭环时间线</span>
-                <StatusTag :value="selectedRun?.runStatus" :options="closedLoopRunStatusOptions" />
-              </a-space>
-            </template>
-            <template #extra>
-              <a-select
-                v-model:value="selectedRunBizId"
-                placeholder="选择闭环运行"
-                style="width: 260px"
-                :options="runOptions"
-                @change="loadSelectedRun"
-              />
-            </template>
+      <section class="closed-loop-workbench page-card">
+        <aside class="run-tree-panel">
+          <div class="run-tree-panel__head">
+            <div>
+              <span class="eyebrow">RUN TREE</span>
+              <h3>运行实例</h3>
+            </div>
+            <a-tag>{{ closedLoopRuns.length }}</a-tag>
+          </div>
+          <a-input-search
+            v-model:value="runKeyword"
+            class="run-tree-search"
+            placeholder="搜索运行号 / 状态 / 门禁 / 任务"
+            allow-clear
+          />
+          <div class="run-tree-list">
             <EmptyEvidence
-              v-if="!closedLoopRuns.length"
+              v-if="!filteredRunOptions.length"
               description="暂无自动闭环运行记录，可先在采集编排页触发自动闭环任务。"
             />
-            <ClosedLoopTimeline
+            <button
+              v-for="option in filteredRunOptions"
               v-else
-              :run="selectedRun"
-              @select-step="openStep"
-            />
-          </a-card>
-        </a-col>
-        <a-col :xs="24" :xl="8">
-          <AutomationGuardPanel :allow-mock="latestRun?.gateResult !== 'BLOCK'" />
-        </a-col>
-      </a-row>
+              :key="option.value"
+              type="button"
+              class="run-tree-node"
+              :class="[runStatusClass(option.run.runStatus), { 'run-tree-node--active': option.value === selectedRunBizId }]"
+              :aria-pressed="option.value === selectedRunBizId"
+              @click="selectRun(option.value)"
+            >
+              <span class="run-tree-node__branch" />
+              <span class="run-tree-node__main">
+                <span class="run-tree-node__title">
+                  <strong>{{ option.run.runNo || option.run.bizId }}</strong>
+                  <StatusTag :value="option.run.runStatus" :options="closedLoopRunStatusOptions" />
+                </span>
+                <span class="run-tree-node__reason">{{ runNodeReason(option.run) }}</span>
+                <span class="run-tree-node__meta">
+                  <small>{{ formatDateTime(option.run.startedAt) }}</small>
+                  <small>质量 {{ formatPercent(option.run.qualityScore) }}</small>
+                  <small>门禁 {{ option.run.gateResult || '-' }}</small>
+                </span>
+              </span>
+            </button>
+          </div>
+        </aside>
+
+        <section class="closed-loop-timeline-panel">
+          <div class="closed-loop-timeline-panel__head">
+            <div>
+              <span class="eyebrow">RUN TIMELINE</span>
+              <h3>自动闭环时间线</h3>
+            </div>
+            <StatusTag :value="selectedRun?.runStatus" :options="closedLoopRunStatusOptions" />
+          </div>
+          <div v-if="selectedRun" class="selected-run-summary">
+            <strong>{{ selectedRun.runNo || selectedRun.bizId }}</strong>
+            <span>{{ formatDateTime(selectedRun.startedAt) }}</span>
+            <span>质量 {{ formatPercent(selectedRun.qualityScore) }}</span>
+            <span>门禁 {{ selectedRun.gateResult || '-' }}</span>
+          </div>
+          <EmptyEvidence
+            v-if="!closedLoopRuns.length"
+            description="暂无自动闭环运行记录，可先在采集编排页触发自动闭环任务。"
+          />
+          <ClosedLoopTimeline
+            v-else
+            :run="selectedRun"
+            @select-step="openStep"
+          />
+        </section>
+
+        <AutomationGuardPanel
+          :allow-mock="Boolean(selectedRun && selectedRun.gateResult !== 'BLOCK')"
+          :gate-result="selectedRun?.gateResult"
+          :run-status="selectedRun?.runStatus"
+        />
+      </section>
 
       <a-row :gutter="[16, 16]">
         <a-col :xs="24" :xl="8">
@@ -169,6 +214,36 @@
         </a-descriptions-item>
         <a-descriptions-item label="失败/阻断">{{ selectedStep.failureReason || '-' }}</a-descriptions-item>
       </a-descriptions>
+      <a-divider>闭环产物追溯</a-divider>
+      <div class="step-trace-list">
+        <EmptyEvidence
+          v-if="!selectedStepTraceItems.length"
+          description="这个节点没有返回可跳转的产物 ID；可在输入/输出摘要中查看任务执行证据。"
+        />
+        <div v-for="item in selectedStepTraceItems" :key="`${item.kind}-${item.value}`" class="step-trace-card">
+          <div>
+            <span class="eyebrow">{{ item.kind }}</span>
+            <strong>{{ item.title }}</strong>
+            <small>{{ item.value }}</small>
+          </div>
+          <a-button size="small" type="primary" @click="router.push(item.to)">查看</a-button>
+        </div>
+      </div>
+      <div v-if="promptArtifact" class="prompt-artifact-card">
+        <div class="prompt-artifact-card__head">
+          <div>
+            <span class="eyebrow">PROMPT ARTIFACT</span>
+            <strong>{{ promptArtifact.promptCode }}@{{ promptArtifact.promptVersion }}</strong>
+          </div>
+          <a-tag :color="promptArtifact.readyForModel ? 'green' : 'orange'">
+            {{ promptArtifact.readyForModel ? '可用于后续模型' : '变量未就绪' }}
+          </a-tag>
+        </div>
+        <a-space v-if="promptArtifact.missingVariables.length" wrap>
+          <a-tag v-for="name in promptArtifact.missingVariables" :key="name" color="orange">{{ name }}</a-tag>
+        </a-space>
+        <p>{{ promptArtifact.renderedPromptPreview }}</p>
+      </div>
       <a-divider>输入摘要</a-divider>
       <JsonPreview :value="selectedStep?.inputJson" :raw="selectedStep?.inputSummary" />
       <a-divider>输出摘要</a-divider>
@@ -224,6 +299,7 @@ const errorMessage = ref('')
 const closedLoopRuns = ref<ClosedLoopRunView[]>([])
 const selectedRunBizId = ref<string>()
 const selectedRun = ref<ClosedLoopRunView>()
+const runKeyword = ref('')
 const dataSources = ref<DataSourceDto[]>([])
 const aiSkillTotal = ref(0)
 const activeDiscoverySkillCount = ref(0)
@@ -237,6 +313,21 @@ const backtests = ref<BacktestResultDto[]>([])
 const promptEvaluations = ref<AiPromptEvaluationDto[]>([])
 const detailOpen = ref(false)
 const selectedStep = ref<ClosedLoopStepView>()
+
+interface TraceItem {
+  kind: string
+  title: string
+  value: string
+  to: { path: string, query: Record<string, string> }
+}
+
+interface PromptArtifactView {
+  promptCode: string
+  promptVersion: string
+  readyForModel: boolean
+  missingVariables: string[]
+  renderedPromptPreview: string
+}
 
 const latestRun = computed(() => closedLoopRuns.value[0])
 const latestReportView = computed<ReportView | undefined>(() => reports.value[0] ? normalizeReport(reports.value[0]) : undefined)
@@ -290,10 +381,44 @@ const metrics = computed(() => [
   { label: '高风险拦截', value: highRiskCount.value, hint: '拒绝 / 高风险' },
 ])
 
+const statusLabel = (value?: string) =>
+  closedLoopRunStatusOptions.find((item) => item.value === value)?.label || value || '-'
+
+const runOptionLabel = (run: ClosedLoopRunView) => [
+  run.runNo || run.bizId,
+  statusLabel(run.runStatus),
+  formatDateTime(run.startedAt),
+].filter(Boolean).join(' · ')
+
+const runSearchText = (run: ClosedLoopRunView) => [
+  run.bizId,
+  run.runNo,
+  run.runStatus,
+  statusLabel(run.runStatus),
+  run.taskCode,
+  run.themeCode,
+  run.marketScope,
+  run.gateResult,
+  formatDateTime(run.startedAt),
+].filter(Boolean).join(' ').toLowerCase()
+
 const runOptions = computed(() => closedLoopRuns.value.map((run) => ({
   value: run.bizId,
-  label: `${run.runNo || run.bizId} · ${run.runStatus}`,
+  label: runOptionLabel(run),
+  run,
+  searchText: runSearchText(run),
 })))
+
+const filteredRunOptions = computed(() => {
+  const keyword = runKeyword.value.trim().toLowerCase()
+  if (!keyword) return runOptions.value
+  return runOptions.value.filter((option) => option.searchText.includes(keyword))
+})
+
+const runStatusClass = (status?: string) => `run-tree-node--${String(status || 'default').toLowerCase()}`
+
+const runNodeReason = (run: ClosedLoopRunView) =>
+  run.failureReason || run.summary || run.themeCode || run.marketScope || run.taskCode || '自动闭环实例'
 
 const actionQueue = computed(() => [
   ...(activeDiscoverySkillCount.value === 0
@@ -345,6 +470,165 @@ const backtestColumns = [
 ]
 
 const navigate = (path: string) => router.push(path)
+
+const objectValue = (source: unknown, key: string): string | undefined => {
+  if (!source || typeof source !== 'object') return undefined
+  const value = (source as Record<string, unknown>)[key]
+  if (value === undefined || value === null || value === '') return undefined
+  return String(value)
+}
+
+const firstValue = (...values: Array<string | undefined>) => values.find((value) => value && value.trim())
+
+const traceContext = computed(() => {
+  const input = selectedStep.value?.inputJson
+  const output = selectedStep.value?.outputJson
+  const summary = selectedRun.value?.summaryJson
+  return {
+    reportBizId: firstValue(
+      objectValue(output, 'reportBizId'),
+      objectValue(input, 'reportBizId'),
+      objectValue(summary, 'reportBizId'),
+      selectedRun.value?.reportBizId,
+    ),
+    portfolioBizId: firstValue(
+      objectValue(output, 'portfolioBizId'),
+      objectValue(input, 'portfolioBizId'),
+      objectValue(summary, 'portfolioBizId'),
+      selectedRun.value?.portfolioBizId,
+    ),
+    orderBizId: objectValue(output, 'orderBizId') || objectValue(input, 'orderBizId'),
+    backtestBizId: firstValue(
+      objectValue(output, 'backtestBizId'),
+      objectValue(input, 'backtestBizId'),
+      objectValue(summary, 'backtestBizId'),
+      selectedRun.value?.backtestBizId,
+    ),
+    feedbackBizId: objectValue(output, 'feedbackBizId') || objectValue(input, 'feedbackBizId'),
+    modelBizId: firstValue(
+      objectValue(output, 'modelBizId'),
+      objectValue(output, 'modelCandidateBizId'),
+      objectValue(input, 'modelBizId'),
+      objectValue(summary, 'modelCandidateBizId'),
+    ),
+    promptBizId: firstValue(
+      objectValue(output, 'promptBizId'),
+      objectValue(input, 'promptBizId'),
+      selectedRun.value?.promptBizId,
+    ),
+    promptCode: firstValue(
+      objectValue(output, 'promptCode'),
+      objectValue(input, 'promptCode'),
+      selectedRun.value?.promptCode,
+    ),
+    promptVersion: firstValue(
+      objectValue(output, 'promptVersion'),
+      objectValue(input, 'promptVersion'),
+      selectedRun.value?.promptVersion,
+    ),
+    taskCode: objectValue(output, 'taskCode') || objectValue(input, 'taskCode'),
+  }
+})
+
+const boolValue = (source: unknown, key: string) => {
+  if (!source || typeof source !== 'object') return false
+  const value = (source as Record<string, unknown>)[key]
+  return value === true || String(value).toLowerCase() === 'true'
+}
+
+const arrayValue = (source: unknown, key: string): string[] => {
+  if (!source || typeof source !== 'object') return []
+  const value = (source as Record<string, unknown>)[key]
+  return Array.isArray(value) ? value.map(String).filter(Boolean) : []
+}
+
+const promptArtifact = computed<PromptArtifactView | undefined>(() => {
+  const output = selectedStep.value?.outputJson
+  const renderedPromptPreview = objectValue(output, 'renderedPromptPreview')
+  const trace = traceContext.value
+  if (!renderedPromptPreview || !trace.promptCode || !trace.promptVersion) return undefined
+  return {
+    promptCode: trace.promptCode,
+    promptVersion: trace.promptVersion,
+    readyForModel: boolValue(output, 'readyForModel'),
+    missingVariables: arrayValue(output, 'missingVariables'),
+    renderedPromptPreview,
+  }
+})
+
+const selectedStepTraceItems = computed<TraceItem[]>(() => {
+  const trace = traceContext.value
+  const items: TraceItem[] = []
+  if (trace.reportBizId) {
+    items.push({
+      kind: 'REPORT',
+      title: '查看投资报告',
+      value: trace.reportBizId,
+      to: { path: '/report-studio', query: { reportBizId: trace.reportBizId } },
+    })
+  }
+  if (trace.portfolioBizId) {
+    items.push({
+      kind: 'MOCK',
+      title: trace.orderBizId ? '查看组合与订单' : '查看 Mock 组合',
+      value: trace.orderBizId ? `${trace.portfolioBizId} / ${trace.orderBizId}` : trace.portfolioBizId,
+      to: { path: '/simulation', query: { portfolioBizId: trace.portfolioBizId, ...(trace.orderBizId ? { orderBizId: trace.orderBizId } : {}) } },
+    })
+  }
+  if (trace.backtestBizId || trace.feedbackBizId) {
+    items.push({
+      kind: 'REVIEW',
+      title: '查看回测与反馈',
+      value: [trace.backtestBizId, trace.feedbackBizId].filter(Boolean).join(' / '),
+      to: {
+        path: '/review-loop',
+        query: {
+          ...(trace.backtestBizId ? { backtestBizId: trace.backtestBizId } : {}),
+          ...(trace.feedbackBizId ? { feedbackBizId: trace.feedbackBizId } : {}),
+          ...(trace.portfolioBizId ? { portfolioBizId: trace.portfolioBizId } : {}),
+          ...(trace.reportBizId ? { reportBizId: trace.reportBizId } : {}),
+        },
+      },
+    })
+  }
+  if (trace.modelBizId) {
+    items.push({
+      kind: 'MODEL',
+      title: '查看模型候选',
+      value: trace.modelBizId,
+      to: { path: '/config-center/models', query: { modelBizId: trace.modelBizId } },
+    })
+  }
+  if (trace.promptBizId || trace.promptCode) {
+    items.push({
+      kind: 'PROMPT',
+      title: '查看 Prompt 候选',
+      value: [trace.promptCode, trace.promptVersion].filter(Boolean).join('@') || trace.promptBizId || '',
+      to: {
+        path: '/config-center/prompts',
+        query: {
+          ...(trace.promptBizId ? { promptBizId: trace.promptBizId } : {}),
+          ...(trace.promptCode ? { promptCode: trace.promptCode } : {}),
+          ...(trace.promptVersion ? { promptVersion: trace.promptVersion } : {}),
+        },
+      },
+    })
+  }
+  if (trace.taskCode && !items.length) {
+    items.push({
+      kind: 'TASK',
+      title: '查看任务配置',
+      value: trace.taskCode,
+      to: { path: '/config-center/tasks', query: { taskCode: trace.taskCode } },
+    })
+  }
+  return items
+})
+
+const selectRun = async (bizId: string) => {
+  selectedRunBizId.value = bizId
+  await loadSelectedRun()
+}
 
 const loadSelectedRun = async () => {
   if (!selectedRunBizId.value) return
@@ -400,6 +684,7 @@ const load = async () => {
     riskChecks.value = riskPage.items || []
     backtests.value = backtestPage.items || []
     promptEvaluations.value = evaluationPage.items || []
+    await loadSelectedRun()
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : '驾驶舱接口加载失败'
   } finally {

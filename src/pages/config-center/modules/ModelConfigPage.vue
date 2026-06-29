@@ -51,6 +51,7 @@
               <a-space>
                 <a-button size="small" type="link" @click="openModel(record)">编辑</a-button>
                 <a-button size="small" type="link" @click="router.push('/config-center/model-skills')">绑定 Skill</a-button>
+                <a-button size="small" type="link" @click="router.push('/config-center/model-bindings')">运行绑定</a-button>
                 <a-dropdown>
                   <a-button size="small" type="link">状态</a-button>
                   <template #overlay>
@@ -96,7 +97,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted, reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { Modal, message } from 'ant-design-vue'
 import { DeploymentUnitOutlined } from '@ant-design/icons-vue'
 import { endpoints } from '@/shared/api/endpoints'
@@ -113,6 +114,7 @@ import { aiModelStatusOptions } from '@/entities/ai-model/dictionary'
 import type { AiModelDto } from '@/entities/ai-model/model'
 
 const loading = ref(false)
+const route = useRoute()
 const router = useRouter()
 const saving = ref(false)
 const errorMessage = ref('')
@@ -216,6 +218,11 @@ const load = async () => {
     }))
     const bindingMap = new Map(bindings)
     models.value = items.map((model) => ({ ...model, skills: bindingMap.get(model.bizId) || model.skills || [] }))
+    const preferredModelBizId = typeof route.query.modelBizId === 'string' ? route.query.modelBizId : ''
+    const matchedModel = models.value.find((item) => item.bizId === preferredModelBizId)
+    if (matchedModel) {
+      openModel(matchedModel)
+    }
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : '模型配置加载失败'
   } finally {

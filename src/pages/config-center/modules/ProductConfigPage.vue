@@ -96,8 +96,12 @@
       <a-form layout="vertical">
         <a-form-item label="产品业务 ID"><a-input v-model:value="quoteForm.productBizId" disabled /></a-form-item>
         <a-form-item label="行情时间"><a-input v-model:value="quoteForm.quoteTime" placeholder="2026-06-25T15:00:00" /></a-form-item>
-        <a-form-item label="周期"><a-input v-model:value="quoteForm.quoteInterval" /></a-form-item>
-        <a-form-item label="净值"><a-input-number v-model:value="quoteForm.nav" class="full-width" /></a-form-item>
+        <a-form-item label="周期"><a-input v-model:value="quoteForm.interval" /></a-form-item>
+        <a-form-item label="收盘价 / 净值"><a-input-number v-model:value="quoteForm.closePrice" class="full-width" :min="0" /></a-form-item>
+        <a-row :gutter="12">
+          <a-col :span="12"><a-form-item label="开盘价"><a-input-number v-model:value="quoteForm.openPrice" class="full-width" :min="0" /></a-form-item></a-col>
+          <a-col :span="12"><a-form-item label="前收盘"><a-input-number v-model:value="quoteForm.previousClosePrice" class="full-width" :min="0" /></a-form-item></a-col>
+        </a-row>
         <a-form-item label="来源"><a-input v-model:value="quoteForm.sourceCode" /></a-form-item>
         <a-form-item label="状态"><a-input v-model:value="quoteForm.status" /></a-form-item>
         <a-button type="primary" :loading="saving" @click="submitQuote">保存行情</a-button>
@@ -117,7 +121,7 @@ import MetricStrip from '@/shared/components/business/MetricStrip.vue'
 import PageState from '@/shared/components/business/PageState.vue'
 import { createProduct, deleteProduct, listProducts, saveProductAttribute, saveProductInvestmentProfile, saveProductQuote, updateProduct, updateProductStatus } from '@/entities/product/api'
 import { productTypeOptions, tradeStatusOptions } from '@/entities/product/dictionary'
-import type { ProductDto } from '@/entities/product/model'
+import type { ProductDto, SaveMarketQuoteRequest } from '@/entities/product/model'
 
 const loading = ref(false)
 const saving = ref(false)
@@ -130,7 +134,7 @@ const quoteOpen = ref(false)
 const productForm = reactive<Record<string, unknown>>({})
 const attributeForm = reactive<Record<string, unknown>>({})
 const profileForm = reactive<Record<string, unknown>>({})
-const quoteForm = reactive<Record<string, unknown>>({})
+const quoteForm = reactive<Partial<SaveMarketQuoteRequest>>({})
 const themeRelationsText = ref('[]')
 const productTypeSelectOptions = productTypeOptions.map((item) => ({ label: item.label, value: item.value }))
 const tradeStatusSelectOptions = tradeStatusOptions.map((item) => ({ label: item.label, value: item.value }))
@@ -158,6 +162,7 @@ const resetObject = (target: Record<string, unknown>, next: Record<string, unkno
   Object.keys(target).forEach((key) => delete target[key])
   Object.assign(target, next)
 }
+const toApiDateTime = (date: Date) => date.toISOString().slice(0, 19)
 const openProduct = (product?: ProductDto) => {
   resetObject(productForm, product ? { ...product } : { productType: 'ETF', marketCode: 'CN_MAINLAND', currency: 'CNY', tradeStatus: 'TRADABLE', riskLevel: 3 })
   productOpen.value = true
@@ -172,7 +177,14 @@ const openAttribute = (product: ProductDto) => {
   attributeOpen.value = true
 }
 const openQuote = (product: ProductDto) => {
-  resetObject(quoteForm, { productBizId: product.bizId, quoteInterval: '1D', nav: product.latestNav || 1, sourceCode: product.sourceCode || 'CHINA_WEALTH', status: 'VALID' })
+  resetObject(quoteForm, {
+    productBizId: product.bizId,
+    interval: '1D',
+    quoteTime: toApiDateTime(new Date()),
+    closePrice: product.latestNav ?? 1,
+    sourceCode: product.sourceCode || 'CHINA_WEALTH',
+    status: 'VALID',
+  })
   quoteOpen.value = true
 }
 const submitProduct = async () => {
@@ -240,9 +252,26 @@ const submitAttribute = async () => {
   }
 }
 const submitQuote = async () => {
+  if (!quoteForm.productBizId || !quoteForm.sourceCode || !quoteForm.interval || !quoteForm.quoteTime || quoteForm.closePrice == null) {
+    message.warning('请填写产品、来源、周期、行情时间和收盘价')
+    return
+  }
   saving.value = true
   try {
-    await saveProductQuote({ ...quoteForm })
+    await saveProductQuote({
+      productBizId: quoteForm.productBizId,
+      sourceCode: quoteForm.sourceCode,
+      interval: quoteForm.interval,
+      quoteTime: quoteForm.quoteTime,
+      closePrice: quoteForm.closePrice,
+      openPrice: quoteForm.openPrice,
+      highPrice: quoteForm.highPrice,
+      lowPrice: quoteForm.lowPrice,
+      previousClosePrice: quoteForm.previousClosePrice,
+      volume: quoteForm.volume,
+      turnoverAmount: quoteForm.turnoverAmount,
+      status: quoteForm.status,
+    })
     message.success('行情已保存')
     quoteOpen.value = false
     await load()

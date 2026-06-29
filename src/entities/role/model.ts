@@ -19,3 +19,12 @@ export interface ConfigureRolePermissionsRequest {
   roleCode: string
   permissions: string[]
 }
+
+export interface PermissionCatalogDto {
+  permissionCode: string
+  displayName: string
+  groupName: string
+  description?: string
+  riskLevel?: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL' | string
+  status?: 'ACTIVE' | 'DISABLED' | string
+}

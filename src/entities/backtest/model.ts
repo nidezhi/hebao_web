@@ -21,3 +21,29 @@ export interface BacktestListRequest extends PageQuery {
   strategyVersion?: string
   status?: BacktestStatus
 }
+
+export interface SaveBacktestResultRequest {
+  bizId?: string
+  strategyCode: string
+  strategyVersion: string
+  startDate: string
+  endDate: string
+  initialCapital: number
+  benchmarkCode?: string
+  parameters: string
+  metrics?: string
+  resultUri?: string
+  status?: BacktestStatus
+  failureReason?: string
+  startedAt?: string
+  completedAt?: string
+}
+
+export interface GenerateBacktestFromPortfolioRequest {
+  portfolioBizId: string
+  strategyCode: string
+  strategyVersion: string
+  benchmarkCode?: string
+  parameters?: string
+  limit?: number
+}

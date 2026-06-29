@@ -5,7 +5,7 @@
         <span class="eyebrow">DZCOM FRONTEND LAW</span>
         <h2>DZCOM 前端开发铁律</h2>
         <p>
-          当前阶段：<strong>按稳定 API 文档生成业务页面期</strong>。登录、鉴权、路由、布局、UI 规范和 API 基础设施保留；业务页面必须严格按 18 号前端生成蓝图生成。
+          当前阶段：<strong>前后端统一联调与契约收敛期</strong>。产品契约、开发铁律、handoff、gap list 和验收流程以后端仓库 <code>dzcom/docs_new</code> 为准；聊天只推进当前任务。
         </p>
       </div>
       <a-alert
@@ -82,13 +82,13 @@ const sections: RuleSection[] = [
     no: '0',
     title: '当前阶段边界',
     shortTitle: '阶段边界',
-    summary: '稳定 API 文档已确认，业务页面必须按蓝图生成真实工作台。',
+    summary: '后端业务目标和共享文档是事实源，前端围绕真实 API 和闭环体验收敛。',
     items: [
-      { no: '0.1', text: '保留登录页、auth store、路由守卫、httpClient、endpoints、基础布局、UI 规范页、API 文档舱和开发铁律页。', critical: true },
-      { no: '0.2', text: '业务页面必须调用真实 API client，不能继续展示统一重置占位。', critical: true },
+      { no: '0.1', text: '共享事实源统一为 dzcom/docs_new；前端仓库不再保留 md 文档作为产品或契约依据。', critical: true },
+      { no: '0.2', text: '每次任务开始只读 handoff、相关 laws/gap 摘要和目标文件；完成后把结论沉淀回文档。', critical: true },
       { no: '0.3', text: 'API client、DTO、adapter、dictionary 是页面生成的前置契约；页面不得直接解析复杂后端结构作为主要逻辑。' },
-      { no: '0.4', text: '禁止根据旧页面效果修补；业务页必须按稳定 API 文档和 18 号蓝图重新生成。', critical: true },
-      { no: '0.5', text: '恢复业务页面时，必须先补齐类型、接口、字典和 adapter，再生成 pages。', critical: true },
+      { no: '0.4', text: '前端不能用假数据、手填 BizId、硬编码默认值或 raw JSON 绕过真实体验；后端不足必须登记 gap。', critical: true },
+      { no: '0.5', text: '功能推进顺序为 contract / gap -> 后端接口和 DTO -> 前端 client/type/adapter/page -> 验证 -> handoff。', critical: true },
     ],
   },
   {
@@ -212,16 +212,16 @@ const sections: RuleSection[] = [
   {
     id: 'rebuild-order',
     no: '8',
-    title: '后续 API 文档生成后的重建顺序',
-    shortTitle: '重建顺序',
-    summary: '严格按 API、实体、动作流、页面和验证的顺序推进。',
+    title: '后续联动开发顺序',
+    shortTitle: '联动顺序',
+    summary: '严格按共享契约、后端补齐、前端体验和真实冒烟的顺序推进。',
     items: [
-      { no: '8.1', text: '解析 API 文档和后端提示词产物，按业务域识别接口、请求体、响应体、状态码和业务约束。' },
-      { no: '8.2', text: '生成或更新 shared/api/httpClient、shared/api/endpoints、错误处理和 Result 解包。' },
-      { no: '8.3', text: '生成 entities/*/api、entities/*/model、adapter、dictionary；字段不明确时先停，不进入页面生成。', critical: true },
-      { no: '8.4', text: '生成 features/* 表单与动作流；高风险动作必须带二次确认和失败状态。' },
-      { no: '8.5', text: '生成 pages/* 工作台、列表、详情、抽屉、图表和空状态。' },
-      { no: '8.6', text: '执行 type-check、build、本地路由冒烟；失败则回滚或修复，不进入下一阶段。', critical: true },
+      { no: '8.1', text: '先更新共享 handoff/API contract 或确认对应 gap，明确后端为准的业务目标。' },
+      { no: '8.2', text: '后端补接口、DTO、状态字典、错误上下文、数据库迁移和测试。' },
+      { no: '8.3', text: '前端补 entities/*/api、model、adapter、dictionary；字段不明确时先登记 gap，不进入页面绕过。', critical: true },
+      { no: '8.4', text: '页面补对象选择器、结构化表单、真实空状态和高风险二次确认。' },
+      { no: '8.5', text: '执行后端验证、前端 type-check/build，并对目标路由做真实冒烟。' },
+      { no: '8.6', text: '完成项写回 handoff/gap/audit，后续对话默认不再读取已完成过程上下文。', critical: true },
     ],
   },
 ]

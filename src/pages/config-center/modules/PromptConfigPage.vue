@@ -65,6 +65,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted, reactive, ref } from 'vue'
+import { useRoute } from 'vue-router'
 import { Modal, message } from 'ant-design-vue'
 import { ExperimentOutlined } from '@ant-design/icons-vue'
 import { endpoints } from '@/shared/api/endpoints'
@@ -78,6 +79,7 @@ import type { AiPromptTemplateDto, PromptStatus } from '@/entities/prompt/model'
 import { promptStatusOptions } from '@/shared/dictionaries/status'
 
 const loading = ref(false)
+const route = useRoute()
 const saving = ref(false)
 const errorMessage = ref('')
 const prompts = ref<AiPromptTemplateDto[]>([])
@@ -146,6 +148,15 @@ const load = async () => {
   try {
     const page = await listAiPrompts({ page: 1, size: 50, sort: 'updatedAt', direction: 'desc' })
     prompts.value = page.items || []
+    const preferredPromptBizId = typeof route.query.promptBizId === 'string' ? route.query.promptBizId : ''
+    const preferredPromptCode = typeof route.query.promptCode === 'string' ? route.query.promptCode : ''
+    const preferredPromptVersion = typeof route.query.promptVersion === 'string' ? route.query.promptVersion : ''
+    const matchedPrompt = prompts.value.find((item) => item.bizId === preferredPromptBizId)
+      || prompts.value.find((item) => item.promptCode === preferredPromptCode
+        && (!preferredPromptVersion || item.promptVersion === preferredPromptVersion))
+    if (matchedPrompt) {
+      openPrompt(matchedPrompt)
+    }
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : 'Prompt 配置加载失败'
   } finally {

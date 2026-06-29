@@ -2,7 +2,7 @@
   <BusinessPageShell
     title="Review Loop 复盘闭环"
     description="回测、反馈、Prompt 评估在这里形成报告 -> Prompt -> Mock -> 回测 -> 反馈 -> 评分的可复盘链路。"
-    :endpoints="[endpoints.backtest.list, endpoints.backtest.save, endpoints.backtest.generateFromPortfolio, endpoints.feedback.list, endpoints.feedback.save, endpoints.promptEvaluation.list, endpoints.promptEvaluation.save]"
+    :endpoints="[endpoints.reviewLoop.metadata, endpoints.backtest.list, endpoints.backtest.save, endpoints.backtest.generateFromPortfolio, endpoints.feedback.list, endpoints.feedback.save, endpoints.promptEvaluation.list, endpoints.promptEvaluation.save]"
     :icon="RetweetOutlined"
     status-text="LEARNING LOOP"
   >
@@ -61,25 +61,45 @@
             :options="portfolioOptions"
           />
         </a-form-item>
+        <a-form-item label="回测策略">
+          <a-select
+            v-model:value="generateForm.strategyKey"
+            show-search
+            option-filter-prop="label"
+            placeholder="选择回测策略"
+            :options="strategySelectOptions"
+            @change="applyGenerateStrategy"
+          />
+        </a-form-item>
         <a-row :gutter="12">
-          <a-col :span="12"><a-form-item label="策略编码"><a-input v-model:value="generateForm.strategyCode" /></a-form-item></a-col>
-          <a-col :span="12"><a-form-item label="策略版本"><a-input v-model:value="generateForm.strategyVersion" /></a-form-item></a-col>
-        </a-row>
-        <a-row :gutter="12">
-          <a-col :span="12"><a-form-item label="基准"><a-input v-model:value="generateForm.benchmarkCode" /></a-form-item></a-col>
+          <a-col :span="12"><a-form-item label="基准"><a-select v-model:value="generateForm.benchmarkCode" :options="benchmarkSelectOptions" /></a-form-item></a-col>
           <a-col :span="12"><a-form-item label="样本上限"><a-input-number v-model:value="generateForm.limit" class="full-width" :min="1" /></a-form-item></a-col>
         </a-row>
-        <a-form-item label="参数 JSON"><a-textarea v-model:value="generateForm.parameters" :auto-size="{ minRows: 4, maxRows: 8 }" /></a-form-item>
+        <a-row :gutter="12">
+          <a-col v-for="field in metadataFields.generateParameterFields" :key="field.fieldKey" :span="field.valueType === 'textarea' ? 24 : 12">
+            <a-form-item :label="field.label" :extra="field.description">
+              <a-input-number v-if="field.valueType === 'number'" v-model:value="generateParameterValues[field.fieldKey]" class="full-width" />
+              <a-textarea v-else-if="field.valueType === 'textarea'" v-model:value="generateParameterValues[field.fieldKey]" :auto-size="{ minRows: 2, maxRows: 5 }" />
+              <a-input v-else v-model:value="generateParameterValues[field.fieldKey]" />
+            </a-form-item>
+          </a-col>
+        </a-row>
         <a-button type="primary" :loading="saving" @click="submitGenerateBacktest">生成回测</a-button>
       </a-form>
     </a-drawer>
 
     <a-drawer v-model:open="saveBacktestOpen" width="680" title="保存回测结果">
       <a-form layout="vertical">
-        <a-row :gutter="12">
-          <a-col :span="12"><a-form-item label="策略编码"><a-input v-model:value="backtestForm.strategyCode" /></a-form-item></a-col>
-          <a-col :span="12"><a-form-item label="策略版本"><a-input v-model:value="backtestForm.strategyVersion" /></a-form-item></a-col>
-        </a-row>
+        <a-form-item label="回测策略">
+          <a-select
+            v-model:value="backtestForm.strategyKey"
+            show-search
+            option-filter-prop="label"
+            placeholder="选择回测策略"
+            :options="strategySelectOptions"
+            @change="applyBacktestStrategy"
+          />
+        </a-form-item>
         <a-form-item label="Mock 组合">
           <a-select
             v-model:value="backtestForm.portfolioBizId"
@@ -95,8 +115,30 @@
           <a-col :span="8"><a-form-item label="结束日期"><a-input v-model:value="backtestForm.endDate" placeholder="2026-06-27" /></a-form-item></a-col>
           <a-col :span="8"><a-form-item label="状态"><a-select v-model:value="backtestForm.status" :options="backtestStatusSelectOptions" /></a-form-item></a-col>
         </a-row>
-        <a-form-item label="参数 JSON"><a-textarea v-model:value="backtestForm.parameters" :auto-size="{ minRows: 3, maxRows: 7 }" /></a-form-item>
-        <a-form-item label="指标 JSON"><a-textarea v-model:value="backtestForm.metrics" :auto-size="{ minRows: 3, maxRows: 7 }" /></a-form-item>
+        <a-row :gutter="12">
+          <a-col :span="12"><a-form-item label="初始资金"><a-input-number v-model:value="backtestForm.initialCapital" class="full-width" :min="1" /></a-form-item></a-col>
+          <a-col :span="12"><a-form-item label="基准"><a-select v-model:value="backtestForm.benchmarkCode" :options="benchmarkSelectOptions" /></a-form-item></a-col>
+        </a-row>
+        <a-divider>回测参数</a-divider>
+        <a-row :gutter="12">
+          <a-col v-for="field in metadataFields.backtestParameterFields" :key="field.fieldKey" :span="field.valueType === 'textarea' ? 24 : 12">
+            <a-form-item :label="field.label" :extra="field.description">
+              <a-input-number v-if="field.valueType === 'number'" v-model:value="backtestParameterValues[field.fieldKey]" class="full-width" />
+              <a-textarea v-else-if="field.valueType === 'textarea'" v-model:value="backtestParameterValues[field.fieldKey]" :auto-size="{ minRows: 2, maxRows: 5 }" />
+              <a-input v-else v-model:value="backtestParameterValues[field.fieldKey]" :disabled="field.fieldKey === 'portfolioBizId'" />
+            </a-form-item>
+          </a-col>
+        </a-row>
+        <a-divider>回测指标</a-divider>
+        <a-row :gutter="12">
+          <a-col v-for="field in metadataFields.backtestMetricFields" :key="field.fieldKey" :span="field.valueType === 'textarea' ? 24 : 12">
+            <a-form-item :label="field.label" :extra="field.description">
+              <a-input-number v-if="field.valueType === 'number'" v-model:value="backtestMetricValues[field.fieldKey]" class="full-width" :step="0.01" />
+              <a-textarea v-else-if="field.valueType === 'textarea'" v-model:value="backtestMetricValues[field.fieldKey]" :auto-size="{ minRows: 2, maxRows: 5 }" />
+              <a-input v-else v-model:value="backtestMetricValues[field.fieldKey]" />
+            </a-form-item>
+          </a-col>
+        </a-row>
         <a-button type="primary" :loading="saving" @click="submitSaveBacktest">保存回测</a-button>
       </a-form>
     </a-drawer>
@@ -144,28 +186,48 @@
             </a-form-item>
           </a-col>
         </a-row>
-        <a-row :gutter="12">
-          <a-col :span="12"><a-form-item label="Prompt Code"><a-input v-model:value="feedbackForm.promptCode" /></a-form-item></a-col>
-          <a-col :span="12"><a-form-item label="Prompt Version"><a-input v-model:value="feedbackForm.promptVersion" /></a-form-item></a-col>
-        </a-row>
+        <a-form-item label="Prompt 版本">
+          <a-select
+            v-model:value="feedbackForm.promptBizId"
+            allow-clear
+            show-search
+            option-filter-prop="label"
+            placeholder="选择关联 Prompt"
+            :options="promptSelectOptions"
+          />
+        </a-form-item>
         <a-row :gutter="12">
           <a-col :span="12"><a-form-item label="反馈动作"><a-select v-model:value="feedbackForm.feedbackAction" :options="feedbackActionSelectOptions" /></a-form-item></a-col>
-          <a-col :span="12"><a-form-item label="原因编码"><a-input v-model:value="feedbackForm.reasonCode" /></a-form-item></a-col>
+          <a-col :span="12"><a-form-item label="原因"><a-select v-model:value="feedbackForm.reasonCode" :options="feedbackReasonSelectOptions" /></a-form-item></a-col>
         </a-row>
         <a-form-item label="反馈说明"><a-textarea v-model:value="feedbackForm.commentText" :auto-size="{ minRows: 3, maxRows: 7 }" /></a-form-item>
-        <a-form-item label="Metadata JSON"><a-textarea v-model:value="feedbackForm.metadata" :auto-size="{ minRows: 3, maxRows: 7 }" /></a-form-item>
+        <a-divider>反馈上下文</a-divider>
+        <a-row :gutter="12">
+          <a-col v-for="field in metadataFields.feedbackMetadataFields" :key="field.fieldKey" :span="field.valueType === 'textarea' ? 24 : 12">
+            <a-form-item :label="field.label" :extra="field.description">
+              <a-input-number v-if="field.valueType === 'number'" v-model:value="feedbackMetadataValues[field.fieldKey]" class="full-width" :step="0.01" />
+              <a-textarea v-else-if="field.valueType === 'textarea'" v-model:value="feedbackMetadataValues[field.fieldKey]" :auto-size="{ minRows: 2, maxRows: 5 }" />
+              <a-input v-else v-model:value="feedbackMetadataValues[field.fieldKey]" />
+            </a-form-item>
+          </a-col>
+        </a-row>
         <a-button type="primary" :loading="saving" @click="submitFeedback">保存反馈</a-button>
       </a-form>
     </a-drawer>
 
     <a-drawer v-model:open="evaluationOpen" width="680" title="保存 Prompt 评估">
       <a-form layout="vertical">
+        <a-form-item label="Prompt 版本">
+          <a-select
+            v-model:value="evaluationForm.promptBizId"
+            show-search
+            option-filter-prop="label"
+            placeholder="选择待评估 Prompt"
+            :options="promptSelectOptions"
+          />
+        </a-form-item>
         <a-row :gutter="12">
-          <a-col :span="12"><a-form-item label="Prompt Code"><a-input v-model:value="evaluationForm.promptCode" /></a-form-item></a-col>
-          <a-col :span="12"><a-form-item label="Prompt Version"><a-input v-model:value="evaluationForm.promptVersion" /></a-form-item></a-col>
-        </a-row>
-        <a-row :gutter="12">
-          <a-col :span="8"><a-form-item label="场景"><a-input v-model:value="evaluationForm.scenario" /></a-form-item></a-col>
+          <a-col :span="8"><a-form-item label="场景"><a-select v-model:value="evaluationForm.scenario" :options="evaluationScenarioSelectOptions" /></a-form-item></a-col>
           <a-col :span="8"><a-form-item label="评分"><a-input-number v-model:value="evaluationForm.score" class="full-width" :min="0" :max="1" :step="0.01" /></a-form-item></a-col>
           <a-col :span="8"><a-form-item label="复核状态"><a-select v-model:value="evaluationForm.reviewStatus" :options="reviewStatusOptions" /></a-form-item></a-col>
         </a-row>
@@ -195,7 +257,16 @@
             </a-form-item>
           </a-col>
         </a-row>
-        <a-form-item label="Metrics JSON"><a-textarea v-model:value="evaluationForm.metrics" :auto-size="{ minRows: 3, maxRows: 7 }" /></a-form-item>
+        <a-divider>评分详情</a-divider>
+        <a-row :gutter="12">
+          <a-col v-for="field in metadataFields.evaluationMetricFields" :key="field.fieldKey" :span="field.valueType === 'textarea' ? 24 : 12">
+            <a-form-item :label="field.label" :extra="field.description">
+              <a-input-number v-if="field.valueType === 'number'" v-model:value="evaluationMetricValues[field.fieldKey]" class="full-width" :min="0" :max="1" :step="0.01" />
+              <a-textarea v-else-if="field.valueType === 'textarea'" v-model:value="evaluationMetricValues[field.fieldKey]" :auto-size="{ minRows: 2, maxRows: 5 }" />
+              <a-input v-else v-model:value="evaluationMetricValues[field.fieldKey]" />
+            </a-form-item>
+          </a-col>
+        </a-row>
         <a-button type="primary" :loading="saving" @click="submitEvaluation">保存评估</a-button>
       </a-form>
     </a-drawer>
@@ -204,6 +275,7 @@
 
 <script setup lang="ts">
 import { computed, h, onMounted, reactive, ref } from 'vue'
+import { useRoute } from 'vue-router'
 import { message } from 'ant-design-vue'
 import { RetweetOutlined } from '@ant-design/icons-vue'
 import { endpoints } from '@/shared/api/endpoints'
@@ -217,15 +289,20 @@ import TimelineFlow from '@/shared/components/visual/TimelineFlow.vue'
 import { generateBacktestFromPortfolio, listBacktests, saveBacktest } from '@/entities/backtest/api'
 import { parseBacktestMetrics, parseBacktestParameters } from '@/entities/backtest/adapter'
 import { backtestStatusOptions, feedbackActionOptions } from '@/shared/dictionaries/status'
-import type { BacktestResultDto } from '@/entities/backtest/model'
+import type { BacktestResultDto, BacktestStatus } from '@/entities/backtest/model'
 import { listInvestmentFeedback, listPromptEvaluations, saveInvestmentFeedback, savePromptEvaluation } from '@/entities/feedback/api'
-import type { AiPromptEvaluationDto, InvestmentFeedbackDto } from '@/entities/feedback/model'
+import type { AiPromptEvaluationDto, FeedbackAction, InvestmentFeedbackDto } from '@/entities/feedback/model'
 import { listMyMockPortfolios } from '@/entities/portfolio/api'
 import type { MockPortfolioDto } from '@/entities/portfolio/model'
 import { listInvestmentReports } from '@/entities/report/api'
 import type { InvestmentAnalysisReportDto } from '@/entities/report/model'
+import { listAiPrompts } from '@/entities/prompt/api'
+import type { AiPromptTemplateDto } from '@/entities/prompt/model'
+import { getReviewLoopMetadata } from '@/entities/review-loop/api'
+import type { ReviewLoopFieldSchemaDto, ReviewLoopMetadataDto, ReviewLoopStrategyOptionDto } from '@/entities/review-loop/model'
 
 const loading = ref(false)
+const route = useRoute()
 const saving = ref(false)
 const errorMessage = ref('')
 const backtests = ref<BacktestResultDto[]>([])
@@ -233,52 +310,80 @@ const feedback = ref<InvestmentFeedbackDto[]>([])
 const evaluations = ref<AiPromptEvaluationDto[]>([])
 const portfolios = ref<MockPortfolioDto[]>([])
 const reports = ref<InvestmentAnalysisReportDto[]>([])
+const prompts = ref<AiPromptTemplateDto[]>([])
 const selectedBacktest = ref<BacktestResultDto>()
 const drawerOpen = ref(false)
 const generateOpen = ref(false)
 const saveBacktestOpen = ref(false)
 const feedbackOpen = ref(false)
 const evaluationOpen = ref(false)
+const defaultMetadata: ReviewLoopMetadataDto = {
+  strategies: [],
+  benchmarkOptions: [],
+  feedbackReasonOptions: [],
+  evaluationScenarioOptions: [],
+  generateParameterFields: [],
+  backtestParameterFields: [],
+  backtestMetricFields: [],
+  feedbackMetadataFields: [],
+  evaluationMetricFields: [],
+}
+const metadataFields = ref<ReviewLoopMetadataDto>(defaultMetadata)
 const generateForm = reactive({
   portfolioBizId: '',
-  strategyCode: 'AUTO_CLOSED_LOOP_MOCK',
-  strategyVersion: 'manual-v1',
-  benchmarkCode: 'CSI300',
-  parameters: '{"source":"REVIEW_LOOP"}',
+  strategyKey: '',
+  benchmarkCode: '',
   limit: 100,
 })
-const backtestForm = reactive({
-  strategyCode: 'AUTO_CLOSED_LOOP_MOCK',
-  strategyVersion: 'manual-v1',
+const backtestForm = reactive<{
+  strategyKey: string
+  portfolioBizId: string
+  startDate: string
+  endDate: string
+  initialCapital: number
+  benchmarkCode: string
+  status: BacktestStatus
+}>({
+  strategyKey: '',
   portfolioBizId: '',
   startDate: '',
   endDate: '',
-  parameters: '{}',
-  metrics: '{}',
+  initialCapital: 1000000,
+  benchmarkCode: '',
   status: 'PENDING',
 })
-const feedbackForm = reactive({
+const feedbackForm = reactive<{
+  targetType: string
+  targetBizId: string
+  reportBizId: string
+  backtestBizId: string
+  promptBizId: string
+  feedbackAction: FeedbackAction
+  reasonCode: string
+  commentText: string
+}>({
   targetType: 'MOCK_PORTFOLIO',
   targetBizId: '',
   reportBizId: '',
   backtestBizId: '',
-  promptCode: 'investment-plan-from-report',
-  promptVersion: 'v1',
+  promptBizId: '',
   feedbackAction: 'WATCH',
-  reasonCode: 'MANUAL_REVIEW',
+  reasonCode: '',
   commentText: '',
-  metadata: '{}',
 })
 const evaluationForm = reactive({
-  promptCode: 'investment-plan-from-report',
-  promptVersion: 'v1',
-  scenario: 'MANUAL_REVIEW',
+  promptBizId: '',
+  scenario: '',
   score: 0.8,
   reviewStatus: 'PENDING',
   backtestBizId: '',
   feedbackBizId: '',
-  metrics: '{}',
 })
+const generateParameterValues = reactive<Record<string, string | number>>({})
+const backtestParameterValues = reactive<Record<string, string | number>>({})
+const backtestMetricValues = reactive<Record<string, string | number>>({})
+const feedbackMetadataValues = reactive<Record<string, string | number>>({})
+const evaluationMetricValues = reactive<Record<string, string | number>>({})
 const backtestStatusSelectOptions = backtestStatusOptions.map((item) => ({ label: item.label, value: item.value }))
 const feedbackActionSelectOptions = feedbackActionOptions.map((item) => ({ label: item.label, value: item.value }))
 const reviewStatusOptions = [
@@ -291,6 +396,32 @@ const targetTypeOptions = [
   { label: '投资报告', value: 'REPORT' },
   { label: '回测结果', value: 'BACKTEST' },
 ]
+const optionLabel = (label: string, description?: string) => description ? `${label} · ${description}` : label
+const strategyKey = (strategy: ReviewLoopStrategyOptionDto) => `${strategy.strategyCode}@@${strategy.strategyVersion}`
+const selectedGenerateStrategy = computed(() => metadataFields.value.strategies.find((item) => strategyKey(item) === generateForm.strategyKey))
+const selectedBacktestStrategy = computed(() => metadataFields.value.strategies.find((item) => strategyKey(item) === backtestForm.strategyKey))
+const selectedFeedbackPrompt = computed(() => prompts.value.find((item) => item.bizId === feedbackForm.promptBizId))
+const selectedEvaluationPrompt = computed(() => prompts.value.find((item) => item.bizId === evaluationForm.promptBizId))
+const strategySelectOptions = computed(() => metadataFields.value.strategies.map((item) => ({
+  value: strategyKey(item),
+  label: `${item.displayName || item.strategyCode} · ${item.strategyCode}@${item.strategyVersion}`,
+})))
+const benchmarkSelectOptions = computed(() => metadataFields.value.benchmarkOptions.map((item) => ({
+  value: item.value,
+  label: optionLabel(item.label, item.description),
+})))
+const feedbackReasonSelectOptions = computed(() => metadataFields.value.feedbackReasonOptions.map((item) => ({
+  value: item.value,
+  label: optionLabel(item.label, item.description),
+})))
+const evaluationScenarioSelectOptions = computed(() => metadataFields.value.evaluationScenarioOptions.map((item) => ({
+  value: item.value,
+  label: optionLabel(item.label, item.description),
+})))
+const promptSelectOptions = computed(() => prompts.value.map((item) => ({
+  value: item.bizId,
+  label: `${item.templateName || item.promptCode} · ${item.promptCode}@${item.promptVersion} · ${item.status}`,
+})))
 
 const metrics = computed(() => [
   { label: '回测记录', value: backtests.value.length, hint: `成功 ${backtests.value.filter((item) => item.status === 'SUCCEEDED').length}` },
@@ -350,14 +481,137 @@ const feedbackTargetOptions = computed(() => {
   return portfolioOptions.value
 })
 
+const queryString = (key: string) => {
+  const value = route.query[key]
+  return typeof value === 'string' ? value : ''
+}
+
+const applyTraceQuery = () => {
+  const portfolioBizId = queryString('portfolioBizId')
+  const reportBizId = queryString('reportBizId')
+  const backtestBizId = queryString('backtestBizId')
+  const feedbackBizId = queryString('feedbackBizId')
+  if (portfolioBizId) {
+    generateForm.portfolioBizId = portfolioBizId
+    backtestForm.portfolioBizId = portfolioBizId
+    feedbackForm.targetType = 'MOCK_PORTFOLIO'
+    feedbackForm.targetBizId = portfolioBizId
+  }
+  if (reportBizId) {
+    feedbackForm.reportBizId = reportBizId
+  }
+  if (backtestBizId) {
+    feedbackForm.backtestBizId = backtestBizId
+    evaluationForm.backtestBizId = backtestBizId
+    const matchedBacktest = backtests.value.find((item) => item.bizId === backtestBizId)
+    if (matchedBacktest) {
+      selectedBacktest.value = matchedBacktest
+      drawerOpen.value = true
+    }
+  }
+  if (feedbackBizId) {
+    evaluationForm.feedbackBizId = feedbackBizId
+  }
+}
+
+const normalizeFieldValue = (field: ReviewLoopFieldSchemaDto, value: string | number | undefined) => {
+  if (field.valueType === 'number') {
+    if (value === undefined || value === '') return undefined
+    const numeric = Number(value)
+    return Number.isFinite(numeric) ? numeric : undefined
+  }
+  return value ?? ''
+}
+
+const applyFieldDefaults = (fields: ReviewLoopFieldSchemaDto[], target: Record<string, string | number>) => {
+  Object.keys(target).forEach((key) => delete target[key])
+  fields.forEach((field) => {
+    if (field.valueType === 'number') {
+      const value = Number(field.defaultValue ?? 0)
+      target[field.fieldKey] = Number.isFinite(value) ? value : 0
+      return
+    }
+    target[field.fieldKey] = field.defaultValue ?? ''
+  })
+}
+
+const buildStructuredJson = (fields: ReviewLoopFieldSchemaDto[], values: Record<string, string | number>) => {
+  const payload = fields.reduce<Record<string, unknown>>((result, field) => {
+    const value = normalizeFieldValue(field, values[field.fieldKey])
+    if (field.required || value !== '' && value !== undefined) {
+      result[field.fieldKey] = value
+    }
+    return result
+  }, {})
+  return JSON.stringify(payload)
+}
+
+const requireStructuredFields = (fields: ReviewLoopFieldSchemaDto[], values: Record<string, string | number>) => {
+  const missing = fields.filter((field) => {
+    if (!field.required) return false
+    const value = values[field.fieldKey]
+    return value === undefined || value === ''
+  })
+  if (missing.length > 0) {
+    message.warning(`请填写${missing[0].label}`)
+    return false
+  }
+  return true
+}
+
+const applyGenerateStrategy = () => {
+  if (!selectedGenerateStrategy.value) return
+  generateForm.benchmarkCode = selectedGenerateStrategy.value.defaultBenchmarkCode || generateForm.benchmarkCode
+  generateForm.limit = selectedGenerateStrategy.value.defaultLimit || generateForm.limit
+}
+
+const applyBacktestStrategy = () => {
+  if (!selectedBacktestStrategy.value) return
+  backtestForm.benchmarkCode = selectedBacktestStrategy.value.defaultBenchmarkCode || backtestForm.benchmarkCode
+  backtestForm.initialCapital = selectedBacktestStrategy.value.defaultInitialCapital || backtestForm.initialCapital
+}
+
+const applyReviewLoopDefaults = () => {
+  const metadata = metadataFields.value
+  applyFieldDefaults(metadata.generateParameterFields, generateParameterValues)
+  applyFieldDefaults(metadata.backtestParameterFields, backtestParameterValues)
+  applyFieldDefaults(metadata.backtestMetricFields, backtestMetricValues)
+  applyFieldDefaults(metadata.feedbackMetadataFields, feedbackMetadataValues)
+  applyFieldDefaults(metadata.evaluationMetricFields, evaluationMetricValues)
+  const firstStrategy = metadata.strategies[0]
+  if (firstStrategy) {
+    const key = strategyKey(firstStrategy)
+    generateForm.strategyKey = generateForm.strategyKey || key
+    backtestForm.strategyKey = backtestForm.strategyKey || key
+    generateForm.benchmarkCode = generateForm.benchmarkCode || firstStrategy.defaultBenchmarkCode || metadata.benchmarkOptions[0]?.value || ''
+    backtestForm.benchmarkCode = backtestForm.benchmarkCode || firstStrategy.defaultBenchmarkCode || metadata.benchmarkOptions[0]?.value || ''
+    generateForm.limit = firstStrategy.defaultLimit || generateForm.limit
+    backtestForm.initialCapital = firstStrategy.defaultInitialCapital || backtestForm.initialCapital
+  }
+  feedbackForm.reasonCode = feedbackForm.reasonCode || metadata.feedbackReasonOptions[0]?.value || ''
+  evaluationForm.scenario = evaluationForm.scenario || metadata.evaluationScenarioOptions[0]?.value || ''
+}
+
 const submitGenerateBacktest = async () => {
   if (!generateForm.portfolioBizId) {
     message.warning('请选择 Mock 组合')
     return
   }
+  if (!selectedGenerateStrategy.value) {
+    message.warning('请选择回测策略')
+    return
+  }
+  if (!requireStructuredFields(metadataFields.value.generateParameterFields, generateParameterValues)) return
   saving.value = true
   try {
-    await generateBacktestFromPortfolio({ ...generateForm })
+    await generateBacktestFromPortfolio({
+      portfolioBizId: generateForm.portfolioBizId,
+      strategyCode: selectedGenerateStrategy.value.strategyCode,
+      strategyVersion: selectedGenerateStrategy.value.strategyVersion,
+      benchmarkCode: generateForm.benchmarkCode === 'NONE' ? undefined : generateForm.benchmarkCode,
+      parameters: buildStructuredJson(metadataFields.value.generateParameterFields, generateParameterValues),
+      limit: generateForm.limit,
+    })
     message.success('回测生成已提交')
     generateOpen.value = false
     await load()
@@ -369,9 +623,30 @@ const submitGenerateBacktest = async () => {
 }
 
 const submitSaveBacktest = async () => {
+  if (!selectedBacktestStrategy.value) {
+    message.warning('请选择回测策略')
+    return
+  }
+  if (!backtestForm.startDate || !backtestForm.endDate) {
+    message.warning('请填写回测区间')
+    return
+  }
+  if (!requireStructuredFields(metadataFields.value.backtestParameterFields, backtestParameterValues)) return
+  if (!requireStructuredFields(metadataFields.value.backtestMetricFields, backtestMetricValues)) return
   saving.value = true
   try {
-    await saveBacktest({ ...backtestForm })
+    backtestParameterValues.portfolioBizId = backtestForm.portfolioBizId
+    await saveBacktest({
+      strategyCode: selectedBacktestStrategy.value.strategyCode,
+      strategyVersion: selectedBacktestStrategy.value.strategyVersion,
+      startDate: backtestForm.startDate,
+      endDate: backtestForm.endDate,
+      initialCapital: backtestForm.initialCapital,
+      benchmarkCode: backtestForm.benchmarkCode === 'NONE' ? undefined : backtestForm.benchmarkCode,
+      parameters: buildStructuredJson(metadataFields.value.backtestParameterFields, backtestParameterValues),
+      metrics: buildStructuredJson(metadataFields.value.backtestMetricFields, backtestMetricValues),
+      status: backtestForm.status,
+    })
     message.success('回测结果已保存')
     saveBacktestOpen.value = false
     await load()
@@ -387,9 +662,26 @@ const submitFeedback = async () => {
     message.warning('请选择反馈目标')
     return
   }
+  if (!feedbackForm.reasonCode) {
+    message.warning('请选择反馈原因')
+    return
+  }
+  if (!requireStructuredFields(metadataFields.value.feedbackMetadataFields, feedbackMetadataValues)) return
   saving.value = true
   try {
-    await saveInvestmentFeedback({ ...feedbackForm })
+    await saveInvestmentFeedback({
+      targetType: feedbackForm.targetType,
+      targetBizId: feedbackForm.targetBizId,
+      reportBizId: feedbackForm.reportBizId,
+      promptBizId: selectedFeedbackPrompt.value?.bizId,
+      promptCode: selectedFeedbackPrompt.value?.promptCode,
+      promptVersion: selectedFeedbackPrompt.value?.promptVersion,
+      backtestBizId: feedbackForm.backtestBizId,
+      feedbackAction: feedbackForm.feedbackAction,
+      reasonCode: feedbackForm.reasonCode,
+      commentText: feedbackForm.commentText,
+      metadata: buildStructuredJson(metadataFields.value.feedbackMetadataFields, feedbackMetadataValues),
+    })
     message.success('投资反馈已保存')
     feedbackOpen.value = false
     await load()
@@ -401,9 +693,28 @@ const submitFeedback = async () => {
 }
 
 const submitEvaluation = async () => {
+  if (!selectedEvaluationPrompt.value) {
+    message.warning('请选择待评估 Prompt')
+    return
+  }
+  if (!evaluationForm.scenario) {
+    message.warning('请选择评估场景')
+    return
+  }
+  if (!requireStructuredFields(metadataFields.value.evaluationMetricFields, evaluationMetricValues)) return
   saving.value = true
   try {
-    await savePromptEvaluation({ ...evaluationForm })
+    await savePromptEvaluation({
+      promptBizId: selectedEvaluationPrompt.value.bizId,
+      promptCode: selectedEvaluationPrompt.value.promptCode,
+      promptVersion: selectedEvaluationPrompt.value.promptVersion,
+      scenario: evaluationForm.scenario,
+      backtestBizId: evaluationForm.backtestBizId,
+      feedbackBizId: evaluationForm.feedbackBizId,
+      score: evaluationForm.score,
+      scoreDetail: buildStructuredJson(metadataFields.value.evaluationMetricFields, evaluationMetricValues),
+      reviewStatus: evaluationForm.reviewStatus,
+    })
     message.success('Prompt 评估已保存')
     evaluationOpen.value = false
     await load()
@@ -418,18 +729,26 @@ const load = async () => {
   loading.value = true
   errorMessage.value = ''
   try {
-    const [backtestPage, feedbackPage, evaluationPage, portfolioPage, reportPage] = await Promise.all([
+    const [metadata, backtestPage, feedbackPage, evaluationPage, portfolioPage, reportPage, promptPage] = await Promise.all([
+      getReviewLoopMetadata(),
       listBacktests({ page: 1, size: 50, sort: 'createdAt', direction: 'desc' }),
       listInvestmentFeedback({ page: 1, size: 50, sort: 'createdAt', direction: 'desc' }),
       listPromptEvaluations({ page: 1, size: 50, sort: 'evaluatedAt', direction: 'desc' }),
       listMyMockPortfolios({ page: 1, size: 50, sort: 'createdAt', direction: 'desc' }),
       listInvestmentReports({ page: 1, size: 50, sort: 'generatedAt', direction: 'desc' }),
+      listAiPrompts({ page: 1, size: 100, sort: 'updatedAt', direction: 'desc' }),
     ])
+    metadataFields.value = metadata
     backtests.value = backtestPage.items || []
     feedback.value = feedbackPage.items || []
     evaluations.value = evaluationPage.items || []
     portfolios.value = portfolioPage.items || []
     reports.value = reportPage.items || []
+    prompts.value = promptPage.items || []
+    feedbackForm.promptBizId = feedbackForm.promptBizId || prompts.value[0]?.bizId || ''
+    evaluationForm.promptBizId = evaluationForm.promptBizId || prompts.value[0]?.bizId || ''
+    applyReviewLoopDefaults()
+    applyTraceQuery()
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : '复盘闭环接口加载失败'
   } finally {

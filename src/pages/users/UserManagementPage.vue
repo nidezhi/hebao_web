@@ -137,10 +137,14 @@ const resetObject = (target: Record<string, unknown>, next: Record<string, unkno
   Object.assign(target, next)
 }
 const openUser = (user?: UserDto) => {
-  resetObject(userForm, user ? { ...user } : { status: 'ACTIVE', password: 'ChangeMe@123' })
+  resetObject(userForm, user ? { ...user } : { status: 'ACTIVE', password: '' })
   userOpen.value = true
 }
 const submitUser = async () => {
+  if (!userForm.bizId && !String(userForm.password || '').trim()) {
+    message.warning('请输入初始密码')
+    return
+  }
   saving.value = true
   try {
     if (userForm.bizId) await updateUser({ bizId: String(userForm.bizId), email: String(userForm.email || ''), phone: String(userForm.phone || ''), nickname: String(userForm.nickname || '') })

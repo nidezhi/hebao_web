@@ -247,7 +247,7 @@ const openSource = async (source: DataSourceDto) => {
   try {
     qualitySnapshots.value = await listDataQualitySnapshots({
       sourceCode: source.sourceCode,
-      dataType: source.sourceType,
+      dataType: source.latestQuality?.dataType,
       limit: 30,
     })
   } catch {

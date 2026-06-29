@@ -94,6 +94,33 @@
 
             <section class="report-core-grid">
               <div class="report-info-block">
+                <span class="eyebrow">QUALITY JSON</span>
+                <h3>质量与门禁</h3>
+                <div class="report-metric-grid">
+                  <div class="report-metric">
+                    <span>门禁</span>
+                    <strong>{{ selectedReportView.dataQualityGateView?.passed === false ? 'BLOCK' : 'PASS' }}</strong>
+                  </div>
+                  <div class="report-metric">
+                    <span>质量分</span>
+                    <strong>{{ formatPercent(selectedReportView.normalizedQualityScore) }}</strong>
+                  </div>
+                  <div class="report-metric">
+                    <span>快照</span>
+                    <strong>{{ selectedReportView.dataQualityGateView?.snapshotCount ?? selectedReportView.investmentSummaryView?.sampleCount ?? '-' }}</strong>
+                  </div>
+                  <div class="report-metric">
+                    <span>新闻</span>
+                    <strong>{{ selectedReportView.dataQualityGateView?.newsCount ?? selectedReportView.investmentSummaryView?.newsCount ?? '-' }}</strong>
+                  </div>
+                </div>
+                <a-space v-if="gateReasons.length" wrap>
+                  <a-tag v-for="reason in gateReasons" :key="reason" color="orange">{{ reason }}</a-tag>
+                </a-space>
+                <p v-else>{{ reportGateMessage(selectedReportView) }}</p>
+              </div>
+
+              <div class="report-info-block">
                 <span class="eyebrow">SUMMARY</span>
                 <h3>投资摘要</h3>
                 <div class="report-metric-grid">
@@ -115,6 +142,11 @@
                   </div>
                 </div>
                 <p>{{ summaryNarrative }}</p>
+                <div v-if="recentNewsItems.length" class="report-json-list">
+                  <span v-for="news in recentNewsItems" :key="`${news.publishTime || news.title}-${news.title}`">
+                    {{ formatDateTime(news.publishTime) }} · {{ news.title || news.summary }}
+                  </span>
+                </div>
               </div>
 
               <div class="report-info-block" :class="{ 'report-info-block--muted': !reportQualityGatePassed(selectedReportView) }">
@@ -154,6 +186,17 @@
                   </div>
                 </div>
                 <small>{{ selectedReportView.simulatedReturnView?.assumption || '模拟收益只反映历史样本，不代表未来收益。' }}</small>
+              </div>
+
+              <div class="report-info-block">
+                <span class="eyebrow">PROMPT INPUT</span>
+                <h3>库内 Prompt 快照</h3>
+                <div class="report-json-list">
+                  <span v-for="item in promptSnapshotItems" :key="item.label">
+                    {{ item.label }} · {{ item.value }}
+                  </span>
+                </div>
+                <p>{{ promptSnapshotSummary }}</p>
               </div>
             </section>
 
@@ -250,7 +293,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted, reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { message } from 'ant-design-vue'
 import {
   ExperimentOutlined,
@@ -281,6 +324,7 @@ import type { InvestmentAnalysisReportDto } from '@/entities/report/model'
 import { listThemeOptions } from '@/entities/task/api'
 import type { InvestmentThemeOptionDto } from '@/entities/task/model'
 
+const route = useRoute()
 const router = useRouter()
 const loading = ref(false)
 const generating = ref(false)
@@ -310,6 +354,9 @@ const gateReasons = computed(() => [
   ...(selectedReportView.value?.dataQualityGateView?.missingReasons || []),
   ...(selectedReportView.value?.investmentSummaryView?.dataGapReasons || []),
 ])
+const recentNewsItems = computed(() =>
+  selectedReportView.value?.investmentSummaryView?.recentNews?.slice(0, 4) || [],
+)
 
 const gateAlertType = computed(() => {
   if (selectedReportView.value?.status !== 'SUCCEEDED') return 'error'
@@ -338,6 +385,19 @@ const summaryNarrative = computed(() => {
   const averageReturn = formatPercent(view.investmentSummaryView?.averageReturn)
   const quality = formatPercent(view.normalizedQualityScore)
   return `${direction}，平均收益 ${averageReturn}，数据质量 ${quality}。`
+})
+const promptSnapshotItems = computed(() => {
+  const snapshot = selectedReportView.value?.promptSnapshotView || {}
+  return Object.entries(snapshot)
+    .slice(0, 6)
+    .map(([key, value]) => ({
+      label: key,
+      value: typeof value === 'object' && value !== null ? JSON.stringify(value).slice(0, 80) : String(value ?? '-'),
+    }))
+})
+const promptSnapshotSummary = computed(() => {
+  if (!selectedReportView.value?.promptSnapshotView) return '报告未保存 Prompt 输入快照。'
+  return '这里展示报告生成时使用的库内输入快照，便于核对模型是否基于真实数据、门禁和方案 JSON 工作。'
 })
 const coreStats = computed(() => [
   {
@@ -437,7 +497,8 @@ const load = async () => {
   try {
     const page = await listInvestmentReports({ page: 1, size: 30, sort: 'generatedAt', direction: 'desc' })
     reports.value = page.items || []
-    selectedReport.value = reports.value[0]
+    const preferredReportBizId = typeof route.query.reportBizId === 'string' ? route.query.reportBizId : ''
+    selectedReport.value = reports.value.find((item) => item.bizId === preferredReportBizId) || reports.value[0]
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : '投资报告接口加载失败'
   } finally {

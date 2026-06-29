@@ -45,5 +45,7 @@ export interface UpdateUserRequest {
 
 export interface PreferenceDto {
   key: string
+  valueType?: 'BOOLEAN' | 'NUMBER' | 'STRING' | 'JSON' | string
   value: unknown
+  updatedAt?: string
 }

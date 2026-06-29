@@ -1,9 +1,12 @@
 import { endpoints } from '@/shared/api/endpoints'
 import { postJson } from '@/shared/api/httpClient'
-import type { ConfigureRolePermissionsRequest, CreateRoleRequest, RoleDto } from './model'
+import type { ConfigureRolePermissionsRequest, CreateRoleRequest, PermissionCatalogDto, RoleDto } from './model'
 
 export const listRoles = () =>
   postJson<RoleDto[]>(endpoints.role.list, {})
+
+export const listPermissionCatalog = () =>
+  postJson<PermissionCatalogDto[]>(endpoints.role.permissionCatalog, {})
 
 export const createRole = (data: CreateRoleRequest) =>
   postJson<RoleDto, CreateRoleRequest>(endpoints.role.create, data)

@@ -2,7 +2,7 @@
   <BusinessPageShell
     title="Config Center 配置总览"
     description="按 AI 治理、闭环编排、业务资产、权限与系统规范分域管理。配置中心不再平铺所有页面，而是从业务域进入对应管理列表。"
-    :endpoints="[endpoints.aiSkill.list, endpoints.aiModelSkill.list, endpoints.dataSource.discover, endpoints.dataSource.list, endpoints.task.definitions, endpoints.prompt.list, endpoints.aiModel.list]"
+    :endpoints="[endpoints.aiSkill.list, endpoints.aiModelSkill.list, endpoints.dataSource.discover, endpoints.dataSource.list, endpoints.task.definitions, endpoints.prompt.list, endpoints.aiModel.list, endpoints.systemConfig.list]"
     :icon="ControlOutlined"
     status-text="CONFIG INDEX"
   >
@@ -75,6 +75,7 @@ const domains = [
       { title: 'AI 治理中枢', short: '治', badge: 'HUB', tagColor: 'cyan', color: '#0891b2', path: '/config-center/data-source-discovery', description: '查看 Skill、模型绑定、Prompt、评估回流和方向化任务覆盖。' },
       { title: 'AI 治理证据', short: '证', badge: 'EVIDENCE', tagColor: 'blue', color: '#2563eb', path: '/config-center/data-sources', description: '聚合闭环运行、任务执行、报告快照、反馈和 Prompt 评估证据。' },
       { title: '任务配置', short: '任', badge: 'TASK', tagColor: 'geekblue', color: '#4f46e5', path: '/config-center/tasks', description: '方向化 LLM 任务、闭环调度、手动触发和执行记录。' },
+      { title: '系统配置', short: '系', badge: 'CONFIG', tagColor: 'green', color: '#16a34a', path: '/config-center/system-configs', description: '维护自动闭环默认项等数据库系统配置，替代 YAML 手改。' },
       { title: '业务操作管理', short: '动', badge: 'ACTION', tagColor: 'volcano', color: '#ea580c', path: '/config-center/actions', description: '写操作归属检查、业务页面导航和待补齐缺口。' },
     ],
   },
@@ -87,6 +88,7 @@ const domains = [
     modules: [
       { title: 'AI Skill 工作台', short: 'S', badge: 'SKILL', tagColor: 'purple', color: '#7c3aed', path: '/config-center/ai-skills', description: '维护 Skill 版本、指令、Schema、评估策略和生命周期。' },
       { title: '模型 Skill 绑定', short: '绑', badge: 'BIND', tagColor: 'geekblue', color: '#2563eb', path: '/config-center/model-skills', description: '将模型实例绑定到 Skill 版本和方向化发现等业务场景。' },
+      { title: '运行模型绑定', short: '运', badge: 'RUN', tagColor: 'cyan', color: '#0891b2', path: '/config-center/model-bindings', description: '按场景和环境指定后端执行时使用的 ACTIVE 模型。' },
       { title: '模型配置', short: '模', badge: 'MODEL', tagColor: 'blue', color: '#0284c7', path: '/config-center/models', description: 'AI 模型保存、状态变更、绑定查看和归档。' },
       { title: 'Prompt 配置', short: 'P', badge: 'PROMPT', tagColor: 'magenta', color: '#db2777', path: '/config-center/prompts', description: 'Prompt 模板保存、状态变更、变量和预览。' },
     ],

@@ -2,10 +2,14 @@ import { endpoints } from '@/shared/api/endpoints'
 import { postJson } from '@/shared/api/httpClient'
 import type { PageResult } from '@/shared/api/types'
 import type {
+  AiPromptEvaluationBizIdRequest,
   AiPromptEvaluationDto,
   AiPromptEvaluationListRequest,
   InvestmentFeedbackDto,
+  InvestmentFeedbackBizIdRequest,
   InvestmentFeedbackListRequest,
+  SaveAiPromptEvaluationRequest,
+  SaveInvestmentFeedbackRequest,
 } from './model'
 
 export const listInvestmentFeedback = (data: InvestmentFeedbackListRequest) =>
@@ -17,14 +21,14 @@ export const listPromptEvaluations = (data: AiPromptEvaluationListRequest) =>
     data,
   )
 
-export const getInvestmentFeedback = (data: Record<string, unknown>) =>
-  postJson<InvestmentFeedbackDto, Record<string, unknown>>(endpoints.feedback.detail, data)
+export const getInvestmentFeedback = (data: InvestmentFeedbackBizIdRequest) =>
+  postJson<InvestmentFeedbackDto, InvestmentFeedbackBizIdRequest>(endpoints.feedback.detail, data)
 
-export const saveInvestmentFeedback = (data: Record<string, unknown>) =>
-  postJson<InvestmentFeedbackDto, Record<string, unknown>>(endpoints.feedback.save, data)
+export const saveInvestmentFeedback = (data: SaveInvestmentFeedbackRequest) =>
+  postJson<InvestmentFeedbackDto, SaveInvestmentFeedbackRequest>(endpoints.feedback.save, data)
 
-export const getPromptEvaluation = (data: Record<string, unknown>) =>
-  postJson<AiPromptEvaluationDto, Record<string, unknown>>(endpoints.promptEvaluation.detail, data)
+export const getPromptEvaluation = (data: AiPromptEvaluationBizIdRequest) =>
+  postJson<AiPromptEvaluationDto, AiPromptEvaluationBizIdRequest>(endpoints.promptEvaluation.detail, data)
 
-export const savePromptEvaluation = (data: Record<string, unknown>) =>
-  postJson<AiPromptEvaluationDto, Record<string, unknown>>(endpoints.promptEvaluation.save, data)
+export const savePromptEvaluation = (data: SaveAiPromptEvaluationRequest) =>
+  postJson<AiPromptEvaluationDto, SaveAiPromptEvaluationRequest>(endpoints.promptEvaluation.save, data)
