@@ -2,6 +2,7 @@ import type {
   DataQualityGateDto,
   InvestmentAnalysisReportDto,
   InvestmentPlanPayload,
+  ReportChatSnapshot,
   InvestmentSummaryPayload,
   ReportAllowedAction,
   ReportChartPayload,
@@ -21,6 +22,7 @@ export interface ReportView extends InvestmentAnalysisReportDto {
   simulatedReturnView?: SimulatedReturnPayload
   chartPayloadView: ReportChartPayload
   promptSnapshotView?: Record<string, unknown>
+  chatSnapshotView?: ReportChatSnapshot
   allowedActions: ReportAllowedAction[]
   seriesCount: number
   newsCount: number
@@ -89,6 +91,32 @@ const normalizeChartPayload = (value: unknown): ReportChartPayload => {
   return { series, news }
 }
 
+const normalizeChatSnapshot = (value: unknown): ReportChatSnapshot | undefined => {
+  const snapshot = toRecord<ReportChatSnapshot & Record<string, unknown>>(value)
+  if (!snapshot) return undefined
+  return {
+    ...snapshot,
+    httpStatus: toNumber(snapshot.httpStatus),
+    durationMs: toNumber(snapshot.durationMs),
+    temperature: toNumber(snapshot.temperature),
+    maxTokens: toNumber(snapshot.maxTokens),
+    requestMessages: Array.isArray(snapshot.requestMessages)
+      ? snapshot.requestMessages.map((item) => ({
+        role: String(item.role || 'unknown'),
+        contentPreview: item.contentPreview ? String(item.contentPreview) : undefined,
+        contentLength: toNumber(item.contentLength),
+      }))
+      : [],
+    responseMessage: snapshot.responseMessage
+      ? {
+        role: String(snapshot.responseMessage.role || 'assistant'),
+        contentPreview: snapshot.responseMessage.contentPreview ? String(snapshot.responseMessage.contentPreview) : undefined,
+        contentLength: toNumber(snapshot.responseMessage.contentLength),
+      }
+      : undefined,
+  }
+}
+
 export const normalizeReport = (report: InvestmentAnalysisReportDto): ReportView => {
   const dataQualityGateView = normalizeGate(report)
   const investmentSummaryView = normalizeNumberFields(
@@ -119,6 +147,7 @@ export const normalizeReport = (report: InvestmentAnalysisReportDto): ReportView
     simulatedReturnView,
     chartPayloadView,
     promptSnapshotView: safeParseJson<Record<string, unknown>>(report.promptSnapshot),
+    chatSnapshotView: normalizeChatSnapshot(report.chatSnapshot),
     allowedActions: dataQualityGateView?.allowedActions || [],
     seriesCount: chartPayloadView.series.length,
     newsCount: chartPayloadView.news.length,

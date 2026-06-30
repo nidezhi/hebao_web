@@ -2,7 +2,7 @@
   <BusinessPageShell
     title="Simulation 模拟交易"
     description="Mock 组合、订单、持仓、估值、收益曲线和再平衡工作区。所有收益均标记为模拟结果。"
-    :endpoints="[endpoints.portfolio.mine, endpoints.portfolio.create, endpoints.portfolio.buy, endpoints.portfolio.buyFromReport, endpoints.portfolio.sell, endpoints.portfolio.cancelOrder, endpoints.portfolio.refreshValuation, endpoints.portfolio.performanceCurve, endpoints.portfolio.rebalance]"
+    :endpoints="[endpoints.portfolio.mine, endpoints.portfolio.create, endpoints.portfolio.delete, endpoints.portfolio.buy, endpoints.portfolio.buyFromReport, endpoints.portfolio.sell, endpoints.portfolio.cancelOrder, endpoints.portfolio.refreshValuation, endpoints.portfolio.performanceCurve, endpoints.portfolio.rebalance]"
     :icon="StockOutlined"
     status-text="MOCK ONLY"
   >
@@ -33,6 +33,15 @@
                   <a-tag color="blue">{{ portfolioStatusText(item.status) }}</a-tag>
                   <small>总资产 {{ formatMoney(item.latestValuation?.totalAsset, item.baseCurrency) }}</small>
                   <small>现金 {{ formatMoney(item.latestValuation?.cashBalance, item.baseCurrency) }}</small>
+                  <a-popconfirm
+                    v-if="!isAutomationPool(item)"
+                    title="确认删除这个 Mock 组合？历史订单和估值会保留用于审计。"
+                    ok-text="删除"
+                    cancel-text="取消"
+                    @confirm="deletePortfolio(item)"
+                  >
+                    <a-button size="small" danger :loading="portfolioDeletingBizId === item.bizId" @click.stop>删除</a-button>
+                  </a-popconfirm>
                 </div>
               </a-list-item>
             </template>
@@ -70,6 +79,15 @@
                 </div>
                 <a-space wrap>
                   <a-button :loading="valuationRefreshing" @click="() => refreshValuation()">刷新估值</a-button>
+                  <a-popconfirm
+                    v-if="!isAutomationPool(selectedPortfolio)"
+                    title="确认删除当前 Mock 组合？历史订单和估值会保留用于审计。"
+                    ok-text="删除"
+                    cancel-text="取消"
+                    @confirm="deletePortfolio(selectedPortfolio)"
+                  >
+                    <a-button danger :loading="portfolioDeletingBizId === selectedPortfolio.bizId">删除组合</a-button>
+                  </a-popconfirm>
                   <a-button type="primary" @click="tradeMode = 'buy'">去交易</a-button>
                 </a-space>
               </div>
@@ -84,7 +102,13 @@
 
             <section class="simulation-grid">
               <div class="simulation-chart-card page-card">
-                <BusinessChart title="Mock 资产曲线" unit="totalAsset / returnRate" :empty="performanceCurve.length === 0" :option="performanceOption" />
+                <BusinessChart
+                  title="Mock 资产曲线"
+                  unit="totalAsset / returnRate"
+                  :empty="validPerformanceCurve.length === 0"
+                  :empty-text="performanceEmptyText"
+                  :option="performanceOption"
+                />
               </div>
 
               <div class="simulation-trade-card page-card">
@@ -231,7 +255,7 @@ import BusinessPageShell from '@/shared/components/business/BusinessPageShell.vu
 import MetricStrip from '@/shared/components/business/MetricStrip.vue'
 import PageState from '@/shared/components/business/PageState.vue'
 import EmptyEvidence from '@/shared/components/visual/EmptyEvidence.vue'
-import { buyMockOrder, buyMockOrderFromReport, cancelMockOrder, createMockPortfolio, executeMockRebalance, getAutomationMockPortfolio, getMockPortfolio, getPortfolioPerformanceCurve, listMyMockPortfolios, listPortfolioOrderEvents, refreshPortfolioValuation, sellMockOrder } from '@/entities/portfolio/api'
+import { buyMockOrder, buyMockOrderFromReport, cancelMockOrder, createMockPortfolio, deleteMockPortfolio, executeMockRebalance, getAutomationMockPortfolio, getMockPortfolio, getPortfolioPerformanceCurve, listMyMockPortfolios, listPortfolioOrderEvents, refreshPortfolioValuation, sellMockOrder } from '@/entities/portfolio/api'
 import { portfolioStatusText } from '@/entities/portfolio/adapter'
 import type { MockPortfolioDto, MockPositionDto, PortfolioOrderEventDto, PortfolioPerformancePointDto } from '@/entities/portfolio/model'
 import { listProducts } from '@/entities/product/api'
@@ -246,6 +270,7 @@ const reportOrdering = ref(false)
 const canceling = ref(false)
 const rebalancing = ref(false)
 const portfolioSaving = ref(false)
+const portfolioDeletingBizId = ref('')
 const valuationRefreshing = ref(false)
 const errorMessage = ref('')
 const portfolios = ref<MockPortfolioDto[]>([])
@@ -283,16 +308,24 @@ const valuationCards = computed(() => [
 const autoRefreshText = computed(() =>
   lastAutoRefreshAt.value ? `每2分钟 · ${formatDateTime(lastAutoRefreshAt.value)}` : '每2分钟',
 )
+const validPerformanceCurve = computed(() => performanceCurve.value.filter((item) =>
+  Boolean(item.valuationTime && !Number.isNaN(new Date(item.valuationTime).getTime())),
+))
+const performanceEmptyText = computed(() =>
+  performanceCurve.value.length === 0
+    ? '暂无估值历史；点击刷新估值或完成一笔 Mock 交易后会生成曲线点。'
+    : '估值历史缺少有效时间，已阻止绘制 Invalid Date 图表。',
+)
 
 const performanceOption = computed(() => ({
   tooltip: { trigger: 'axis' },
   legend: { data: ['总资产', '收益率'] },
   grid: { left: 46, right: 20, top: 36, bottom: 36 },
-  xAxis: { type: 'category', data: performanceCurve.value.map((item) => formatDateTime(item.valuationTime)) },
+  xAxis: { type: 'category', data: validPerformanceCurve.value.map((item) => formatDateTime(item.valuationTime)) },
   yAxis: [{ type: 'value' }, { type: 'value' }],
   series: [
-    { name: '总资产', type: 'line', data: performanceCurve.value.map((item) => item.totalAsset) },
-    { name: '收益率', type: 'line', yAxisIndex: 1, data: performanceCurve.value.map((item) => item.totalReturnRate) },
+    { name: '总资产', type: 'line', data: validPerformanceCurve.value.map((item) => item.totalAsset) },
+    { name: '收益率', type: 'line', yAxisIndex: 1, data: validPerformanceCurve.value.map((item) => item.totalReturnRate) },
   ],
 }))
 
@@ -432,6 +465,29 @@ const createPortfolio = async () => {
     message.error(error instanceof Error ? error.message : '组合创建失败')
   } finally {
     portfolioSaving.value = false
+  }
+}
+
+const deletePortfolio = async (portfolio?: MockPortfolioDto) => {
+  if (!portfolio) return
+  if (isAutomationPool(portfolio)) {
+    message.warning('AI 资金池不能在页面删除，请到系统配置切换权威资金池')
+    return
+  }
+  portfolioDeletingBizId.value = portfolio.bizId
+  try {
+    await deleteMockPortfolio({ portfolioBizId: portfolio.bizId })
+    message.success('Mock 组合已删除')
+    if (selectedPortfolio.value?.bizId === portfolio.bizId) {
+      selectedPortfolio.value = undefined
+      performanceCurve.value = []
+      orderEvents.value = []
+    }
+    await load()
+  } catch (error) {
+    message.error(error instanceof Error ? error.message : '删除组合失败')
+  } finally {
+    portfolioDeletingBizId.value = ''
   }
 }
 

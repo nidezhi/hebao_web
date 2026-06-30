@@ -198,6 +198,27 @@
                 </div>
                 <p>{{ promptSnapshotSummary }}</p>
               </div>
+
+              <div class="report-info-block report-info-block--wide">
+                <span class="eyebrow">MODEL CHAT</span>
+                <h3>模型对话证据</h3>
+                <template v-if="chatSnapshot">
+                  <div class="report-chat-meta">
+                    <a-tag>{{ chatSnapshot.providerCode || selectedReportView.providerCode }}</a-tag>
+                    <a-tag>{{ chatSnapshot.modelCode || selectedReportView.modelCode }}</a-tag>
+                    <a-tag v-if="chatSnapshot.endpointHost">{{ chatSnapshot.endpointHost }}</a-tag>
+                    <a-tag v-if="chatSnapshot.durationMs">{{ chatSnapshot.durationMs }}ms</a-tag>
+                  </div>
+                  <div class="report-chat-list">
+                    <article v-for="messageItem in chatMessages" :key="messageItem.key" class="report-chat-message">
+                      <strong>{{ messageItem.role }}</strong>
+                      <p>{{ messageItem.contentPreview || '该消息没有可展示内容。' }}</p>
+                      <small>原始长度 {{ messageItem.contentLength ?? '-' }}</small>
+                    </article>
+                  </div>
+                </template>
+                <p v-else>历史报告未沉淀模型对话快照；新生成的远端模型报告会展示脱敏后的 system/user/assistant 摘要。</p>
+              </div>
             </section>
 
             <section class="report-chart-panel">
@@ -234,6 +255,12 @@
             </section>
 
             <section class="report-action-row">
+              <a-alert
+                class="report-context-alert"
+                type="info"
+                show-icon
+                message="Mock 闭环以当前报告为主上下文，只携带少量近期同主题报告作为历史参考，避免上下文过载。"
+              />
               <a-button :disabled="!promptAllowed" @click="go('/prompt-lab')">
                 <template #icon><ExperimentOutlined /></template>
                 {{ promptAllowed ? '生成 Prompt' : '数据不足，先补采集' }}
@@ -399,6 +426,26 @@ const promptSnapshotSummary = computed(() => {
   if (!selectedReportView.value?.promptSnapshotView) return '报告未保存 Prompt 输入快照。'
   return '这里展示报告生成时使用的库内输入快照，便于核对模型是否基于真实数据、门禁和方案 JSON 工作。'
 })
+const chatSnapshot = computed(() => selectedReportView.value?.chatSnapshotView)
+const chatMessages = computed(() => {
+  const snapshot = chatSnapshot.value
+  const requestMessages = snapshot?.requestMessages || []
+  const responseMessage = snapshot?.responseMessage
+  return [
+    ...requestMessages.map((messageItem, index) => ({
+      key: `request-${index}-${messageItem.role}`,
+      role: messageItem.role,
+      contentPreview: messageItem.contentPreview,
+      contentLength: messageItem.contentLength,
+    })),
+    ...(responseMessage ? [{
+      key: 'response-assistant',
+      role: responseMessage.role,
+      contentPreview: responseMessage.contentPreview,
+      contentLength: responseMessage.contentLength,
+    }] : []),
+  ]
+})
 const coreStats = computed(() => [
   {
     label: '质量',
@@ -523,3 +570,58 @@ const generateReport = async () => {
 onMounted(load)
 onMounted(() => { void loadThemeOptions() })
 </script>
+
+<style scoped>
+.report-workbench {
+  align-items: start;
+}
+
+.report-sidebar {
+  display: flex;
+  max-height: calc(100vh - 148px);
+  flex-direction: column;
+  overflow: hidden;
+  position: sticky;
+  top: 12px;
+}
+
+.report-list {
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.report-context-alert {
+  flex: 1 1 360px;
+  min-width: 260px;
+}
+
+.report-info-block--wide {
+  grid-column: 1 / -1;
+}
+
+.report-chat-meta,
+.report-chat-list {
+  display: grid;
+  gap: 8px;
+}
+
+.report-chat-meta {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.report-chat-message {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.report-chat-message p {
+  margin: 6px 0;
+  max-height: 120px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+</style>

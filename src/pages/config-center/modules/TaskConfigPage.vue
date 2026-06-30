@@ -96,6 +96,25 @@
         </a-space>
       </a-form>
     </a-drawer>
+
+    <a-modal v-model:open="triggerOpen" title="触发自动闭环" :confirm-loading="triggering" @ok="triggerSelectedTask">
+      <a-form layout="vertical">
+        <a-form-item label="任务">
+          <a-input :value="triggerTask?.code" disabled />
+        </a-form-item>
+        <a-form-item label="配置方案">
+          <a-select
+            v-model:value="triggerProfileCode"
+            show-search
+            option-filter-prop="label"
+            :loading="profileLoading"
+            :options="profileOptions"
+            placeholder="选择本次闭环配置方案"
+          />
+        </a-form-item>
+        <a-alert type="info" show-icon message="触发时会把所选方案快照写入本次任务参数，后续修改方案不会影响已启动闭环。" />
+      </a-form>
+    </a-modal>
   </BusinessPageShell>
 </template>
 
@@ -112,6 +131,8 @@ import PageState from '@/shared/components/business/PageState.vue'
 import { listTaskDefinitions, listTaskExecutions, saveTaskDefinition, triggerInvestmentTask } from '@/entities/task/api'
 import { ingestionTaskTypeOptions } from '@/entities/task/dictionary'
 import type { InvestmentTaskDefinitionDto, ScheduledTaskExecutionDto } from '@/entities/task/model'
+import { listSystemConfigs } from '@/entities/system-config/api'
+import type { SystemConfigDto } from '@/entities/system-config/model'
 import {
   collectionDirectionOptions,
   collectionDirectionDefaults,
@@ -123,8 +144,14 @@ const loading = ref(false)
 const saving = ref(false)
 const errorMessage = ref('')
 const editOpen = ref(false)
+const triggerOpen = ref(false)
+const triggering = ref(false)
 const tasks = ref<InvestmentTaskDefinitionDto[]>([])
 const executions = ref<ScheduledTaskExecutionDto[]>([])
+const profiles = ref<SystemConfigDto[]>([])
+const profileLoading = ref(false)
+const triggerTask = ref<InvestmentTaskDefinitionDto>()
+const triggerProfileCode = ref('')
 const taskForm = reactive<Partial<InvestmentTaskDefinitionDto>>({})
 const parametersText = ref('{}')
 const discoveryDraft = reactive<Record<string, string | number | boolean>>({})
@@ -139,6 +166,18 @@ const metrics = computed(() => [
   { label: '执行记录', value: executions.value.length, hint: '最近' },
   { label: '失败执行', value: executions.value.filter((item) => item.status === 'FAILED').length, hint: '需处理' },
 ])
+const defaultProfileOption = { value: 'default-auto-mock', label: '默认 AI Mock 闭环方案 · default-auto-mock' }
+const profileOptions = computed(() => {
+  const options = profiles.value
+    .filter((item) => item.status === 'ENABLED')
+    .map((item) => ({
+    value: item.configKey,
+    label: `${profileName(item)} · ${item.configKey}`,
+  }))
+  return options.some((item) => item.value === defaultProfileOption.value)
+    ? options
+    : [defaultProfileOption, ...options]
+})
 const taskColumns = [
   { title: '编码', dataIndex: 'code' },
   { title: '类型', key: 'type' },
@@ -236,7 +275,18 @@ const toggleTask = (task: InvestmentTaskDefinitionDto) => {
   })
 }
 
-const confirmTrigger = (task: InvestmentTaskDefinitionDto) => {
+const confirmTrigger = async (task: InvestmentTaskDefinitionDto) => {
+  if (task.type === 'AUTO_INVESTMENT_CLOSED_LOOP_ORCHESTRATION') {
+    try {
+      await loadProfiles()
+    } catch {
+      message.warning('配置方案刷新失败，已使用默认方案兜底')
+    }
+    triggerTask.value = task
+    triggerProfileCode.value = profileOptions.value[0]?.value || ''
+    triggerOpen.value = true
+    return
+  }
   Modal.confirm({
     title: '确认手动触发任务？',
     content: task.code,
@@ -249,16 +299,63 @@ const confirmTrigger = (task: InvestmentTaskDefinitionDto) => {
   })
 }
 
+const triggerSelectedTask = async () => {
+  if (!triggerTask.value) return
+  if (!triggerProfileCode.value) {
+    message.warning('请选择配置方案')
+    return
+  }
+  triggering.value = true
+  try {
+    await triggerInvestmentTask({
+      taskCode: triggerTask.value.code,
+      parameters: {
+        configProfileCode: triggerProfileCode.value,
+      },
+    })
+    message.success('自动闭环任务已触发')
+    triggerOpen.value = false
+    await loadExecutions()
+  } catch (error) {
+    message.error(error instanceof Error ? error.message : '触发失败')
+  } finally {
+    triggering.value = false
+  }
+}
+
+const profileName = (config: SystemConfigDto) => {
+  const value = safeParseJson<Record<string, unknown>>(config.displayValue || config.configValue) || {}
+  return String(value.profileName || config.configKey)
+}
+
 const loadExecutions = async () => {
   const executionPage = await listTaskExecutions({ page: 1, size: 20, sort: 'startedAt', direction: 'desc' })
   executions.value = executionPage.items || []
+}
+
+const loadProfiles = async () => {
+  profileLoading.value = true
+  try {
+    const page = await listSystemConfigs({
+      configGroup: 'AUTO_INVESTMENT_CLOSED_LOOP_PROFILE',
+      environment: 'DEFAULT',
+      status: 'ENABLED',
+      page: 1,
+      size: 100,
+      sort: 'configKey',
+      direction: 'asc',
+    })
+    profiles.value = page.items || []
+  } finally {
+    profileLoading.value = false
+  }
 }
 
 const load = async () => {
   loading.value = true
   errorMessage.value = ''
   try {
-    const [taskList] = await Promise.all([listTaskDefinitions(), loadExecutions()])
+    const [taskList] = await Promise.all([listTaskDefinitions(), loadExecutions(), loadProfiles()])
     tasks.value = taskList || []
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : '任务配置加载失败'

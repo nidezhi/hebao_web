@@ -36,6 +36,9 @@ export const getPortfolioPerformanceCurve = (data: PortfolioBizIdRequest & { lim
 export const createMockPortfolio = (data: CreateMockPortfolioRequest) =>
   postJson<MockPortfolioDto, CreateMockPortfolioRequest>(endpoints.portfolio.create, data)
 
+export const deleteMockPortfolio = (data: PortfolioBizIdRequest) =>
+  postJson<void, PortfolioBizIdRequest>(endpoints.portfolio.delete, data)
+
 export const buyMockOrder = (data: ExecuteMockBuyRequest) =>
   postJson<MockOrderExecutionDto, ExecuteMockBuyRequest>(endpoints.portfolio.buy, data)
 

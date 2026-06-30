@@ -18,6 +18,27 @@
     <PageState :loading="loading" :error-message="errorMessage">
       <MetricStrip :metrics="metrics" />
 
+      <section class="runtime-control-bar page-card">
+        <div class="runtime-control-bar__signal">
+          <span class="runtime-pulse" :class="{ 'runtime-pulse--paused': !autoRefreshEnabled }" />
+          <div>
+            <span class="eyebrow">LIVE RUNTIME</span>
+            <strong>{{ runtimeStatusText }}</strong>
+          </div>
+        </div>
+        <div class="runtime-control-bar__meter">
+          <div class="runtime-control-bar__meta">
+            <span>{{ refreshCountdownText }}</span>
+            <span>上次刷新 {{ lastRefreshText }}</span>
+          </div>
+          <a-progress :percent="refreshProgress" :show-info="false" size="small" />
+        </div>
+        <a-space wrap>
+          <a-switch v-model:checked="autoRefreshEnabled" checked-children="自动" un-checked-children="暂停" />
+          <a-button :loading="refreshing" @click="manualRefresh">立即刷新</a-button>
+        </a-space>
+      </section>
+
       <section class="ops-command-grid">
         <div class="ops-command-card ops-command-card--primary">
           <span class="eyebrow">CURRENT RUN</span>
@@ -214,6 +235,13 @@
         </a-descriptions-item>
         <a-descriptions-item label="失败/阻断">{{ selectedStep.failureReason || '-' }}</a-descriptions-item>
       </a-descriptions>
+      <section v-if="stepEvidenceCards.length" class="step-evidence-grid">
+        <div v-for="item in stepEvidenceCards" :key="item.label" class="step-evidence-card">
+          <span class="eyebrow">{{ item.kind }}</span>
+          <strong>{{ item.label }}</strong>
+          <p>{{ item.value }}</p>
+        </div>
+      </section>
       <a-divider>闭环产物追溯</a-divider>
       <div class="step-trace-list">
         <EmptyEvidence
@@ -253,7 +281,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { FundProjectionScreenOutlined } from '@ant-design/icons-vue'
 import { endpoints } from '@/shared/api/endpoints'
@@ -294,12 +322,18 @@ import AutomationGuardPanel from './components/AutomationGuardPanel.vue'
 import ClosedLoopTimeline from './components/ClosedLoopTimeline.vue'
 
 const router = useRouter()
+const REFRESH_INTERVAL_SECONDS = 5
 const loading = ref(false)
+const refreshing = ref(false)
 const errorMessage = ref('')
 const closedLoopRuns = ref<ClosedLoopRunView[]>([])
 const selectedRunBizId = ref<string>()
 const selectedRun = ref<ClosedLoopRunView>()
 const runKeyword = ref('')
+const autoRefreshEnabled = ref(true)
+const lastRefreshAt = ref<Date>()
+const nextRefreshInSeconds = ref(REFRESH_INTERVAL_SECONDS)
+let refreshTimer: ReturnType<typeof window.setInterval> | undefined
 const dataSources = ref<DataSourceDto[]>([])
 const aiSkillTotal = ref(0)
 const activeDiscoverySkillCount = ref(0)
@@ -327,6 +361,12 @@ interface PromptArtifactView {
   readyForModel: boolean
   missingVariables: string[]
   renderedPromptPreview: string
+}
+
+interface StepEvidenceCard {
+  kind: string
+  label: string
+  value: string
 }
 
 const latestRun = computed(() => closedLoopRuns.value[0])
@@ -373,6 +413,18 @@ const readinessItems = computed(() => [
   { label: '新闻', value: recentNewsCount.value, hint: '报告关联', ready: recentNewsCount.value > 0 },
   { label: '质量', value: qualitySnapshotReadyCount.value, hint: '快照源', ready: qualitySnapshotReadyCount.value > 0 },
 ])
+const runtimeStatusText = computed(() => {
+  if (refreshing.value) return '正在同步最新闭环状态'
+  if (!autoRefreshEnabled.value) return '自动刷新已暂停'
+  return latestRun.value?.runStatus === 'RUNNING' ? '闭环运行中，5秒级刷新' : '实时监听最近闭环状态'
+})
+const refreshCountdownText = computed(() =>
+  autoRefreshEnabled.value ? `${nextRefreshInSeconds.value}s 后自动刷新` : '自动刷新暂停',
+)
+const refreshProgress = computed(() =>
+  Math.max(0, Math.min(100, Math.round(((REFRESH_INTERVAL_SECONDS - nextRefreshInSeconds.value) / REFRESH_INTERVAL_SECONDS) * 100))),
+)
+const lastRefreshText = computed(() => lastRefreshAt.value ? formatDateTime(lastRefreshAt.value.toISOString()) : '-')
 
 const metrics = computed(() => [
   { label: '闭环运行', value: loopSummary.value.total, hint: `运行中 ${loopSummary.value.running}` },
@@ -542,6 +594,43 @@ const arrayValue = (source: unknown, key: string): string[] => {
   return Array.isArray(value) ? value.map(String).filter(Boolean) : []
 }
 
+const summarizeUnknown = (value: unknown, fallback = '-'): string => {
+  if (value === undefined || value === null || value === '') return fallback
+  if (Array.isArray(value)) return value.length ? `${value.length} 项 · ${value.map((item) => summarizeUnknown(item)).slice(0, 2).join(' / ')}` : '0 项'
+  if (typeof value === 'object') return JSON.stringify(value).slice(0, 160)
+  return String(value)
+}
+
+const nestedValue = (source: unknown, key: string) => {
+  if (!source || typeof source !== 'object') return undefined
+  return (source as Record<string, unknown>)[key]
+}
+
+const stepEvidenceCards = computed<StepEvidenceCard[]>(() => {
+  const input = selectedStep.value?.inputJson
+  const output = selectedStep.value?.outputJson
+  if (!selectedStep.value) return []
+  const cards: StepEvidenceCard[] = []
+  const add = (kind: string, label: string, value: unknown) => {
+    const text = summarizeUnknown(value, '')
+    if (text) cards.push({ kind, label, value: text })
+  }
+  add('INPUT', '模型/任务输入', nestedValue(input, 'overrides') || nestedValue(input, 'portfolioContext') || nestedValue(input, 'investmentPlan'))
+  add('OUTPUT', '模型/任务输出', nestedValue(output, 'resultSummary') || nestedValue(output, 'summary') || nestedValue(output, 'investmentPlan'))
+  add('MOCK', 'Mock 执行动作', nestedValue(output, 'executionMode') || nestedValue(input, 'actionType') || nestedValue(output, 'actionType'))
+  add('MOCK', '订单数量 / 状态', [
+    nestedValue(output, 'generatedOrderCount'),
+    nestedValue(output, 'status'),
+  ].filter((item) => item !== undefined && item !== null && item !== '').join(' / '))
+  add('REASON', '无动作或阻断原因', selectedStep.value.failureReason || nestedValue(output, 'reason') || nestedValue(input, 'reason'))
+  add('PORTFOLIO', '组合结果', [
+    nestedValue(output, 'portfolioName'),
+    nestedValue(output, 'latestTotalAsset'),
+    nestedValue(output, 'latestCashBalance'),
+  ].filter((item) => item !== undefined && item !== null && item !== '').join(' / '))
+  return cards.filter((item) => item.value !== '-')
+})
+
 const promptArtifact = computed<PromptArtifactView | undefined>(() => {
   const output = selectedStep.value?.outputJson
   const renderedPromptPreview = objectValue(output, 'renderedPromptPreview')
@@ -641,8 +730,12 @@ const openStep = (stepCode: string) => {
   detailOpen.value = true
 }
 
-const load = async () => {
-  loading.value = true
+const load = async (silent = false) => {
+  if (silent) {
+    refreshing.value = true
+  } else {
+    loading.value = true
+  }
   errorMessage.value = ''
   try {
     const [
@@ -670,9 +763,13 @@ const load = async () => {
       listBacktests({ page: 1, size: 5, sort: 'createdAt', direction: 'desc' }),
       listPromptEvaluations({ page: 1, size: 8, sort: 'evaluatedAt', direction: 'desc' }),
     ])
-    closedLoopRuns.value = (runPage.items || []).map(normalizeClosedLoopRun)
-    selectedRunBizId.value = closedLoopRuns.value[0]?.bizId
-    selectedRun.value = closedLoopRuns.value[0]
+    const nextRuns = (runPage.items || []).map(normalizeClosedLoopRun)
+    closedLoopRuns.value = nextRuns
+    const previousSelectedBizId = selectedRunBizId.value
+    selectedRunBizId.value = previousSelectedBizId && nextRuns.some((run) => run.bizId === previousSelectedBizId)
+      ? previousSelectedBizId
+      : nextRuns[0]?.bizId
+    selectedRun.value = nextRuns.find((run) => run.bizId === selectedRunBizId.value) || nextRuns[0]
     dataSources.value = sourcePage.items || []
     aiSkillTotal.value = skillPage.total
     activeDiscoverySkillCount.value = (skillPage.items || []).filter((item) => item.skillType === 'DATA_SOURCE_DISCOVERY' && item.status === 'ACTIVE').length
@@ -685,12 +782,144 @@ const load = async () => {
     backtests.value = backtestPage.items || []
     promptEvaluations.value = evaluationPage.items || []
     await loadSelectedRun()
+    lastRefreshAt.value = new Date()
+    nextRefreshInSeconds.value = REFRESH_INTERVAL_SECONDS
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : '驾驶舱接口加载失败'
   } finally {
     loading.value = false
+    refreshing.value = false
   }
 }
 
-onMounted(load)
+const manualRefresh = async () => {
+  nextRefreshInSeconds.value = REFRESH_INTERVAL_SECONDS
+  await load(true)
+}
+
+const startRuntimeRefresh = () => {
+  refreshTimer = window.setInterval(() => {
+    if (!autoRefreshEnabled.value || refreshing.value || loading.value) return
+    nextRefreshInSeconds.value = Math.max(0, nextRefreshInSeconds.value - 1)
+    if (nextRefreshInSeconds.value === 0) {
+      void load(true)
+    }
+  }, 1000)
+}
+
+watch(autoRefreshEnabled, (enabled) => {
+  if (enabled) nextRefreshInSeconds.value = REFRESH_INTERVAL_SECONDS
+})
+
+onMounted(async () => {
+  await load()
+  startRuntimeRefresh()
+})
+
+onBeforeUnmount(() => {
+  if (refreshTimer) window.clearInterval(refreshTimer)
+})
 </script>
+
+<style scoped>
+.runtime-control-bar {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(260px, 1.4fr) auto;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  border: 1px solid #bfdbfe;
+  background: linear-gradient(90deg, #eff6ff 0%, #f8fafc 48%, #ecfdf5 100%);
+}
+
+.runtime-control-bar__signal {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.runtime-control-bar__signal strong {
+  display: block;
+  color: #0f172a;
+  font-size: 16px;
+}
+
+.runtime-control-bar__meter {
+  display: grid;
+  gap: 6px;
+}
+
+.runtime-control-bar__meta {
+  display: flex;
+  justify-content: space-between;
+  color: #475569;
+  font-size: 12px;
+}
+
+.runtime-pulse {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #16a34a;
+  box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.45);
+  animation: runtime-pulse 1.4s infinite;
+}
+
+.runtime-pulse--paused {
+  background: #94a3b8;
+  animation: none;
+}
+
+.step-evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.step-evidence-card {
+  min-height: 92px;
+  padding: 12px;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.step-evidence-card strong {
+  display: block;
+  margin: 2px 0 6px;
+}
+
+.step-evidence-card p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+@keyframes runtime-pulse {
+  70% {
+    box-shadow: 0 0 0 10px rgba(22, 163, 74, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0);
+  }
+}
+
+@media (max-width: 960px) {
+  .runtime-control-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .runtime-control-bar__meta {
+    display: grid;
+    gap: 4px;
+  }
+
+  .step-evidence-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

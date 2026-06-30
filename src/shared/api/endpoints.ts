@@ -81,6 +81,7 @@ export const endpoints = {
   portfolio: {
     automationPool: '/api/mock/portfolios/automation-pool',
     create: '/api/mock/portfolios/create',
+    delete: '/api/mock/portfolios/delete',
     detail: '/api/mock/portfolios/detail',
     mine: '/api/mock/portfolios/mine',
     buy: '/api/mock/portfolios/orders/buy',

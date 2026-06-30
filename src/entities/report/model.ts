@@ -105,6 +105,24 @@ export interface ReportChartPayload {
   news: ReportNewsPoint[]
 }
 
+export interface ReportChatMessageSnapshot {
+  role: string
+  contentPreview?: string
+  contentLength?: number
+}
+
+export interface ReportChatSnapshot {
+  providerCode?: string
+  modelCode?: string
+  endpointHost?: string
+  httpStatus?: number
+  durationMs?: number
+  temperature?: number
+  maxTokens?: number
+  requestMessages?: ReportChatMessageSnapshot[]
+  responseMessage?: ReportChatMessageSnapshot
+}
+
 export interface InvestmentAnalysisReportDto {
   bizId: string
   requestId: string
@@ -124,6 +142,7 @@ export interface InvestmentAnalysisReportDto {
   simulatedReturn?: string
   chartPayload?: string
   promptSnapshot?: string
+  chatSnapshot?: string
   failureReason?: string
   generatedAt?: string
   createdAt?: string

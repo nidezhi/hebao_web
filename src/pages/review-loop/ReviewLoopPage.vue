@@ -8,15 +8,34 @@
   >
     <PageState :loading="loading" :error-message="errorMessage">
       <MetricStrip :metrics="metrics" />
-      <a-card class="page-card mb-12" :bordered="false" title="复盘动作">
+      <section class="review-command-panel page-card mb-12">
+        <div class="review-command-panel__main">
+          <span class="eyebrow">REVIEW COMMAND</span>
+          <h3>把 Mock 结果变成可回流的改进证据</h3>
+          <p>先从组合生成回测，再记录采纳/观察/拒绝原因，最后给 Prompt 打分。评分会回流到 Prompt 实验室，用来判断后续闭环是否该继续使用这套 Prompt。</p>
+        </div>
+        <div class="review-command-panel__steps">
+          <button type="button" class="review-step review-step--primary" @click="generateOpen = true">
+            <span>1</span>
+            <strong>生成回测</strong>
+            <small>选择 Mock 组合</small>
+          </button>
+          <button type="button" class="review-step" @click="feedbackOpen = true">
+            <span>2</span>
+            <strong>记录反馈</strong>
+            <small>采纳 / 拒绝 / 观察</small>
+          </button>
+          <button type="button" class="review-step" @click="evaluationOpen = true">
+            <span>3</span>
+            <strong>评分回流</strong>
+            <small>评估 Prompt</small>
+          </button>
+        </div>
         <a-space wrap>
-          <a-button type="primary" @click="generateOpen = true">从组合生成回测</a-button>
-          <a-button @click="saveBacktestOpen = true">保存回测结果</a-button>
-          <a-button @click="feedbackOpen = true">录入投资反馈</a-button>
-          <a-button @click="evaluationOpen = true">保存 Prompt 评估</a-button>
+          <a-button @click="saveBacktestOpen = true">手工保存回测</a-button>
           <a-button @click="load">刷新</a-button>
         </a-space>
-      </a-card>
+      </section>
       <a-tabs>
         <a-tab-pane key="backtests" tab="回测结果">
           <a-table row-key="bizId" size="small" :data-source="backtests" :columns="backtestColumns" @row="backtestRowEvents" />
@@ -758,3 +777,74 @@ const load = async () => {
 
 onMounted(load)
 </script>
+
+<style scoped>
+.review-command-panel {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(360px, 1.3fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+}
+
+.review-command-panel__main h3 {
+  margin: 4px 0 8px;
+}
+
+.review-command-panel__main p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.7;
+}
+
+.review-command-panel__steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.review-step {
+  display: grid;
+  gap: 4px;
+  min-height: 96px;
+  padding: 12px;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #0f172a;
+  cursor: pointer;
+  text-align: left;
+}
+
+.review-step span {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: #dbeafe;
+  color: #1d4ed8;
+  display: inline-grid;
+  place-items: center;
+  font-weight: 700;
+}
+
+.review-step small {
+  color: #64748b;
+}
+
+.review-step--primary {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+@media (max-width: 1100px) {
+  .review-command-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .review-command-panel__steps {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
