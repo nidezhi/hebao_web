@@ -113,6 +113,13 @@ export const endpoints = {
     list: '/api/ai/prompt-evaluations/list',
     save: '/api/ai/prompt-evaluations/save',
   },
+  aiModelCallAudit: {
+    detail: '/api/ai/model-call-audits/detail',
+    list: '/api/ai/model-call-audits/list',
+  },
+  analytics: {
+    investmentEvolutionSummary: '/api/analytics/investment-evolution/summary',
+  },
   reviewLoop: {
     metadata: '/api/review-loop/metadata',
   },

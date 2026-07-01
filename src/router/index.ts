@@ -33,6 +33,12 @@ const router = createRouter({
           meta: { title: 'Overview 投资驾驶舱', section: 'business', requiresAuth: true },
         },
         {
+          path: 'investment-evolution',
+          name: 'investment-evolution',
+          component: () => import('@/pages/investment-evolution/InvestmentEvolutionPage.vue'),
+          meta: { title: 'Investment Evolution 持续进化分析', section: 'business', requiresAuth: true },
+        },
+        {
           path: 'data-quality',
           name: 'data-quality',
           component: () => import('@/pages/data-quality/DataQualityPage.vue'),
@@ -61,6 +67,12 @@ const router = createRouter({
           name: 'prompt-lab',
           component: () => import('@/pages/prompt-lab/PromptLabPage.vue'),
           meta: { title: 'Prompt Lab 实验室', section: 'business', requiresAuth: true },
+        },
+        {
+          path: 'ai-call-audits',
+          name: 'ai-call-audits',
+          component: () => import('@/pages/ai-call-audits/AiCallAuditPage.vue'),
+          meta: { title: 'AI Call Audit 模型调用审计', section: 'business', requiresAuth: true },
         },
         {
           path: 'simulation',

@@ -29,8 +29,10 @@
           <template #icon><fund-projection-screen-outlined /></template>
           <template #title>投资闭环</template>
           <a-menu-item key="/overview" @click="navigate('/overview')">Overview</a-menu-item>
+          <a-menu-item key="/investment-evolution" @click="navigate('/investment-evolution')">持续进化分析</a-menu-item>
           <a-menu-item key="/report-studio" @click="navigate('/report-studio')">投资报告</a-menu-item>
           <a-menu-item key="/prompt-lab" @click="navigate('/prompt-lab')">Prompt 实验室</a-menu-item>
+          <a-menu-item key="/ai-call-audits" @click="navigate('/ai-call-audits')">模型调用审计</a-menu-item>
           <a-menu-item key="/simulation" @click="navigate('/simulation')">模拟交易</a-menu-item>
           <a-menu-item key="/review-loop" @click="navigate('/review-loop')">复盘闭环</a-menu-item>
           <a-menu-item key="/risk-audit" @click="navigate('/risk-audit')">风控审计</a-menu-item>
